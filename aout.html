@@ -22,10 +22,10 @@
 
     // truc a enlever
     /*
-    let Leo = MonEspaceSVG.append('image')
-    .attr('xlink:href', 'Leo.png')
-    .attr('x', milieuX - 1028/2)
-    .attr('y', milieuY - 1130/2)
+    let Cancer = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'Cancer.png')
+    .attr('x', milieuX - 669/2)
+    .attr('y', milieuY - 1062/2)
 
     let centre = MonEspaceSVG.append('circle')
     .attr('cx', milieuX)
@@ -33,54 +33,87 @@
     .attr('r', 5)
     */
     // des lignes
-
+    
     MonEspaceSVG.append('line')
-    .attr('x1', milieuX - 275)
-    .attr('y1', milieuY - 317)
-    .attr('x2', milieuX - 155)
-    .attr('y2', milieuY - 340)
+    .attr('x1', milieuX)
+    .attr('y1', milieuY - 20)
+    .attr('x2', milieuX + 165)
+    .attr('y2', milieuY + 85)
     .attr('stroke-linecap', "round")
     .attr("stroke", "white")
     .attr('stroke-width', 2)
     .attr('stroke-dasharray', 8)
     .attr('stroke-opacity', .5)
 
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX)
+    .attr('y1', milieuY - 20)
+    .attr('x2', milieuX - 170)
+    .attr('y2', milieuY + 240)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX)
+    .attr('y1', milieuY - 20)
+    .attr('x2', milieuX - 25)
+    .attr('y2', milieuY - 115)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX - 35)
+    .attr('y1', milieuY -360)
+    .attr('x2', milieuX - 25)
+    .attr('y2', milieuY - 115)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+        
+        
     // Grandes étoiles 
 
     let PinkStar = MonEspaceSVG.append('image')
     .attr('xlink:href', 'star-svgrepo_rose.svg')
     .attr('width', 50)
     .attr('height', 50)
-    .attr('x', milieuX - 140)
-    .attr('y', milieuY - 145)
+    .attr('x', milieuX - 45)
+    .attr('y', milieuY - 135)
 
     let YellowStar = MonEspaceSVG.append('image')
     .attr('xlink:href', 'star-svgrepo_jaune.svg')
     .attr('width', 50)
     .attr('height', 50)
-    .attr('x', milieuX + 228)
-    .attr('y', milieuY + 259)
-
+    .attr('x', milieuX + 145)
+    .attr('y', milieuY + 65)
 
     let BlueStar = MonEspaceSVG.append('image')
     .attr('xlink:href', 'star-svgrepo_bleu.svg')
     .attr('width', 50)
     .attr('height', 50)
-    .attr('x', milieuX - 295)
-    .attr('y', milieuY - 345)
+    .attr('x', milieuX - 60)
+    .attr('y', milieuY - 380)
 
     let GreenStar = MonEspaceSVG.append('image')
     .attr('xlink:href', 'star-svgrepo_vert.svg')
     .attr('width', 50)
     .attr('height', 50)
-    .attr('x', milieuX - 315)
-    .attr('y', milieuY + 0 )
+    .attr('x', milieuX - 190)
+    .attr('y', milieuY + 210 )
 
     //petites étoiles blanches
 
     MonEspaceSVG.append('circle')
-    .attr('cx',milieuX - 155)
-    .attr('cy',milieuY - 340)
+    .attr('cx',milieuX )
+    .attr('cy',milieuY - 20 )
     .attr('r', 5)
     .attr("fill", "white")
 
