@@ -21,6 +21,128 @@
             .attr("height", ecran_height)
 
 
+// ligne entre les étoiles
+MonEspaceSVG.append('line')
+    .attr('x1', milieuX +90)
+    .attr('y1', milieuY -145)
+    .attr('x2', milieuX + 140)
+    .attr('y2', milieuY +30)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX +110)
+    .attr('y1', milieuY +210)
+    .attr('x2', milieuX + 140)
+    .attr('y2', milieuY +30)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+    
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX +90)
+    .attr('y1', milieuY -145)
+    .attr('x2', milieuX+210)
+    .attr('y2', milieuY-320)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX +280)
+    .attr('y1', milieuY +60)
+    .attr('x2', milieuX + 140)
+    .attr('y2', milieuY +30)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX +70)
+    .attr('y1', milieuY -155)
+    .attr('x2', milieuX -80)
+    .attr('y2', milieuY +-85)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX-170)
+    .attr('y1', milieuY-110)
+    .attr('x2', milieuX -80)
+    .attr('y2', milieuY +-85)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX-170)
+    .attr('y1', milieuY-110)
+    .attr('x2', milieuX -280)
+    .attr('y2', milieuY -40)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+    
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX-240)
+    .attr('y1', milieuY+40)
+    .attr('x2', milieuX -280)
+    .attr('y2', milieuY -40)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX-170)
+    .attr('y1', milieuY-110)
+    .attr('x2', milieuX -280)
+    .attr('y2', milieuY -290)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX-210)
+    .attr('y1', milieuY-320)
+    .attr('x2', milieuX -280)
+    .attr('y2', milieuY -290)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX+100)
+    .attr('y1', milieuY+210)
+    .attr('x2', milieuX +160)
+    .attr('y2', milieuY +320)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
 //les étolie en svg qui vont changer de taille
     let etoile_jaune = MonEspaceSVG.append('image')
     .attr('xlink:href', 'star-svgrepo_jaune.svg')
@@ -50,19 +172,19 @@
     .attr('x', milieuX+60)
     .attr('y', milieuY-190) 
 // petites étoiles arc 
-    MonEspaceSVG.append('circle')
+    MonEspaceSVG.append('circle')//lié a vert
     .attr('cx',milieuX - 280)
     .attr('cy',milieuY-40)
     .attr('r', 5)
     .attr("fill", "white")
 
-    MonEspaceSVG.append('circle')
+    MonEspaceSVG.append('circle') //milieu
     .attr('cx',milieuX - 170)
     .attr('cy',milieuY- 110)
     .attr('r', 5)
     .attr("fill", "white")
 
-    MonEspaceSVG.append('circle')
+    MonEspaceSVG.append('circle')//lié a bleu
     .attr('cx',milieuX - 80)
     .attr('cy',milieuY-85)
     .attr('r', 5)
@@ -74,31 +196,29 @@
     .attr('r', 5)
     .attr("fill", "white")
 
-    MonEspaceSVG.append('circle')
+    MonEspaceSVG.append('circle') //fait
     .attr('cx',milieuX+210)
     .attr('cy',milieuY-320)
     .attr('r', 5)
     .attr("fill", "white")
 
-    MonEspaceSVG.append('circle')
+    MonEspaceSVG.append('circle')//fait
     .attr('cx',milieuX + 140)
     .attr('cy',milieuY +30)
     .attr('r', 5)
     .attr("fill", "white")
 
-    MonEspaceSVG.append('circle')
+    MonEspaceSVG.append('circle')//fait
     .attr('cx',milieuX+280)
     .attr('cy',milieuY+60)
     .attr('r', 5)
     .attr("fill", "white")
 
-    MonEspaceSVG.append('circle')
+    MonEspaceSVG.append('circle') // le plus en bas
     .attr('cx',milieuX+160 )
     .attr('cy',milieuY+320)
     .attr('r', 5)
     .attr("fill", "white")
-
-
 
         </script>
     
