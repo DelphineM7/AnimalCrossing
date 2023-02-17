@@ -18,6 +18,8 @@
             .attr("width", ecran_width) // on lui donne des attributs comme dans l'autre document svg
             .attr("height", ecran_height)
      
+    document.body.style.backgroundColor = "#0f0f3d";
+    
     let PinkStar = MonEspaceSVG.append('image')
     .attr('xlink:href', 'star-svgrepo_rose.svg')
     .attr('width', 50)
@@ -25,12 +27,44 @@
     .attr('x', milieuX - 200)
     .attr('y', milieuY - 200)
 
+    let YellowStar = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'star-svgrepo_jaune.svg')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('x', milieuX + 10)
+    .attr('y', milieuY - 50)
+
+    let BlueStar = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'star-svgrepo_violet.svg')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('x', milieuX + 100)
+    .attr('y', milieuY + 100)
+
 
     MonEspaceSVG.append('circle')
-    .attr('cx',milieuX - 130)
-    .attr('cy',milieuY- 280)
+    .attr('cx',milieuX - 110)
+    .attr('cy',milieuY- 210)
     .attr('r', 5)
-    .attr("fill", "pink")
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX - 210)
+    .attr('cy',milieuY- 110)
+    .attr('r', 5)
+    .attr("fill", "white")
+    
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX - 30)
+    .attr('cy',milieuY- 30)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX + 30)
+    .attr('cy',milieuY + 30)
+    .attr('r', 5)
+    .attr("fill", "white")
 
 
     let centre = MonEspaceSVG.append('circle')
