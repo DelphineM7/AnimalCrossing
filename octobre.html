@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virgo</title>
+<body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script>    
+    <script>
+    let ecran_width = window.innerWidth;
+    let ecran_height = window.innerHeight;
+    let milieuX = ecran_width/2
+    let milieuY = ecran_height/2
+    let MonEspaceSVG = d3.select("body")
+        .append("svg") // on pourrait créer en une ligne mais c'est plus lisible comme ca. ici on crée la balise SVG
+            .attr("width", ecran_width) // on lui donne des attributs comme dans l'autre document svg
+            .attr("height", ecran_height)
+     
+    document.body.style.backgroundColor = "#0f0f3d";
+
+    // truc a enlever
+    /*
+    let Virgo = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'Virgo.png')
+    .attr('x', milieuX - 949/2)
+    .attr('y', milieuY - 1083/2)
+
+    let centre = MonEspaceSVG.append('circle')
+    .attr('cx', milieuX)
+    .attr('cy', milieuY)
+    .attr('r', 5)
+    */
+    // des lignes
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX + 185)
+    .attr('y1', milieuY + 115)
+    .attr('x2', milieuX + 315)
+    .attr('y2', milieuY + 270)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX + 185)
+    .attr('y1', milieuY + 115)
+    .attr('x2', milieuX + 135)
+    .attr('y2', milieuY + 85)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX + 135)
+    .attr('y1', milieuY + 85)
+    .attr('x2', milieuX + 65)
+    .attr('y2', milieuY + 45)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX + 0)
+    .attr('y1', milieuY -170)
+    .attr('x2', milieuX + 65)
+    .attr('y2', milieuY + 45)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX -165)
+    .attr('y1', milieuY +160)
+    .attr('x2', milieuX + 65)
+    .attr('y2', milieuY + 45)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX + 0)
+    .attr('y1', milieuY -170)
+    .attr('x2', milieuX + 115)
+    .attr('y2', milieuY -230)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX + 0)
+    .attr('y1', milieuY -170)
+    .attr('x2', milieuX - 157)
+    .attr('y2', milieuY - 145)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX - 220)
+    .attr('y1', milieuY - 215)
+    .attr('x2', milieuX - 270)
+    .attr('y2', milieuY - 390)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX - 220)
+    .attr('y1', milieuY - 215)
+    .attr('x2', milieuX - 157)
+    .attr('y2', milieuY - 145)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX - 130)
+    .attr('y1', milieuY + 30)
+    .attr('x2', milieuX - 157)
+    .attr('y2', milieuY - 145)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX - 130)
+    .attr('y1', milieuY + 30)
+    .attr('x2', milieuX - 165)
+    .attr('y2', milieuY + 160)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX - 165)
+    .attr('y1', milieuY + 160)
+    .attr('x2', milieuX - 20)
+    .attr('y2', milieuY + 305)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX +20)
+    .attr('y1', milieuY +285)
+    .attr('x2', milieuX - 20)
+    .attr('y2', milieuY + 305)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+    MonEspaceSVG.append('line')
+    .attr('x1', milieuX +20)
+    .attr('y1', milieuY +285)
+    .attr('x2', milieuX + 100)
+    .attr('y2', milieuY + 395)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+ 
+    // Grandes étoiles 
+
+    let PinkStar = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'star-svgrepo_rose.svg')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('x', milieuX - 177)
+    .attr('y', milieuY - 175)
+
+    let YellowStar = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'star-svgrepo_jaune.svg')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('x', milieuX + 42)
+    .attr('y', milieuY + 20)
+
+    let BlueStar = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'star-svgrepo_bleu.svg')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('x', milieuX + 115)
+    .attr('y', milieuY - 270)   
+
+    let GreenStar = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'star-svgrepo_vert.svg')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('x', milieuX + 70)
+    .attr('y', milieuY + 358)
+
+    //petites étoiles blanches
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX + 0)
+    .attr('cy',milieuY - 170)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX - 220)
+    .attr('cy',milieuY - 215)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX - 270)
+    .attr('cy',milieuY - 390)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX -130)
+    .attr('cy',milieuY +30)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX -165)
+    .attr('cy',milieuY +160)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX -20)
+    .attr('cy',milieuY +305)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX +20)
+    .attr('cy',milieuY +285)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX +135)
+    .attr('cy',milieuY +85)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX +185)
+    .attr('cy',milieuY +115)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX +315)
+    .attr('cy',milieuY +270)
+    .attr('r', 5)
+    .attr("fill", "white")
+    
+    </script>    
+</body> 
+</html>
