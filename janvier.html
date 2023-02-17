@@ -10,6 +10,7 @@
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script>
     <script>
     document.body.style.backgroundColor = "#0f0f3d";
+
     let ecran_width = window.innerWidth;
     let ecran_height = window.innerHeight;
     let milieuX = ecran_width/2
@@ -19,33 +20,83 @@
             .attr("width", ecran_width) // on lui donne des attributs comme dans l'autre document svg
             .attr("height", ecran_height)
 
+
+//les étolie en svg qui vont changer de taille
     let etoile_jaune = MonEspaceSVG.append('image')
     .attr('xlink:href', 'star-svgrepo_jaune.svg')
     .attr('width', 50)
     .attr('height', 50)
-    .attr('x', milieuX+100)
-    .attr('y', milieuY+200) 
+    .attr('x', milieuX+90)
+    .attr('y', milieuY+190) 
 
     let etoile_rose = MonEspaceSVG.append('image')
     .attr('xlink:href', 'star-svgrepo_rose.svg')
     .attr('width', 50)
     .attr('height', 50)
-    .attr('x', milieuX-50)
-    .attr('y', milieuY-50) 
+    .attr('x', milieuX-300)
+    .attr('y', milieuY-310) 
 
     let etoile_vert = MonEspaceSVG.append('image')
     .attr('xlink:href', 'star-svgrepo_vert.svg')
     .attr('width', 50)
     .attr('height', 50)
-    .attr('x', milieuX-100)
-    .attr('y', milieuY+100) 
+    .attr('x', milieuX-260)
+    .attr('y', milieuY+20) 
 
-    let etoile_violet = MonEspaceSVG.append('image')
+    let etoile_bleu = MonEspaceSVG.append('image')
     .attr('xlink:href', 'star-svgrepo_bleu.svg')
-    .attr('width', 200)
-    .attr('height', 200)
-    .attr('x', milieuX+100)
-    .attr('y', milieuY-100) 
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('x', milieuX+60)
+    .attr('y', milieuY-190) 
+// petites étoiles arc 
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX - 280)
+    .attr('cy',milieuY-40)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX - 170)
+    .attr('cy',milieuY- 110)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX - 80)
+    .attr('cy',milieuY-85)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX - 210)
+    .attr('cy',milieuY- 320)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX+210)
+    .attr('cy',milieuY-320)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX + 140)
+    .attr('cy',milieuY +30)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX+280)
+    .attr('cy',milieuY+60)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX+160 )
+    .attr('cy',milieuY+320)
+    .attr('r', 5)
+    .attr("fill", "white")
 
 
 
