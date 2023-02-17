@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poisson</title>
+<body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script>    
+    <script>
+    let ecran_width = window.innerWidth;
+    let ecran_height = window.innerHeight;
+    let milieuX = ecran_width/2
+    let milieuY = ecran_height/2
+    let MonEspaceSVG = d3.select("body")
+        .append("svg") // on pourrait créer en une ligne mais c'est plus lisible comme ca. ici on crée la balise SVG
+            .attr("width", ecran_width) // on lui donne des attributs comme dans l'autre document svg
+            .attr("height", ecran_height)
+     
+    document.body.style.backgroundColor = "#0f0f3d";
+
+    // truc a enlever
+    let Poisson= MonEspaceSVG.append('image')
+    .attr('xlink:href', 'pisces.jpg')
+    .attr('x', milieuX - 802/2)
+    .attr('y', milieuY - 802/2)
+
+
+    // ligne entre les étoiles
+MonEspaceSVG.append('line') 
+    .attr('x1', milieuX -280)
+    .attr('y1', milieuY -60)
+    .attr('x2', milieuX -125)
+    .attr('y2', milieuY -95)
+    .attr('stroke-linecap', "round")
+    .attr("stroke", "white")
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', 8)
+    .attr('stroke-opacity', .5)
+
+//les étolie en svg qui vont changer de taille
+let etoile_jaune = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'star-svgrepo_jaune.svg')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('x', milieuX+110)
+    .attr('y', milieuY+230) 
+
+    let etoile_rose = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'star-svgrepo_rose.svg')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('x', milieuX+30)
+    .attr('y', milieuY-180) 
+
+    let etoile_vert = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'star-svgrepo_vert.svg')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('x', milieuX-270)
+    .attr('y', milieuY-270) 
+
+    let etoile_bleu = MonEspaceSVG.append('image')
+    .attr('xlink:href', 'star-svgrepo_bleu.svg')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('x', milieuX+290)
+    .attr('y', milieuY-140) 
+// petites étoiles 
+    MonEspaceSVG.append('circle')
+    .attr('cx',milieuX - 280)
+    .attr('cy',milieuY-40)
+    .attr('r', 5)
+    .attr("fill", "white")
+
+</script>
+    
+</body>
+</html>
