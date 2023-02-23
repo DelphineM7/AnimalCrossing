@@ -8,9 +8,11 @@
 </head>
 <body>
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script>
-    <script>
-    document.body.style.backgroundColor = "#0f0f3d";
+    <script> 
 
+    // élément de base sur la page
+    document.body.style.backgroundColor = "#0f0f3d";
+        // pour faire des comete dans le backgroumd hihihi https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/rotate
     let ecran_width = window.innerWidth;
     let ecran_height = window.innerHeight;
     let milieuX = ecran_width/2
@@ -19,10 +21,26 @@
         .append("svg") // on pourrait créer en une ligne mais c'est plus lisible comme ca. ici on crée la balise SVG
             .attr("width", ecran_width) // on lui donne des attributs comme dans l'autre document svg
             .attr("height", ecran_height)
+    
+    let QuelMoisSommesNous = 1
+    let FlecheGauche = MonEspaceSVG.append('image')
+    .attr('id', 'Gauche')
+    .attr('xlink:href', 'BoutonGauche.svg')
+    .attr('width', 30)
+    .attr('height', 30)
+    .attr('x', 50)
+    .attr('y', 10) 
 
+    let FlecheDroite = MonEspaceSVG.append('image')
+    .attr('id', 'Droite')
+    .attr('xlink:href', 'BoutonDroite.svg')
+    .attr('width', 30)
+    .attr('height', 30)
+    .attr('x', ecran_width-50)
+    .attr('y', 10)
 
 // ligne entre les étoiles
-MonEspaceSVG.append('line')
+    let trait1 = MonEspaceSVG.append('line')
     .attr('x1', milieuX +90)
     .attr('y1', milieuY -145)
     .attr('x2', milieuX + 140)
@@ -33,7 +51,7 @@ MonEspaceSVG.append('line')
     .attr('stroke-dasharray', 8)
     .attr('stroke-opacity', .5)
 
-    MonEspaceSVG.append('line')
+    let trait2 = MonEspaceSVG.append('line')
     .attr('x1', milieuX +110)
     .attr('y1', milieuY +210)
     .attr('x2', milieuX + 140)
@@ -44,7 +62,7 @@ MonEspaceSVG.append('line')
     .attr('stroke-dasharray', 8)
     .attr('stroke-opacity', .5)
     
-    MonEspaceSVG.append('line')
+    let trait3 = MonEspaceSVG.append('line')
     .attr('x1', milieuX +90)
     .attr('y1', milieuY -145)
     .attr('x2', milieuX+210)
@@ -55,7 +73,7 @@ MonEspaceSVG.append('line')
     .attr('stroke-dasharray', 8)
     .attr('stroke-opacity', .5)
 
-    MonEspaceSVG.append('line')
+    let trait4 = MonEspaceSVG.append('line')
     .attr('x1', milieuX +280)
     .attr('y1', milieuY +60)
     .attr('x2', milieuX + 140)
@@ -66,7 +84,7 @@ MonEspaceSVG.append('line')
     .attr('stroke-dasharray', 8)
     .attr('stroke-opacity', .5)
 
-    MonEspaceSVG.append('line')
+    let trait5 = MonEspaceSVG.append('line')
     .attr('x1', milieuX +70)
     .attr('y1', milieuY -155)
     .attr('x2', milieuX -80)
@@ -77,7 +95,7 @@ MonEspaceSVG.append('line')
     .attr('stroke-dasharray', 8)
     .attr('stroke-opacity', .5)
 
-    MonEspaceSVG.append('line')
+    let trait6 = MonEspaceSVG.append('line')
     .attr('x1', milieuX-170)
     .attr('y1', milieuY-110)
     .attr('x2', milieuX -80)
@@ -88,7 +106,7 @@ MonEspaceSVG.append('line')
     .attr('stroke-dasharray', 8)
     .attr('stroke-opacity', .5)
 
-    MonEspaceSVG.append('line')
+    let trait7 = MonEspaceSVG.append('line')
     .attr('x1', milieuX-170)
     .attr('y1', milieuY-110)
     .attr('x2', milieuX -280)
@@ -99,7 +117,7 @@ MonEspaceSVG.append('line')
     .attr('stroke-dasharray', 8)
     .attr('stroke-opacity', .5)
     
-    MonEspaceSVG.append('line')
+    let trait8 = MonEspaceSVG.append('line')
     .attr('x1', milieuX-240)
     .attr('y1', milieuY+40)
     .attr('x2', milieuX -280)
@@ -110,7 +128,7 @@ MonEspaceSVG.append('line')
     .attr('stroke-dasharray', 8)
     .attr('stroke-opacity', .5)
 
-    MonEspaceSVG.append('line')
+    let trait9 = MonEspaceSVG.append('line')
     .attr('x1', milieuX-170)
     .attr('y1', milieuY-110)
     .attr('x2', milieuX -280)
@@ -121,7 +139,7 @@ MonEspaceSVG.append('line')
     .attr('stroke-dasharray', 8)
     .attr('stroke-opacity', .5)
 
-    MonEspaceSVG.append('line')
+    let trait10 = MonEspaceSVG.append('line')
     .attr('x1', milieuX-210)
     .attr('y1', milieuY-320)
     .attr('x2', milieuX -280)
@@ -132,7 +150,7 @@ MonEspaceSVG.append('line')
     .attr('stroke-dasharray', 8)
     .attr('stroke-opacity', .5)
 
-    MonEspaceSVG.append('line')
+    let trait12 = MonEspaceSVG.append('line')
     .attr('x1', milieuX+100)
     .attr('y1', milieuY+210)
     .attr('x2', milieuX +160)
@@ -144,7 +162,7 @@ MonEspaceSVG.append('line')
     .attr('stroke-opacity', .5)
 
 //les étolie en svg qui vont changer de taille
-    let etoile_jaune = MonEspaceSVG.append('image')
+let etoile_jaune = MonEspaceSVG.append('image')
     .attr('xlink:href', 'star-svgrepo_jaune.svg')
     .attr('width', 50)
     .attr('height', 50)
@@ -171,6 +189,7 @@ MonEspaceSVG.append('line')
     .attr('height', 50)
     .attr('x', milieuX+60)
     .attr('y', milieuY-190) 
+
 // petites étoiles 
     MonEspaceSVG.append('circle')//lié a vert
     .attr('cx',milieuX - 280)
@@ -220,7 +239,232 @@ MonEspaceSVG.append('line')
     .attr('r', 5)
     .attr("fill", "white")
 
-        </script>
+    function BoutonGauche(){
+        QuelMoisSommesNous-- ;
+
+        if (QuelMoisSommesNous == 1) {
+            console.log("nous sommes en janvier")
+        } else if(QuelMoisSommesNous == 2){
+            console.log("nous sommes en février")
+        } else if(QuelMoisSommesNous == 3){
+            console.log("nous sommes en mars")
+        } else if(QuelMoisSommesNous == 4){
+            console.log("nous sommes en avril")
+        } else if(QuelMoisSommesNous == 5){
+            console.log("nous sommes en mai")
+        } else if(QuelMoisSommesNous == 6){
+            console.log("nous sommes en juin")
+        } else if(QuelMoisSommesNous == 7){
+            console.log("nous sommes en juillet")
+        } else if(QuelMoisSommesNous == 8){
+            console.log("nous sommes en aout")
+        } else if(QuelMoisSommesNous == 9){
+            console.log("nous sommes en septembre")
+        } else if(QuelMoisSommesNous == 10){
+            console.log("nous sommes en octobre")
+        } else if(QuelMoisSommesNous == 11){
+            console.log("nous sommes en novembre")
+        } else if(QuelMoisSommesNous == 12){
+            console.log("nous sommes en décembre")
+        } else if (QuelMoisSommesNous == 0) {
+            QuelMoisSommesNous  = 12;
+            console.log("nous sommes en décembre")
+        }else if(QuelMoisSommesNous == 13) {
+            QuelMoisSommesNous  = 1;
+            console.log("nous sommes en janvier")
+        }
+
+    }
+
+    function BoutonDroite(){
+        QuelMoisSommesNous++ ;
+
+        if (QuelMoisSommesNous == 1) {
+            console.log("nous sommes en janvier")
+        } else if(QuelMoisSommesNous == 2){
+            console.log("nous sommes en février")
+
+        //déplacer les étoile
+        etoile_jaune.transition()
+            .duration(1000) 
+            .attr('x', milieuX+90)
+            .attr('y', milieuY+190) 
+            
+        etoile_rose.transition()
+            .duration(1000) 
+            .attr('x', milieuX-440)
+            .attr('y', milieuY-230) 
+
+        etoile_vert.transition()
+            .duration(1000) 
+            .attr('x', milieuX-270)
+            .attr('y', milieuY-10) 
+
+        etoile_bleu.transition()
+            .duration(1000) 
+            .attr('x', milieuX-40)
+            .attr('y', milieuY-190) 
+
+        //les traits
+
+        trait1
+        .transition()
+            .duration(500) 
+            .attr("stroke", "#0f0f3d")
+        .transition()
+            .attr('x1', milieuX -420)
+            .attr('y1', milieuY -210)
+            .attr('x2', milieuX -250)
+            .attr('y2', milieuY +10)
+        .transition()
+            .delay(500)
+            .attr("stroke", "white")                    
+
+        trait2
+        .transition()
+            .duration(500) 
+            .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX -420)
+        .attr('y1', milieuY -210)
+        .attr('x2', milieuX -350)
+        .attr('y2', milieuY -175)
+        .transition()
+            .delay(500)
+            .attr("stroke", "white")  
+        
+        trait3
+        .transition()
+            .duration(500) 
+            .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +130)
+        .attr('y1', milieuY +220)
+        .attr('x2', milieuX -250)
+        .attr('y2', milieuY +10)
+        .transition()
+            .delay(500)
+            .attr("stroke", "white")  
+
+        trait4
+        .transition()
+            .duration(500) 
+            .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +130)
+        .attr('y1', milieuY +220)
+        .attr('x2', milieuX +160)
+        .attr('y2', milieuY +160)
+        .transition()
+            .delay(500)
+            .attr("stroke", "white")  
+
+        trait5
+        .transition()
+            .duration(500) 
+            .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +410)
+        .attr('y1', milieuY -245)
+        .attr('x2', milieuX +160)
+        .attr('y2', milieuY +160)
+        .transition()
+            .delay(500)
+            .attr("stroke", "white")  
+
+        trait6
+        .transition()
+            .duration(500) 
+            .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +410)
+        .attr('y1', milieuY -245)
+        .attr('x2', milieuX +450)
+        .attr('y2', milieuY -340)
+        .transition()
+            .delay(500)
+            .attr("stroke", "white")  
+
+        trait7
+        .transition()
+            .duration(500) 
+            .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -350)
+        .attr('y1', milieuY -175)
+        .attr('x2', milieuX -40)
+        .attr('y2', milieuY -170)
+        .transition()
+            .delay(500)
+            .attr("stroke", "white")  
+        
+        trait8
+        .transition()
+            .duration(500) 
+            .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +410)
+        .attr('y1', milieuY -245)
+        .attr('x2', milieuX -40)
+        .attr('y2', milieuY -170)
+        .transition()
+            .delay(500)
+            .attr("stroke", "white")  
+
+        trait9
+        .transition()
+            .duration(500) 
+            .attr("stroke", "#0f0f3d")
+
+        trait10
+        .transition()
+            .duration(500) 
+            .attr("stroke", "#0f0f3d")
+
+        trait12
+        .transition()
+            .duration(500) 
+            .attr("stroke", "#0f0f3d")
+
+        } else if(QuelMoisSommesNous == 3){
+            console.log("nous sommes en mars")
+        } else if(QuelMoisSommesNous == 4){
+            console.log("nous sommes en avril")
+        } else if(QuelMoisSommesNous == 5){
+            console.log("nous sommes en mai")
+        } else if(QuelMoisSommesNous == 6){
+            console.log("nous sommes en juin")
+        } else if(QuelMoisSommesNous == 7){
+            console.log("nous sommes en juillet")
+        } else if(QuelMoisSommesNous == 8){
+            console.log("nous sommes en aout")
+        } else if(QuelMoisSommesNous == 9){
+            console.log("nous sommes en septembre")
+        } else if(QuelMoisSommesNous == 10){
+            console.log("nous sommes en octobre")
+        } else if(QuelMoisSommesNous == 11){
+            console.log("nous sommes en novembre")
+        } else if(QuelMoisSommesNous == 12){
+            console.log("nous sommes en décembre")
+        } else if (QuelMoisSommesNous == 0) {
+            QuelMoisSommesNous  = 12;
+            console.log("nous sommes en décembre")
+        }else if(QuelMoisSommesNous == 13) {
+            QuelMoisSommesNous  = 1;
+            console.log("nous sommes en janvier")
+        }
+
+    }
+
+   
+
+    let BoutonD = document.getElementById('Droite');   
+    BoutonD.addEventListener("click", BoutonDroite) 
+
+    let BoutonG = document.getElementById('Gauche');   
+    BoutonG.addEventListener("click", BoutonGauche) 
+
     
+    </script>   
 </body>
 </html>
