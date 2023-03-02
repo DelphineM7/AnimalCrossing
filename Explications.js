@@ -27,7 +27,7 @@
     //AJOUT APRES REFLEXIONS ET DIVERS TEST 
     // précision par rapport à l'ajout de trait ou d'étoile. à chaque fois qu'on ajoute, on doit mettre à jour les autre constellations, une fois dans le boutons gauche, une fois dans le bouton droite
     // tout ce qu'il y a faire c'est copier coller l'exemple du trait9 ou de l'étoile5 et bien sûr mettre à jour le n° en fonction de ce qui vient d'être créer 
-    // pour éviter de devoir tout changer à chaque fois, je propose qu'on commence par les grosses constellation, comme ça après on a pas tjrs besoin de tout reprendre
+    // pour éviter de devoir tout changer à chaque fois, je propose qu'on commence par les grosses constellation, comme ça après on a pas tjrs besoin de tout reprendre [maj : j'ai fait gimini, ca doit être la plus grosse, peut-être que poisson est plus grande on verra bien]
     // evidemment que les ligne énoncées plus haut se sont déplacée en ajoutant des choses dans le code...
     // je les copie colle ici : 
     /*
@@ -51,3 +51,4 @@
         .duration(500) 
         .attr("fill", "#0f0f3d")
     */
+
