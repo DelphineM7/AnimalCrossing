@@ -899,12 +899,852 @@ if (QuelMoisSommesNous == 1) {
         
 } else if(QuelMoisSommesNous == 3){
             console.log("nous sommes en mars")
+
+        //déplacer les grandes étoiles
+        etoile_jaune.transition()
+        .duration(1000) 
+        .attr('x', milieuX+180)
+        .attr('y', milieuY+40) 
+
+        etoile_rose.transition()
+        .duration(1000) 
+        .attr('x', milieuX-300)
+        .attr('y', milieuY-90) 
+
+        etoile_vert.transition()
+        .duration(1000) 
+        .attr('x', milieuX-130)
+        .attr('y', milieuY-300) 
+
+        etoile_bleu.transition()
+        .duration(1000) 
+        .attr('x', milieuX+150)
+        .attr('y', milieuY-150) 
+
+        //les traits
+        trait1
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX -280)
+        .attr('y1', milieuY -60)
+        .attr('x2', milieuX -125)
+        .attr('y2', milieuY -95)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000)
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait2
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX -125)
+        .attr('y1', milieuY -95)
+        .attr('x2', milieuX -55)
+        .attr('y2', milieuY -185)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait3
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -110)
+        .attr('y1', milieuY -280)
+        .attr('x2', milieuX -55)
+        .attr('y2', milieuY -185)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait4
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -110)
+        .attr('y1', milieuY -280)
+        .attr('x2', milieuX +110)
+        .attr('y2', milieuY -205)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait5
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +110)
+        .attr('y1', milieuY -205)
+        .attr('x2', milieuX +115)
+        .attr('y2', milieuY -165)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait6
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +115)
+        .attr('y1', milieuY -165)
+        .attr('x2', milieuX +160)
+        .attr('y2', milieuY -130)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait7
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +50)
+        .attr('y1', milieuY -65)
+        .attr('x2', milieuX +180)
+        .attr('y2', milieuY -130)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+        
+        trait8
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +50)
+        .attr('y1', milieuY -65)
+        .attr('x2', milieuX +5)
+        .attr('y2', milieuY +50)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait9
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +180)
+        .attr('y1', milieuY -130)
+        .attr('x2', milieuX +200)
+        .attr('y2', milieuY +30)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait10
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +200)
+        .attr('y1', milieuY +30)
+        .attr('x2', milieuX +280)
+        .attr('y2', milieuY +270)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait11
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait12
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait13
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait14
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait15
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait16
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait17
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        // les étoiles
+        étoile1.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX-125)
+        .attr('cy',milieuY-95)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile2.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX+110)
+        .attr('cy',milieuY-205)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile3.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX+115)
+        .attr('cy',milieuY-165)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile4.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX-55)
+        .attr('cy',milieuY-185)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile5.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX+50)
+        .attr('cy',milieuY-65)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile6.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX+5)
+        .attr('cy',milieuY+50)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile7.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX+280)
+        .attr('cy',milieuY+270)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile8.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile9.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile10.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile11.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile12.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile13.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile14.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
 } else if(QuelMoisSommesNous == 4){
             console.log("nous sommes en avril")
 } else if(QuelMoisSommesNous == 5){
             console.log("nous sommes en mai")
+
+        //déplacer les grandes étoiles
+        etoile_jaune.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 130)
+        .attr('y', milieuY - 220)
+
+        etoile_rose.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 300)
+        .attr('y', milieuY + 2)
+
+        etoile_vert.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 375)
+        .attr('y', milieuY - 190)
+
+        etoile_bleu.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 300)
+        .attr('y', milieuY - 250)
+
+        //les traits
+        trait1
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX - 280)
+        .attr('y1', milieuY + 35)
+        .attr('x2', milieuX + 150)
+        .attr('y2', milieuY - 190)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000)
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait2
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX + 320)
+        .attr('y1', milieuY - 220)
+        .attr('x2', milieuX + 150)
+        .attr('y2', milieuY - 190)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait3
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX + 320)
+        .attr('y1', milieuY - 220)
+        .attr('x2', milieuX + 400)
+        .attr('y2', milieuY - 170)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait4
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d") 
+
+        trait5
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait6
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait7
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        
+        trait8
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait9
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait10
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait11
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait12
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait13
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait14
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait15
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait16
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait17
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        // les étoiles
+        étoile1.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile2.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile3.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile4.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile5.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile6.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile7.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile8.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile9.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile10.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile11.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile12.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile13.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile14.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
 } else if(QuelMoisSommesNous == 6){
             console.log("nous sommes en juin")
+
+        //déplacer les grandes étoiles
+        etoile_jaune.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 65)
+        .attr('y', milieuY + 85)
+
+        etoile_rose.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 345)
+        .attr('y', milieuY - 135)
+
+        etoile_vert.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 275)
+        .attr('y', milieuY + 220 )
+
+        etoile_bleu.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 290)
+        .attr('y', milieuY - 300)
+
+        //les traits
+        trait1
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX + 295)
+        .attr('y1', milieuY + 240)
+        .attr('x2', milieuX + 270)
+        .attr('y2', milieuY + 175)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000)
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait2
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX + 85)
+        .attr('y1', milieuY + 115)
+        .attr('x2', milieuX + 270)
+        .attr('y2', milieuY + 175)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait3
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX + 85)
+        .attr('y1', milieuY + 115)
+        .attr('x2', milieuX + 5)
+        .attr('y2', milieuY + 40)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait4
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -10)
+        .attr('y1', milieuY -5)
+        .attr('x2', milieuX + 5)
+        .attr('y2', milieuY + 40)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait5
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -10)
+        .attr('y1', milieuY -5)
+        .attr('x2', milieuX - 50)
+        .attr('y2', milieuY - 5)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait6
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -55)
+        .attr('y1', milieuY -55)
+        .attr('x2', milieuX - 50)
+        .attr('y2', milieuY - 5)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait7
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -55)
+        .attr('y1', milieuY -55)
+        .attr('x2', milieuX - 110)
+        .attr('y2', milieuY - 135)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait8
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 260)
+        .attr('y1', milieuY - 265)
+        .attr('x2', milieuX - 110)
+        .attr('y2', milieuY - 135)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait9
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX + 5)
+        .attr('y1', milieuY + 40)
+        .attr('x2', milieuX - 40)
+        .attr('y2', milieuY + 50)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait10
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 40)
+        .attr('y1', milieuY + 50)
+        .attr('x2', milieuX - 100)
+        .attr('y2', milieuY + 20)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait11
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 325)
+        .attr('y1', milieuY - 110)
+        .attr('x2', milieuX - 100)
+        .attr('y2', milieuY + 20)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait12
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait13
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait14
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait15
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait16
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait17
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        // les étoiles
+        étoile1.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX + 270 )
+        .attr('cy',milieuY + 175 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile2.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX + 5 )
+        .attr('cy',milieuY + 40 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile3.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 10 )
+        .attr('cy',milieuY - 5 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile4.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 50 )
+        .attr('cy',milieuY - 5 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile5.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 55 )
+        .attr('cy',milieuY - 55 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile6.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 110 )
+        .attr('cy',milieuY - 135 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile7.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 40 )
+        .attr('cy',milieuY + 50 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile8.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 100 )
+        .attr('cy',milieuY + 20 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile9.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile10.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile11.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile12.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile13.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile14.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
 } else if(QuelMoisSommesNous == 7){
             console.log("nous sommes en juillet")
 
@@ -1128,63 +1968,63 @@ if (QuelMoisSommesNous == 1) {
 
         trait14
         .transition()
-            .duration(500) 
-            .attr("stroke", "#0f0f3d")
-            .transition() 
-            .attr('x1', milieuX - 65)
-            .attr('y1', milieuY + 60)
-            .attr('x2', milieuX - 85)
-            .attr('y2', milieuY + 150)
-            .attr('stroke-opacity', .1)
-            .transition()
-            .duration(1000) 
-            .attr('stroke-opacity', .5)
-            .attr("stroke", "white") 
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 65)
+        .attr('y1', milieuY + 60)
+        .attr('x2', milieuX - 85)
+        .attr('y2', milieuY + 150)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white") 
 
         trait15
-            .transition()
-                .duration(500) 
-                .attr("stroke", "#0f0f3d")
-                .transition() 
-                .attr('x1', milieuX - 65)
-                .attr('y1', milieuY + 280)
-                .attr('x2', milieuX - 85)
-                .attr('y2', milieuY + 150)
-                .attr('stroke-opacity', .1)
-                .transition()
-                .duration(1000) 
-                .attr('stroke-opacity', .5)
-                .attr("stroke", "white") 
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 65)
+        .attr('y1', milieuY + 280)
+        .attr('x2', milieuX - 85)
+        .attr('y2', milieuY + 150)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white") 
 
         trait16
-            .transition()
-                .duration(500) 
-                .attr("stroke", "#0f0f3d")
-                .transition() 
-                .attr('x1', milieuX - 185)
-                .attr('y1', milieuY + 330)
-                .attr('x2', milieuX - 210)
-                .attr('y2', milieuY + 120)
-                .attr('stroke-opacity', .1)
-                .transition()
-                .duration(1000) 
-                .attr('stroke-opacity', .5)
-                .attr("stroke", "white") 
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 185)
+        .attr('y1', milieuY + 330)
+        .attr('x2', milieuX - 210)
+        .attr('y2', milieuY + 120)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white") 
 
         trait17
-            .transition()
-                .duration(500) 
-                .attr("stroke", "#0f0f3d")
-                .transition() 
-                .attr('x1', milieuX - 65)
-                .attr('y1', milieuY + 60)
-                .attr('x2', milieuX - 210)
-                .attr('y2', milieuY + 120)
-                .attr('stroke-opacity', .1)
-                .transition()
-                .duration(1000) 
-                .attr('stroke-opacity', .5)
-                .attr("stroke", "white") 
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 65)
+        .attr('y1', milieuY + 60)
+        .attr('x2', milieuX - 210)
+        .attr('y2', milieuY + 120)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white") 
 
         // les étoiles
         étoile1.transition()
@@ -1344,8 +2184,515 @@ if (QuelMoisSommesNous == 1) {
 
 } else if(QuelMoisSommesNous == 8){
             console.log("nous sommes en aout")
+
+        //déplacer les grandes étoiles
+        etoile_jaune.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 145)
+        .attr('y', milieuY + 65)
+
+        etoile_rose.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 45)
+        .attr('y', milieuY - 135)
+
+        etoile_vert.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 190)
+        .attr('y', milieuY + 210 )
+
+        etoile_bleu.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 60)
+        .attr('y', milieuY - 380)
+
+        //les traits
+        trait1
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX)
+        .attr('y1', milieuY - 20)
+        .attr('x2', milieuX + 165)
+        .attr('y2', milieuY + 85)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000)
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait2
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX)
+        .attr('y1', milieuY - 20)
+        .attr('x2', milieuX - 170)
+        .attr('y2', milieuY + 240)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait3
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX)
+        .attr('y1', milieuY - 20)
+        .attr('x2', milieuX - 25)
+        .attr('y2', milieuY - 115)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait4
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 35)
+        .attr('y1', milieuY -360)
+        .attr('x2', milieuX - 25)
+        .attr('y2', milieuY - 115)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait5
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait6
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait7
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait8
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait9
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait10
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait11
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait12
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait13
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait14
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait15
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait16
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait17
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        // les étoiles
+        étoile1.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX )
+        .attr('cy',milieuY - 20 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile2.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile3.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile4.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile5.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile6.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile7.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .duration(1000)
+
+        étoile8.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile9.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile10.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile11.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile12.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile13.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile14.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
 } else if(QuelMoisSommesNous == 9){
             console.log("nous sommes en septembre")
+    
+        //déplacer les grandes étoiles
+        etoile_jaune.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 228)
+        .attr('y', milieuY + 259)
+
+        etoile_rose.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 140)
+        .attr('y', milieuY - 145)
+
+        etoile_vert.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 315)
+        .attr('y', milieuY + 0 )
+
+        etoile_bleu.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 295)
+        .attr('y', milieuY - 345)
+
+        //les traits
+        trait1
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX - 275)
+        .attr('y1', milieuY - 317)
+        .attr('x2', milieuX - 155)
+        .attr('y2', milieuY - 340)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000)
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait2
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX - 80)
+        .attr('y1', milieuY - 200)
+        .attr('x2', milieuX - 155)
+        .attr('y2', milieuY - 340)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait3
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 80)
+        .attr('y1', milieuY - 200)
+        .attr('x2', milieuX - 110)
+        .attr('y2', milieuY - 125)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+
+        trait4
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 125)
+        .attr('y1', milieuY - 115)
+        .attr('x2', milieuX - 240)
+        .attr('y2', milieuY - 95)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait5
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 285)
+        .attr('y1', milieuY + 25)
+        .attr('x2', milieuX - 240)
+        .attr('y2', milieuY - 95)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait6
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 285)
+        .attr('y1', milieuY + 25)
+        .attr('x2', milieuX +75)
+        .attr('y2', milieuY +175)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait7
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX + 248)
+        .attr('y1', milieuY + 279)
+        .attr('x2', milieuX +75)
+        .attr('y2', milieuY +175)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait8
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX + 248)
+        .attr('y1', milieuY + 279)
+        .attr('x2', milieuX + 135)
+        .attr('y2', milieuY +65)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait9
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 120)
+        .attr('y1', milieuY - 120)
+        .attr('x2', milieuX + 135)
+        .attr('y2', milieuY + 65)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait10
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait11
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait12
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait13
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait14
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait15
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait16
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait17
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        // les étoiles
+        étoile1.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 155)
+        .attr('cy',milieuY - 340)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile2.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 80)
+        .attr('cy',milieuY - 200)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile3.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 240)
+        .attr('cy',milieuY - 95)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile4.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX +75)
+        .attr('cy',milieuY +175)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white") 
+
+        étoile5.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX +135)
+        .attr('cy',milieuY +65)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white") 
+
+        étoile6.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile7.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .duration(1000)
+
+
+        étoile8.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile9.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile10.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile11.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile12.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile13.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile14.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+
 } else if(QuelMoisSommesNous == 10){
             console.log("nous sommes en octobre")
 
@@ -1414,7 +2761,6 @@ if (QuelMoisSommesNous == 1) {
         .duration(1000) 
         .attr('stroke-opacity', .5)
         .attr("stroke", "white")
-
 
         trait4
         .transition()
@@ -3616,12 +4962,852 @@ if (QuelMoisSommesNous == 1) {
 
 } else if(QuelMoisSommesNous == 3){
             console.log("nous sommes en mars")
+
+        //déplacer les grandes étoiles
+        etoile_jaune.transition()
+        .duration(1000) 
+        .attr('x', milieuX+180)
+        .attr('y', milieuY+40) 
+
+        etoile_rose.transition()
+        .duration(1000) 
+        .attr('x', milieuX-300)
+        .attr('y', milieuY-90) 
+
+        etoile_vert.transition()
+        .duration(1000) 
+        .attr('x', milieuX-130)
+        .attr('y', milieuY-300) 
+
+        etoile_bleu.transition()
+        .duration(1000) 
+        .attr('x', milieuX+150)
+        .attr('y', milieuY-150) 
+
+        //les traits
+        trait1
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX -280)
+        .attr('y1', milieuY -60)
+        .attr('x2', milieuX -125)
+        .attr('y2', milieuY -95)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000)
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait2
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX -125)
+        .attr('y1', milieuY -95)
+        .attr('x2', milieuX -55)
+        .attr('y2', milieuY -185)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait3
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -110)
+        .attr('y1', milieuY -280)
+        .attr('x2', milieuX -55)
+        .attr('y2', milieuY -185)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait4
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -110)
+        .attr('y1', milieuY -280)
+        .attr('x2', milieuX +110)
+        .attr('y2', milieuY -205)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait5
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +110)
+        .attr('y1', milieuY -205)
+        .attr('x2', milieuX +115)
+        .attr('y2', milieuY -165)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait6
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +115)
+        .attr('y1', milieuY -165)
+        .attr('x2', milieuX +160)
+        .attr('y2', milieuY -130)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait7
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +50)
+        .attr('y1', milieuY -65)
+        .attr('x2', milieuX +180)
+        .attr('y2', milieuY -130)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+        
+        trait8
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +50)
+        .attr('y1', milieuY -65)
+        .attr('x2', milieuX +5)
+        .attr('y2', milieuY +50)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait9
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +180)
+        .attr('y1', milieuY -130)
+        .attr('x2', milieuX +200)
+        .attr('y2', milieuY +30)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait10
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX +200)
+        .attr('y1', milieuY +30)
+        .attr('x2', milieuX +280)
+        .attr('y2', milieuY +270)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait11
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait12
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait13
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait14
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait15
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait16
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait17
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        // les étoiles
+        étoile1.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX-125)
+        .attr('cy',milieuY-95)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile2.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX+110)
+        .attr('cy',milieuY-205)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile3.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX+115)
+        .attr('cy',milieuY-165)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile4.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX-55)
+        .attr('cy',milieuY-185)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile5.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX+50)
+        .attr('cy',milieuY-65)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile6.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX+5)
+        .attr('cy',milieuY+50)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile7.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX+280)
+        .attr('cy',milieuY+270)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile8.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile9.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile10.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile11.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile12.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile13.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile14.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        
 } else if(QuelMoisSommesNous == 4){
             console.log("nous sommes en avril")
 } else if(QuelMoisSommesNous == 5){
             console.log("nous sommes en mai")
+
+        //déplacer les grandes étoiles
+        etoile_jaune.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 130)
+        .attr('y', milieuY - 220)
+
+        etoile_rose.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 300)
+        .attr('y', milieuY + 2)
+
+        etoile_vert.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 375)
+        .attr('y', milieuY - 190)
+
+        etoile_bleu.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 300)
+        .attr('y', milieuY - 250)
+
+        //les traits
+        trait1
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX - 280)
+        .attr('y1', milieuY + 35)
+        .attr('x2', milieuX + 150)
+        .attr('y2', milieuY - 190)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000)
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait2
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX + 320)
+        .attr('y1', milieuY - 220)
+        .attr('x2', milieuX + 150)
+        .attr('y2', milieuY - 190)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait3
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX + 320)
+        .attr('y1', milieuY - 220)
+        .attr('x2', milieuX + 400)
+        .attr('y2', milieuY - 170)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait4
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d") 
+
+        trait5
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait6
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait7
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        
+        trait8
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait9
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait10
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait11
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait12
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait13
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait14
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait15
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait16
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait17
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        // les étoiles
+        étoile1.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile2.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile3.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile4.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile5.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile6.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile7.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile8.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile9.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile10.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile11.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile12.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile13.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile14.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
 } else if(QuelMoisSommesNous == 6){
             console.log("nous sommes en juin")
+
+        //déplacer les grandes étoiles
+        etoile_jaune.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 65)
+        .attr('y', milieuY + 85)
+
+        etoile_rose.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 345)
+        .attr('y', milieuY - 135)
+
+        etoile_vert.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 275)
+        .attr('y', milieuY + 220 )
+
+        etoile_bleu.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 290)
+        .attr('y', milieuY - 300)
+
+        //les traits
+        trait1
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX + 295)
+        .attr('y1', milieuY + 240)
+        .attr('x2', milieuX + 270)
+        .attr('y2', milieuY + 175)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000)
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait2
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX + 85)
+        .attr('y1', milieuY + 115)
+        .attr('x2', milieuX + 270)
+        .attr('y2', milieuY + 175)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait3
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX + 85)
+        .attr('y1', milieuY + 115)
+        .attr('x2', milieuX + 5)
+        .attr('y2', milieuY + 40)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait4
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -10)
+        .attr('y1', milieuY -5)
+        .attr('x2', milieuX + 5)
+        .attr('y2', milieuY + 40)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait5
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -10)
+        .attr('y1', milieuY -5)
+        .attr('x2', milieuX - 50)
+        .attr('y2', milieuY - 5)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait6
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -55)
+        .attr('y1', milieuY -55)
+        .attr('x2', milieuX - 50)
+        .attr('y2', milieuY - 5)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait7
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX -55)
+        .attr('y1', milieuY -55)
+        .attr('x2', milieuX - 110)
+        .attr('y2', milieuY - 135)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait8
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 260)
+        .attr('y1', milieuY - 265)
+        .attr('x2', milieuX - 110)
+        .attr('y2', milieuY - 135)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait9
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX + 5)
+        .attr('y1', milieuY + 40)
+        .attr('x2', milieuX - 40)
+        .attr('y2', milieuY + 50)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait10
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 40)
+        .attr('y1', milieuY + 50)
+        .attr('x2', milieuX - 100)
+        .attr('y2', milieuY + 20)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait11
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 325)
+        .attr('y1', milieuY - 110)
+        .attr('x2', milieuX - 100)
+        .attr('y2', milieuY + 20)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait12
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait13
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait14
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait15
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait16
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait17
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        // les étoiles
+        étoile1.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX + 270 )
+        .attr('cy',milieuY + 175 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile2.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX + 5 )
+        .attr('cy',milieuY + 40 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile3.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 10 )
+        .attr('cy',milieuY - 5 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile4.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 50 )
+        .attr('cy',milieuY - 5 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile5.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 55 )
+        .attr('cy',milieuY - 55 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile6.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 110 )
+        .attr('cy',milieuY - 135 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile7.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 40 )
+        .attr('cy',milieuY + 50 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile8.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 100 )
+        .attr('cy',milieuY + 20 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile9.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile10.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile11.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile12.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile13.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile14.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
 } else if(QuelMoisSommesNous == 7){
             console.log("nous sommes en juillet")
 
@@ -3845,63 +6031,63 @@ if (QuelMoisSommesNous == 1) {
 
         trait14
         .transition()
-            .duration(500) 
-            .attr("stroke", "#0f0f3d")
-            .transition() 
-            .attr('x1', milieuX - 65)
-            .attr('y1', milieuY + 60)
-            .attr('x2', milieuX - 85)
-            .attr('y2', milieuY + 150)
-            .attr('stroke-opacity', .1)
-            .transition()
-            .duration(1000) 
-            .attr('stroke-opacity', .5)
-            .attr("stroke", "white") 
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 65)
+        .attr('y1', milieuY + 60)
+        .attr('x2', milieuX - 85)
+        .attr('y2', milieuY + 150)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white") 
 
         trait15
-            .transition()
-                .duration(500) 
-                .attr("stroke", "#0f0f3d")
-                .transition() 
-                .attr('x1', milieuX - 65)
-                .attr('y1', milieuY + 280)
-                .attr('x2', milieuX - 85)
-                .attr('y2', milieuY + 150)
-                .attr('stroke-opacity', .1)
-                .transition()
-                .duration(1000) 
-                .attr('stroke-opacity', .5)
-                .attr("stroke", "white") 
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 65)
+        .attr('y1', milieuY + 280)
+        .attr('x2', milieuX - 85)
+        .attr('y2', milieuY + 150)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white") 
 
         trait16
-            .transition()
-                .duration(500) 
-                .attr("stroke", "#0f0f3d")
-                .transition() 
-                .attr('x1', milieuX - 185)
-                .attr('y1', milieuY + 330)
-                .attr('x2', milieuX - 210)
-                .attr('y2', milieuY + 120)
-                .attr('stroke-opacity', .1)
-                .transition()
-                .duration(1000) 
-                .attr('stroke-opacity', .5)
-                .attr("stroke", "white") 
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 185)
+        .attr('y1', milieuY + 330)
+        .attr('x2', milieuX - 210)
+        .attr('y2', milieuY + 120)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white") 
 
         trait17
-            .transition()
-                .duration(500) 
-                .attr("stroke", "#0f0f3d")
-                .transition() 
-                .attr('x1', milieuX - 65)
-                .attr('y1', milieuY + 60)
-                .attr('x2', milieuX - 210)
-                .attr('y2', milieuY + 120)
-                .attr('stroke-opacity', .1)
-                .transition()
-                .duration(1000) 
-                .attr('stroke-opacity', .5)
-                .attr("stroke", "white") 
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 65)
+        .attr('y1', milieuY + 60)
+        .attr('x2', milieuX - 210)
+        .attr('y2', milieuY + 120)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white") 
 
         // les étoiles
         étoile1.transition()
@@ -4061,8 +6247,513 @@ if (QuelMoisSommesNous == 1) {
 
 } else if(QuelMoisSommesNous == 8){
             console.log("nous sommes en aout")
+
+        //déplacer les grandes étoiles
+        etoile_jaune.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 145)
+        .attr('y', milieuY + 65)
+
+        etoile_rose.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 45)
+        .attr('y', milieuY - 135)
+
+        etoile_vert.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 190)
+        .attr('y', milieuY + 210 )
+
+        etoile_bleu.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 60)
+        .attr('y', milieuY - 380)
+
+        //les traits
+        trait1
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX)
+        .attr('y1', milieuY - 20)
+        .attr('x2', milieuX + 165)
+        .attr('y2', milieuY + 85)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000)
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait2
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX)
+        .attr('y1', milieuY - 20)
+        .attr('x2', milieuX - 170)
+        .attr('y2', milieuY + 240)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait3
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX)
+        .attr('y1', milieuY - 20)
+        .attr('x2', milieuX - 25)
+        .attr('y2', milieuY - 115)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait4
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 35)
+        .attr('y1', milieuY -360)
+        .attr('x2', milieuX - 25)
+        .attr('y2', milieuY - 115)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait5
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait6
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait7
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait8
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait9
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait10
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait11
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait12
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait13
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait14
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait15
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait16
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait17
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        // les étoiles
+        étoile1.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX )
+        .attr('cy',milieuY - 20 )
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile2.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile3.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile4.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile5.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile6.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile7.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .duration(1000)
+
+        étoile8.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile9.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile10.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile11.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile12.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile13.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile14.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
 } else if(QuelMoisSommesNous == 9){
             console.log("nous sommes en septembre")
+
+        //déplacer les grandes étoiles
+        etoile_jaune.transition()
+        .duration(1000) 
+        .attr('x', milieuX + 228)
+        .attr('y', milieuY + 259)
+
+        etoile_rose.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 140)
+        .attr('y', milieuY - 145)
+
+        etoile_vert.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 315)
+        .attr('y', milieuY + 0 )
+
+        etoile_bleu.transition()
+        .duration(1000) 
+        .attr('x', milieuX - 295)
+        .attr('y', milieuY - 345)
+
+        //les traits
+        trait1
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX - 275)
+        .attr('y1', milieuY - 317)
+        .attr('x2', milieuX - 155)
+        .attr('y2', milieuY - 340)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000)
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait2
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition()
+        .attr('x1', milieuX - 80)
+        .attr('y1', milieuY - 200)
+        .attr('x2', milieuX - 155)
+        .attr('y2', milieuY - 340)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait3
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 80)
+        .attr('y1', milieuY - 200)
+        .attr('x2', milieuX - 110)
+        .attr('y2', milieuY - 125)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")
+
+        trait4
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 125)
+        .attr('y1', milieuY - 115)
+        .attr('x2', milieuX - 240)
+        .attr('y2', milieuY - 95)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait5
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 285)
+        .attr('y1', milieuY + 25)
+        .attr('x2', milieuX - 240)
+        .attr('y2', milieuY - 95)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait6
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 285)
+        .attr('y1', milieuY + 25)
+        .attr('x2', milieuX +75)
+        .attr('y2', milieuY +175)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait7
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX + 248)
+        .attr('y1', milieuY + 279)
+        .attr('x2', milieuX +75)
+        .attr('y2', milieuY +175)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait8
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX + 248)
+        .attr('y1', milieuY + 279)
+        .attr('x2', milieuX + 135)
+        .attr('y2', milieuY +65)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait9
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+        .transition() 
+        .attr('x1', milieuX - 120)
+        .attr('y1', milieuY - 120)
+        .attr('x2', milieuX + 135)
+        .attr('y2', milieuY + 65)
+        .attr('stroke-opacity', .1)
+        .transition()
+        .duration(1000) 
+        .attr('stroke-opacity', .5)
+        .attr("stroke", "white")  
+
+        trait10
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait11
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait12
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait13
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait14
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait15
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait16
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        trait17
+        .transition()
+        .duration(500) 
+        .attr("stroke", "#0f0f3d")
+
+        // les étoiles
+        étoile1.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 155)
+        .attr('cy',milieuY - 340)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile2.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 80)
+        .attr('cy',milieuY - 200)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile3.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX - 240)
+        .attr('cy',milieuY - 95)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white")  
+
+        étoile4.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX +75)
+        .attr('cy',milieuY +175)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white") 
+
+        étoile5.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .transition() 
+        .attr('cx',milieuX +135)
+        .attr('cy',milieuY +65)
+        .attr('r', 5)
+        .transition()
+        .duration(1000)
+        .attr("fill", "white") 
+
+        étoile6.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d") 
+
+        étoile7.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+        .duration(1000)
+
+
+        étoile8.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile9.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile10.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile11.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile12.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile13.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
+        étoile14.transition()
+        .duration(500) 
+        .attr("fill", "#0f0f3d")
+
 } else if(QuelMoisSommesNous == 10){
             console.log("nous sommes en octobre")
 
@@ -5742,7 +8433,7 @@ if (QuelMoisSommesNous == 1) {
     }
 
     let BoutonD = document.getElementById('Droite');   
-    BoutonD.addEventListener("click", BoutonDroite) 
+    BoutonD.addEventListener("click", BoutonDroite);
 
     let BoutonG = document.getElementById('Gauche');   
     BoutonG.addEventListener("click", BoutonGauche) 
