@@ -11,6 +11,7 @@
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script>
     <script> 
 //élments de base
+// ligne function pour code plus lisible 322 et 4849
     document.body.style.backgroundColor = "#0f0f3d";
         // pour faire des comete dans le backgroumd hihihi https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/rotate
     let ecran_width = window.innerWidth;
@@ -9468,6 +9469,77 @@ let BoutonStyle = MonEspaceSVG.append('image')
     .attr('font-family', "AnimalCrossing")
     .text("Style")
 
+    d3.csv('villagers.csv',function(d){
+    // renommer les variables et définir leur type
+    return {
+        espece : d.Species,
+        genre : d.Gender,
+        personnalité : d.Personality,
+        hobbie : d.Hobby,
+        signe : d.Sign,
+        style : d.Style1,
+
+    }
+}).then(donnees =>{ 
+
+    for (let i = 0 ; i< 391 ; index++) {
+        if (d[i].signe == "Libra" && d[i].Gender == " Male" ) {
+            console.log(i)}
+        
+    }
+
+ 
+    
+})
+    
+
+/*
+    let EspeceParSigne = d3.rollups (donnees, v => d3.sum(v,d=>d.Species), d => d.Sign)
+    
+    //durée d'attente par véhicule
+    let GenreParSigne = d3.rollups (donnees, v => d3.sum(v,d => d.Gender),
+    d => d.Sign)
+    console.log(GenreParSigne, EspeceParSigne)
+
+
+
+
+
+
+    if (QuelMoisSommesNous == 2){
+
+        if (d.signe == "Pisces") {
+            
+        }
+        MonEspaceSVG.selectAll('etoile_jaune')
+            .data(donnees)
+            .enter()
+            .append('circle')
+                .attr('cx',(d,i) => 50 + i * 25) 
+                .attr('cy',50)
+                .attr('r', d => d.dureeTotale)
+                .attr('fill', d =>{
+                    if(d.vehicule == 'bus'){return 'green'}
+                    else if(d.vehicule == 'train'){return 'red'}
+                    else if(d.vehicule == 'pied'){return 'pink'}
+                    else if(d.vehicule == 'metro'){return 'blue'}
+                })
+                .attr('opacity',0.8)
+
+    }
+    etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', milieuX+90)
+            .attr('y', milieuY+190) 
+*/
+
+    
+
+
+
+
+
+
 function BBoutonGender(){
 console.log(QuelMoisSommesNous)
 
@@ -9483,6 +9555,8 @@ console.log(QuelMoisSommesNous)
 
 let BoutonBoutonGender = document.getElementById('Gender');   
     BoutonBoutonGender.addEventListener("click", BBoutonGender);
+    
+    
     </script>   
 </body>
 </html>

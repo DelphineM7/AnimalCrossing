@@ -37,10 +37,10 @@ d3.csv('dataTransports.csv',function(d){
     }
 }).then(donnees =>{
     // vérfier que les données ont bien été importées
-    //console.log(donnees)
+    console.log(donnees)
 
     // création de notre premier espace de dessin
-    /*
+
     let canevas1 = d3.select("body")
     .append("svg")
     .attr("width", largeur)
@@ -82,6 +82,8 @@ d3.csv('dataTransports.csv',function(d){
     d => d.vehicule)
     console.log(donneesAttenteParVehicule, donneesParVehicule)
 
+    })
+/*
     // ajouter les cercles cumulés 
     // attentionm on va avoir deux fois des cercles qui correspondent à des données différentes 
     canevas2.append('g').selectAll('circle')// On définit un groupe comem ca on peut tout déplacer en même temps (groupe svg)
@@ -154,7 +156,7 @@ d3.csv('dataTransports.csv',function(d){
                     else if(d.vehicule == 'metro'){return 'blue'}
             })
             .attr('opacity', 0.8)
- */
+ 
     // maintenant, mettons ces éléments en cercle !
     let canevas4 = d3.select("body")
     .append("svg")
@@ -196,4 +198,4 @@ function retourneCouleur(d){
     else if(d.vehicule === 'voiture'){return 'yellow'}             
 }
 
-    
+*/
