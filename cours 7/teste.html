@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/7.4.4/d3.min.js'></script>
+    <script>
+        const canevas = d3.select("body").append("svg")
+        .attr("width", 960)
+        .attr("height", 500);
+
+                d3.csv('villagers.csv',function(d){
+                return {
+                nom : d.Name,
+                espece : d.Species,
+                genre : d.Gender,
+                personnalite : d.Personality,
+                hobbie : d.Hobby,
+                signe : d.Sign,
+                style : d.Style1,
+            }
+
+            }).then(donnees =>{
+                let MaleCompte = 0
+                let FemaleCompte = 0
+                 
+                for (let i = 0 ; i< 391 ; i++) {
+                    if (donnees[i].signe == "Taurus" && donnees[i].genre == "Male" ) {
+                        MaleCompte += 1
+                    } 
+                    if (donnees[i].signe == "Taurus" && donnees[i].genre == "Female" ) {
+                        FemaleCompte += 1
+                    }
+                }
+                
+                console.log(donnees)
+                const GenreSignePersonnalite = d3.group(donnees, (d) => d.genre, (d) => d.signe, (d) => d.personnalite)
+                
+                
+                const GenreSignePersonnaliteMale  = GenreSignePersonnalite.get("Male")
+
+                const GenreSignePersonnaliteMale2 = d3.group(GenreSignePersonnaliteMale, (d) => d.signe, (d) => d.personnalite)
+                
+                const teste = d3.group(donnees, (d) => d.genre,  (d) => d.personnalite)
+                console.log(teste)
+
+                const PersonnaliteSigneCount3 = d3.rollup(donnees, (D) => D.length,(d) => d.signe,(d) => d.personnalite,  (d) => d.genre );
+                console.log(PersonnaliteSigneCount3)
+                console.log(PersonnaliteSigneCount3.get("Aries").get("Normal"))           
+
+
+
+
+                
+                const PersoSexspecie = d3.rollup(donnees, (d) => d.signe, (d) => d.genre, (d) => d.personnalite)
+                
+
+                const GenreSignePersonnaliteFemale  = GenreSignePersonnalite.get("Female")
+
+                const PersonnaliteSigneCount1 = d3.rollup(GenreSignePersonnalite, (D) => D.length, (d) => d.personnalite, (d) => d.signe);
+                
+
+                
+
+
+                const speciesCount2 = d3.rollup(donnees, (D) => D.length, (d) => d.personnalite);
+               
+            })
+
+/*.get("Taurus").get("Female").get("Big Sister")
+                const x = d3.scaleBand()
+                .domain(1,35)
+                .range([100, 800]);
+
+                const y = d3.scaleLinear()
+                .domain([0,d3.max(donnees, d => d.value)])
+                .range([300, 0]);
+
+
+            // ajouter l'axe des X
+            canevas.append("g")
+            .classed('axeX',true)
+            .attr("transform", 'translate(0,400)')
+            .call(d3.axisBottom(x));
+            // ajouter l'axe des Y
+            canevas.append("g")
+            .attr("transform", 'translate(100,100)')
+            .call(d3.axisLeft(y).ticks(6));
+*/
+
+
+
+       
+
+             /*  
+            species 35
+            personality 8
+            hobbies 6
+            gender 2 
+
+             
+
+
+             let combien = 0
+             for (let i = 0 ; i< 391 ; i++) {
+             if (donnees[i].signe == "Scorpio") {
+                combien+=1
+             }
+                
+             }console.log(combien)
+                })
+
+                console.log("Sagittarius = 32" + " Capricornus = 30" + " Aquarius = 32" +  " Pisces = 29"
+                + " Aries = 32" + " Taurus = 31" + "Gemini = 33" + " Cancer = 34 " + " Leo = 38" + " Libra =36" + " Scorpio = 30 " + " ")
+            */
+     </script>
+
+            
+</body>
+</html>
+
+

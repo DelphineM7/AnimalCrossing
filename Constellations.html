@@ -9685,17 +9685,11 @@ function BoutonGenderOver(){
         }
 
         }).then(donnees =>{ 
+            const SigneGenre = d3.group(donnees, (d) => d.signe, (d) => d.genre)
             if (QuelMoisSommesNous == 1) {
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Sagittarius" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Sagittarius" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                let MaleCompte = SigneGenre.get("Sagittarius").get("Male").length
+                let FemaleCompte = SigneGenre.get("Sagittarius").get("Female").length
+               
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
@@ -9734,16 +9728,9 @@ function BoutonGenderOver(){
                         .duration(1000)
                         .attr('opacity', "0.5") 
             } else if(QuelMoisSommesNous == 2){
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Capricornus" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Capricornus" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                let MaleCompte = SigneGenre.get("Capricornus").get("Male").length
+                let FemaleCompte = SigneGenre.get("Capricornus").get("Female").length
+
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
@@ -9782,16 +9769,9 @@ function BoutonGenderOver(){
                         .duration(1000)
                         .attr('opacity', "0.5")
             } else if(QuelMoisSommesNous == 3){
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Aquarius" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Aquarius" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                let MaleCompte = SigneGenre.get("Aquarius").get("Male").length
+                let FemaleCompte = SigneGenre.get("Aquarius").get("Female").length
+
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
@@ -9830,16 +9810,9 @@ function BoutonGenderOver(){
                         .duration(1000)
                         .attr('opacity', "0.5") 
             } else if(QuelMoisSommesNous == 4){
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Pisces" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Pisces" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                let MaleCompte = SigneGenre.get("Pisces").get("Male").length
+                let FemaleCompte = SigneGenre.get("Pisces").get("Female").length
+
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
@@ -9879,16 +9852,9 @@ function BoutonGenderOver(){
                         .attr('opacity', "0.5")     
 
             } else if(QuelMoisSommesNous == 5){ 
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Aries" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Aries" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                let MaleCompte = SigneGenre.get("Aries").get("Male").length
+                let FemaleCompte = SigneGenre.get("Aries").get("Female").length
+
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
@@ -9927,16 +9893,10 @@ function BoutonGenderOver(){
                         .duration(1000)
                         .attr('opacity', "0.5")   
             } else if(QuelMoisSommesNous == 6){ 
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Taurus" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Taurus" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                
+                let MaleCompte = SigneGenre.get("Taurus").get("Male").length
+                let FemaleCompte = SigneGenre.get("Taurus").get("Female").length
+
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
@@ -9976,16 +9936,9 @@ function BoutonGenderOver(){
                         .attr('opacity', "0.5")
 
             } else if(QuelMoisSommesNous == 7){
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Gemini" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Gemini" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                let MaleCompte = SigneGenre.get("Gemini").get("Male").length
+                let FemaleCompte = SigneGenre.get("Gemini").get("Female").length
+
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
@@ -10025,16 +9978,9 @@ function BoutonGenderOver(){
                         .attr('opacity', "0.5") 
 
             } else if(QuelMoisSommesNous == 8){ 
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Cancer" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Cancer" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                let MaleCompte = SigneGenre.get("Cancer").get("Male").length
+                let FemaleCompte = SigneGenre.get("Cancer").get("Female").length
+
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
@@ -10074,16 +10020,9 @@ function BoutonGenderOver(){
                         .attr('opacity', "0.5")
 
             } else if(QuelMoisSommesNous == 9){ 
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Leo" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Leo" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                let MaleCompte = SigneGenre.get("Leo").get("Male").length
+                let FemaleCompte = SigneGenre.get("Leo").get("Female").length
+
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
@@ -10123,16 +10062,9 @@ function BoutonGenderOver(){
                         .attr('opacity', "0.5")
 
             } else if(QuelMoisSommesNous == 10){
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Virgo" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Virgo" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                let MaleCompte = SigneGenre.get("Virgo").get("Male").length
+                let FemaleCompte = SigneGenre.get("Virgo").get("Female").length
+
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
@@ -10172,16 +10104,9 @@ function BoutonGenderOver(){
                         .attr('opacity', "0.5")
 
             } else if(QuelMoisSommesNous == 11){ 
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Libra" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Libra" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                let MaleCompte = SigneGenre.get("Libra").get("Male").length
+                let FemaleCompte = SigneGenre.get("Libra").get("Female").length
+
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
@@ -10221,16 +10146,9 @@ function BoutonGenderOver(){
                         .attr('opacity', "0.5")
 
             } else if(QuelMoisSommesNous == 12){
-                let MaleCompte = 0
-                let FemaleCompte = 0
-                for (let i = 0 ; i< 391 ; i++) {
-                    if (donnees[i].signe == "Scorpio" && donnees[i].genre == "Male" ) {
-                        MaleCompte += 1
-                    } 
-                    if (donnees[i].signe == "Scorpio" && donnees[i].genre == "Female" ) {
-                        FemaleCompte += 1
-                    }
-                }
+                let MaleCompte = SigneGenre.get("Scorpio").get("Male").length
+                let FemaleCompte = SigneGenre.get("Scorpio").get("Female").length
+
                 etoile_jaune.transition()
                         .duration(1000) 
                         .attr('height', 50 + MaleCompte*3)
