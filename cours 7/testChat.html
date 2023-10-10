@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/7.4.4/d3.min.js'></script>
+    <script>
+                const canevas = d3.select("body").append("svg")
+                .attr("width", 1000)
+                .attr("height", 2000);
+
+                d3.csv('villagers.csv',function(d){
+                return {
+                nom : d.Name,
+                espece : d.Species,
+                genre : d.Gender,
+                personnalite : d.Personality,
+                hobbie : d.Hobby,
+                signe : d.Sign,
+                style : d.Style1,
+            }
+
+            }).then(donnees =>{    
+
+                const Signe = d3.group(donnees, d => d.signe, d=> d.genre, d => d.personnalite )
+                const CapricornusMale = d3.groups(donnees, d => d.signe, d=> d.genre, d => d.personnalite )
+
+                const CapricornusMalePersonnalite = Signe.get("Capricornus").get("Male")
+                const CapricornusMalePersonnaliteArray = Array.from(CapricornusMalePersonnalite) 
+
+                const CapricornusFemalePersonnalite = Signe.get("Capricornus").get("Female")
+                const CapricornusFemalePersonnaliteArray = Array.from(CapricornusFemalePersonnalite) 
+
+                // en fonction des données 
+                CapricornusMalePersonnaliteArray.push(["Big Sister", []],["Peppy", []],["Normal", []],["Snooty", []])
+                CapricornusFemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
+                CapricornusMalePersonnaliteArray.sort(d3.ascending)
+                CapricornusFemalePersonnaliteArray.sort(d3.ascending) 
+
+                const chiffreSigne = [1,2,3,4,5,6,7,8]
+                const CapricornusMalePersonnaliteArrayEtChiffre = d3.zip(CapricornusMalePersonnaliteArray,chiffreSigne)
+                const CapricornusFemalePersonnaliteArrayEtChiffre = d3.zip(CapricornusFemalePersonnaliteArray,chiffreSigne)
+                //console.log(CapricornusMalePersonnaliteArray, CapricornusFemalePersonnaliteArray)
+                
+                const Espece = d3.group(donnees, d => d.signe, d=> d.genre, d => d.espece)
+                const SigneGenre = d3.group(donnees, (d) => d.signe, (d) => d.genre)
+                let MaleCompte = SigneGenre.get("Capricornus").get("Male").length
+                let FemaleCompte = SigneGenre.get("Capricornus").get("Female").length
+
+                const CapricornusMaleEspece = Espece.get("Capricornus").get("Male")
+                const CapricornusMaleEspeceArray = Array.from(CapricornusMaleEspece)
+
+                const CapricornusFemaleEspece = Espece.get("Capricornus").get("Female")
+                const CapricornusFemaleEspecesArray = Array.from(CapricornusFemaleEspece)
+
+                
+                CapricornusMaleEspeceArray.sort(d3.ascending)
+                CapricornusFemaleEspecesArray.sort(d3.ascending) 
+                
+                Couleur = ['#52BE80', '#008080', '#808000', '#45B39D', '#40E0D0', '#FF7F50', '#58D68D', '#808080', '#6495ED', '#FF0000', '#E28ADA', '#000080', '#800000', '#117864', '#FFFF00', '#800080', '#DC7633', '#FFBF00', '#DE3163', '#00FFFF', '#5B2C6F', '#EC7063', '#CD6155', '#AED6F1', '#5499C7', '#EB984E', '#FFA07A', '#48C9B0', '#5DADE2', '#5499C7', '#F5B041', '#AF7AC5', '#9FE2BF', '#DC28CB', '#F4D03F']
+                const EEspece = d3.groups(donnees, d => d.espece)
+                let EspeceListe = []
+                for (let i = 0; i < EEspece.length; i++) {
+                    EspeceListe.push(EEspece[i].shift())
+                }
+
+                CouleurETEspeceListe = d3.zip(EspeceListe,Couleur)
+                console.log(CouleurETEspeceListe)
+                
+                const yEspece = d3.scaleBand()
+                    .domain(["Female", "Male"])
+                    .range([300, 150])
+ 
+                const xEspece= d3.scaleLinear()
+                    .domain([0,20])
+                    .range([0, 350])
+                
+                canevas.append("g")
+                    .attr("transform", 'translate(200,350)')
+                    .call(d3.axisLeft(yEspece));
+                     
+                canevas.append("g")
+                    .attr("transform", 'translate(200,650)')
+                    .call(d3.axisBottom(xEspece));
+                
+                let AvanceFemale = 0
+                for (let i = 0; i < CapricornusFemaleEspecesArray.length; i++) {
+
+                        canevas.append("rect")
+                            .attr("id", "rect" + i)
+                            .attr("x", 200 + AvanceFemale  + 0.5*i)
+                            .attr("y", 600)
+                            .attr("width", CapricornusFemaleEspecesArray[i][1].length*17)
+                            .attr("height", 30)
+                            .style('fill',"pink")
+
+                        AvanceFemale += CapricornusFemaleEspecesArray[i][1].length*17 
+                        
+                        
+                            for (let j = 0; j < CouleurETEspeceListe.length; j++) {
+                                if (CapricornusFemaleEspecesArray[i][0] == CouleurETEspeceListe[j][0]) {
+                                let rectanglefe = document.getElementById(`rect${i}`) 
+                                rectanglefe.style = `fill : ${CouleurETEspeceListe[j][1]}`;
+                                console.log(CapricornusFemaleEspecesArray[i][0],CouleurETEspeceListe[j][0],CouleurETEspeceListe[j][1])  
+                                                           
+                               }
+                            }
+                        }    
+                      
+                
+                console.log(CapricornusFemaleEspecesArray, CapricornusMaleEspeceArray)
+                let AvanceMale = 0
+                for (let a = 0; a < CapricornusMaleEspeceArray.length; a++) {
+
+                        canevas.append("rect")
+                            .attr("id", "rect" + a)
+                            .attr("x", 200 + AvanceMale  + 0.5*a)
+                            .attr("y", 520)
+                            .attr("width", CapricornusMaleEspeceArray[a][1].length*17)
+                            .attr("height", 30)
+                            .style('fill',"pink")
+
+                        AvanceMale += CapricornusMaleEspeceArray[a][1].length*17 
+                        
+                        
+                            for (let c = 0; c < CouleurETEspeceListe.length; c++) {
+                                if (CapricornusMaleEspeceArray[a][0] == CouleurETEspeceListe[c][0]) {
+                                let rectangle = document.getElementById(`rect${a}`) 
+                                rectangle.style = `fill : ${CouleurETEspeceListe[c][1]}`;  
+                                                         
+                               }
+                            }
+                        }    
+                        
+                   })
+                    
+                    
+
+     </script>
+
+            
+</body>
+</html>

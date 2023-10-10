@@ -110,6 +110,7 @@
             // MEME CHOSE MAIS AVEC UN TRI PAR SEXE _ SIGNE _ pour toutes les PERSONNALITES
                 
                 const Signe = d3.group(donnees, d => d.signe, d=> d.genre, d => d.personnalite )
+                const CapricornusMale = d3.groups(donnees, d => d.signe, d=> d.genre, d => d.personnalite )
 
                 const CapricornusMalePersonnalite = Signe.get("Capricornus").get("Male")
                 const CapricornusMalePersonnaliteArray = Array.from(CapricornusMalePersonnalite) 
@@ -226,8 +227,8 @@
                     .style('fill','LightSkyBlue')
                     .style('stroke','RoyalBlue');
  
-            //diagramme en barre des ESPECE par SIGNE et par GENRE 
-
+            //diagramme en barre des ESPECE par SIGNE et par GENRE : Graphe abandooné  
+            /*
                 const Espece = d3.group(donnees, d => d.signe, d=> d.genre, d => d.espece)
                 
                 const CapricornusMaleEspece = Espece.get("Capricornus").get("Male")
@@ -245,52 +246,245 @@
                 const CapricornusMaleEspeceArrayEtChiffre = d3.zip(CapricornusMaleEspeceArray,chiffreEspece)
                 const CapricornusFemaleEspeceArrayEtChiffre = d3.zip(CapricornusFemaleEspecesArray,chiffreEspece)
                 //console.log(CapricornusFemaleEspeceArrayEtChiffre,CapricornusMaleEspeceArrayEtChiffre)
-
-                // je suis ici : je dois essayer de créer un tableau avec les espece et des chiffre de 1 à 35 et une couleur
+                /*
                 const ECouleur = d3.groups(donnees, d => d.espece)
-                let Couleur = ECouleur[1].shift()
-                console.log(Couleur)
+                let Couleur = []
+                Liste = ["#CD6155","#EC7063","#AF7AC5","#5499C7","#5499C7", "#5DADE2","#48C9B0","#45B39D","#52BE80","#58D68D","#F4D03F","#F5B041","#EB984E","#DC7633","#FF0000", "#FFFF00", "#808000",
+                        "#00FFFF", "#008080", "#000080", "#800080", "#800000", "#808080", "#9FE2BF", "#40E0D0", "#6495ED", "#DE3163", "#FF7F50", "#FFBF00", 
+                        "#FFA07A","#117864","#5B2C6F","#AED6F1","#E28ADA","#DC28CB"]
+                //console.log(Couleur)
+                for (let i = 0; i < ECouleur.length; i++) {
+                    Couleur.push(ECouleur[i].shift())
+                }
+                CouleurEtChiffre = d3.zip(Couleur,chiffreEspece)
+                for (let i = 0; i < ECouleur.length; i++) {
+                    CouleurEtChiffre[i].push(Liste[i])
+                }
+                
+               console.log(CapricornusFemaleEspeceArrayEtChiffre)
+                var stack = 0
+                var stackedData = 0
+                var Couleur = 0
 
-                const xEspece = d3.scaleBand()
-                    .domain(["Male", "Female"])
-                    .range([300, 150])
+                for (let i = 0; i < CapricornusFemaleEspeceArrayEtChiffre.length; i++) {
+                    var stack = d3.stack().keys([CapricornusFemaleEspeceArrayEtChiffre[i][0][0]]);
+                    var stackedData = stack(CapricornusFemaleEspeceArrayEtChiffre); 
+                    var Couleur = d3.scaleOrdinal()
+                        .domain([CapricornusFemaleEspeceArrayEtChiffre[i][0][0]])
+                        .range(["#CD6155","#EC7063","#AF7AC5","#5499C7","#5499C7", "#5DADE2","#48C9B0","#45B39D","#52BE80","#58D68D","#F4D03F","#F5B041","#EB984E","#DC7633","#FF0000", "#FFFF00", "#808000",
+                        "#00FFFF", "#008080", "#000080", "#800080", "#800000", "#808080", "#9FE2BF", "#40E0D0", "#6495ED", "#DE3163", "#FF7F50", "#FFBF00", 
+                        "#FFA07A","#117864","#5B2C6F","#AED6F1","#E28ADA","#DC28CB"]); 
+                }
+
+                const yEspece = d3.scaleLinear()
+                    .domain([0, 20])
+                    .range([500, 150])
  
-                const yEspece= d3.scaleLinear()
-                    .domain([1, 15])
-                    .range([0, 350]);
+                const xEspece= d3.scaleBand()
+                    .domain(CapricornusFemaleEspeceArrayEtChiffre.map(d => d.genre ))
+                    .range([0, 350])
+                    .padding(0.1);
+                
+                canevas.selectAll(".bar")
+                    .data(stackedData)
+                    .enter().append("g")
+                    .attr("fill", d => Couleur(d.key))
+                    .selectAll("rect")
+                    .data(d => d)
+                    .enter().append("rect")
+                    .attr("x", 450)
+                    .attr("y", d => yEspece(d[0][1].length))
+                    .attr("height", d => yEspece(d[0][1].length) - yEspece(d[0][1].length))
+                    .attr("width", xEspece.bandwidth());
+                    
  
                 canevas.append("g")
                     .attr("transform", 'translate(200,350)')
-                    .call(d3.axisLeft(xEspece));
+                    .call(d3.axisLeft(yEspece));
                      
                 canevas.append("g")
-                    .attr("transform", 'translate(200,650)')
-                    .call(d3.axisBottom(yEspece));
-
-                canevas.selectAll("rect")
-                 .exit()
-                 .data(CapricornusFemaleEspeceArrayEtChiffre)
-                 .enter()
-                 .append("rect")
-                     .attr("x", d => 200 - xEspece.bandwidth() + d[1]*xEspece.bandwidth()+ xEspece.bandwidth()/2)
-                     .attr("y", d => 450 - yEspece(20- d[0][1].length))
-                     .attr("width", xEspece.bandwidth()/2)
-                     .attr("height", d => yEspece(20 - d[0][1].length))
-                     .style('fill','pink')
-                     .style('stroke','hotpink')
-                .exit()
-                .data(CapricornusMaleHobbiesArrayEtChiffre)
-                .enter()
-                .append("rect")
-                    .attr("x", d => 200 -xEspece.bandwidth() + d[1]*xEspece.bandwidth())
-                    .attr("y", d => 450 - yEspece(20- d[0][1].length))
-                    .attr("width", xEspece.bandwidth()/2)
-                    .attr("height", d => yEspece(20 - d[0][1].length))
-                    .style('fill','LightSkyBlue')
-                    .style('stroke','RoyalBlue');
+                    .attr("transform", 'translate(200,850)')
+                    .call(d3.axisBottom(xEspece));
+                */    
+            // on va essayer un camembert 
                 
+                const Espece = d3.group(donnees, d => d.signe, d=> d.genre, d => d.espece)
+                const SigneGenre = d3.group(donnees, (d) => d.signe, (d) => d.genre)
+                let MaleCompte = SigneGenre.get("Capricornus").get("Male").length
+                let FemaleCompte = SigneGenre.get("Capricornus").get("Female").length
+
+                const CapricornusMaleEspece = Espece.get("Capricornus").get("Male")
+                const CapricornusMaleEspeceArray = Array.from(CapricornusMaleEspece)
+
+                const CapricornusFemaleEspece = Espece.get("Capricornus").get("Female")
+                const CapricornusFemaleEspecesArray = Array.from(CapricornusFemaleEspece)
+
+                
+                CapricornusMaleEspeceArray.sort(d3.ascending)
+                CapricornusFemaleEspecesArray.sort(d3.ascending) 
+                //console.log(CapricornusMaleEspeceArray,CapricornusFemaleEspecesArray)
+                
+                Couleur = [ '#E74C3C', '#3498DB', '#9B59B6', '#2980B9', '#16A085',
+                    '#8E44AD', '#D35400', '#C0392B', '#FF00FF', '#D2B4DE',
+                    '#E67E22', '#2C3E50', '#FF5733', '#D98880', '#FFC300',
+                    '#AED6F1', '#C39BD3', '#F1948A', '#CB4335', '#FAD02E',
+                    '#AF7AC5', '#FF1493', '#FF69B4', '#DFFF00', '#FF4500',
+                    '#8A2BE2', '#FF6347', '#B22222', '#FFA07A', '#F5B041',
+                    '#FFD700', '#20B2AA', '#FF1493', '#FFC0CB']
+                const EEspece = d3.groups(donnees, d => d.espece)
+                let EspeceListe = []
+                for (let i = 0; i < EEspece.length; i++) {
+                    EspeceListe.push(EEspece[i].shift())
+                }
+
+                CouleurETEspeceListe = d3.zip(EspeceListe,Couleur)
+                console.log(CouleurETEspeceListe)
+/*
+                const color = d3.scaleOrdinal()
+                .domain(EspeceListe)
+                .range(Couleur);
+
+                const arcGenerator = d3.arc()
+                    .outerRadius(150)
+                    .innerRadius(0)
+ 
+                const pie = d3.pie()
+                    .value(d => d[1].length);
+
+                // Générez les données d'angles
+                const pieDataMale = pie(CapricornusMaleEspeceArray);
+
+                // Ajoutez des arcs pour chaque segment du camembert
+                canevas.selectAll("arc")
+                    .data(pieDataMale)
+                    .enter()
+                    .append("path")
+                    .attr("d", arcGenerator)
+                    .attr("fill", (d, i) => color(i))
+                    .attr("stroke", "white")
+                    .attr("stroke-width", 1)
+                    .attr("transform", "translate(150,700)")
+                
+                const pieDataFemale = pie(CapricornusFemaleEspecesArray);
+
+                console.log(pieDataMale,pieDataFemale,CapricornusFemaleEspecesArray,CapricornusFemaleEspece,Espece)
+                canevas.selectAll("arc")
+                    .data(pieDataFemale)
+                    .enter()
+                    .append("path")
+                    .attr("d", arcGenerator)
+                    .attr("fill", (d, i) => color(i))
+                    .attr("stroke", "white")
+                    .attr("stroke-width", 1)
+                    .attr("transform", "translate(650,700)")
+
+                    const labelsMale = canevas.selectAll(".label-male")
+                    .data(pieDataMale)
+                    .enter()
+                    .append("text")
+                    .text((d) => d.data[1].length + "/" + MaleCompte + d.data[0]) 
+                    .attr("transform", (d) => `translate(150,700) translate(${arcGenerator.centroid(d)})`)
+                    .style("text-anchor", "middle") 
+                    .style("font-size", "12px"); 
+
+                    
+                    const labelsFemale = canevas.selectAll(".label-female")
+                    .data(pieDataFemale)
+                    .enter()
+                    .append("text")
+                    .text((d) => d.data[1].length + "/" + FemaleCompte + d.data[0]) 
+                    .attr("transform", (d) => `translate(650,700) translate(${arcGenerator.centroid(d)})`)
+                    .style("text-anchor", "middle") 
+                    .style("font-size", "12px")
+
+                    */
+                // diagramme en barre
+
+                const yEspece = d3.scaleBand()
+                    .domain(["Female", "Male"])
+                    .range([300, 150]) 
+                const xEspece= d3.scaleLinear()
+                    .domain([0,20])
+                    .range([0, 350])                
+                canevas.append("g")
+                    .attr("transform", 'translate(200,350)')
+                    .call(d3.axisLeft(yEspece));                    
+                canevas.append("g")
+                    .attr("transform", 'translate(200,650)')
+                    .call(d3.axisBottom(xEspece));
+                
+                let AvanceFemale = 0
+                for (let i = 0; i < CapricornusFemaleEspecesArray.length; i++) {
+                        canevas.append("rect")
+                            .attr("id", "rectfl" + i)
+                            .attr("x", 200 + AvanceFemale  + 0.5*i)
+                            .attr("y", 600)
+                            .attr("width", CapricornusFemaleEspecesArray[i][1].length*17)
+                            .attr("height", 30)
+                            .style('fill',"pink")
+
+                        AvanceFemale += CapricornusFemaleEspecesArray[i][1].length*17                        
+                            for (let j = 0; j < CouleurETEspeceListe.length; j++) {
+                                if (CapricornusFemaleEspecesArray[i][0] == CouleurETEspeceListe[j][0]) {
+                                let rectanglefe = document.getElementById(`rectfl${i}`) 
+                                rectanglefe.style = `fill : ${CouleurETEspeceListe[j][1]}`;
+                                console.log(CapricornusFemaleEspecesArray[i][0],CouleurETEspeceListe[j][0],CouleurETEspeceListe[j][1],rectanglefe)  
+                            }}
+                }    
+                      
+                let AvanceMale = 0
+                for (let a = 0; a < CapricornusMaleEspeceArray.length; a++) {
+                        canevas.append("rect")
+                            .attr("id", "rect" + a)
+                            .attr("x", 200 + AvanceMale  + 0.5*a)
+                            .attr("y", 520)
+                            .attr("width", CapricornusMaleEspeceArray[a][1].length*17)
+                            .attr("height", 30)
+                            .style('fill',"pink")
+
+                        AvanceMale += CapricornusMaleEspeceArray[a][1].length*17 
+                            for (let c = 0; c < CouleurETEspeceListe.length; c++) {
+                                if (CapricornusMaleEspeceArray[a][0] == CouleurETEspeceListe[c][0]) {
+                                let rectangle = document.getElementById(`rect${a}`) 
+                                rectangle.style = `fill : ${CouleurETEspeceListe[c][1]}`; 
+                                console.log(CapricornusMaleEspeceArray[a][0],CouleurETEspeceListe[c][0],CouleurETEspeceListe[c][1],rectangle)   
+                                                         
+                            }}
+                } 
             
-            })
+                for (let h = 0; h < CouleurETEspeceListe.length/2; h++) {
+                        canevas.append("rect")
+                            .attr("x", 570)
+                            .attr("y", 490 + 9*h + h*1.5)
+                            .attr("width", 9)
+                            .attr("height", 9)
+                            .style('fill',CouleurETEspeceListe[h][1])
+
+                        canevas.append("text")
+                            .attr("x", 580)
+                            .attr("y", 497 + 9*h + h*1.5)
+                            .text(CouleurETEspeceListe[h][0])
+                            .style("font-size", "10px")                        
+                }
+
+                for (let v = 19; v < CouleurETEspeceListe.length; v++) {
+                        canevas.append("rect")
+                            .attr("x", 630)
+                            .attr("y", 291 + 9*v + v*1.5)
+                            .attr("width", 9)
+                            .attr("height", 9)
+                            .style('fill',CouleurETEspeceListe[v][1])
+
+                        canevas.append("text")
+                            .attr("x", 640)
+                            .attr("y", 299 + 9*v + v*1.5)
+                            .text(CouleurETEspeceListe[v][0])
+                            .style("font-size", "10px")                        
+                }
+                        
+})
+                    
+                    
 
      </script>
 
