@@ -20,7 +20,7 @@
         // pour faire des comete dans le backgroumd hihihi https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/rotate
     let ecran_width = window.innerWidth;
     let ecran_height = window.innerHeight;
-    let milieuX = ecran_width/2
+    let milieuX = ecran_width/2 -275
     let milieuY = ecran_height/2
     let MonEspaceSVG = d3.select("body")
         .append("svg") 
@@ -28,7 +28,7 @@
             .attr("height", ecran_height)    
     let Title = MonEspaceSVG.append('text')
     .attr('id', 'Title')
-    .attr('x', milieuX-100)
+    .attr('x', milieuX +150)
     .attr('y', 60)
     .attr('fill', "white")
     .attr('opacity', "0.5")
@@ -356,6 +356,8 @@ let GenderTexteFemale = MonEspaceSVG
 let GenderTexteMale = MonEspaceSVG  
     .append('text')
     .attr('opacity', "0") 
+
+let BoutonCompte = 0
 let BoutonBoutonGender = document.getElementById('Gender');   
     BoutonBoutonGender.addEventListener("mouseover", BoutonGenderOver);
     BoutonBoutonGender.addEventListener("mouseout", BoutonGenderOut);

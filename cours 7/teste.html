@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cet HTML est une page test. les codes qui s'y trouvent sont soit des tentatives abandonnées, soit des tentatives qui ont été insérées dans le code finale. Ce code est conservé au cas où il serait nécessaire d'y revenir</title>
 </head>
 <body>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/7.4.4/d3.min.js'></script>
     <script>
-                const canevas = d3.select("body").append("svg")
+                const MonEspaceSVG = d3.select("body").append("svg")
                 .attr("width", 1000)
                 .attr("height", 2000);
 
@@ -22,6 +22,7 @@
                 hobbie : d.Hobby,
                 signe : d.Sign,
                 style : d.Style1,
+
             }
 
             }).then(donnees =>{
@@ -66,7 +67,7 @@
                 /*
                 // test pour faire un tableau avec les differente personnalité masi sans prendre en compte le genre et le signe
                 
-                const canevas = d3.select("body").append("svg")
+                const MonEspaceSVG = d3.select("body").append("svg")
                 .attr("width", 960)
                 .attr("height", 500);
 
@@ -86,7 +87,7 @@
 
             
 
-                canevas.selectAll("rect")
+                MonEspaceSVG.selectAll("rect")
                 .data(NombrePersonnaliteEtChiffre)
                 .enter()
                 .append("rect")
@@ -99,37 +100,53 @@
 
                 
 
-                canevas.append("g")
+                MonEspaceSVG.append("g")
                     .attr("transform", 'translate(200,350)')
                     .call(d3.axisBottom(x));
                     
-                canevas.append("g")
+                MonEspaceSVG.append("g")
                     .attr("transform", 'translate(200,50)')
                     .call(d3.axisLeft(y));
                 */    
-            // MEME CHOSE MAIS AVEC UN TRI PAR SEXE _ SIGNE _ pour toutes les PERSONNALITES
+
                 
-                const Signe = d3.group(donnees, d => d.signe, d=> d.genre, d => d.personnalite )
+                // const jamais utilisées, archives de tentatives despepérées
                 const CapricornusMale = d3.groups(donnees, d => d.signe, d=> d.genre, d => d.personnalite )
 
-                const CapricornusMalePersonnalite = Signe.get("Capricornus").get("Male")
-                const CapricornusMalePersonnaliteArray = Array.from(CapricornusMalePersonnalite) 
+                const SigneGenre = d3.group(donnees, (d) => d.signe, (d) => d.genre)
+                let MaleCompte = SigneGenre.get("Capricornus").get("Male").length
+                let FemaleCompte = SigneGenre.get("Capricornus").get("Female").length
 
-                const CapricornusFemalePersonnalite = Signe.get("Capricornus").get("Female")
-                const CapricornusFemalePersonnaliteArray = Array.from(CapricornusFemalePersonnalite) 
 
-                // en fonction des données 
-                CapricornusMalePersonnaliteArray.push(["Big Sister", []],["Peppy", []],["Normal", []],["Snooty", []])
-                CapricornusFemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
-                CapricornusMalePersonnaliteArray.sort(d3.ascending)
-                CapricornusFemalePersonnaliteArray.sort(d3.ascending) 
 
-                const chiffreSigne = [1,2,3,4,5,6,7,8]
-                const CapricornusMalePersonnaliteArrayEtChiffre = d3.zip(CapricornusMalePersonnaliteArray,chiffreSigne)
-                const CapricornusFemalePersonnaliteArrayEtChiffre = d3.zip(CapricornusFemalePersonnaliteArray,chiffreSigne)
+
+
                 //console.log(CapricornusMalePersonnaliteArray, CapricornusFemalePersonnaliteArray)
 
 
+// MEME CHOSE MAIS AVEC UN TRI PAR SEXE _ SIGNE _ pour toutes les PERSONNALITES
+
+                //variables utilisées 
+                const Signe = d3.group(donnees, d => d.signe, d=> d.genre, d => d.personnalite )
+                const chiffreSigne = [1,2,3,4,5,6,7,8]
+                let PlacementXSigne = 650
+                let PlacementYSigne = 250
+                    
+                    //Male
+                    const CapricornusMalePersonnalite = Signe.get("Capricornus").get("Male")
+                    const CapricornusMalePersonnaliteArray = Array.from(CapricornusMalePersonnalite) 
+                    CapricornusMalePersonnaliteArray.push(["Big Sister", []],["Peppy", []],["Normal", []],["Snooty", []])
+                    CapricornusMalePersonnaliteArray.sort(d3.ascending)
+                    const CapricornusMalePersonnaliteArrayEtChiffre = d3.zip(CapricornusMalePersonnaliteArray,chiffreSigne)
+
+                    //Female
+                    const CapricornusFemalePersonnalite = Signe.get("Capricornus").get("Female")
+                    const CapricornusFemalePersonnaliteArray = Array.from(CapricornusFemalePersonnalite) 
+                    CapricornusFemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
+                    CapricornusFemalePersonnaliteArray.sort(d3.ascending) 
+                    const CapricornusFemalePersonnaliteArrayEtChiffre = d3.zip(CapricornusFemalePersonnaliteArray,chiffreSigne)
+
+                //les Axes
                 const xSigne = d3.scaleBand()
                 .domain(["Big Sister", "Cranky", "Jock", "Lazy",  "Normal", "Peppy", "Smug", "Snooty"])
                 .range([0, 350])
@@ -138,20 +155,21 @@
                 .domain([0, 10])
                 .range([300, 150]);
 
-                canevas.append("g")
-                    .attr("transform", 'translate(200,250)')
+                MonEspaceSVG.append("g")
+                    .attr("transform", `translate(${PlacementXSigne},${PlacementYSigne})`)
                     .call(d3.axisBottom(xSigne));
                     
-                canevas.append("g")
-                    .attr("transform", 'translate(200,-50)')
+                MonEspaceSVG.append("g")
+                    .attr("transform", `translate(${PlacementXSigne},${PlacementYSigne-300})`)
                     .call(d3.axisLeft(ySign));
                 
-                canevas.selectAll("rect")
+                //les barres 
+                MonEspaceSVG.selectAll("rect")
                 .data(CapricornusFemalePersonnaliteArrayEtChiffre)
                 .enter()
                 .append("rect")
-                    .attr("x", d => 200 -xSigne.bandwidth() + d[1]*xSigne.bandwidth() + xSigne.bandwidth()/2)
-                    .attr("y", d => 250 - ySign(20- d[0][1].length))
+                    .attr("x", d => PlacementXSigne -xSigne.bandwidth() + d[1]*xSigne.bandwidth() + xSigne.bandwidth()/2)
+                    .attr("y", d => PlacementYSigne - ySign(20- d[0][1].length))
                     .attr("width", xSigne.bandwidth()/2)
                     .attr("height", d => ySign(20 - d[0][1].length))
                     .style('fill','pink')
@@ -160,35 +178,36 @@
                 .data(CapricornusMalePersonnaliteArrayEtChiffre)
                 .enter()
                 .append("rect")
-                    .attr("x", d => 200 -xSigne.bandwidth() + d[1]*xSigne.bandwidth())
-                    .attr("y", d => 250 - ySign(20- d[0][1].length))
+                    .attr("x", d => PlacementXSigne -xSigne.bandwidth() + d[1]*xSigne.bandwidth())
+                    .attr("y", d => PlacementYSigne - ySign(20- d[0][1].length))
                     .attr("width", xSigne.bandwidth()/2)
                     .attr("height", d => ySign(20 - d[0][1].length))
                     .style('fill','LightSkyBlue')
                     .style('stroke','RoyalBlue')
                 
-            // MEME CHOSE MAIS AVEC UN TRI PAR SEXE _ SIGNE _ TOUS les Hobby 
-                
+// MEME CHOSE MAIS AVEC UN TRI PAR SEXE _ SIGNE _ TOUS les Hobby 
+
+                 //variables utilisées 
                 const Hobby = d3.group(donnees, d => d.signe, d=> d.genre, d => d.hobbie )
-                
-                const CapricornusMaleHobbies = Hobby.get("Capricornus").get("Male")
-                const CapricornusMaleHobbiesArray = Array.from(CapricornusMaleHobbies)
-
-                const CapricornusFemaleHobbies = Hobby.get("Capricornus").get("Female")
-                const CapricornusFemaleHobbiesArray = Array.from(CapricornusFemaleHobbies)
-
-                // en fonction des données 
-                CapricornusMaleHobbiesArray.push(["Fashion", []])
-                CapricornusFemaleHobbiesArray.push(["Fitness", []])
-                CapricornusMaleHobbiesArray.sort(d3.ascending)
-                CapricornusFemaleHobbiesArray.sort(d3.ascending) 
-                
-
                 const chiffreHobbies = [1,2,3,4,5,6,7,8]
-                const CapricornusMaleHobbiesArrayEtChiffre = d3.zip(CapricornusMaleHobbiesArray,chiffreHobbies)
-                const CapricornusFemaleHobbiesArrayEtChiffre = d3.zip(CapricornusFemaleHobbiesArray,chiffreHobbies)
-                //console.log(CapricornusFemaleHobbiesArray,CapricornusMaleHobbiesArray )
-            
+                let PlacementXHobby = 650
+                let PlacementYHobby = 450
+
+                    //Male
+                    const CapricornusMaleHobbies = Hobby.get("Capricornus").get("Male")
+                    const CapricornusMaleHobbiesArray = Array.from(CapricornusMaleHobbies)
+                    CapricornusMaleHobbiesArray.push(["Fashion", []])             
+                    CapricornusMaleHobbiesArray.sort(d3.ascending)
+                    const CapricornusMaleHobbiesArrayEtChiffre = d3.zip(CapricornusMaleHobbiesArray,chiffreHobbies)
+
+                    //Female
+                    const CapricornusFemaleHobbies = Hobby.get("Capricornus").get("Female")
+                    const CapricornusFemaleHobbiesArray = Array.from(CapricornusFemaleHobbies)
+                    CapricornusFemaleHobbiesArray.push(["Fitness", []])
+                    CapricornusFemaleHobbiesArray.sort(d3.ascending) 
+                    const CapricornusFemaleHobbiesArrayEtChiffre = d3.zip(CapricornusFemaleHobbiesArray,chiffreHobbies)
+                
+                // Les axes
                  const xHobby = d3.scaleBand()
                  .domain(["Education", "Fashion","Fitness",  "Music", "Nature", "Play"])
                  .range([0, 350])
@@ -197,21 +216,22 @@
                  .domain([0, 10])
                  .range([300, 150]);
  
-                 canevas.append("g")
-                     .attr("transform", 'translate(200,450)')
+                 MonEspaceSVG.append("g")
+                     .attr("transform", `translate(${PlacementXHobby},${PlacementYHobby})`)
                      .call(d3.axisBottom(xHobby));
                      
-                 canevas.append("g")
-                     .attr("transform", 'translate(200,150)')
+                 MonEspaceSVG.append("g")
+                     .attr("transform", `translate(${PlacementXHobby},${PlacementYHobby - 300})`)
                      .call(d3.axisLeft(yHobby));
- 
-                 canevas.selectAll("rect")
+                
+                // les barres
+                 MonEspaceSVG.selectAll("rect")
                  .exit()
                  .data(CapricornusFemaleHobbiesArrayEtChiffre)
                  .enter()
                  .append("rect")
-                     .attr("x", d => 200 - xHobby.bandwidth() + d[1]*xHobby.bandwidth()+ xHobby.bandwidth()/2)
-                     .attr("y", d => 450 - yHobby(20- d[0][1].length))
+                     .attr("x", d => PlacementXHobby - xHobby.bandwidth() + d[1]*xHobby.bandwidth()+ xHobby.bandwidth()/2)
+                     .attr("y", d => PlacementYHobby - yHobby(20- d[0][1].length))
                      .attr("width", xHobby.bandwidth()/2)
                      .attr("height", d => yHobby(20 - d[0][1].length))
                      .style('fill','pink')
@@ -220,12 +240,137 @@
                 .data(CapricornusMaleHobbiesArrayEtChiffre)
                 .enter()
                 .append("rect")
-                    .attr("x", d => 200 -xHobby.bandwidth() + d[1]*xHobby.bandwidth())
-                    .attr("y", d => 450 - yHobby(20- d[0][1].length))
+                    .attr("x", d => PlacementXHobby -xHobby.bandwidth() + d[1]*xHobby.bandwidth())
+                    .attr("y", d => PlacementYHobby - yHobby(20- d[0][1].length))
                     .attr("width", xHobby.bandwidth()/2)
                     .attr("height", d => yHobby(20 - d[0][1].length))
                     .style('fill','LightSkyBlue')
                     .style('stroke','RoyalBlue');
+
+
+// DIAGRAMME EN BARRES AVEC LES ESPECE _ LE GENRE _ LE SIGNE 
+
+                //variables utilisées 
+                const Espece = d3.group(donnees, d => d.signe, d=> d.genre, d => d.espece)
+                let PlacementXEspece = 650
+                let PlacementYEspece = 350
+
+                    //Male
+
+                    const CapricornusMaleEspece = Espece.get("Capricornus").get("Male")
+                    const CapricornusMaleEspeceArray = Array.from(CapricornusMaleEspece)
+                    CapricornusMaleEspeceArray.sort(d3.ascending)
+
+                    //Female
+                    const CapricornusFemaleEspece = Espece.get("Capricornus").get("Female")
+                    const CapricornusFemaleEspecesArray = Array.from(CapricornusFemaleEspece)
+                    CapricornusFemaleEspecesArray.sort(d3.ascending) 
+                                            
+                    //couleurs associées à une espèce
+                    Couleur = [ '#E74C3C', '#3498DB', '#9B59B6', '#2980B9', '#16A085',
+                    '#8E44AD', '#D35400', '#C0392B', '#FF00FF', '#D2B4DE',
+                    '#E67E22', '#2C3E50', '#FF5733', '#D98880', '#FFC300',
+                    '#AED6F1', '#C39BD3', '#F1948A', '#CB4335', '#FAD02E',
+                    '#AF7AC5', '#FF1493', '#FF69B4', '#DFFF00', '#FF4500',
+                    '#8A2BE2', '#FF6347', '#B22222', '#FFA07A', '#F5B041',
+                    '#FFD700', '#20B2AA', '#FF1493', '#FFC0CB']
+                    const EEspece = d3.groups(donnees, d => d.espece)
+                    let EspeceListe = []
+                    for (let i = 0; i < EEspece.length; i++) {
+                        EspeceListe.push(EEspece[i].shift())
+                    }
+                    CouleurETEspeceListe = d3.zip(EspeceListe,Couleur)
+
+                // Les axes
+                const yEspece = d3.scaleBand()
+                    .domain(["Female", "Male"])
+                    .range([300, 150]) 
+
+                const xEspece= d3.scaleLinear()
+                    .domain([0,20])
+                    .range([0, 350]) 
+
+                MonEspaceSVG.append("g")
+                    .attr("transform", `translate(${PlacementXEspece},${PlacementYEspece})`)
+                    .call(d3.axisLeft(yEspece));  
+
+                MonEspaceSVG.append("g")
+                    .attr("transform", `translate(${PlacementXEspece},${PlacementYEspece+300})`)
+                    .call(d3.axisBottom(xEspece));
+                
+                // Les barres    
+                let AvanceFemale = 0
+                for (let i = 0; i < CapricornusFemaleEspecesArray.length; i++) {
+                        MonEspaceSVG.append("rect")
+                            .attr("id", "rectfl" + i)
+                            .attr("x", PlacementXEspece + AvanceFemale  + 0.5*i)
+                            .attr("y", PlacementYEspece+250)
+                            .attr("width", CapricornusFemaleEspecesArray[i][1].length*17)
+                            .attr("height", 30)
+                            .style('fill',"pink")
+
+                        AvanceFemale += CapricornusFemaleEspecesArray[i][1].length*17                        
+                            for (let j = 0; j < CouleurETEspeceListe.length; j++) {
+                                if (CapricornusFemaleEspecesArray[i][0] == CouleurETEspeceListe[j][0]) {
+                                let rectanglefe = document.getElementById(`rectfl${i}`) 
+                                rectanglefe.style = `fill : ${CouleurETEspeceListe[j][1]}`;
+                                console.log(CapricornusFemaleEspecesArray[i][0],CouleurETEspeceListe[j][0],CouleurETEspeceListe[j][1],rectanglefe)  
+                            }}
+                }    
+                      
+                let AvanceMale = 0
+                for (let a = 0; a < CapricornusMaleEspeceArray.length; a++) {
+                        MonEspaceSVG.append("rect")
+                            .attr("id", "rect" + a)
+                            .attr("x", PlacementXEspece + AvanceMale  + 0.5*a)
+                            .attr("y", PlacementYEspece + 170)
+                            .attr("width", CapricornusMaleEspeceArray[a][1].length*17)
+                            .attr("height", 30)
+                            .style('fill',"pink")
+
+                        AvanceMale += CapricornusMaleEspeceArray[a][1].length*17 
+                            for (let c = 0; c < CouleurETEspeceListe.length; c++) {
+                                if (CapricornusMaleEspeceArray[a][0] == CouleurETEspeceListe[c][0]) {
+                                let rectangle = document.getElementById(`rect${a}`) 
+                                rectangle.style = `fill : ${CouleurETEspeceListe[c][1]}`; 
+                                console.log(CapricornusMaleEspeceArray[a][0],CouleurETEspeceListe[c][0],CouleurETEspeceListe[c][1],rectangle)   
+                                                         
+                            }}
+                } 
+
+                // Les labels
+                for (let h = 0; h < CouleurETEspeceListe.length/2; h++) {
+                        MonEspaceSVG.append("rect")
+                            .attr("x", PlacementXEspece )
+                            .attr("y", PlacementYEspece +350 + 9*h + h*1.5)
+                            .attr("width", 9)
+                            .attr("height", 9)
+                            .style('fill',CouleurETEspeceListe[h][1])
+
+                        MonEspaceSVG.append("text")
+                            .attr("x", PlacementXEspece + 10)
+                            .attr("y", PlacementYEspece + 358 + 9*h + h*1.5)
+                            .text(CouleurETEspeceListe[h][0])
+                            .style("font-size", "10px")  
+                            .attr('font-family', "AnimalCrossing")                      
+                }
+
+                for (let v = 19; v < CouleurETEspeceListe.length; v++) {
+                        MonEspaceSVG.append("rect")
+                            .attr("x", PlacementXEspece + 70)
+                            .attr("y", PlacementYEspece +150 + 9*v + v*1.5)
+                            .attr("width", 9)
+                            .attr("height", 9)
+                            .style('fill',CouleurETEspeceListe[v][1])
+
+                        MonEspaceSVG.append("text")
+                            .attr("x",  PlacementXEspece + 80)
+                            .attr("y", PlacementYEspece +157 + 9*v + v*1.5)
+                            .text(CouleurETEspeceListe[v][0])
+                            .style("font-size", "10px")  
+                            .style('font-family', "sans-serif")                      
+                }
+})
  
             //diagramme en barre des ESPECE par SIGNE et par GENRE : Graphe abandooné  
             /*
@@ -285,7 +430,7 @@
                     .range([0, 350])
                     .padding(0.1);
                 
-                canevas.selectAll(".bar")
+                MonEspaceSVG.selectAll(".bar")
                     .data(stackedData)
                     .enter().append("g")
                     .attr("fill", d => Couleur(d.key))
@@ -298,47 +443,15 @@
                     .attr("width", xEspece.bandwidth());
                     
  
-                canevas.append("g")
+                MonEspaceSVG.append("g")
                     .attr("transform", 'translate(200,350)')
                     .call(d3.axisLeft(yEspece));
                      
-                canevas.append("g")
+                MonEspaceSVG.append("g")
                     .attr("transform", 'translate(200,850)')
                     .call(d3.axisBottom(xEspece));
                 */    
             // on va essayer un camembert 
-                
-                const Espece = d3.group(donnees, d => d.signe, d=> d.genre, d => d.espece)
-                const SigneGenre = d3.group(donnees, (d) => d.signe, (d) => d.genre)
-                let MaleCompte = SigneGenre.get("Capricornus").get("Male").length
-                let FemaleCompte = SigneGenre.get("Capricornus").get("Female").length
-
-                const CapricornusMaleEspece = Espece.get("Capricornus").get("Male")
-                const CapricornusMaleEspeceArray = Array.from(CapricornusMaleEspece)
-
-                const CapricornusFemaleEspece = Espece.get("Capricornus").get("Female")
-                const CapricornusFemaleEspecesArray = Array.from(CapricornusFemaleEspece)
-
-                
-                CapricornusMaleEspeceArray.sort(d3.ascending)
-                CapricornusFemaleEspecesArray.sort(d3.ascending) 
-                //console.log(CapricornusMaleEspeceArray,CapricornusFemaleEspecesArray)
-                
-                Couleur = [ '#E74C3C', '#3498DB', '#9B59B6', '#2980B9', '#16A085',
-                    '#8E44AD', '#D35400', '#C0392B', '#FF00FF', '#D2B4DE',
-                    '#E67E22', '#2C3E50', '#FF5733', '#D98880', '#FFC300',
-                    '#AED6F1', '#C39BD3', '#F1948A', '#CB4335', '#FAD02E',
-                    '#AF7AC5', '#FF1493', '#FF69B4', '#DFFF00', '#FF4500',
-                    '#8A2BE2', '#FF6347', '#B22222', '#FFA07A', '#F5B041',
-                    '#FFD700', '#20B2AA', '#FF1493', '#FFC0CB']
-                const EEspece = d3.groups(donnees, d => d.espece)
-                let EspeceListe = []
-                for (let i = 0; i < EEspece.length; i++) {
-                    EspeceListe.push(EEspece[i].shift())
-                }
-
-                CouleurETEspeceListe = d3.zip(EspeceListe,Couleur)
-                console.log(CouleurETEspeceListe)
 /*
                 const color = d3.scaleOrdinal()
                 .domain(EspeceListe)
@@ -355,7 +468,7 @@
                 const pieDataMale = pie(CapricornusMaleEspeceArray);
 
                 // Ajoutez des arcs pour chaque segment du camembert
-                canevas.selectAll("arc")
+                MonEspaceSVG.selectAll("arc")
                     .data(pieDataMale)
                     .enter()
                     .append("path")
@@ -368,7 +481,7 @@
                 const pieDataFemale = pie(CapricornusFemaleEspecesArray);
 
                 console.log(pieDataMale,pieDataFemale,CapricornusFemaleEspecesArray,CapricornusFemaleEspece,Espece)
-                canevas.selectAll("arc")
+                MonEspaceSVG.selectAll("arc")
                     .data(pieDataFemale)
                     .enter()
                     .append("path")
@@ -378,7 +491,7 @@
                     .attr("stroke-width", 1)
                     .attr("transform", "translate(650,700)")
 
-                    const labelsMale = canevas.selectAll(".label-male")
+                    const labelsMale = MonEspaceSVG.selectAll(".label-male")
                     .data(pieDataMale)
                     .enter()
                     .append("text")
@@ -388,7 +501,7 @@
                     .style("font-size", "12px"); 
 
                     
-                    const labelsFemale = canevas.selectAll(".label-female")
+                    const labelsFemale = MonEspaceSVG.selectAll(".label-female")
                     .data(pieDataFemale)
                     .enter()
                     .append("text")
@@ -398,94 +511,6 @@
                     .style("font-size", "12px")
 
                     */
-                // diagramme en barre
-
-                const yEspece = d3.scaleBand()
-                    .domain(["Female", "Male"])
-                    .range([300, 150]) 
-                const xEspece= d3.scaleLinear()
-                    .domain([0,20])
-                    .range([0, 350])                
-                canevas.append("g")
-                    .attr("transform", 'translate(200,350)')
-                    .call(d3.axisLeft(yEspece));                    
-                canevas.append("g")
-                    .attr("transform", 'translate(200,650)')
-                    .call(d3.axisBottom(xEspece));
-                
-                let AvanceFemale = 0
-                for (let i = 0; i < CapricornusFemaleEspecesArray.length; i++) {
-                        canevas.append("rect")
-                            .attr("id", "rectfl" + i)
-                            .attr("x", 200 + AvanceFemale  + 0.5*i)
-                            .attr("y", 600)
-                            .attr("width", CapricornusFemaleEspecesArray[i][1].length*17)
-                            .attr("height", 30)
-                            .style('fill',"pink")
-
-                        AvanceFemale += CapricornusFemaleEspecesArray[i][1].length*17                        
-                            for (let j = 0; j < CouleurETEspeceListe.length; j++) {
-                                if (CapricornusFemaleEspecesArray[i][0] == CouleurETEspeceListe[j][0]) {
-                                let rectanglefe = document.getElementById(`rectfl${i}`) 
-                                rectanglefe.style = `fill : ${CouleurETEspeceListe[j][1]}`;
-                                console.log(CapricornusFemaleEspecesArray[i][0],CouleurETEspeceListe[j][0],CouleurETEspeceListe[j][1],rectanglefe)  
-                            }}
-                }    
-                      
-                let AvanceMale = 0
-                for (let a = 0; a < CapricornusMaleEspeceArray.length; a++) {
-                        canevas.append("rect")
-                            .attr("id", "rect" + a)
-                            .attr("x", 200 + AvanceMale  + 0.5*a)
-                            .attr("y", 520)
-                            .attr("width", CapricornusMaleEspeceArray[a][1].length*17)
-                            .attr("height", 30)
-                            .style('fill',"pink")
-
-                        AvanceMale += CapricornusMaleEspeceArray[a][1].length*17 
-                            for (let c = 0; c < CouleurETEspeceListe.length; c++) {
-                                if (CapricornusMaleEspeceArray[a][0] == CouleurETEspeceListe[c][0]) {
-                                let rectangle = document.getElementById(`rect${a}`) 
-                                rectangle.style = `fill : ${CouleurETEspeceListe[c][1]}`; 
-                                console.log(CapricornusMaleEspeceArray[a][0],CouleurETEspeceListe[c][0],CouleurETEspeceListe[c][1],rectangle)   
-                                                         
-                            }}
-                } 
-            
-                for (let h = 0; h < CouleurETEspeceListe.length/2; h++) {
-                        canevas.append("rect")
-                            .attr("x", 570)
-                            .attr("y", 490 + 9*h + h*1.5)
-                            .attr("width", 9)
-                            .attr("height", 9)
-                            .style('fill',CouleurETEspeceListe[h][1])
-
-                        canevas.append("text")
-                            .attr("x", 580)
-                            .attr("y", 497 + 9*h + h*1.5)
-                            .text(CouleurETEspeceListe[h][0])
-                            .style("font-size", "10px")                        
-                }
-
-                for (let v = 19; v < CouleurETEspeceListe.length; v++) {
-                        canevas.append("rect")
-                            .attr("x", 630)
-                            .attr("y", 291 + 9*v + v*1.5)
-                            .attr("width", 9)
-                            .attr("height", 9)
-                            .style('fill',CouleurETEspeceListe[v][1])
-
-                        canevas.append("text")
-                            .attr("x", 640)
-                            .attr("y", 299 + 9*v + v*1.5)
-                            .text(CouleurETEspeceListe[v][0])
-                            .style("font-size", "10px")                        
-                }
-                        
-})
-                    
-                    
-
      </script>
 
             
