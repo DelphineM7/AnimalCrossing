@@ -165,8 +165,7 @@ function BoutonGenderOut(){
             
 
     } else if (QuelMoisSommesNous == 2){
-
-    //transition sur les étoiles
+        
         etoile_jaune.transition()
             .duration(1000) 
             .attr('height', 50 )
