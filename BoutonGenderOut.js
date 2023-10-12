@@ -10,41 +10,8 @@ function BoutonGenderOut(){
         .duration(1000)    
         .attr('opacity', "0")
 
-    if (QuelMoisSommesNous == 1) {
-            
-        etoile_jaune.transition()
-            .duration(1000) 
-            .attr('height', 50 )
-            .attr('width', 50)
-            .attr('x', milieuX+90 )
-            .attr('y', milieuY+190 ) 
-                
-        etoile_bleu.transition()
-            .duration(1000) 
-            .attr('height', 50 )
-            .attr('width', 50 )
-            .attr('x', milieuX+60 )
-            .attr('y', milieuY-190 )          
-                
-    } else if (QuelMoisSommesNous == 2){
-
-    //transition sur les étoiles
-        etoile_jaune.transition()
-            .duration(1000) 
-            .attr('height', 50 )
-            .attr('width', 50 )
-            .attr('x', milieuX+90 )
-            .attr('y', milieuY+190)             
-
-        etoile_bleu.transition()
-            .duration(1000) 
-            .attr('height', 50)
-            .attr('width', 50)
-            .attr('x', milieuX-40)
-            .attr('y', milieuY-190) 
-
     //disparition des tableaux
-        //diagramme en barres Constelation - Genre - Personnalite
+    //diagramme en barres Constelation - Genre - Hobby
         let FondBlancHobby =  d3.select('#FondBlancHobby')
         FondBlancHobby
         .transition()
@@ -79,7 +46,7 @@ function BoutonGenderOut(){
             .remove() 
         }   
 
-        //diagramme en barres Constelation - Genre - Hobby  
+    //diagramme en barres Constelation - Genre - Personnalite  
         let FondBlancSign =  d3.select('#FondBlancSign')
         FondBlancSign
         .transition()
@@ -114,7 +81,7 @@ function BoutonGenderOut(){
             .remove() 
         }
 
-        //diagramme en barres Constelation - Genre - Espece
+    //diagramme en barres Constelation - Genre - Espece
         let FondBlancEspece =  d3.select('#FondBlancEspece')
         FondBlancEspece
         .transition()
@@ -179,6 +146,40 @@ function BoutonGenderOut(){
             .attr("opacity", 0)
             .remove()
         }
+
+    if (QuelMoisSommesNous == 1) {
+            
+        etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50)
+            .attr('x', milieuX+90 )
+            .attr('y', milieuY+190 ) 
+                
+        etoile_bleu.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+60 )
+            .attr('y', milieuY-190 ) 
+            
+
+    } else if (QuelMoisSommesNous == 2){
+
+    //transition sur les étoiles
+        etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+90 )
+            .attr('y', milieuY+190)             
+
+        etoile_bleu.transition()
+            .duration(1000) 
+            .attr('height', 50)
+            .attr('width', 50)
+            .attr('x', milieuX-40)
+            .attr('y', milieuY-190) 
 
     } else if(QuelMoisSommesNous == 3){ 
 

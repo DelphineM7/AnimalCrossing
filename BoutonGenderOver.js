@@ -1,6 +1,5 @@
 function BoutonGenderOver(){
-        BoutonCompte += 1
-        console.log(BoutonCompte)
+        
     d3.csv('villagers.csv',function(d){
         return {
         nom : d.Name,
@@ -13,7 +12,29 @@ function BoutonGenderOver(){
     }
 
     }).then(donnees =>{ 
-        const SigneGenre = d3.group(donnees, (d) => d.signe, (d) => d.genre)
+        
+        //variables utilisées pour les diagrammes en barre
+                const SigneGenre = d3.group(donnees, (d) => d.signe, (d) => d.genre)
+
+                // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                const Hobby = d3.group(donnees, d => d.signe, d=> d.genre, d => d.hobbie )
+                const chiffreHobbies = [1,2,3,4,5,6,7,8]
+                let PlacementXHobby = 1200
+                let PlacementYHobby = 350
+
+                //Male
+                let MaleHobbies = Hobby.get("Sagittarius").get("Male")
+                let MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion", []])             
+                MaleHobbiesArray.sort(d3.ascending)
+                let MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                  
+                //Female
+                let FemaleHobbies = Hobby.get("Sagittarius").get("Female")
+                let FemaleHobbiesArray = Array.from(FemaleHobbies)
+                FemaleHobbiesArray.sort(d3.ascending) 
+                let FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+
         if (QuelMoisSommesNous == 1) {
             let MaleCompte = SigneGenre.get("Sagittarius").get("Male").length
             let FemaleCompte = SigneGenre.get("Sagittarius").get("Female").length
@@ -55,6 +76,23 @@ function BoutonGenderOver(){
                     .transition() 
                     .duration(1000)
                     .attr('opacity', "0.5") 
+
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Sagittarius").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion", []])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                console.log(MaleHobbiesArray)
+
+                //Female
+                FemaleHobbies = Hobby.get("Sagittarius").get("Female")
+                FemaleHobbiesArray = Array.from(FemaleHobbies)
+                FemaleHobbiesArray.sort(d3.ascending) 
+                FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+                console.log(FemaleHobbiesArray)
+
         } else if(QuelMoisSommesNous == 2){
 
         //changement des étoiles en fonction des données Genre
@@ -99,108 +137,21 @@ function BoutonGenderOver(){
                     .duration(1000)
                     .attr('opacity', "0.5")
 
-        // apparition des diagrammes en barre
-        // Diagramme en barre selon :  SIGNE - SEXE - HOBBY
-
-                 //variables utilisées 
-                 const Hobby = d3.group(donnees, d => d.signe, d=> d.genre, d => d.hobbie )
-                 const chiffreHobbies = [1,2,3,4,5,6,7,8]
-                 let PlacementXHobby = 1200
-                 let PlacementYHobby = 350
- 
-                     //Male
-                     const CapricornusMaleHobbies = Hobby.get("Capricornus").get("Male")
-                     const CapricornusMaleHobbiesArray = Array.from(CapricornusMaleHobbies)
-                     CapricornusMaleHobbiesArray.push(["Fashion", []])             
-                     CapricornusMaleHobbiesArray.sort(d3.ascending)
-                     const CapricornusMaleHobbiesArrayEtChiffre = d3.zip(CapricornusMaleHobbiesArray,chiffreHobbies)
- 
-                     //Female
-                     const CapricornusFemaleHobbies = Hobby.get("Capricornus").get("Female")
-                     const CapricornusFemaleHobbiesArray = Array.from(CapricornusFemaleHobbies)
-                     CapricornusFemaleHobbiesArray.push(["Fitness", []])
-                     CapricornusFemaleHobbiesArray.sort(d3.ascending) 
-                     const CapricornusFemaleHobbiesArrayEtChiffre = d3.zip(CapricornusFemaleHobbiesArray,chiffreHobbies)
-                              
-                //fond blanc
-                MonEspaceSVG.append("rect")
-                .attr("id", "FondBlancHobby")
-                .attr("x", PlacementXHobby-45)
-                .attr("y", PlacementYHobby-170)
-                .attr("width", 430)
-                .attr("height", 200)
-                .transition()
-                .duration(1000) 
-                .style('fill','white')
-                .style('stroke','#4B4B6E')
-                .style('stroke-width','3')
-                .attr("rx", 8)
-                .attr("ry", 8)
-                .attr("opacity", 0.8)
-                
-
-                 // Les axes
-                  const xHobby = d3.scaleBand()
-                  .domain(["Education", "Fashion","Fitness",  "Music", "Nature", "Play"])
-                  .range([0, 350])
-  
-                  const yHobby = d3.scaleLinear()
-                  .domain([0, 10])
-                  .range([300, 150]);
-  
-                  MonEspaceSVG.append("g") 
-                        .attr("id", "AxeXHobby")
-                      .attr("transform", `translate(${PlacementXHobby},${PlacementYHobby})`)
-                      .call(d3.axisBottom(xHobby))
-                      .attr('font-family', "AnimalCrossing")
-                      .attr("opacity", 0) 
-                      .transition()
-                        .duration(1000) 
-                        .attr("opacity",1)       
-
-                  MonEspaceSVG.append("g") 
-                        .attr("id", "AxeYHobby")
-                      .attr("transform", `translate(${PlacementXHobby},${PlacementYHobby - 300})`)
-                      .call(d3.axisLeft(yHobby))
-                      .attr('font-family', "AnimalCrossing") 
-                      .attr("opacity", 0) 
-                      .transition()
-                      .duration(1000) 
-                      .attr("opacity",1)
-                     
-                 // les barres
-                  MonEspaceSVG.selectAll("rect")
-                  .exit()
-                  .data(CapricornusFemaleHobbiesArrayEtChiffre)
-                  .enter()
-                  .append("rect")
-                        .attr("id", d => `rectFemHobby${d[1]}`)
-                      .attr("x", d => PlacementXHobby - xHobby.bandwidth() + d[1]*xHobby.bandwidth()+ xHobby.bandwidth()/2)
-                      .attr("y", d => PlacementYHobby - yHobby(20- d[0][1].length))
-                      .attr("width", xHobby.bandwidth()/2)
-                      .attr("height", d => yHobby(20 - d[0][1].length))
-                      .transition()
-                      .duration(1000) 
-                      .style('fill','#57ebff')
-                      .attr("opacity", 0.8)
-                      //.style('stroke','#57ebff')
-                
-                MonEspaceSVG.selectAll("rect")
-                 .exit()
-                 .data(CapricornusMaleHobbiesArrayEtChiffre)
-                 .enter()
-                 .append("rect")
-                        .attr("id", d => `rectMalHobby${d[1]}`)
-                     .attr("x", d => PlacementXHobby -xHobby.bandwidth() + d[1]*xHobby.bandwidth())
-                     .attr("y", d => PlacementYHobby - yHobby(20- d[0][1].length))
-                     .attr("width", xHobby.bandwidth()/2)
-                     .attr("height", d => yHobby(20 - d[0][1].length))
-                     .transition()
-                     .duration(1000) 
-                     .style('fill','#ffe75c')
-                     .attr("opacity", 0.8)
-                     //.style('stroke','#ffe75c');
-                
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Capricornus").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion", []])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                 
+                //Female
+                let FemaleHobbies = Hobby.get("Capricornus").get("Female")
+                let FemaleHobbiesArray = Array.from(FemaleHobbies)
+                FemaleHobbiesArray.push(["Fitness", []])
+                FemaleHobbiesArray.sort(d3.ascending) 
+                let FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+       
         // Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITES
 
                 //variables utilisées 
@@ -510,7 +461,25 @@ function BoutonGenderOver(){
                     .text(FemaleCompte + " Females")
                     .transition() 
                     .duration(1000)
-                    .attr('opacity', "0.5") 
+                    .attr('opacity', "0.5")
+                    
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Aquarius").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion",[]],["Education",[]],["Music",[]])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                console.log(MaleHobbiesArray)
+
+                //Female
+                FemaleHobbies = Hobby.get("Aquarius").get("Female")
+                FemaleHobbiesArray = Array.from(FemaleHobbies)
+                FemaleHobbiesArray.push(["Fitness",[]])  
+                FemaleHobbiesArray.sort(d3.ascending) 
+                FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+                console.log(FemaleHobbiesArray)
+
         } else if(QuelMoisSommesNous == 4){
             let MaleCompte = SigneGenre.get("Pisces").get("Male").length
             let FemaleCompte = SigneGenre.get("Pisces").get("Female").length
@@ -551,7 +520,24 @@ function BoutonGenderOver(){
                     .text(FemaleCompte + " Females")
                     .transition() 
                     .duration(1000)
-                    .attr('opacity', "0.5")     
+                    .attr('opacity', "0.5")
+
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Pisces").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion",[]])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                console.log(MaleHobbiesArray)
+
+                //Female
+                FemaleHobbies = Hobby.get("Pisces").get("Female")
+                FemaleHobbiesArray = Array.from(FemaleHobbies)
+                FemaleHobbiesArray.push(["Fitness",[]])  
+                FemaleHobbiesArray.sort(d3.ascending) 
+                FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+                console.log(FemaleHobbiesArray)   
 
         } else if(QuelMoisSommesNous == 5){ 
             let MaleCompte = SigneGenre.get("Aries").get("Male").length
@@ -593,7 +579,24 @@ function BoutonGenderOver(){
                     .text(FemaleCompte + " Females")
                     .transition() 
                     .duration(1000)
-                    .attr('opacity', "0.5")   
+                    .attr('opacity', "0.5")  
+                    
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Aries").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion",[]])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                console.log(MaleHobbiesArray)
+
+                //Female
+                FemaleHobbies = Hobby.get("Aries").get("Female")
+                FemaleHobbiesArray = Array.from(FemaleHobbies) 
+                FemaleHobbiesArray.sort(d3.ascending) 
+                FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+                console.log(FemaleHobbiesArray)
+
         } else if(QuelMoisSommesNous == 6){ 
             
             let MaleCompte = SigneGenre.get("Taurus").get("Male").length
@@ -637,6 +640,22 @@ function BoutonGenderOver(){
                     .duration(1000)
                     .attr('opacity', "0.5")
 
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Taurus").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion",[]],["Music",[]])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                console.log(MaleHobbiesArray)
+
+                //Female
+                FemaleHobbies = Hobby.get("Taurus").get("Female")
+                FemaleHobbiesArray = Array.from(FemaleHobbies) 
+                FemaleHobbiesArray.sort(d3.ascending) 
+                FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+                console.log(FemaleHobbiesArray)
+
         } else if(QuelMoisSommesNous == 7){
             let MaleCompte = SigneGenre.get("Gemini").get("Male").length
             let FemaleCompte = SigneGenre.get("Gemini").get("Female").length
@@ -677,7 +696,24 @@ function BoutonGenderOver(){
                     .text(FemaleCompte + " Females")
                     .transition() 
                     .duration(1000)
-                    .attr('opacity', "0.5") 
+                    .attr('opacity', "0.5")
+        
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Gemini").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion",[]])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                console.log(MaleHobbiesArray)
+
+                //Female
+                FemaleHobbies = Hobby.get("Gemini").get("Female")
+                FemaleHobbiesArray = Array.from(FemaleHobbies) 
+                FemaleHobbiesArray.push(["Fitness",[]])  
+                FemaleHobbiesArray.sort(d3.ascending) 
+                FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+                console.log(FemaleHobbiesArray)
 
         } else if(QuelMoisSommesNous == 8){ 
             let MaleCompte = SigneGenre.get("Cancer").get("Male").length
@@ -720,6 +756,22 @@ function BoutonGenderOver(){
                     .transition() 
                     .duration(1000)
                     .attr('opacity', "0.5")
+        
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Cancer").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion",[]])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                console.log(MaleHobbiesArray)
+
+                //Female
+                FemaleHobbies = Hobby.get("Cancer").get("Female")
+                FemaleHobbiesArray = Array.from(FemaleHobbies)   
+                FemaleHobbiesArray.sort(d3.ascending) 
+                FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+                console.log(FemaleHobbiesArray)
 
         } else if(QuelMoisSommesNous == 9){ 
             let MaleCompte = SigneGenre.get("Leo").get("Male").length
@@ -763,6 +815,23 @@ function BoutonGenderOver(){
                     .duration(1000)
                     .attr('opacity', "0.5")
 
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Leo").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion",[]])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                console.log(MaleHobbiesArray)
+
+                //Female
+                FemaleHobbies = Hobby.get("Leo").get("Female")
+                FemaleHobbiesArray = Array.from(FemaleHobbies) 
+                FemaleHobbiesArray.push(["Fitness",[]],["Nature",[]])    
+                FemaleHobbiesArray.sort(d3.ascending) 
+                FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+                console.log(FemaleHobbiesArray)
+
         } else if(QuelMoisSommesNous == 10){
             let MaleCompte = SigneGenre.get("Virgo").get("Male").length
             let FemaleCompte = SigneGenre.get("Virgo").get("Female").length
@@ -804,6 +873,22 @@ function BoutonGenderOver(){
                     .transition() 
                     .duration(1000)
                     .attr('opacity', "0.5")
+
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Virgo").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion",[]])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                console.log(MaleHobbiesArray)
+
+                //Female
+                FemaleHobbies = Hobby.get("Virgo").get("Female")
+                FemaleHobbiesArray = Array.from(FemaleHobbies)   
+                FemaleHobbiesArray.sort(d3.ascending) 
+                FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+                console.log(FemaleHobbiesArray)
 
         } else if(QuelMoisSommesNous == 11){ 
             let MaleCompte = SigneGenre.get("Libra").get("Male").length
@@ -847,6 +932,24 @@ function BoutonGenderOver(){
                     .duration(1000)
                     .attr('opacity', "0.5")
 
+        
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Libra").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion",[]])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                console.log(MaleHobbiesArray)
+
+                //Female
+                FemaleHobbies = Hobby.get("Libra").get("Female")
+                FemaleHobbiesArray = Array.from(FemaleHobbies)
+                FemaleHobbiesArray.push(["Music",[]])    
+                FemaleHobbiesArray.sort(d3.ascending) 
+                FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+                console.log(FemaleHobbiesArray)
+
         } else if(QuelMoisSommesNous == 12){
             let MaleCompte = SigneGenre.get("Scorpio").get("Male").length
             let FemaleCompte = SigneGenre.get("Scorpio").get("Female").length
@@ -887,7 +990,104 @@ function BoutonGenderOver(){
                     .text(FemaleCompte + " Females")
                     .transition() 
                     .duration(1000)
-                    .attr('opacity', "0.5") 
-        }                 
+                    .attr('opacity', "0.5")
+
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+                //Male
+                MaleHobbies = Hobby.get("Scorpio").get("Male")
+                MaleHobbiesArray = Array.from(MaleHobbies)
+                MaleHobbiesArray.push(["Fashion",[]])             
+                MaleHobbiesArray.sort(d3.ascending)
+                MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
+                console.log(MaleHobbiesArray)
+
+                //Female
+                FemaleHobbies = Hobby.get("Scorpio").get("Female")
+                FemaleHobbiesArray = Array.from(FemaleHobbies)
+                FemaleHobbiesArray.push(["Play",[]])    
+                FemaleHobbiesArray.sort(d3.ascending) 
+                FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
+                console.log(FemaleHobbiesArray)
+        }  
+        // apparition des diagrammes en barre
+            // Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+       
+                //fond blanc
+                MonEspaceSVG.append("rect")
+                .attr("id", "FondBlancHobby")
+                .attr("x", PlacementXHobby-45)
+                .attr("y", PlacementYHobby-170)
+                .attr("width", 430)
+                .attr("height", 200)
+                .transition()
+                .duration(1000) 
+                .style('fill','white')
+                .style('stroke','#4B4B6E')
+                .style('stroke-width','3')
+                .attr("rx", 8)
+                .attr("ry", 8)
+                .attr("opacity", 0.8)                
+
+                 // Les axes
+                  const xHobby = d3.scaleBand()
+                  .domain(["Education", "Fashion","Fitness",  "Music", "Nature", "Play"])
+                  .range([0, 350])
+  
+                  const yHobby = d3.scaleLinear()
+                  .domain([0, 10])
+                  .range([300, 150]);
+  
+                  MonEspaceSVG.append("g") 
+                        .attr("id", "AxeXHobby")
+                      .attr("transform", `translate(${PlacementXHobby},${PlacementYHobby})`)
+                      .call(d3.axisBottom(xHobby))
+                      .attr('font-family', "AnimalCrossing")
+                      .attr("opacity", 0) 
+                      .transition()
+                        .duration(1000) 
+                        .attr("opacity",1)       
+
+                  MonEspaceSVG.append("g") 
+                        .attr("id", "AxeYHobby")
+                      .attr("transform", `translate(${PlacementXHobby},${PlacementYHobby - 300})`)
+                      .call(d3.axisLeft(yHobby))
+                      .attr('font-family', "AnimalCrossing") 
+                      .attr("opacity", 0) 
+                      .transition()
+                      .duration(1000) 
+                      .attr("opacity",1)
+                     
+                 // les barres
+                  MonEspaceSVG.selectAll("rect")
+                  .exit()
+                  .data(FemaleHobbiesArrayEtChiffre)
+                  .enter()
+                  .append("rect")
+                        .attr("id", d => `rectFemHobby${d[1]}`)
+                      .attr("x", d => PlacementXHobby - xHobby.bandwidth() + d[1]*xHobby.bandwidth()+ xHobby.bandwidth()/2)
+                      .attr("y", d => PlacementYHobby - yHobby(20- d[0][1].length))
+                      .attr("width", xHobby.bandwidth()/2)
+                      .attr("height", d => yHobby(20 - d[0][1].length))
+                      .transition()
+                      .duration(1000) 
+                      .style('fill','#57ebff')
+                      .attr("opacity", 0.8)
+                      //.style('stroke','#57ebff')
+                
+                MonEspaceSVG.selectAll("rect")
+                 .exit()
+                 .data(MaleHobbiesArrayEtChiffre)
+                 .enter()
+                 .append("rect")
+                        .attr("id", d => `rectMalHobby${d[1]}`)
+                     .attr("x", d => PlacementXHobby -xHobby.bandwidth() + d[1]*xHobby.bandwidth())
+                     .attr("y", d => PlacementYHobby - yHobby(20- d[0][1].length))
+                     .attr("width", xHobby.bandwidth()/2)
+                     .attr("height", d => yHobby(20 - d[0][1].length))
+                     .transition()
+                     .duration(1000) 
+                     .style('fill','#ffe75c')
+                     .attr("opacity", 0.8)
+                     //.style('stroke','#ffe75c');                
     })
 }
