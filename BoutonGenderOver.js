@@ -13,10 +13,10 @@ function BoutonGenderOver(){
 
     }).then(donnees =>{ 
         
-        //variables utilisées pour les diagrammes en barre
+//variables utilisées pour les diagrammes en barre
                 const SigneGenre = d3.group(donnees, (d) => d.signe, (d) => d.genre)
 
-                // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - HOBBY
                 const Hobby = d3.group(donnees, d => d.signe, d=> d.genre, d => d.hobbie )
                 const chiffreHobbies = [1,2,3,4,5,6,7,8]
                 let PlacementXHobby = 1200
@@ -35,7 +35,7 @@ function BoutonGenderOver(){
                 FemaleHobbiesArray.sort(d3.ascending) 
                 let FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
 
-                // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITES
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITES
                 const Signe = d3.group(donnees, d => d.signe, d=> d.genre, d => d.personnalite )
                 const chiffreSigne = [1,2,3,4,5,6,7,8]
                 let PlacementXSigne = 1200
@@ -55,20 +55,16 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 let FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
 
-                //variables pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE 
+        //variables pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE 
                 const Espece = d3.group(donnees, d => d.signe, d=> d.genre, d => d.espece)
                 let PlacementXEspece = 1200
                 let PlacementYEspece = 550
 
                 //Male
                 let MaleEspece = Espece.get("Sagittarius").get("Male")
-                let MaleEspeceArray = Array.from(MaleEspece)
-                MaleEspeceArray.sort(d3.ascending)
 
                 //Female
                 let FemaleEspece = Espece.get("Sagittarius").get("Female")
-                let FemaleEspecesArray = Array.from(FemaleEspece)
-                FemaleEspecesArray.sort(d3.ascending) 
                                         
                 //couleurs associées à une espèce
                 Couleur = [ '#E74C3C', '#3498DB', '#9B59B6', '#2980B9', '#16A085',
@@ -77,14 +73,88 @@ function BoutonGenderOver(){
                 '#AED6F1', '#C39BD3', '#F1948A', '#CB4335', '#FAD02E',
                 '#AF7AC5', '#FF1493', '#FF69B4', '#DFFF00', '#FF4500',
                 '#8A2BE2', '#FF6347', '#B22222', '#FFA07A', '#F5B041',
-                '#FFD700', '#20B2AA', '#FF1493', '#FFC0CB', "#8ADF87"]
+                '#FFD700', '#20B2AA', '#549551', '#FFC0CB', "#8ADF87"]
                 const EEspece = d3.groups(donnees, d => d.espece)
                 let EspeceListe = []
                 for (let i = 0; i < 35; i++) {
                         EspeceListe.push(EEspece[i].shift())
                 }
                 CouleurETEspeceListe = d3.zip(EspeceListe,Couleur)
+            
+                //fond blanc
+                let FondBlanc = MonEspaceSVG.append("rect")
+                .attr("id", "FondBlancEspece")
+                .attr("x", PlacementXEspece-45)
+                .attr("y", PlacementYEspece+135)
+                .attr("width", 550)
+                .attr("height", 200)
+                .transition()
+                .duration(1000) 
+                .style('fill','white')
+                .style('stroke','#4B4B6E')
+                .style('stroke-width','3')
+                .attr("rx", 8)
+                .attr("ry", 8)
+                .attr("opacity", 0.8)
+                
+                // Les axes
+                let yEspece = d3.scaleBand()
+                .domain(["Female", "Male"])
+                .range([300, 150]) 
 
+                let xEspece= d3.scaleLinear()
+                .domain([0,20])
+                .range([0, 350])  
+
+                // Les labels
+                for (let h = 0; h < CouleurETEspeceListe.length/2; h++) {
+                        MonEspaceSVG.append("rect")
+                        .attr("id", "rectlab1" + h)
+                        .attr("x", PlacementXEspece +380)
+                        .attr("y", PlacementYEspece +140 + 9*h + h*1.5)
+                        .attr("width", 9)
+                        .attr("height", 9)
+                        .style('fill',CouleurETEspeceListe[h][1])
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 0.8)
+
+                        MonEspaceSVG.append("text")
+                        .attr("id", "lab1" + h)
+                        .attr("x", PlacementXEspece + 395)
+                        .attr("y", PlacementYEspece + 148 + 9*h + h*1.5)
+                        .attr("opacity", 0) 
+                        .text(CouleurETEspeceListe[h][0])
+                        .style("font-size", "10px")  
+                        .attr('font-family', "AnimalCrossing")    
+                        .transition()
+                        .duration(1000)
+                        .attr("opacity", 1)                             
+                }
+                for (let v = 17; v < CouleurETEspeceListe.length; v++) {
+                        MonEspaceSVG.append("rect")
+                        .attr("id", "rectlab2" + v)
+                        .attr("x", PlacementXEspece + 440)
+                        .attr("y", PlacementYEspece -38 + 9*v + v*1.5)
+                        .attr("width", 9)
+                        .attr("height", 9)
+                        .style('fill',CouleurETEspeceListe[v][1])
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 0.8)
+                        
+                        MonEspaceSVG.append("text")
+                        .attr("id", "lab2" + v)
+                        .attr("x",  PlacementXEspece + 455)
+                        .attr("y", PlacementYEspece -30 + 9*v + v*1.5)
+                        .attr("opacity", 0) 
+                        .text(CouleurETEspeceListe[v][0])
+                        .style("font-size", "10px")
+                        .attr('font-family', "AnimalCrossing")   
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 1)                              
+                }
         if (QuelMoisSommesNous == 1) {
             let MaleCompte = SigneGenre.get("Sagittarius").get("Male").length
             let FemaleCompte = SigneGenre.get("Sagittarius").get("Female").length
@@ -134,14 +204,12 @@ function BoutonGenderOver(){
                 MaleHobbiesArray.push(["Fashion", []])             
                 MaleHobbiesArray.sort(d3.ascending)
                 MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
-                console.log(MaleHobbiesArray)
 
                 //Female
                 FemaleHobbies = Hobby.get("Sagittarius").get("Female")
                 FemaleHobbiesArray = Array.from(FemaleHobbies)
                 FemaleHobbiesArray.sort(d3.ascending) 
                 FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
-                console.log(FemaleHobbiesArray)
         
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITE   
                 //Male
@@ -157,17 +225,14 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Big Sister", []],["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
-                        
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
                 //Male
                 MaleEspece = Espece.get("Sagittarius").get("Male")
 
                 //Female
-                FemaleEspece = Espece.get("Sagittarius").get("Female")
-
-                console.log(FemaleEspecesArray,MaleEspeceArray)      
+                FemaleEspece = Espece.get("Sagittarius").get("Female")                                   
+   
         } else if(QuelMoisSommesNous == 2){
 
         //changement des étoiles en fonction des données Genre
@@ -241,8 +306,6 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
-                
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
                 //Male
@@ -251,7 +314,6 @@ function BoutonGenderOver(){
                 //Female
                 FemaleEspece = Espece.get("Capricornus").get("Female")
 
-                console.log(FemaleEspecesArray,MaleEspeceArray)        
         } else if(QuelMoisSommesNous == 3){
             let MaleCompte = SigneGenre.get("Aquarius").get("Male").length
             let FemaleCompte = SigneGenre.get("Aquarius").get("Female").length
@@ -301,7 +363,6 @@ function BoutonGenderOver(){
                 MaleHobbiesArray.push(["Fashion",[]],["Education",[]],["Music",[]])             
                 MaleHobbiesArray.sort(d3.ascending)
                 MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
-                console.log(MaleHobbiesArray)
 
                 //Female
                 FemaleHobbies = Hobby.get("Aquarius").get("Female")
@@ -309,8 +370,7 @@ function BoutonGenderOver(){
                 FemaleHobbiesArray.push(["Fitness",[]])  
                 FemaleHobbiesArray.sort(d3.ascending) 
                 FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
-                console.log(FemaleHobbiesArray)
-
+                
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITE   
                 //Male
                 MalePersonnalite = Signe.get("Aquarius").get("Male")
@@ -325,8 +385,88 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
-                
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
+
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
+                //Male
+                MaleEspece = Espece.get("Aquarius").get("Male")
+
+                //Female
+                FemaleEspece = Espece.get("Aquarius").get("Female")
+
+                //variation de l'axe X et du fondblanc et des labels
+                xEspece
+                .domain([0,21])
+                .range([0, 362]) 
+
+                FondBlanc
+                        .attr("x", PlacementXEspece-45)
+                        .attr("y", PlacementYEspece+135)
+                        .attr("width", 570)
+                        .attr("height", 200)
+                        .transition()
+                        .duration(1000) 
+                        .style('fill','white')
+                        .style('stroke','#4B4B6E')
+                        .style('stroke-width','3')
+                        .attr("rx", 8)
+                        .attr("ry", 8)
+                        .attr("opacity", 0.8)
+
+                for (let i = 0; i < 18; i++) {
+                        
+                        let variable = d3.select(`#rectlab1${i}`)
+                        variable    
+                        .attr("x", PlacementXEspece +380)
+                        .attr("y", PlacementYEspece +140 + 9*i + i*1.5)
+                        .attr("width", 9)
+                        .attr("height", 9)
+                        .style('fill',CouleurETEspeceListe[i][1])
+                        .attr("opacity", 0.8)
+                        .transition()
+                        .duration(1000)
+                        .attr("x", PlacementXEspece +380+20)
+
+                        let variable2 = d3.select(`#lab1${i}`)
+                        variable2
+                        .attr("x", PlacementXEspece + 395)
+                        .attr("y", PlacementYEspece + 148 + 9*i + i*1.5)
+                        .attr("opacity", 0) 
+                        .text(CouleurETEspeceListe[i][0])
+                        .style("font-size", "10px")  
+                        .attr('font-family', "AnimalCrossing")    
+                        .attr("opacity", 1)
+                        .transition()
+                        .duration(1000)
+                        .attr("x", PlacementXEspece +395+20)     
+                }
+                for (let i = 17; i < 35; i++) {
+                        
+                        let variable = d3.select(`#rectlab2${i}`)
+                        variable
+                        .attr("x", PlacementXEspece + 440)
+                        .attr("y", PlacementYEspece -38 + 9*i + i*1.5)
+                        .attr("width", 9)
+                        .attr("height", 9)
+                        .style('fill',CouleurETEspeceListe[i][1])
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 0.8)
+                        .attr("x", PlacementXEspece +440+20) 
+
+                        let variable2 = d3.select(`#lab2${i}`)
+                        variable2
+                        .attr("x",  PlacementXEspece + 455)
+                        .attr("y", PlacementYEspece -30 + 9*i + i*1.5)
+                        .attr("opacity", 0) 
+                        .text(CouleurETEspeceListe[i][0])
+                        .style("font-size", "10px")
+                        .attr('font-family', "AnimalCrossing")   
+                        .attr("opacity", 1)
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 0.8)
+                        .attr("x", PlacementXEspece +455+20)    
+                }        
         } else if(QuelMoisSommesNous == 4){
             let MaleCompte = SigneGenre.get("Pisces").get("Male").length
             let FemaleCompte = SigneGenre.get("Pisces").get("Female").length
@@ -376,7 +516,6 @@ function BoutonGenderOver(){
                 MaleHobbiesArray.push(["Fashion",[]])             
                 MaleHobbiesArray.sort(d3.ascending)
                 MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
-                console.log(MaleHobbiesArray)
 
                 //Female
                 FemaleHobbies = Hobby.get("Pisces").get("Female")
@@ -384,7 +523,6 @@ function BoutonGenderOver(){
                 FemaleHobbiesArray.push(["Fitness",[]])  
                 FemaleHobbiesArray.sort(d3.ascending) 
                 FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
-                console.log(FemaleHobbiesArray)
                 
                 // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITE   
                 //Male
@@ -400,8 +538,14 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []],["Big Sister", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
-                
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
+
+                // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
+                //Male
+                MaleEspece = Espece.get("Pisces").get("Male")
+
+                //Female
+                FemaleEspece = Espece.get("Pisces").get("Female")
+
         } else if(QuelMoisSommesNous == 5){ 
             let MaleCompte = SigneGenre.get("Aries").get("Male").length
             let FemaleCompte = SigneGenre.get("Aries").get("Female").length
@@ -451,14 +595,12 @@ function BoutonGenderOver(){
                 MaleHobbiesArray.push(["Fashion",[]])             
                 MaleHobbiesArray.sort(d3.ascending)
                 MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
-                console.log(MaleHobbiesArray)
 
                 //Female
                 FemaleHobbies = Hobby.get("Aries").get("Female")
                 FemaleHobbiesArray = Array.from(FemaleHobbies) 
                 FemaleHobbiesArray.sort(d3.ascending) 
                 FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
-                console.log(FemaleHobbiesArray)
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITE   
                 //Male
@@ -474,8 +616,14 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
+        
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
+                //Male
+                MaleEspece = Espece.get("Aries").get("Male")
+
+                //Female
+                FemaleEspece = Espece.get("Aries").get("Female")
                 
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
         } else if(QuelMoisSommesNous == 6){ 
             
             let MaleCompte = SigneGenre.get("Taurus").get("Male").length
@@ -526,14 +674,12 @@ function BoutonGenderOver(){
                 MaleHobbiesArray.push(["Fashion",[]],["Music",[]])             
                 MaleHobbiesArray.sort(d3.ascending)
                 MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
-                console.log(MaleHobbiesArray)
 
                 //Female
                 FemaleHobbies = Hobby.get("Taurus").get("Female")
                 FemaleHobbiesArray = Array.from(FemaleHobbies) 
                 FemaleHobbiesArray.sort(d3.ascending) 
                 FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
-                console.log(FemaleHobbiesArray)
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITE   
                 //Male
@@ -549,8 +695,14 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
+        
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
+                //Male
+                MaleEspece = Espece.get("Taurus").get("Male")
 
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
+                //Female
+                FemaleEspece = Espece.get("Taurus").get("Female")         
+
         } else if(QuelMoisSommesNous == 7){
             let MaleCompte = SigneGenre.get("Gemini").get("Male").length
             let FemaleCompte = SigneGenre.get("Gemini").get("Female").length
@@ -600,7 +752,6 @@ function BoutonGenderOver(){
                 MaleHobbiesArray.push(["Fashion",[]])             
                 MaleHobbiesArray.sort(d3.ascending)
                 MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
-                console.log(MaleHobbiesArray)
 
                 //Female
                 FemaleHobbies = Hobby.get("Gemini").get("Female")
@@ -608,7 +759,6 @@ function BoutonGenderOver(){
                 FemaleHobbiesArray.push(["Fitness",[]])  
                 FemaleHobbiesArray.sort(d3.ascending) 
                 FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
-                console.log(FemaleHobbiesArray)
         
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITE   
                 //Male
@@ -624,8 +774,13 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
+        
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
+                //Male
+                MaleEspece = Espece.get("Gemini").get("Male")
 
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
+                //Female
+                FemaleEspece = Espece.get("Gemini").get("Female")    
 
         } else if(QuelMoisSommesNous == 8){ 
             let MaleCompte = SigneGenre.get("Cancer").get("Male").length
@@ -676,14 +831,12 @@ function BoutonGenderOver(){
                 MaleHobbiesArray.push(["Fashion",[]])             
                 MaleHobbiesArray.sort(d3.ascending)
                 MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
-                console.log(MaleHobbiesArray)
 
                 //Female
                 FemaleHobbies = Hobby.get("Cancer").get("Female")
                 FemaleHobbiesArray = Array.from(FemaleHobbies)   
                 FemaleHobbiesArray.sort(d3.ascending) 
                 FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
-                console.log(FemaleHobbiesArray)
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITE   
                 //Male
@@ -699,8 +852,14 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
+        
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
+                //Male
+                MaleEspece = Espece.get("Cancer").get("Male")
 
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
+                //Female
+                FemaleEspece = Espece.get("Cancer").get("Female")    
+
         } else if(QuelMoisSommesNous == 9){ 
             let MaleCompte = SigneGenre.get("Leo").get("Male").length
             let FemaleCompte = SigneGenre.get("Leo").get("Female").length
@@ -750,7 +909,6 @@ function BoutonGenderOver(){
                 MaleHobbiesArray.push(["Fashion",[]])             
                 MaleHobbiesArray.sort(d3.ascending)
                 MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
-                console.log(MaleHobbiesArray)
 
                 //Female
                 FemaleHobbies = Hobby.get("Leo").get("Female")
@@ -758,7 +916,6 @@ function BoutonGenderOver(){
                 FemaleHobbiesArray.push(["Fitness",[]],["Nature",[]])    
                 FemaleHobbiesArray.sort(d3.ascending) 
                 FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
-                console.log(FemaleHobbiesArray)
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITE   
                 //Male
@@ -774,8 +931,89 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Big Sister", []],["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
+        
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
+                //Male
+                MaleEspece = Espece.get("Leo").get("Male")
 
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
+                //Female
+                FemaleEspece = Espece.get("Leo").get("Female") 
+                
+                //variation de l'axe X et du fondblanc et des labels
+                xEspece
+                .domain([0,27])
+                .range([0, 460]) 
+
+                FondBlanc
+                        .attr("x", PlacementXEspece-45)
+                        .attr("y", PlacementYEspece+135)
+                        .attr("width", 650)
+                        .attr("height", 200)
+                        .transition()
+                        .duration(1000) 
+                        .style('fill','white')
+                        .style('stroke','#4B4B6E')
+                        .style('stroke-width','3')
+                        .attr("rx", 8)
+                        .attr("ry", 8)
+                        .attr("opacity", 0.8)
+
+                for (let i = 0; i < 18; i++) {
+                        
+                        let variable = d3.select(`#rectlab1${i}`)
+                        variable    
+                        .attr("x", PlacementXEspece +380)
+                        .attr("y", PlacementYEspece +140 + 9*i + i*1.5)
+                        .attr("width", 9)
+                        .attr("height", 9)
+                        .style('fill',CouleurETEspeceListe[i][1])
+                        .attr("opacity", 0.8)
+                        .transition()
+                        .duration(1000)
+                        .attr("x", PlacementXEspece +380+100)
+
+                        let variable2 = d3.select(`#lab1${i}`)
+                        variable2
+                        .attr("x", PlacementXEspece + 395)
+                        .attr("y", PlacementYEspece + 148 + 9*i + i*1.5)
+                        .attr("opacity", 0) 
+                        .text(CouleurETEspeceListe[i][0])
+                        .style("font-size", "10px")  
+                        .attr('font-family', "AnimalCrossing")    
+                        .attr("opacity", 1)
+                        .transition()
+                        .duration(1000)
+                        .attr("x", PlacementXEspece +395+100)     
+                }
+                for (let i = 17; i < 35; i++) {
+                        
+                        let variable = d3.select(`#rectlab2${i}`)
+                        variable
+                        .attr("x", PlacementXEspece + 440)
+                        .attr("y", PlacementYEspece -38 + 9*i + i*1.5)
+                        .attr("width", 9)
+                        .attr("height", 9)
+                        .style('fill',CouleurETEspeceListe[i][1])
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 0.8)
+                        .attr("x", PlacementXEspece +440+100) 
+
+                        let variable2 = d3.select(`#lab2${i}`)
+                        variable2
+                        .attr("x",  PlacementXEspece + 455)
+                        .attr("y", PlacementYEspece -30 + 9*i + i*1.5)
+                        .attr("opacity", 0) 
+                        .text(CouleurETEspeceListe[i][0])
+                        .style("font-size", "10px")
+                        .attr('font-family', "AnimalCrossing")   
+                        .attr("opacity", 1)
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 0.8)
+                        .attr("x", PlacementXEspece +455+100)    
+
+                }
         } else if(QuelMoisSommesNous == 10){
             let MaleCompte = SigneGenre.get("Virgo").get("Male").length
             let FemaleCompte = SigneGenre.get("Virgo").get("Female").length
@@ -825,14 +1063,12 @@ function BoutonGenderOver(){
                 MaleHobbiesArray.push(["Fashion",[]])             
                 MaleHobbiesArray.sort(d3.ascending)
                 MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
-                console.log(MaleHobbiesArray)
 
                 //Female
                 FemaleHobbies = Hobby.get("Virgo").get("Female")
                 FemaleHobbiesArray = Array.from(FemaleHobbies)   
                 FemaleHobbiesArray.sort(d3.ascending) 
                 FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
-                console.log(FemaleHobbiesArray)
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITE   
                 //Male
@@ -848,8 +1084,14 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
+        
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
+                //Male
+                MaleEspece = Espece.get("Virgo").get("Male")
 
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
+                //Female
+                FemaleEspece = Espece.get("Virgo").get("Female")    
+
         } else if(QuelMoisSommesNous == 11){ 
             let MaleCompte = SigneGenre.get("Libra").get("Male").length
             let FemaleCompte = SigneGenre.get("Libra").get("Female").length
@@ -900,7 +1142,6 @@ function BoutonGenderOver(){
                 MaleHobbiesArray.push(["Fashion",[]])             
                 MaleHobbiesArray.sort(d3.ascending)
                 MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
-                console.log(MaleHobbiesArray)
 
                 //Female
                 FemaleHobbies = Hobby.get("Libra").get("Female")
@@ -908,7 +1149,6 @@ function BoutonGenderOver(){
                 FemaleHobbiesArray.push(["Music",[]])    
                 FemaleHobbiesArray.sort(d3.ascending) 
                 FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
-                console.log(FemaleHobbiesArray)
         
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITE   
                 //Male
@@ -924,8 +1164,88 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
+        
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
+                //Male
+                MaleEspece = Espece.get("Libra").get("Male")
 
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
+                //Female
+                FemaleEspece = Espece.get("Libra").get("Female")
+                
+                //variation de l'axe X et du fondblanc et des labels
+                xEspece
+                .domain([0,23])
+                .range([0, 400]) 
+
+                FondBlanc
+                        .attr("x", PlacementXEspece-45)
+                        .attr("y", PlacementYEspece+135)
+                        .attr("width", 600)
+                        .attr("height", 200)
+                        .transition()
+                        .duration(1000) 
+                        .style('fill','white')
+                        .style('stroke','#4B4B6E')
+                        .style('stroke-width','3')
+                        .attr("rx", 8)
+                        .attr("ry", 8)
+                        .attr("opacity", 0.8)
+
+                for (let i = 0; i < 18; i++) {
+                        
+                        let variable = d3.select(`#rectlab1${i}`)
+                        variable    
+                        .attr("x", PlacementXEspece +380)
+                        .attr("y", PlacementYEspece +140 + 9*i + i*1.5)
+                        .attr("width", 9)
+                        .attr("height", 9)
+                        .style('fill',CouleurETEspeceListe[i][1])
+                        .attr("opacity", 0.8)
+                        .transition()
+                        .duration(1000)
+                        .attr("x", PlacementXEspece +380+50)
+
+                        let variable2 = d3.select(`#lab1${i}`)
+                        variable2
+                        .attr("x", PlacementXEspece + 395)
+                        .attr("y", PlacementYEspece + 148 + 9*i + i*1.5)
+                        .attr("opacity", 0) 
+                        .text(CouleurETEspeceListe[i][0])
+                        .style("font-size", "10px")  
+                        .attr('font-family', "AnimalCrossing")    
+                        .attr("opacity", 1)
+                        .transition()
+                        .duration(1000)
+                        .attr("x", PlacementXEspece +395+50)     
+                }
+                for (let i = 17; i < 35; i++) {
+                        
+                        let variable = d3.select(`#rectlab2${i}`)
+                        variable
+                        .attr("x", PlacementXEspece + 440)
+                        .attr("y", PlacementYEspece -38 + 9*i + i*1.5)
+                        .attr("width", 9)
+                        .attr("height", 9)
+                        .style('fill',CouleurETEspeceListe[i][1])
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 0.8)
+                        .attr("x", PlacementXEspece +440+50) 
+
+                        let variable2 = d3.select(`#lab2${i}`)
+                        variable2
+                        .attr("x",  PlacementXEspece + 455)
+                        .attr("y", PlacementYEspece -30 + 9*i + i*1.5)
+                        .attr("opacity", 0) 
+                        .text(CouleurETEspeceListe[i][0])
+                        .style("font-size", "10px")
+                        .attr('font-family', "AnimalCrossing")   
+                        .attr("opacity", 1)
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 0.8)
+                        .attr("x", PlacementXEspece +455+50)    
+                }
         } else if(QuelMoisSommesNous == 12){
             let MaleCompte = SigneGenre.get("Scorpio").get("Male").length
             let FemaleCompte = SigneGenre.get("Scorpio").get("Female").length
@@ -975,7 +1295,6 @@ function BoutonGenderOver(){
                 MaleHobbiesArray.push(["Fashion",[]])             
                 MaleHobbiesArray.sort(d3.ascending)
                 MaleHobbiesArrayEtChiffre = d3.zip(MaleHobbiesArray,chiffreHobbies)
-                console.log(MaleHobbiesArray)
 
                 //Female
                 FemaleHobbies = Hobby.get("Scorpio").get("Female")
@@ -983,7 +1302,6 @@ function BoutonGenderOver(){
                 FemaleHobbiesArray.push(["Play",[]])    
                 FemaleHobbiesArray.sort(d3.ascending) 
                 FemaleHobbiesArrayEtChiffre = d3.zip(FemaleHobbiesArray,chiffreHobbies)
-                console.log(FemaleHobbiesArray)
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - PERSONNALITE   
                 //Male
@@ -999,8 +1317,14 @@ function BoutonGenderOver(){
                 FemalePersonnaliteArray.push(["Cranky", []],["Jock", []],["Lazy", []],["Smug", []],["Big Sister", []])
                 FemalePersonnaliteArray.sort(d3.ascending) 
                 FemalePersonnaliteArrayEtChiffre = d3.zip(FemalePersonnaliteArray,chiffreSigne)
+        
+        // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
+                //Male
+                MaleEspece = Espece.get("Scorpio").get("Male")
 
-                console.log(FemalePersonnaliteArray,MalePersonnaliteArray)
+                //Female
+                FemaleEspece = Espece.get("Scorpio").get("Female")  
+
         }  
         // apparition des diagrammes en barre
         // Diagramme en barre selon :  SIGNE - SEXE - HOBBY
@@ -1163,31 +1487,17 @@ function BoutonGenderOver(){
                      //.style('stroke','#ffe75c')
 
         // Diagramme en barre selon :  SIGNE - SEXE - ESPECE 
-                //fond blanc
-                MonEspaceSVG.append("rect")
-                .attr("id", "FondBlancEspece")
-                .attr("x", PlacementXEspece-45)
-                .attr("y", PlacementYEspece+135)
-                .attr("width", 550)
-                .attr("height", 200)
-                .transition()
-                .duration(1000) 
-                .style('fill','white')
-                .style('stroke','#4B4B6E')
-                .style('stroke-width','3')
-                .attr("rx", 8)
-                .attr("ry", 8)
-                .attr("opacity", 0.8)
-                
-                // Les axes
-                const yEspece = d3.scaleBand()
-                .domain(["Female", "Male"])
-                .range([300, 150]) 
+                //variables nécessaire à l'apparition 
+                        //Male
+                        let MaleEspeceArray = Array.from(MaleEspece)
+                        MaleEspeceArray.sort(d3.ascending)
 
-                const xEspece= d3.scaleLinear()
-                .domain([0,20])
-                .range([0, 350]) 
+                        //Female
+                        
+                        let FemaleEspecesArray = Array.from(FemaleEspece)
+                        FemaleEspecesArray.sort(d3.ascending)  
 
+                //les axes 
                 MonEspaceSVG.append("g")
                 .attr("id", "AxeYEspece")
                 .attr("transform", `translate(${PlacementXEspece},${PlacementYEspece})`)
@@ -1209,24 +1519,25 @@ function BoutonGenderOver(){
                   .attr("opacity",1)   
                 
                 // Les barres 
-                        let AvanceFemale = 0
-                        for (let i = 0; i < FemaleEspecesArray.length; i++) {
-                                MonEspaceSVG.append("rect")
-                                .attr("id", "rectfl" + i)
-                                .attr("x", PlacementXEspece + AvanceFemale  + 0.5*i)
-                                .attr("y", PlacementYEspece+250)
-                                .attr("width", FemaleEspecesArray[i][1].length*17)
-                                .attr("height", 30)
-                                .transition()
-                                .duration(1000) 
-                                .attr("opacity", 0.8)
+                console.log(FemaleEspecesArray)
+                let AvanceFemale = 0
+                for (let i = 0; i < FemaleEspecesArray.length; i++) {
+                        MonEspaceSVG.append("rect")
+                        .attr("id", "rectfl" + i)
+                        .attr("x", PlacementXEspece + AvanceFemale  + 0.5*i)
+                        .attr("y", PlacementYEspece+250)
+                        .attr("width", FemaleEspecesArray[i][1].length*17)
+                        .attr("height", 30)
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 0.8)
 
-                                AvanceFemale += FemaleEspecesArray[i][1].length*17                        
-                                for (let j = 0; j < CouleurETEspeceListe.length; j++) {
-                                        if (FemaleEspecesArray[i][0] == CouleurETEspeceListe[j][0]) {
-                                        let rectanglefe = document.getElementById(`rectfl${i}`) 
-                                        rectanglefe.style = `fill : ${CouleurETEspeceListe[j][1]}`;  
-                                }}
+                        AvanceFemale += FemaleEspecesArray[i][1].length*17                        
+                        for (let j = 0; j < CouleurETEspeceListe.length; j++) {
+                                if (FemaleEspecesArray[i][0] == CouleurETEspeceListe[j][0]) {
+                                let rectanglefe = document.getElementById(`rectfl${i}`) 
+                                rectanglefe.style = `fill : ${CouleurETEspeceListe[j][1]}`;  
+                        }}
                         }
                 let AvanceMale = 0
                 for (let a = 0; a < MaleEspeceArray.length; a++) {
@@ -1247,57 +1558,5 @@ function BoutonGenderOver(){
                                 rectangle.style = `fill : ${CouleurETEspeceListe[c][1]}`;                             
                         }}
                 } 
-                // Les labels
-                for (let h = 0; h < CouleurETEspeceListe.length/2; h++) {
-                        MonEspaceSVG.append("rect")
-                        .attr("id", "rectlab1" + h)
-                        .attr("x", PlacementXEspece +380)
-                        .attr("y", PlacementYEspece +140 + 9*h + h*1.5)
-                        .attr("width", 9)
-                        .attr("height", 9)
-                        .style('fill',CouleurETEspeceListe[h][1])
-                        .transition()
-                        .duration(1000) 
-                        .attr("opacity", 0.8)
-
-                        MonEspaceSVG.append("text")
-                        .attr("id", "lab1" + h)
-                        .attr("x", PlacementXEspece + 395)
-                        .attr("y", PlacementYEspece + 148 + 9*h + h*1.5)
-                        .attr("opacity", 0) 
-                        .text(CouleurETEspeceListe[h][0])
-                        .style("font-size", "10px")  
-                        .attr('font-family', "AnimalCrossing")    
-                        .transition()
-                        .duration(1000)
-                        .attr("opacity", 1)                             
-                }
-                for (let v = 17; v < CouleurETEspeceListe.length; v++) {
-                        MonEspaceSVG.append("rect")
-                        .attr("id", "rectlab2" + v)
-                        .attr("x", PlacementXEspece + 440)
-                        .attr("y", PlacementYEspece -38 + 9*v + v*1.5)
-                        .attr("width", 9)
-                        .attr("height", 9)
-                        .style('fill',CouleurETEspeceListe[v][1])
-                        .transition()
-                        .duration(1000) 
-                        .attr("opacity", 0.8)
-                        
-                        MonEspaceSVG.append("text")
-                        .attr("id", "lab2" + v)
-                        .attr("x",  PlacementXEspece + 455)
-                        .attr("y", PlacementYEspece -30 + 9*v + v*1.5)
-                        .attr("opacity", 0) 
-                        .text(CouleurETEspeceListe[v][0])
-                        .style("font-size", "10px")
-                        .attr('font-family', "AnimalCrossing")   
-                        .transition()
-                        .duration(1000) 
-                        .attr("opacity", 1)                              
-                }
-                
-                 
- 
     })
 }
