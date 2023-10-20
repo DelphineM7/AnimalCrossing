@@ -13,6 +13,8 @@
     <script  src="BoutonGaucheFonction.js" ></script>
     <script  src="BoutonGenderOut.js" ></script>
     <script  src="BoutonGenderOver.js" ></script>
+    <script  src="BoutonSpeciesOut.js" ></script>
+    <script  src="BoutonSpeciesOver.js" ></script>
     <script> 
 
 //élments de base
@@ -380,6 +382,10 @@ let TexteSpecies = MonEspaceSVG.append('text')
     .attr('font-family', "AnimalCrossing")
     .text("Specie")
 
+let BoutonBoutonSpecies = document.getElementById('Species');   
+BoutonBoutonSpecies.addEventListener("mouseover", BoutonSpeciesOver);
+BoutonBoutonSpecies.addEventListener("mouseout", BoutonSpeciesOut);
+
 // hobbies
 let BoutonHobby = MonEspaceSVG.append('image')
     .attr('id', 'Hobby')
@@ -416,25 +422,6 @@ let TextePersonality = MonEspaceSVG.append('text')
     .attr('font-family', "AnimalCrossing")
     .text("Personality")
 
-// style 
-let BoutonStyle = MonEspaceSVG.append('image')
-    .attr('id', 'Style')
-    .attr('xlink:href', 'BoutonGender.svg')
-    .attr('width', 60)
-    .attr('height', 60)
-    .attr('x', 50)
-    .attr('y', 700) 
-
-let TexteStyle = MonEspaceSVG.append('text')
-    .attr('id', 'TexteStyle')
-    .attr('x', 65)
-    .attr('y', 780)
-    .attr('fill', "white")
-    .attr('opacity', "0.5")
-    .attr('font-family', "AnimalCrossing")
-    .text("Style")
-
-    
     </script>   
 </body>
 </html>

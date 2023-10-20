@@ -107,7 +107,7 @@
                 MonEspaceSVG.append("g")
                     .attr("transform", 'translate(200,50)')
                     .call(d3.axisLeft(y));
-                */    
+                   
 
                 
                 // const jamais utilisées, archives de tentatives despepérées
@@ -373,7 +373,7 @@
 })
  
             //diagramme en barre des ESPECE par SIGNE et par GENRE : Graphe abandooné  
-            /*
+            
                 const Espece = d3.group(donnees, d => d.signe, d=> d.genre, d => d.espece)
                 
                 const CapricornusMaleEspece = Espece.get("Capricornus").get("Male")
@@ -391,7 +391,7 @@
                 const CapricornusMaleEspeceArrayEtChiffre = d3.zip(CapricornusMaleEspeceArray,chiffreEspece)
                 const CapricornusFemaleEspeceArrayEtChiffre = d3.zip(CapricornusFemaleEspecesArray,chiffreEspece)
                 //console.log(CapricornusFemaleEspeceArrayEtChiffre,CapricornusMaleEspeceArrayEtChiffre)
-                /*
+                
                 const ECouleur = d3.groups(donnees, d => d.espece)
                 let Couleur = []
                 Liste = ["#CD6155","#EC7063","#AF7AC5","#5499C7","#5499C7", "#5DADE2","#48C9B0","#45B39D","#52BE80","#58D68D","#F4D03F","#F5B041","#EB984E","#DC7633","#FF0000", "#FFFF00", "#808000",
@@ -452,14 +452,34 @@
                     .call(d3.axisBottom(xEspece));
                 */    
             // on va essayer un camembert 
-/*
+                // variables
+                    const Espece = d3.group(donnees, d => d.signe, d=> d.genre, d => d.espece)
+                    const CapricornusMaleEspece = Espece.get("Capricornus").get("Male")
+                    const CapricornusMaleEspeceArray = Array.from(CapricornusMaleEspece)
+                    CapricornusMaleEspeceArray.sort(d3.ascending)
+                    
+                    const EspeceETHobbySign = d3.groups(donnees, d => d.signe, d => d.espece, d=> d.hobbie)
+                    //let EspeceHobbieSign = Espece.get("Capricornus").get("Male")
+                    //console.log(EspeceETHobbySign)
+                    let ArrayA = []
+
+                    for (let i = 0; i <= CapricornusMaleEspeceArray.length; i++) {
+                        //ArrayA.push(CapricornusMaleEspeceArray[i][1])
+                        
+                    }
+                
+                    const SigneGenre = d3.group(donnees, (d) => d.signe, (d) => d.genre)
+                    let MaleCompte = SigneGenre.get("Capricornus").get("Male").length
+                    let FemaleCompte = SigneGenre.get("Capricornus").get("Female").length
+                    
+                /*// camembert
                 const color = d3.scaleOrdinal()
                 .domain(EspeceListe)
                 .range(Couleur);
 
                 const arcGenerator = d3.arc()
-                    .outerRadius(150)
-                    .innerRadius(0)
+                    .outerRadius(120)
+                    .innerRadius(70)
  
                 const pie = d3.pie()
                     .value(d => d[1].length);
@@ -469,19 +489,6 @@
 
                 // Ajoutez des arcs pour chaque segment du camembert
                 MonEspaceSVG.selectAll("arc")
-                    .data(pieDataMale)
-                    .enter()
-                    .append("path")
-                    .attr("d", arcGenerator)
-                    .attr("fill", (d, i) => color(i))
-                    .attr("stroke", "white")
-                    .attr("stroke-width", 1)
-                    .attr("transform", "translate(150,700)")
-                
-                const pieDataFemale = pie(CapricornusFemaleEspecesArray);
-
-                console.log(pieDataMale,pieDataFemale,CapricornusFemaleEspecesArray,CapricornusFemaleEspece,Espece)
-                MonEspaceSVG.selectAll("arc")
                     .data(pieDataFemale)
                     .enter()
                     .append("path")
@@ -490,17 +497,8 @@
                     .attr("stroke", "white")
                     .attr("stroke-width", 1)
                     .attr("transform", "translate(650,700)")
-
-                    const labelsMale = MonEspaceSVG.selectAll(".label-male")
-                    .data(pieDataMale)
-                    .enter()
-                    .append("text")
-                    .text((d) => d.data[1].length + "/" + MaleCompte + d.data[0]) 
-                    .attr("transform", (d) => `translate(150,700) translate(${arcGenerator.centroid(d)})`)
-                    .style("text-anchor", "middle") 
-                    .style("font-size", "12px"); 
-
-                    
+                    */
+/*
                     const labelsFemale = MonEspaceSVG.selectAll(".label-female")
                     .data(pieDataFemale)
                     .enter()
@@ -510,7 +508,90 @@
                     .style("text-anchor", "middle") 
                     .style("font-size", "12px")
 
-                    */
+
+                    
+        if (QuelMoisSommesNous == 1) {
+        } else if(QuelMoisSommesNous == 2){
+        } else if(QuelMoisSommesNous == 3){     
+        } else if(QuelMoisSommesNous == 4){
+        } else if(QuelMoisSommesNous == 5){         
+        } else if(QuelMoisSommesNous == 6){ 
+        } else if(QuelMoisSommesNous == 7){
+        } else if(QuelMoisSommesNous == 8){ 
+        } else if(QuelMoisSommesNous == 9){ 
+        } else if(QuelMoisSommesNous == 10){
+        } else if(QuelMoisSommesNous == 11){ 
+        } else if(QuelMoisSommesNous == 12){
+        } 
+*/
+
+                    //variables 
+
+                    const EEspece = d3.groups(donnees, d => d.espece)
+                let EspeceListe = []
+                    for (let i = 0; i < EEspece.length; i++) {
+                        EspeceListe.push(EEspece[i].shift())
+                    }
+                Couleur = [ '#E74C3C', '#3498DB', '#9B59B6', '#2980B9', '#16A085',
+                    '#8E44AD', '#D35400', '#C0392B', '#FF00FF', '#D2B4DE',
+                    '#E67E22', '#2C3E50', '#FF5733', '#D98880', '#FFC300',
+                    '#AED6F1', '#C39BD3', '#F1948A', '#CB4335', '#FAD02E',
+                    '#AF7AC5', '#FF1493', '#FF69B4', '#DFFF00', '#FF4500',
+                    '#8A2BE2', '#FF6347', '#B22222', '#FFA07A', '#F5B041',
+                    '#FFD700', '#20B2AA', '#FF1493', '#FFC0CB']
+
+                    const EspeceHobby = d3.group(donnees, d => d.signe, d=> d.hobbie, d => d.espece)
+                    let SignEspeceFashion = EspeceHobby.get("Capricornus").get("Fashion")
+                    let SignEspeceFashionArray = Array.from(SignEspeceFashion)
+                    SignEspeceFashionArray.sort(d3.ascending)
+
+                    const color = d3.scaleOrdinal()
+                        .domain(EspeceListe)
+                        .range(Couleur);
+
+                    const arcGenerator = d3.arc()
+                        .outerRadius(120)
+                        .innerRadius(70)
+    
+                    const pie = d3.pie()
+                        .value(d => d[1].length);
+                        let FashionSignCompte = 0
+
+
+                    
+                    let pieDataFashion = pie(SignEspeceFashionArray)
+                    console.log(pieDataFashion)
+                    for (let i = 0; i < pieDataFashion.length; i++) {
+                        FashionSignCompte += pieDataFashion[i].value 
+                    }
+                    MonEspaceSVG.selectAll("arc")
+                        .data(pieDataFashion)
+                        .enter()
+                        .append("path")
+                        .attr("d", arcGenerator)
+                        .attr("fill", (d, i) => color(i))
+                        .attr("stroke", "white")
+                        .attr("stroke-width", 1)
+                        .attr("transform", "translate(150,700)")
+
+                    const labelsEspece = MonEspaceSVG.selectAll(".label-espece")
+                        .data(pieDataFashion)
+                        .enter()
+                        .append("text")
+                        .text((d) =>  d.data[0]) 
+                        .attr("transform", (d) => `translate(150,700) translate(${arcGenerator.centroid(d)})`)
+                        .style("text-anchor", "middle") 
+                        .style("font-size", "12px"); 
+
+                    const labelsCompte = MonEspaceSVG.selectAll(".label-Compte")
+                        .data(pieDataFashion)
+                        .enter()
+                        .append("text")
+                        .text((d) =>  d.value + "/" + FashionSignCompte) 
+                        .attr("transform", (d) => `translate(150,720) translate(${arcGenerator.centroid(d)})`)
+                        .style("text-anchor", "middle") 
+                        .style("font-size", "12px");
+            })    
      </script>
 
             
