@@ -243,20 +243,20 @@ function BoutonGenderOver(){
                     .duration(1000) 
                     .attr('height', 50 + MaleCompte*3)
                     .attr('width', 50 + MaleCompte*3)
-                    .attr('x', milieuX+90 - MaleCompte*1.5)
+                    .attr('x', milieuX+90 - MaleCompte*1.5 -90)
                     .attr('y', milieuY+190 -  MaleCompte*1.5)             
 
             etoile_bleu.transition()
                     .duration(1000) 
                     .attr('height', 50 + FemaleCompte*3)
                     .attr('width', 50 + FemaleCompte*3)
-                    .attr('x', milieuX-40 - FemaleCompte *1.5 )
+                    .attr('x', milieuX-40 - FemaleCompte *1.5 -90 )
                     .attr('y', milieuY-190 - FemaleCompte *1.5) 
         
             GenderTexteMale
                     .transition()
                     .duration(0)       
-                    .attr('x', milieuX+90 + 50+MaleCompte )
+                    .attr('x', milieuX+90 + 50+MaleCompte -90 )
                     .attr('y',  milieuY+190 +50 )
                     .transition()
                     .duration(1000) 
@@ -268,7 +268,7 @@ function BoutonGenderOver(){
             GenderTexteFemale
                     .transition()
                     .duration(0)
-                    .attr('x', milieuX-40 + 50 + FemaleCompte *1.5)
+                    .attr('x', milieuX-40 + 50 + FemaleCompte *1.5 -90)
                     .attr('y', milieuY-190 + 50 )    
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
@@ -475,20 +475,20 @@ function BoutonGenderOver(){
                     .duration(1000) 
                     .attr('height', 50 + MaleCompte*3)
                     .attr('width', 50 + MaleCompte*3)
-                    .attr('x',  milieuX + 110 - MaleCompte*1.5)
+                    .attr('x',  milieuX + 110 - MaleCompte*1.5 -70)
                     .attr('y', milieuY + 230 -  MaleCompte*1.5)             
 
             etoile_bleu.transition()
                     .duration(1000) 
                     .attr('height', 50 + FemaleCompte*3)
                     .attr('width', 50 + FemaleCompte*3)
-                    .attr('x', milieuX + 290 - FemaleCompte *1.5 )
+                    .attr('x', milieuX + 290 - FemaleCompte *1.5 -70)
                     .attr('y', milieuY - 140 - FemaleCompte *1.5) 
         
             GenderTexteMale
                     .transition()
                     .duration(0)       
-                    .attr('x', milieuX + 110 + 50+MaleCompte )
+                    .attr('x', milieuX + 110 + 50+MaleCompte -70 )
                     .attr('y', milieuY + 230 +50 )
                     .transition()
                     .duration(1000) 
@@ -500,7 +500,7 @@ function BoutonGenderOver(){
             GenderTexteFemale
                     .transition()
                     .duration(0)
-                    .attr('x', milieuX + 290 + 50 + FemaleCompte *1.5)
+                    .attr('x', milieuX + 290 + 50 + FemaleCompte *1.5 -70)
                     .attr('y', milieuY - 140 + 50 )    
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
@@ -554,20 +554,20 @@ function BoutonGenderOver(){
                     .duration(1000) 
                     .attr('height', 50 + MaleCompte*3)
                     .attr('width', 50 + MaleCompte*3)
-                    .attr('x',  milieuX + 130 - MaleCompte*1.5)
+                    .attr('x',  milieuX + 130 - MaleCompte*1.5 -150)
                     .attr('y', milieuY - 220 -  MaleCompte*1.5)             
 
             etoile_bleu.transition()
                     .duration(1000) 
                     .attr('height', 50 + FemaleCompte*3)
                     .attr('width', 50 + FemaleCompte*3)
-                    .attr('x', milieuX + 300 - FemaleCompte *1.5 )
+                    .attr('x', milieuX + 300 - FemaleCompte *1.5 -150)
                     .attr('y', milieuY - 250 - FemaleCompte *1.5) 
         
             GenderTexteMale
                     .transition()
                     .duration(0)       
-                    .attr('x', milieuX + 130 + 50+MaleCompte )
+                    .attr('x', milieuX + 130 + 50+MaleCompte -150)
                     .attr('y', milieuY - 220 +50 )
                     .transition()
                     .duration(1000) 
@@ -579,7 +579,7 @@ function BoutonGenderOver(){
             GenderTexteFemale
                     .transition()
                     .duration(0)
-                    .attr('x', milieuX + 300 + 50 + FemaleCompte *1.5)
+                    .attr('x', milieuX + 300 + 50 + FemaleCompte *1.5 -150)
                     .attr('y', milieuY - 250 + 50 )    
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
@@ -1254,20 +1254,20 @@ function BoutonGenderOver(){
                     .duration(1000) 
                     .attr('height', 50 + MaleCompte*3)
                     .attr('width', 50 + MaleCompte*3)
-                    .attr('x',  milieuX  + 32 - MaleCompte*1.5)
+                    .attr('x',  milieuX  + 32 - MaleCompte*1.5-200)
                     .attr('y',  milieuY - 105 -  MaleCompte*1.5)             
 
             etoile_bleu.transition()
                     .duration(1000) 
                     .attr('height', 50 + FemaleCompte*3)
                     .attr('width', 50 + FemaleCompte*3)
-                    .attr('x', milieuX + 106 - FemaleCompte *1.5 )
+                    .attr('x', milieuX + 106 - FemaleCompte *1.5 -200)
                     .attr('y', milieuY + 40 - FemaleCompte *1.5) 
         
             GenderTexteMale
                     .transition()
                     .duration(0)       
-                    .attr('x', milieuX  + 32 + 50+MaleCompte )
+                    .attr('x', milieuX  + 32 + 50+MaleCompte-200 )
                     .attr('y',  milieuY - 105 +50 )
                     .transition()
                     .duration(1000) 
@@ -1279,7 +1279,7 @@ function BoutonGenderOver(){
             GenderTexteFemale
                     .transition()
                     .duration(0)
-                    .attr('x', milieuX + 106 + 50 + FemaleCompte *1.5)
+                    .attr('x', milieuX + 106 + 50 + FemaleCompte *1.5 -200)
                     .attr('y', milieuY + 40 + 50 )    
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
@@ -1519,7 +1519,6 @@ function BoutonGenderOver(){
                   .attr("opacity",1)   
                 
                 // Les barres 
-                console.log(FemaleEspecesArray)
                 let AvanceFemale = 0
                 for (let i = 0; i < FemaleEspecesArray.length; i++) {
                         MonEspaceSVG.append("rect")

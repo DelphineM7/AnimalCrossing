@@ -60,14 +60,14 @@ function BoutonGenderOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', milieuX+90 )
+            .attr('x', milieuX+90 -90)
             .attr('y', milieuY+190)             
 
         etoile_bleu.transition()
             .duration(1000) 
             .attr('height', 50)
             .attr('width', 50)
-            .attr('x', milieuX-40)
+            .attr('x', milieuX-40-90)
             .attr('y', milieuY-190) 
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
@@ -105,14 +105,14 @@ function BoutonGenderOut(){
         .duration(1000) 
         .attr('height', 50)
         .attr('width', 50)
-        .attr('x', milieuX + 110)
+        .attr('x', milieuX + 110-70)
         .attr('y', milieuY + 230)
 
         etoile_bleu.transition()
         .duration(1000) 
         .attr('height', 50)
         .attr('width', 50)
-        .attr('x', milieuX + 290)
+        .attr('x', milieuX + 290-70)
         .attr('y', milieuY - 140)
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
@@ -127,14 +127,14 @@ function BoutonGenderOut(){
         .duration(1000)
         .attr('height', 50)
         .attr('width', 50) 
-        .attr('x', milieuX + 130)
+        .attr('x', milieuX + 130-150)
         .attr('y', milieuY - 220)
 
         etoile_bleu.transition()
         .duration(1000)
         .attr('height', 50)
         .attr('width', 50) 
-        .attr('x', milieuX + 300)
+        .attr('x', milieuX + 300-150)
         .attr('y', milieuY - 250)
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
@@ -281,14 +281,14 @@ function BoutonGenderOut(){
         .duration(1000)
         .attr('height', 50)
         .attr('width', 50) 
-        .attr('x', milieuX + 32)
+        .attr('x', milieuX + 32-200)
         .attr('y', milieuY - 105)
 
         etoile_bleu.transition()
         .duration(1000)
         .attr('height', 50)
         .attr('width', 50) 
-        .attr('x', milieuX + 106)
+        .attr('x', milieuX + 106-200)
         .attr('y', milieuY + 60) 
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
