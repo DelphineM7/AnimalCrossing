@@ -14,18 +14,23 @@ function BoutonSpeciesOver(){
     //variables utilisées pour les diagrammes circulaire
         const EspeceHobby = d3.group(donnees, d => d.signe, d=> d.hobbie, d => d.espece)
         const EspecePersonnalite = d3.group(donnees, d => d.signe, d=> d.personnalite, d => d.espece)
+        const EspeceSign = d3.group(donnees, d => d.signe, d => d.espece)
         const EEspece = d3.groups(donnees, d => d.espece)
         let EspeceListe = []
             for (let i = 0; i < EEspece.length; i++) {
                 EspeceListe.push(EEspece[i].shift())
             }
-        Couleur = [ '#FF69B4', '#FFE140',  '#16A085', '#AF7AC5', '#FF1493',
-            '#3498DB', '#FFC0CB', '#C0392B', '#FF00FF', '#D2B4DE',
-            '#E67E22', '#2C3E50', '#FF5733', '#D98880', '#FFC300',
-            '#AED6F1', '#C39BD3', '#F1948A', '#CB4335', '#FAD02E',
-            '#9B59B6', '#FF1493', '#2980B9', '#DFFF00', '#FF4500',
-            '#8A2BE2', '#FF6347', '#B22222', '#FFA07A', '#F5B041',
-            '#8E44AD', '#20B2AA', '#D35400', '#E74C3C']
+            var Couleur = [
+            '#FF1493', '#0000FF', '#FFC0CB', '#2A661F', '#BF7C00', 
+            '#20B2AA', '#04D9FF', '#9F0058', '#E5EC17', '#324B76', 
+            '#87CEEB', '#A6A6A6', '#800000', '#FFFF80', '#FFFF00',
+            '#CFEFEF', '#80A779', '#00FF00', '#FF0000', '#DC143C',
+            '#993A6E', '#5C009F', '#9932CC', '#A1009B', '#00FF7F',
+            '#FFA500', '#D36BFF', '#FF69B4', '#E2CAF8', '#FFD280',
+            '#9F9F00', '#500050', '#1E90FF', '#9FB7FF', '#FCABEA'
+            ];
+
+        CouleurETEspeceListe = d3.zip(EspeceListe,Couleur)
 
         let ecran_width = window.innerWidth;
         let ecran_height = window.innerHeight;
@@ -53,7 +58,7 @@ function BoutonSpeciesOver(){
             .range(Couleur);
         const arcGenerator = d3.arc()
             .outerRadius(90)
-            .innerRadius(50)
+            .innerRadius(40)
         const pie = d3.pie()
             .value(d => d[1].length);
             
@@ -99,7 +104,14 @@ function BoutonSpeciesOver(){
         // variable pour Diagramme circulaire selon :  SIGNE -  SNOOTY - ESPECE
             let SignEspeceSnooty = EspecePersonnalite.get("Capricornus").get("Snooty") 
 
+        // fonction pour les variations d'ID dansles fromages 
+            function applyIDcorrectely(PieData) {
+                for (let i = 0; i < PieData.length; i++) {
+                    PieData[i].index=i 
+                }
+            }   
         if (QuelMoisSommesNous == 1) {
+            // les diagrammes circulaires
             SignEspeceEducation = EspeceHobby.get("Sagittarius").get("Education")
             SignEspeceFashion = EspeceHobby.get("Sagittarius").get("Fashion")
             SignEspeceFitness = EspeceHobby.get("Sagittarius").get("Fitness")
@@ -124,7 +136,51 @@ function BoutonSpeciesOver(){
             SignEspeceNormal = EspecePersonnalite.get("Sagittarius").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Sagittarius").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Sagittarius").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Sagittarius").get("Snooty") 
+            SignEspeceSnooty = EspecePersonnalite.get("Sagittarius").get("Snooty")
+
+            //déplacement des étoiles 
+            const EspeceSignSign = EspeceSign.get("Sagittarius")
+            let EspeceSignSignArray = Array.from(EspeceSignSign)
+            let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+            EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+
+            etoile_jaune.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('x', milieuX+90 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+                .attr('y', milieuY+190 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+
+            let SpecieTexteJaune = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteJaune")
+                .attr('x', milieuX+90 + 70)
+                .attr('y', milieuY+190 + 50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " + "Wolves" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('x', milieuX+60 -EspeceSignSignArrayOrdrePlus[1][1].length*5 )
+                .attr('y', milieuY-190 -EspeceSignSignArrayOrdrePlus[1][1].length*5) 
+                
+            let SpecieTexteBleu = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteBleu")
+                .attr('x', milieuX+60 + 60)
+                .attr('y', milieuY-190 + 50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[1][1].length + " " + EspeceSignSignArrayOrdrePlus[1][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5")             
 
         } else if(QuelMoisSommesNous == 2){
             SignEspeceEducation = EspeceHobby.get("Capricornus").get("Education")
@@ -140,8 +196,70 @@ function BoutonSpeciesOver(){
             SignEspeceNormal = EspecePersonnalite.get("Capricornus").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Capricornus").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Capricornus").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Capricornus").get("Snooty")           
-            
+            SignEspeceSnooty = EspecePersonnalite.get("Capricornus").get("Snooty")   
+
+            //déplacement des étoiles 
+            const EspeceSignSign = EspeceSign.get("Capricornus")
+            let EspeceSignSignArray = Array.from(EspeceSignSign)
+            let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+            EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+
+            etoile_jaune.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('x', milieuX+90 -90 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+                .attr('y', milieuY+190 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+
+            let SpecieTexteJaune = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteJaune")
+                .attr('x', milieuX+90 -90 + 70)
+                .attr('y', milieuY+190 + 50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " +  EspeceSignSignArrayOrdrePlus[0][0] +"s"  )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('x', milieuX-40 -90 -EspeceSignSignArrayOrdrePlus[1][1].length*5 )
+                .attr('y', milieuY-190 -EspeceSignSignArrayOrdrePlus[1][1].length*5) 
+                
+            let SpecieTexteBleu = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteBleu")
+                .attr('x', milieuX-40 -90 + 60)
+                .attr('y', milieuY-190 + 50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[1][1].length + " " + EspeceSignSignArrayOrdrePlus[1][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5")     
+
+            etoile_rose.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('x', milieuX-440-90 -EspeceSignSignArrayOrdrePlus[2][1].length*5 )
+                .attr('y', milieuY-230 -5 -EspeceSignSignArrayOrdrePlus[2][1].length*5) 
+                
+            let SpecieTexteRose = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteRose")
+                .attr('x', milieuX-440 -40)
+                .attr('y', milieuY-230 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[2][1].length + " " + EspeceSignSignArrayOrdrePlus[2][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5")   
         } else if(QuelMoisSommesNous == 3){ 
             SignEspeceEducation = EspeceHobby.get("Aquarius").get("Education")
             SignEspeceFashion = EspeceHobby.get("Aquarius").get("Fashion")
@@ -167,18 +285,89 @@ function BoutonSpeciesOver(){
                 .transition()
                     .duration(1050) 
                     .attr("opacity", 0.7)
-            SignEspeceSnooty = [] 
-                let Croix2 = MonEspaceSVG.append('image')
-                .attr('id', 'Croix2')
-                .attr('xlink:href', 'Croix.svg')
-                .attr('width', 130)
-                .attr('height', 130)
-                .attr('x', posXDiag4 -60)
-                .attr('y', posYDiag4 -70) 
-                .attr("opacity", 0)
-                .transition()
-                    .duration(1050) 
-                    .attr("opacity", 0.7) 
+            SignEspeceSnooty = EspecePersonnalite.get("Aquarius").get("Snooty")
+
+            //déplacement des étoiles 
+            const EspeceSignSign = EspeceSign.get("Aquarius")
+            let EspeceSignSignArray = Array.from(EspeceSignSign)
+            let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+            EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+
+            etoile_jaune.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('x', milieuX+180 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+                .attr('y', milieuY+40 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+
+            let SpecieTexteJaune = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteJaune")
+                .attr('x', milieuX+180 + 70)
+                .attr('y', milieuY+40 + 50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " +  EspeceSignSignArrayOrdrePlus[0][0] +"s"  )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('x', milieuX+150 -EspeceSignSignArrayOrdrePlus[1][1].length*5 )
+                .attr('y', milieuY-150 -EspeceSignSignArrayOrdrePlus[1][1].length*5) 
+                
+            let SpecieTexteBleu = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteBleu")
+                .attr('x', milieuX+150 + 60)
+                .attr('y', milieuY-150 + 50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[1][1].length + " " + EspeceSignSignArrayOrdrePlus[1][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5")     
+
+            etoile_rose.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('x', milieuX-300 -EspeceSignSignArrayOrdrePlus[2][1].length*5 )
+                .attr('y', milieuY-90 -EspeceSignSignArrayOrdrePlus[2][1].length*5) 
+                
+            let SpecieTexteRose = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteRose")
+                .attr('x', milieuX-300)
+                .attr('y', milieuY-90-20 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[2][1].length + " " + EspeceSignSignArrayOrdrePlus[2][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+
+            etoile_vert.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('x', milieuX-130 -EspeceSignSignArrayOrdrePlus[2][1].length*5 )
+                .attr('y', milieuY-300 -EspeceSignSignArrayOrdrePlus[2][1].length*5) 
+                
+            let SpecieTexteVert = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteVert")
+                .attr('x', milieuX-130 +60)
+                .attr('y', milieuY-300 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[3][1].length + " " + EspeceSignSignArrayOrdrePlus[3][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
 
         } else if(QuelMoisSommesNous == 4){
             SignEspeceEducation = EspeceHobby.get("Pisces").get("Education")
@@ -207,6 +396,50 @@ function BoutonSpeciesOver(){
             SignEspeceSmug = EspecePersonnalite.get("Pisces").get("Smug")     
             SignEspeceSnooty = EspecePersonnalite.get("Pisces").get("Snooty") 
 
+             //déplacement des étoiles 
+             const EspeceSignSign = EspeceSign.get("Pisces")
+             let EspeceSignSignArray = Array.from(EspeceSignSign)
+             let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+             EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+ 
+             etoile_jaune.transition()
+                 .duration(1000) 
+                 .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                 .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                 .attr('x', milieuX+40 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+                 .attr('y', milieuY+230 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+ 
+             let SpecieTexteJaune = MonEspaceSVG.append('text')
+                 .attr('id', "SpecieTexteJaune")
+                 .attr('x', milieuX+40 + 70)
+                 .attr('y', milieuY+230 + 50 )    
+                 .attr('fill', "white")
+                 .attr('font-family', "AnimalCrossing")
+                 .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " +  EspeceSignSignArrayOrdrePlus[0][0] +"s"  )
+                 .attr('opacity', "0") 
+                 .transition() 
+                 .duration(1000)
+                 .attr('opacity', "0.5") 
+ 
+             etoile_bleu.transition()
+                 .duration(1000) 
+                 .attr('height', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                 .attr('width', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                 .attr('x', milieuX+220 -EspeceSignSignArrayOrdrePlus[1][1].length*5 )
+                 .attr('y', milieuY-140 -EspeceSignSignArrayOrdrePlus[1][1].length*5) 
+                 
+             let SpecieTexteBleu = MonEspaceSVG.append('text')
+                 .attr('id', "SpecieTexteBleu")
+                 .attr('x', milieuX+220 + 60)
+                 .attr('y', milieuY-140 + 50 )    
+                 .attr('fill', "white")
+                 .attr('font-family', "AnimalCrossing")
+                 .text(EspeceSignSignArrayOrdrePlus[1][1].length + " " + EspeceSignSignArrayOrdrePlus[1][0] +"s" )
+                 .attr('opacity', "0") 
+                 .transition() 
+                 .duration(1000)
+                 .attr('opacity', "0.5")     
+
         } else if(QuelMoisSommesNous == 5){  
             SignEspeceEducation = EspeceHobby.get("Aries").get("Education")
             SignEspeceFashion = EspeceHobby.get("Aries").get("Fashion")
@@ -221,8 +454,90 @@ function BoutonSpeciesOver(){
             SignEspeceNormal = EspecePersonnalite.get("Aries").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Aries").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Aries").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Aries").get("Snooty")              
-            
+            SignEspeceSnooty = EspecePersonnalite.get("Aries").get("Snooty")
+
+            //déplacement des étoiles 
+            const EspeceSignSign = EspeceSign.get("Aries")
+            let EspeceSignSignArray = Array.from(EspeceSignSign)
+            let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+            EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+
+            etoile_jaune.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('x', milieuX+ 130-150 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+                .attr('y', milieuY-220 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+
+            let SpecieTexteJaune = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteJaune")
+                .attr('x', milieuX+ 130-150 + 70)
+                .attr('y', milieuY-220+ 50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " +  EspeceSignSignArrayOrdrePlus[0][0] +"s"  )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('x', milieuX+150 -EspeceSignSignArrayOrdrePlus[1][1].length*5 )
+                .attr('y', milieuY-250 -EspeceSignSignArrayOrdrePlus[1][1].length*5) 
+                
+            let SpecieTexteBleu = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteBleu")
+                .attr('x', milieuX+150 + 60 -10)
+                .attr('y', milieuY-250 + 50 -50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[1][1].length + " " + EspeceSignSignArrayOrdrePlus[1][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5")     
+
+            etoile_rose.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('x', milieuX-450 -EspeceSignSignArrayOrdrePlus[2][1].length*5 )
+                .attr('y', milieuY+2 -EspeceSignSignArrayOrdrePlus[2][1].length*5) 
+                
+            let SpecieTexteRose = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteRose")
+                .attr('x', milieuX-450)
+                .attr('y', milieuY+2 -25 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[2][1].length + " " + EspeceSignSignArrayOrdrePlus[2][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+
+            etoile_vert.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('x', milieuX+ 375-150 -EspeceSignSignArrayOrdrePlus[2][1].length*5 )
+                .attr('y', milieuY-190 -EspeceSignSignArrayOrdrePlus[2][1].length*5) 
+                
+            let SpecieTexteVert = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteVert")
+                .attr('x', milieuX+ 375-150 +50 )
+                .attr('y', milieuY-190 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[3][1].length + " " + EspeceSignSignArrayOrdrePlus[3][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+          
         } else if(QuelMoisSommesNous == 6){ 
             SignEspeceEducation = EspeceHobby.get("Taurus").get("Education")
             SignEspeceFashion = EspeceHobby.get("Taurus").get("Fashion")
@@ -237,8 +552,32 @@ function BoutonSpeciesOver(){
             SignEspeceNormal = EspecePersonnalite.get("Taurus").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Taurus").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Taurus").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Taurus").get("Snooty")            
+            SignEspeceSnooty = EspecePersonnalite.get("Taurus").get("Snooty") 
             
+            //déplacement des étoiles 
+            const EspeceSignSign = EspeceSign.get("Taurus")
+            let EspeceSignSignArray = Array.from(EspeceSignSign)
+            let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+            EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+            .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+            .attr('x', milieuX+ 65 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+            .attr('y', milieuY+85 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+
+            let SpecieTexteJaune = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteJaune")
+                .attr('x', milieuX+ 65 + 70 -20)
+                .attr('y', milieuY+85 + 50 - 50)    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " +  EspeceSignSignArrayOrdrePlus[0][0] +"s"  )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
         } else if(QuelMoisSommesNous == 7){
             SignEspeceEducation = EspeceHobby.get("Gemini").get("Education")
             SignEspeceFashion = EspeceHobby.get("Gemini").get("Fashion")
@@ -253,7 +592,51 @@ function BoutonSpeciesOver(){
             SignEspeceNormal = EspecePersonnalite.get("Gemini").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Gemini").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Gemini").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Gemini").get("Snooty")   
+            SignEspeceSnooty = EspecePersonnalite.get("Gemini").get("Snooty") 
+
+            //déplacement des étoiles 
+            const EspeceSignSign = EspeceSign.get("Gemini")
+            let EspeceSignSignArray = Array.from(EspeceSignSign)
+            let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+            EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+
+            etoile_jaune.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('x', milieuX+ 120 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+                .attr('y', milieuY+65 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+
+            let SpecieTexteJaune = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteJaune")
+                .attr('x', milieuX+ 120 + 70 -10)
+                .attr('y', milieuY+65 + 50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " +  EspeceSignSignArrayOrdrePlus[0][0] +"s"  )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('x', milieuX+100 -EspeceSignSignArrayOrdrePlus[1][1].length*5 )
+                .attr('y', milieuY-340 -EspeceSignSignArrayOrdrePlus[1][1].length*5) 
+                
+            let SpecieTexteBleu = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteBleu")
+                .attr('x', milieuX+100 + 60 -10)
+                .attr('y', milieuY-340 + 50 -50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[1][1].length + " " + EspeceSignSignArrayOrdrePlus[1][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5")     
 
         } else if(QuelMoisSommesNous == 8){ 
             SignEspeceEducation = EspeceHobby.get("Cancer").get("Education")
@@ -269,8 +652,52 @@ function BoutonSpeciesOver(){
             SignEspeceNormal = EspecePersonnalite.get("Cancer").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Cancer").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Cancer").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Cancer").get("Snooty")            
-            
+            SignEspeceSnooty = EspecePersonnalite.get("Cancer").get("Snooty")
+        
+            //déplacement des étoiles 
+            const EspeceSignSign = EspeceSign.get("Cancer")
+            let EspeceSignSignArray = Array.from(EspeceSignSign)
+            let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+            EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+
+            etoile_jaune.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('x', milieuX+ 145 -10 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+                .attr('y', milieuY+65 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+
+            let SpecieTexteJaune = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteJaune")
+                .attr('x', milieuX+ 145 + 70 -10)
+                .attr('y', milieuY+65 + 50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " +  EspeceSignSignArrayOrdrePlus[0][0] +"s"  )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('x', milieuX-60 -EspeceSignSignArrayOrdrePlus[1][1].length*5 )
+                .attr('y', milieuY-380 -EspeceSignSignArrayOrdrePlus[1][1].length*5) 
+                
+            let SpecieTexteBleu = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteBleu")
+                .attr('x', milieuX-60 + 50)
+                .attr('y', milieuY-380  )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[1][1].length + " " + EspeceSignSignArrayOrdrePlus[1][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5")  
+         
         } else if(QuelMoisSommesNous == 9){ 
             SignEspeceEducation = EspeceHobby.get("Leo").get("Education")
             SignEspeceFashion = EspeceHobby.get("Leo").get("Fashion")
@@ -296,7 +723,70 @@ function BoutonSpeciesOver(){
             SignEspeceNormal = EspecePersonnalite.get("Leo").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Leo").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Leo").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Leo").get("Snooty")       
+            SignEspeceSnooty = EspecePersonnalite.get("Leo").get("Snooty") 
+            
+            //déplacement des étoiles 
+            const EspeceSignSign = EspeceSign.get("Leo")
+            let EspeceSignSignArray = Array.from(EspeceSignSign)
+            let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+            EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+
+            etoile_jaune.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('x', milieuX+228 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+                .attr('y', milieuY+259 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+
+            let SpecieTexteJaune = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteJaune")
+                .attr('x', milieuX+ 228 + 70)
+                .attr('y', milieuY+259 + 50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " +  EspeceSignSignArrayOrdrePlus[0][0] +"s"  )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('x', milieuX-295 -EspeceSignSignArrayOrdrePlus[1][1].length*5 )
+                .attr('y', milieuY-345 -EspeceSignSignArrayOrdrePlus[1][1].length*5) 
+                
+            let SpecieTexteBleu = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteBleu")
+                .attr('x', milieuX-295 + 60 -10)
+                .attr('y', milieuY-345 + 50 -50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[1][1].length + " " + EspeceSignSignArrayOrdrePlus[1][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5")     
+
+            etoile_rose.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('x', milieuX-140 -EspeceSignSignArrayOrdrePlus[2][1].length*5 )
+                .attr('y', milieuY-145 -EspeceSignSignArrayOrdrePlus[2][1].length*5) 
+                
+            let SpecieTexteRose = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteRose")
+                .attr('x', milieuX-140)
+                .attr('y', milieuY-145 -25 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[2][1].length + " " + EspeceSignSignArrayOrdrePlus[2][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
 
         } else if(QuelMoisSommesNous == 10){
             SignEspeceEducation = EspeceHobby.get("Virgo").get("Education")
@@ -314,6 +804,50 @@ function BoutonSpeciesOver(){
             SignEspeceSmug = EspecePersonnalite.get("Virgo").get("Smug")     
             SignEspeceSnooty = EspecePersonnalite.get("Virgo").get("Snooty") 
 
+            //déplacement des étoiles 
+            const EspeceSignSign = EspeceSign.get("Virgo")
+            let EspeceSignSignArray = Array.from(EspeceSignSign)
+            let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+            EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+
+            etoile_jaune.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('x', milieuX+42 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+                .attr('y', milieuY+20 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+
+            let SpecieTexteJaune = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteJaune")
+                .attr('x', milieuX+ 42 + 70 -20)
+                .attr('y', milieuY+20 + 50 -50)    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " +  EspeceSignSignArrayOrdrePlus[0][0] +"s"  )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('x', milieuX+115 -EspeceSignSignArrayOrdrePlus[1][1].length*5 )
+                .attr('y', milieuY-270 -EspeceSignSignArrayOrdrePlus[1][1].length*5) 
+                
+            let SpecieTexteBleu = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteBleu")
+                .attr('x', milieuX+115 + 60 -10)
+                .attr('y', milieuY-270 + 50 -50 )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[1][1].length + " " + EspeceSignSignArrayOrdrePlus[1][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5")     
+   
         } else if(QuelMoisSommesNous == 11){ 
             SignEspeceEducation = EspeceHobby.get("Libra").get("Education")
             SignEspeceFashion = EspeceHobby.get("Libra").get("Fashion")
@@ -328,7 +862,70 @@ function BoutonSpeciesOver(){
             SignEspeceNormal = EspecePersonnalite.get("Libra").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Libra").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Libra").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Libra").get("Snooty") 
+            SignEspeceSnooty = EspecePersonnalite.get("Libra").get("Snooty")
+            
+            //déplacement des étoiles 
+            const EspeceSignSign = EspeceSign.get("Libra")
+            let EspeceSignSignArray = Array.from(EspeceSignSign)
+            let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+            EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+
+            etoile_jaune.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+                .attr('x', milieuX+ 32 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+                .attr('y', milieuY -85 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+
+            let SpecieTexteJaune = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteJaune")
+                .attr('x', milieuX+ 32 + 50)
+                .attr('y', milieuY-85)    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " +  EspeceSignSignArrayOrdrePlus[0][0] +"s"  )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[1][1].length*10)
+                .attr('x', milieuX+166 -EspeceSignSignArrayOrdrePlus[1][1].length*5 )
+                .attr('y', milieuY+40 -EspeceSignSignArrayOrdrePlus[1][1].length*5) 
+                
+            let SpecieTexteBleu = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteBleu")
+                .attr('x', milieuX+166 + 60 -10)
+                .attr('y', milieuY+40 + 50 -55  )    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[1][1].length + " " + EspeceSignSignArrayOrdrePlus[1][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5")     
+
+            etoile_rose.transition()
+                .duration(1000) 
+                .attr('height', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('width', 50 + EspeceSignSignArrayOrdrePlus[2][1].length*10)
+                .attr('x', milieuX-152 -EspeceSignSignArrayOrdrePlus[2][1].length*5 )
+                .attr('y', milieuY-225 -EspeceSignSignArrayOrdrePlus[2][1].length*5) 
+                
+            let SpecieTexteRose = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteRose")
+                .attr('x', milieuX-152)
+                .attr('y', milieuY-225 - 25)    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[2][1].length + " " + EspeceSignSignArrayOrdrePlus[2][0] +"s" )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
 
         } else if(QuelMoisSommesNous == 12){
             SignEspeceEducation = EspeceHobby.get("Scorpio").get("Education")
@@ -355,8 +952,34 @@ function BoutonSpeciesOver(){
             SignEspeceNormal = EspecePersonnalite.get("Scorpio").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Scorpio").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Scorpio").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Scorpio").get("Snooty")            
+            SignEspeceSnooty = EspecePersonnalite.get("Scorpio").get("Snooty")
             
+            //déplacement des étoiles 
+            const EspeceSignSign = EspeceSign.get("Scorpio")
+            let EspeceSignSignArray = Array.from(EspeceSignSign)
+            let EspeceSignSignArrayOrdreMoins = d3.sort(EspeceSignSignArray, (d) => d[1].length)
+            EspeceSignSignArrayOrdrePlus=  d3.reverse(EspeceSignSignArrayOrdreMoins)
+
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+            .attr('width', 50 + EspeceSignSignArrayOrdrePlus[0][1].length*10)
+            .attr('x', milieuX+ 32 -200 -EspeceSignSignArrayOrdrePlus[0][1].length*5)
+            .attr('y', milieuY -105 -EspeceSignSignArrayOrdrePlus[0][1].length*5)   
+
+            let SpecieTexteJaune = MonEspaceSVG.append('text')
+                .attr('id', "SpecieTexteJaune")
+                .attr('x', milieuX+ 32 -200 + 50)
+                .attr('y', milieuY-105)    
+                .attr('fill', "white")
+                .attr('font-family', "AnimalCrossing")
+                .text(EspeceSignSignArrayOrdrePlus[0][1].length + " " +  EspeceSignSignArrayOrdrePlus[0][0] +"s"  )
+                .attr('opacity', "0") 
+                .transition() 
+                .duration(1000)
+                .attr('opacity', "0.5") 
+      
+console.log(EspeceSignSignArrayOrdrePlus)     
         } 
         
     // apparition des diagrammes circulaires
@@ -407,7 +1030,7 @@ function BoutonSpeciesOver(){
             SignEspeceEducationArray.sort(d3.ascending)
             let pieDataEducation = pie(SignEspeceEducationArray) 
             let EducationSignCompte = 0
-
+            applyIDcorrectely(pieDataEducation)
             for (let i = 0; i < pieDataEducation.length; i++) {
                     EducationSignCompte += pieDataEducation[i].value 
                 }
@@ -437,7 +1060,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -453,7 +1076,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -478,7 +1101,7 @@ function BoutonSpeciesOver(){
             SignEspeceFashionArray.sort(d3.ascending)
             let pieDataFashion = pie(SignEspeceFashionArray)  
             let FashionSignCompte = 0
-
+            applyIDcorrectely(pieDataFashion)
             for (let i = 0; i < pieDataFashion.length; i++) {
                     FashionSignCompte += pieDataFashion[i].value 
                 }
@@ -508,7 +1131,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -524,7 +1147,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -549,7 +1172,7 @@ function BoutonSpeciesOver(){
             SignEspeceFitnessArray.sort(d3.ascending)
             let pieDataFitness = pie(SignEspeceFitnessArray)  
             let FitnessSignCompte = 0
-
+            applyIDcorrectely(pieDataFitness)
             for (let i = 0; i < pieDataFitness.length; i++) {
                 FitnessSignCompte += pieDataFitness[i].value 
             }
@@ -579,7 +1202,7 @@ function BoutonSpeciesOver(){
                 .attr('fill', "white")
                 .attr('font-family', "AnimalCrossing")
                 .style("text-anchor", "middle") 
-                .style("font-size", "10px")
+                .style("font-size", "13px")
                 .attr("opacity", 0)
                 .transition()
                     .duration(1050) 
@@ -595,7 +1218,7 @@ function BoutonSpeciesOver(){
                 .attr('fill', "white")
                 .attr('font-family', "AnimalCrossing")
                 .style("text-anchor", "middle") 
-                .style("font-size", "10px")
+                .style("font-size", "13px")
                 .attr("opacity", 0)
                 .transition()
                     .duration(1050) 
@@ -620,7 +1243,7 @@ function BoutonSpeciesOver(){
             SignEspeceMusicArray.sort(d3.ascending)
             let pieDataMusic = pie(SignEspeceMusicArray)  
             let MusicSignCompte = 0
-
+            applyIDcorrectely(pieDataMusic)
             for (let i = 0; i < pieDataMusic.length; i++) {
             MusicSignCompte += pieDataMusic[i].value 
             }
@@ -650,7 +1273,7 @@ function BoutonSpeciesOver(){
                 .attr('fill', "white")
                 .attr('font-family', "AnimalCrossing")
                 .style("text-anchor", "middle") 
-                .style("font-size", "10px")
+                .style("font-size", "13px")
                 .attr("opacity", 0)
                 .transition()
                     .duration(1050) 
@@ -666,7 +1289,7 @@ function BoutonSpeciesOver(){
                 .attr('fill', "white")
                 .attr('font-family', "AnimalCrossing")
                 .style("text-anchor", "middle") 
-                .style("font-size", "10px")
+                .style("font-size", "13px")
                 .attr("opacity", 0)
                 .transition()
                     .duration(1050) 
@@ -691,7 +1314,7 @@ function BoutonSpeciesOver(){
             SignEspeceNatureArray.sort(d3.ascending)
             let pieDataNature = pie(SignEspeceNatureArray)  
             let NatureSignCompte = 0
-
+            applyIDcorrectely(pieDataNature)
             for (let i = 0; i < pieDataNature.length; i++) {
                 NatureSignCompte += pieDataNature[i].value 
                 }
@@ -721,7 +1344,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -737,7 +1360,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -762,7 +1385,7 @@ function BoutonSpeciesOver(){
             SignEspecePlayArray.sort(d3.ascending)
             let pieDataPlay = pie(SignEspecePlayArray)  
             let PlaySignCompte = 0
-
+            applyIDcorrectely(pieDataPlay)
             for (let i = 0; i < pieDataPlay.length; i++) {
                 PlaySignCompte += pieDataPlay[i].value 
                 }
@@ -792,7 +1415,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -808,7 +1431,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -833,7 +1456,7 @@ function BoutonSpeciesOver(){
             SignEspeceBigSisterArray.sort(d3.ascending)
             let pieDataBigSister = pie(SignEspeceBigSisterArray)  
             let BigSisterSignCompte = 0
-
+            applyIDcorrectely(pieDataBigSister)
             for (let i = 0; i < pieDataBigSister.length; i++) {
                 BigSisterSignCompte += pieDataBigSister[i].value 
                 }
@@ -863,7 +1486,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -879,7 +1502,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -904,7 +1527,7 @@ function BoutonSpeciesOver(){
             SignEspeceCrankyArray.sort(d3.ascending)
             let pieDataCranky = pie(SignEspeceCrankyArray)  
             let CrankySignCompte = 0
-
+            applyIDcorrectely(pieDataCranky)
             for (let i = 0; i < pieDataCranky.length; i++) {
                 CrankySignCompte += pieDataCranky[i].value 
                 }
@@ -934,7 +1557,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -950,7 +1573,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -975,9 +1598,9 @@ function BoutonSpeciesOver(){
             SignEspeceJockArray.sort(d3.ascending)
             let pieDataJock = pie(SignEspeceJockArray)  
             let JockSignCompte = 0
-
+            applyIDcorrectely(pieDataJock)
             for (let i = 0; i < pieDataJock.length; i++) {
-                CrankySignCompte += pieDataJock[i].value 
+                JockSignCompte += pieDataJock[i].value 
                 }
 
                 MonEspaceSVG.selectAll("arc")
@@ -1005,7 +1628,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -1021,7 +1644,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -1046,7 +1669,7 @@ function BoutonSpeciesOver(){
             SignEspeceLazyArray.sort(d3.ascending)
             let pieDataLazy = pie(SignEspeceLazyArray)  
             let LazySignCompte = 0
-
+            applyIDcorrectely(pieDataLazy)
             for (let i = 0; i < pieDataLazy.length; i++) {
                 LazySignCompte += pieDataLazy[i].value 
                 }
@@ -1076,7 +1699,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -1092,7 +1715,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -1117,7 +1740,7 @@ function BoutonSpeciesOver(){
             SignEspeceNormalArray.sort(d3.ascending)
             let pieDataNormal = pie(SignEspeceNormalArray)  
             let NormalSignCompte = 0
-
+            applyIDcorrectely(pieDataNormal)
             for (let i = 0; i < pieDataNormal.length; i++) {
                 NormalSignCompte += pieDataNormal[i].value 
                 }
@@ -1147,7 +1770,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -1163,7 +1786,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -1188,7 +1811,7 @@ function BoutonSpeciesOver(){
             SignEspecePepyArray.sort(d3.ascending)
             let pieDataPeppy = pie(SignEspecePepyArray)  
             let PeppySignCompte = 0
-
+            applyIDcorrectely(pieDataPeppy)
             for (let i = 0; i < pieDataPeppy.length; i++) {
                 PeppySignCompte += pieDataPeppy[i].value 
                 }
@@ -1218,7 +1841,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -1234,7 +1857,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -1259,7 +1882,7 @@ function BoutonSpeciesOver(){
             SignEspeceSmugArray.sort(d3.ascending)
             let pieDataSmug = pie(SignEspeceSmugArray)  
             let SmugSignCompte = 0
-
+            applyIDcorrectely(pieDataSmug)
             for (let i = 0; i < pieDataSmug.length; i++) {
                 SmugSignCompte += pieDataSmug[i].value 
                 }
@@ -1289,7 +1912,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -1305,7 +1928,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -1330,7 +1953,7 @@ function BoutonSpeciesOver(){
             SignEspeceSnootyArray.sort(d3.ascending)
             let pieDataSnooty = pie(SignEspeceSnootyArray)  
             let SnnotySignCompte = 0
-
+            applyIDcorrectely(pieDataSnooty)
             for (let i = 0; i < pieDataSmug.length; i++) {
                 SnnotySignCompte += pieDataSmug[i].value 
                 }
@@ -1360,7 +1983,7 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
@@ -1376,13 +1999,35 @@ function BoutonSpeciesOver(){
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
                     .style("text-anchor", "middle") 
-                    .style("font-size", "10px")
+                    .style("font-size", "13px")
                     .attr("opacity", 0)
                     .transition()
                         .duration(1050) 
                         .attr("opacity", 0.8)
 
-console.log(SignEspeceEducationArray,SignEspeceFashionArray,SignEspeceFitnessArray,SignEspeceMusicArray,SignEspeceNatureArray,SignEspecePlayArray, SignEspeceBigSisterArray, SignEspeceLazyArray,
-                            SignEspeceCrankyArray, SignEspeceJockArray,SignEspeceNormalArray,SignEspecePepyArray, SignEspeceSmugArray, SignEspeceSnootyArray)
+                function applyColorsToFromages(signEspeceArray, prefix) {
+                    for (let a = 0; a < signEspeceArray.length; a++) {
+                        for (let c = 0; c < CouleurETEspeceListe.length; c++) {
+                            if (signEspeceArray[a][0] == CouleurETEspeceListe[c][0]) {
+                                let carambert = document.getElementById(`${prefix}Fromage${a}`);
+                                carambert.style.fill = CouleurETEspeceListe[c][1];
+                            }
+                        }
+                    }
+                }
+                applyColorsToFromages(SignEspeceSnootyArray, 'Snooty');
+                applyColorsToFromages(SignEspeceSmugArray, 'Smug');
+                applyColorsToFromages(SignEspecePepyArray, 'Pepy');
+                applyColorsToFromages(SignEspeceNormalArray, 'Normal');
+                applyColorsToFromages(SignEspeceLazyArray, 'Lazy');
+                applyColorsToFromages(SignEspeceJockArray, 'Jock');
+                applyColorsToFromages(SignEspeceCrankyArray, 'Cranky');
+                applyColorsToFromages(SignEspeceBigSisterArray, 'BigSister');
+                applyColorsToFromages(SignEspeceEducationArray, 'Education');
+                applyColorsToFromages(SignEspeceFashionArray, 'Fashion');
+                applyColorsToFromages(SignEspeceFitnessArray, 'Fitness');
+                applyColorsToFromages(SignEspeceMusicArray, 'Music');
+                applyColorsToFromages(SignEspeceNatureArray, 'Nature');
+                applyColorsToFromages(SignEspecePlayArray, 'Play');
     })
 }

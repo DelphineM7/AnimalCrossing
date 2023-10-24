@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrés de Couleurs</title>
+</head>
+<body>
+    <div id="couleurSquares"></div>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script>
+    <script>
+        // Votre array CouleurETEspeceListe
+        var EspeceListe = [
+    "Pomme",
+    "Chat",
+    "Maison",
+    "Soleil",
+    "Ordinateur",
+    "Musique",
+    "Bonheur",
+    "Amour",
+    "Voiture",
+    "Arbre",
+    "Plage",
+    "Montagne",
+    "Livre",
+    "Fleur",
+    "Café",
+    "Étoile",
+    "Rire",
+    "Feu",
+    "Eau",
+    "Football",
+    "Voyage",
+    "Aventure",
+    "Couleur",
+    "Temps",
+    "Silence",
+    "Nuit",
+    "Jardin",
+    "Enfant",
+    "École",
+    "Famille",
+    "Rêve",
+    "Sourire",
+    "Hiver",
+    "Printemps",
+    "Écoute"
+];
+var Couleur = [
+    // Gris 
+    '#A6A6A6', 
+
+    // Rouge
+    '#FF0000', '#800000',  '#DC143C',
+    
+    // Orange
+     '#FFA500', '#BF7C00', "#FFD280",
+    
+    // Jaune
+    '#FFFF00','#E5EC17','#FFFF80', 
+    
+    // Vert
+    "#9F9F00", '#00FF00', '#80A779', '#00FF7F',  "#2A661F",
+    
+    // Bleu
+    '#CFEFEF','#0000FF', '#20B2AA', '#1E90FF', '#9FB7FF', '#87CEEB', "#04D9FF",'#324B76',
+    
+    // Indigo
+    '#5C009F', '#E2CAF8',   '#D36BFF', '#A1009B',  '#9932CC','#500050',
+    
+    // Rose
+    '#FF1493', '#FF69B4', '#FFC0CB',  '#FCABEA',"#993A6E",  '#9F0058', 
+
+];
+d3.shuffle(Couleur)
+console.log(Couleur.length)
+CouleurETEspeceListe = d3.zip(EspeceListe,Couleur)
+
+        // Sélectionnez l'élément div où vous voulez afficher les carrés
+        var couleurSquaresDiv = document.getElementById("couleurSquares");
+
+        // Parcourez votre array et créez des carrés
+        for (var i = 0; i < CouleurETEspeceListe.length; i++) {
+            var mot = CouleurETEspeceListe[i][0];
+            var couleur = CouleurETEspeceListe[i][1];
+
+            // Créez un élément div pour le carré
+            var square = document.createElement("div");
+            square.style.width = "50px";
+            square.style.height = "50px";
+            square.style.backgroundColor = couleur;
+            square.style.display = "inline-block";
+            square.style.margin = "5px"; // Espace entre les carrés
+
+            // Ajoutez le mot au centre du carré
+            square.innerText = mot;
+            square.style.textAlign = "center";
+            square.style.lineHeight = "20px";
+
+            // Ajoutez le carré à la div parent
+            couleurSquaresDiv.appendChild(square);
+
+             // Créez une nouvelle ligne de carrés après chaque 5 carrés
+             if ((i + 1) % 5 === 0) {
+                couleurSquaresDiv.appendChild(document.createElement("br"));
+            }
+        }
+    </script>
+</body>
+</html>

@@ -57,6 +57,7 @@ function BoutonSpeciesOut(){
             let SignEspeceSnooty = EspecePersonnalite.get("Capricornus").get("Snooty")     
 
         if (QuelMoisSommesNous == 1) {
+            //Diagrammes circulaires
             SignEspeceEducation = EspeceHobby.get("Sagittarius").get("Education")
             SignEspeceFashion = EspeceHobby.get("Sagittarius").get("Fashion")
             SignEspeceFitness = EspeceHobby.get("Sagittarius").get("Fitness")
@@ -75,6 +76,34 @@ function BoutonSpeciesOut(){
             SignEspecePepy = EspecePersonnalite.get("Sagittarius").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Sagittarius").get("Smug")     
             SignEspeceSnooty = EspecePersonnalite.get("Sagittarius").get("Snooty") 
+
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX+90)
+                .attr('y', milieuY+190)
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX+60 )
+                .attr('y', milieuY-190) 
+            
+            d3.select(`#SpecieTexteBleu`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()      
+
         } else if(QuelMoisSommesNous == 2){
             SignEspeceEducation = EspeceHobby.get("Capricornus").get("Education")
             SignEspeceFashion = EspeceHobby.get("Capricornus").get("Fashion")
@@ -90,6 +119,47 @@ function BoutonSpeciesOut(){
             SignEspecePepy = EspecePersonnalite.get("Capricornus").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Capricornus").get("Smug")     
             SignEspeceSnooty = EspecePersonnalite.get("Capricornus").get("Snooty") 
+
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX+90-90)
+                .attr('y', milieuY+190)
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX-40 -90 )
+                .attr('y', milieuY-190) 
+            
+            d3.select(`#SpecieTexteBleu`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()   
+
+            etoile_rose.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX-440-90)
+                .attr('y', milieuY-230) 
+
+            d3.select(`#SpecieTexteRose`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()  
+
         } else if(QuelMoisSommesNous == 3){   
             SignEspeceEducation = EspeceHobby.get("Aquarius").get("Education")
             SignEspeceFashion = EspeceHobby.get("Aquarius").get("Fashion")
@@ -103,16 +173,65 @@ function BoutonSpeciesOut(){
             SignEspeceLazy = EspecePersonnalite.get("Aquarius").get("Lazy")
             SignEspeceNormal = EspecePersonnalite.get("Aquarius").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Aquarius").get("Peppy")
+            SignEspeceSnooty = EspecePersonnalite.get("Aquarius").get("Snooty") 
             d3.select(`#Croix`)
             .transition()
             .duration(1000)      
             .attr("opacity", 0)
             .remove() 
-            d3.select(`#Croix2`)
-            .transition()
-            .duration(1000)      
-            .attr("opacity", 0)
-            .remove()   
+
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+180)
+            .attr('y', milieuY+40) 
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX+150)
+                .attr('y', milieuY-150) 
+            
+            d3.select(`#SpecieTexteBleu`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()   
+
+            etoile_rose.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX-300)
+                .attr('y', milieuY-90) 
+
+            d3.select(`#SpecieTexteRose`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()  
+            
+            etoile_vert.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX-130)
+                .attr('y', milieuY-300)
+
+            d3.select(`#SpecieTexteVert`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
         } else if(QuelMoisSommesNous == 4){
             SignEspeceEducation = EspeceHobby.get("Pisces").get("Education")
             SignEspeceFashion = EspeceHobby.get("Pisces").get("Fashion")
@@ -131,7 +250,34 @@ function BoutonSpeciesOut(){
             SignEspeceNormal = EspecePersonnalite.get("Pisces").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Pisces").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Pisces").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Pisces").get("Snooty") 
+            SignEspeceSnooty = EspecePersonnalite.get("Pisces").get("Snooty")
+
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+ 110-70)
+            .attr('y', milieuY+230) 
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX+ 290-70)
+                .attr('y', milieuY-140) 
+            
+            d3.select(`#SpecieTexteBleu`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()   
         } else if(QuelMoisSommesNous == 5){ 
             SignEspeceEducation = EspeceHobby.get("Aries").get("Education")
             SignEspeceFashion = EspeceHobby.get("Aries").get("Fashion")
@@ -146,7 +292,60 @@ function BoutonSpeciesOut(){
             SignEspeceNormal = EspecePersonnalite.get("Aries").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Aries").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Aries").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Aries").get("Snooty")    
+            SignEspeceSnooty = EspecePersonnalite.get("Aries").get("Snooty")  
+
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+ 130-150)
+            .attr('y', milieuY-220) 
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX+150)
+                .attr('y', milieuY-250) 
+            
+            d3.select(`#SpecieTexteBleu`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()   
+
+            etoile_rose.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX-450)
+                .attr('y', milieuY+2) 
+
+            d3.select(`#SpecieTexteRose`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()  
+            
+            etoile_vert.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX+375-150)
+                .attr('y', milieuY-190)
+
+            d3.select(`#SpecieTexteVert`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()  
         } else if(QuelMoisSommesNous == 6){ 
             SignEspeceEducation = EspeceHobby.get("Taurus").get("Education")
             SignEspeceFashion = EspeceHobby.get("Taurus").get("Fashion")
@@ -161,7 +360,21 @@ function BoutonSpeciesOut(){
             SignEspeceNormal = EspecePersonnalite.get("Taurus").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Taurus").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Taurus").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Taurus").get("Snooty")   
+            SignEspeceSnooty = EspecePersonnalite.get("Taurus").get("Snooty") 
+
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+ 65)
+            .attr('y', milieuY+85) 
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
         } else if(QuelMoisSommesNous == 7){
             SignEspeceEducation = EspeceHobby.get("Gemini").get("Education")
             SignEspeceFashion = EspeceHobby.get("Gemini").get("Fashion")
@@ -176,7 +389,34 @@ function BoutonSpeciesOut(){
             SignEspeceNormal = EspecePersonnalite.get("Gemini").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Gemini").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Gemini").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Gemini").get("Snooty")   
+            SignEspeceSnooty = EspecePersonnalite.get("Gemini").get("Snooty") 
+
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+ 120)
+            .attr('y', milieuY+65) 
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX+100)
+                .attr('y', milieuY-340) 
+            
+            d3.select(`#SpecieTexteBleu`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()     
         } else if(QuelMoisSommesNous == 8){
             SignEspeceEducation = EspeceHobby.get("Cancer").get("Education")
             SignEspeceFashion = EspeceHobby.get("Cancer").get("Fashion")
@@ -191,7 +431,34 @@ function BoutonSpeciesOut(){
             SignEspeceNormal = EspecePersonnalite.get("Cancer").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Cancer").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Cancer").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Cancer").get("Snooty")   
+            SignEspeceSnooty = EspecePersonnalite.get("Cancer").get("Snooty") 
+            
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+ 145)
+            .attr('y', milieuY+65) 
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX-60)
+                .attr('y', milieuY-380) 
+            
+            d3.select(`#SpecieTexteBleu`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()  
         } else if(QuelMoisSommesNous == 9){ 
             SignEspeceEducation = EspeceHobby.get("Leo").get("Education")
             SignEspeceFashion = EspeceHobby.get("Leo").get("Fashion")
@@ -210,7 +477,47 @@ function BoutonSpeciesOut(){
             SignEspeceNormal = EspecePersonnalite.get("Leo").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Leo").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Leo").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Leo").get("Snooty")  
+            SignEspeceSnooty = EspecePersonnalite.get("Leo").get("Snooty") 
+            
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+ 228)
+            .attr('y', milieuY+259) 
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX-295)
+                .attr('y', milieuY-345) 
+            
+            d3.select(`#SpecieTexteBleu`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()   
+
+            etoile_rose.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX-140)
+                .attr('y', milieuY-145) 
+
+            d3.select(`#SpecieTexteRose`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()   
         } else if(QuelMoisSommesNous == 10){
             SignEspeceEducation = EspeceHobby.get("Virgo").get("Education")
             SignEspeceFashion = EspeceHobby.get("Virgo").get("Fashion")
@@ -226,6 +533,33 @@ function BoutonSpeciesOut(){
             SignEspecePepy = EspecePersonnalite.get("Virgo").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Virgo").get("Smug")     
             SignEspeceSnooty = EspecePersonnalite.get("Virgo").get("Snooty")  
+
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+ 42)
+            .attr('y', milieuY+20) 
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX+115)
+                .attr('y', milieuY-270) 
+            
+            d3.select(`#SpecieTexteBleu`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()   
         } else if(QuelMoisSommesNous == 11){ 
             SignEspeceEducation = EspeceHobby.get("Libra").get("Education")
             SignEspeceFashion = EspeceHobby.get("Libra").get("Fashion")
@@ -241,6 +575,46 @@ function BoutonSpeciesOut(){
             SignEspecePepy = EspecePersonnalite.get("Libra").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Libra").get("Smug")     
             SignEspeceSnooty = EspecePersonnalite.get("Libra").get("Snooty")  
+
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+ 32)
+            .attr('y', milieuY-85) 
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
+
+            etoile_bleu.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX+166)
+                .attr('y', milieuY+40) 
+            
+            d3.select(`#SpecieTexteBleu`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()   
+
+            etoile_rose.transition()
+                .duration(1000) 
+                .attr('height', 50 )
+                .attr('width', 50 )
+                .attr('x', milieuX-152)
+                .attr('y', milieuY-225) 
+
+            d3.select(`#SpecieTexteRose`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()   
         } else if(QuelMoisSommesNous == 12){
             SignEspeceEducation = EspeceHobby.get("Scorpio").get("Education")
             SignEspeceFashion = EspeceHobby.get("Scorpio").get("Fashion")
@@ -259,7 +633,21 @@ function BoutonSpeciesOut(){
             SignEspeceNormal = EspecePersonnalite.get("Scorpio").get("Normal")  
             SignEspecePepy = EspecePersonnalite.get("Scorpio").get("Peppy")
             SignEspeceSmug = EspecePersonnalite.get("Scorpio").get("Smug")     
-            SignEspeceSnooty = EspecePersonnalite.get("Scorpio").get("Snooty")  
+            SignEspeceSnooty = EspecePersonnalite.get("Scorpio").get("Snooty") 
+            
+            //déplacement des étoiles 
+            etoile_jaune.transition()
+            .duration(1000) 
+            .attr('height', 50 )
+            .attr('width', 50 )
+            .attr('x', milieuX+ 32 -200)
+            .attr('y', milieuY-105) 
+
+            d3.select(`#SpecieTexteJaune`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove() 
         } 
 
     //disparition des diagrammes circulaire 

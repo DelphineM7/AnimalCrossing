@@ -67,20 +67,40 @@ function BoutonGenderOver(){
                 let FemaleEspece = Espece.get("Sagittarius").get("Female")
                                         
                 //couleurs associées à une espèce
-                Couleur = [ '#E74C3C', '#3498DB', '#9B59B6', '#2980B9', '#16A085',
-                '#8E44AD', '#D35400', '#C0392B', '#FF00FF', '#D2B4DE',
-                '#E67E22', '#2C3E50', '#FF5733', '#D98880', '#FFC300',
-                '#AED6F1', '#C39BD3', '#F1948A', '#CB4335', '#FAD02E',
-                '#AF7AC5', '#FF1493', '#FF69B4', '#DFFF00', '#FF4500',
-                '#8A2BE2', '#FF6347', '#B22222', '#FFA07A', '#F5B041',
-                '#FFD700', '#20B2AA', '#549551', '#FFC0CB', "#8ADF87"]
+                var Couleur = [
+                        // Gris 
+                        '#A6A6A6', 
+                    
+                        // Rouge
+                        '#FF0000', '#800000',  '#DC143C',
+                        
+                        // Orange
+                         '#FFA500', '#BF7C00', "#FFD280",
+                        
+                        // Jaune
+                        '#FFFF00','#E5EC17','#FFFF80', 
+                        
+                        // Vert
+                        "#9F9F00", '#00FF00', '#80A779', '#00FF7F',  "#2A661F",
+                        
+                        // Bleu
+                        '#CFEFEF','#0000FF', '#20B2AA', '#1E90FF', '#9FB7FF', '#87CEEB', "#04D9FF",'#324B76',
+                        
+                        // Indigo
+                        '#5C009F', '#E2CAF8',   '#D36BFF', '#A1009B',  '#9932CC','#500050',
+                        
+                        // Rose
+                        '#FF1493', '#FF69B4', '#FFC0CB',  '#FCABEA',"#993A6E",  '#9F0058', 
+                    
+                    ];
+                d3.shuffle(Couleur)
                 const EEspece = d3.groups(donnees, d => d.espece)
                 let EspeceListe = []
                 for (let i = 0; i < 35; i++) {
                         EspeceListe.push(EEspece[i].shift())
                 }
                 CouleurETEspeceListe = d3.zip(EspeceListe,Couleur)
-            
+                
                 //fond blanc
                 let FondBlanc = MonEspaceSVG.append("rect")
                 .attr("id", "FondBlancEspece")
