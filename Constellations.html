@@ -15,6 +15,8 @@
     <script  src="BoutonGenderOver.js" ></script>
     <script  src="BoutonSpeciesOut.js" ></script>
     <script  src="BoutonSpeciesOver.js" ></script>
+    <script  src="BoutonHobbyOver.js" ></script>
+    <script  src="BoutonHobbyOut.js" ></script>
     <script> 
 
 //élments de base
@@ -403,6 +405,10 @@ let TexteHobby = MonEspaceSVG.append('text')
     .attr('opacity', "0.5")
     .attr('font-family', "AnimalCrossing")
     .text("Hobby")
+
+let BoutonBoutonHobby = document.getElementById('Hobby');   
+BoutonBoutonHobby.addEventListener("mouseover", BoutonHobbyOver);
+BoutonBoutonHobby.addEventListener("mouseout", BoutonHobbyOut);
 
 // personnalities
 let BoutonPersonality = MonEspaceSVG.append('image')

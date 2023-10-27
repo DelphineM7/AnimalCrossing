@@ -31,7 +31,7 @@ function BoutonSpeciesOver(){
             ];
 
         CouleurETEspeceListe = d3.zip(EspeceListe,Couleur)
-
+ 
         let ecran_width = window.innerWidth;
         let ecran_height = window.innerHeight;
         let milieuX = ecran_width/2 -275
@@ -181,7 +181,6 @@ function BoutonSpeciesOver(){
                 .transition() 
                 .duration(1000)
                 .attr('opacity', "0.5")             
-
         } else if(QuelMoisSommesNous == 2){
             SignEspeceEducation = EspeceHobby.get("Capricornus").get("Education")
             SignEspeceFashion = EspeceHobby.get("Capricornus").get("Fashion")
@@ -1954,8 +1953,8 @@ console.log(EspeceSignSignArrayOrdrePlus)
             let pieDataSnooty = pie(SignEspeceSnootyArray)  
             let SnnotySignCompte = 0
             applyIDcorrectely(pieDataSnooty)
-            for (let i = 0; i < pieDataSmug.length; i++) {
-                SnnotySignCompte += pieDataSmug[i].value 
+            for (let i = 0; i < pieDataSnooty.length; i++) {
+                SnnotySignCompte += pieDataSnooty[i].value 
                 }
 
                 MonEspaceSVG.selectAll("arc")

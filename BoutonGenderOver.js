@@ -68,32 +68,15 @@ function BoutonGenderOver(){
                                         
                 //couleurs associées à une espèce
                 var Couleur = [
-                        // Gris 
-                        '#A6A6A6', 
-                    
-                        // Rouge
-                        '#FF0000', '#800000',  '#DC143C',
-                        
-                        // Orange
-                         '#FFA500', '#BF7C00', "#FFD280",
-                        
-                        // Jaune
-                        '#FFFF00','#E5EC17','#FFFF80', 
-                        
-                        // Vert
-                        "#9F9F00", '#00FF00', '#80A779', '#00FF7F',  "#2A661F",
-                        
-                        // Bleu
-                        '#CFEFEF','#0000FF', '#20B2AA', '#1E90FF', '#9FB7FF', '#87CEEB', "#04D9FF",'#324B76',
-                        
-                        // Indigo
-                        '#5C009F', '#E2CAF8',   '#D36BFF', '#A1009B',  '#9932CC','#500050',
-                        
-                        // Rose
-                        '#FF1493', '#FF69B4', '#FFC0CB',  '#FCABEA',"#993A6E",  '#9F0058', 
-                    
+                        '#FF1493', '#0000FF', '#FFC0CB', '#2A661F', '#BF7C00', 
+                        '#20B2AA', '#04D9FF', '#9F0058', '#E5EC17', '#324B76', 
+                        '#87CEEB', '#A6A6A6', '#800000', '#FFFF80', '#FFFF00',
+                        '#CFEFEF', '#80A779', '#00FF00', '#FF0000', '#DC143C',
+                        '#993A6E', '#5C009F', '#9932CC', '#A1009B', '#00FF7F',
+                        '#FFA500', '#D36BFF', '#FF69B4', '#E2CAF8', '#FFD280',
+                        '#9F9F00', '#500050', '#1E90FF', '#9FB7FF', '#FCABEA'
                     ];
-                d3.shuffle(Couleur)
+                
                 const EEspece = d3.groups(donnees, d => d.espece)
                 let EspeceListe = []
                 for (let i = 0; i < 35; i++) {
