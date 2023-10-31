@@ -17,6 +17,8 @@
     <script  src="BoutonSpeciesOver.js" ></script>
     <script  src="BoutonHobbyOver.js" ></script>
     <script  src="BoutonHobbyOut.js" ></script>
+    <script  src="BoutonPersonnalityOver.js" ></script>
+    <script  src="BoutonPersonnalityOut.js" ></script>
     <script> 
 
 //élments de base
@@ -428,6 +430,9 @@ let TextePersonality = MonEspaceSVG.append('text')
     .attr('font-family', "AnimalCrossing")
     .text("Personality")
 
+let BoutonBoutonPersonnality = document.getElementById('Personality');   
+BoutonBoutonPersonnality.addEventListener("mouseover", BoutonPersonnalityOver);
+BoutonBoutonPersonnality.addEventListener("mouseout", BoutonPersonnalityOut);
     </script>   
 </body>
 </html>

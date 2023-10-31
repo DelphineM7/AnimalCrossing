@@ -532,65 +532,99 @@
                     for (let i = 0; i < EEspece.length; i++) {
                         EspeceListe.push(EEspece[i].shift())
                     }
-                Couleur = [ '#E74C3C', '#3498DB', '#9B59B6', '#2980B9', '#16A085',
-                    '#8E44AD', '#D35400', '#C0392B', '#FF00FF', '#D2B4DE',
-                    '#E67E22', '#2C3E50', '#FF5733', '#D98880', '#FFC300',
-                    '#AED6F1', '#C39BD3', '#F1948A', '#CB4335', '#FAD02E',
-                    '#AF7AC5', '#FF1493', '#FF69B4', '#DFFF00', '#FF4500',
-                    '#8A2BE2', '#FF6347', '#B22222', '#FFA07A', '#F5B041',
-                    '#FFD700', '#20B2AA', '#FF1493', '#FFC0CB']
+                    var Couleur = [
+                    '#FF1493', '#0000FF', '#FFC0CB', '#2A661F', '#BF7C00', 
+                    '#20B2AA', '#04D9FF', '#9F0058', '#E5EC17', '#324B76', 
+                    '#87CEEB', '#A6A6A6', '#800000', '#FFFF80', '#FFFF00',
+                    '#CFEFEF', '#80A779', '#00FF00', '#FF0000', '#DC143C',
+                    '#993A6E', '#5C009F', '#9932CC', '#A1009B', '#00FF7F',
+                    '#FFA500', '#D36BFF', '#FF69B4', '#E2CAF8', '#FFD280',
+                    '#9F9F00', '#500050', '#1E90FF', '#9FB7FF', '#FCABEA'
+                    ];
+
+                const Personnalite = [["Education", "#FF949D"],["Music", "#6460FF" ],["Fashion", "#40FF84"],["Nature", "#23C4B7"],["Fitness", "#FFBC40"],["Play", "#FF40DC"]]
 
                     const EspeceHobby = d3.group(donnees, d => d.signe, d=> d.hobbie, d => d.espece)
-                    let SignEspeceFashion = EspeceHobby.get("Capricornus").get("Fashion")
-                    let SignEspeceFashionArray = Array.from(SignEspeceFashion)
-                    SignEspeceFashionArray.sort(d3.ascending)
+                    let SignEspece = EspeceHobby.get("Capricornus")
+                    let SignEspeceArray = Array.from(SignEspece)
+                    SignEspeceArray.sort(d3.ascending)
 
+                    const Signgender = d3.group(donnees, d => d.signe, d => d.personnalite,d=> d.espece,)
+                    let Signgender2 = Signgender.get("Capricornus").get("Jock")
+                    let SigngenderArray = Array.from(Signgender2)
+                    SigngenderArray.sort(d3.ascending)
+                    
                     const color = d3.scaleOrdinal()
                         .domain(EspeceListe)
                         .range(Couleur);
 
                     const arcGenerator = d3.arc()
                         .outerRadius(120)
-                        .innerRadius(70)
-    
+                        .innerRadius(0)
+                        .cornerRadius(35)
+
                     const pie = d3.pie()
+                        .startAngle(-Math.PI/2)
+                        .endAngle(Math.PI/2)
                         .value(d => d[1].length);
-                        let FashionSignCompte = 0
-
-
-                    
-                    let pieDataFashion = pie(SignEspeceFashionArray)
-                    console.log(pieDataFashion)
-                    for (let i = 0; i < pieDataFashion.length; i++) {
-                        FashionSignCompte += pieDataFashion[i].value 
+                
+                    let SignCompte = 0
+                    let pieDataSigngenderArray = pie(SigngenderArray)
+                    console.log(pieDataSigngenderArray)
+                    for (let i = 0; i < pieDataSigngenderArray.length; i++) {
+                        SignCompte += pieDataSigngenderArray[i].value 
                     }
                     MonEspaceSVG.selectAll("arc")
-                        .data(pieDataFashion)
+                        .data(pieDataSigngenderArray)
                         .enter()
                         .append("path")
+                        .attr("id", d => `Fromage${d.index}`)
                         .attr("d", arcGenerator)
-                        .attr("fill", (d, i) => color(i))
+                        .attr("fill", "white")
                         .attr("stroke", "white")
                         .attr("stroke-width", 1)
                         .attr("transform", "translate(150,700)")
 
                     const labelsEspece = MonEspaceSVG.selectAll(".label-espece")
-                        .data(pieDataFashion)
+                        .data(pieDataSigngenderArray)
                         .enter()
                         .append("text")
                         .text((d) =>  d.data[0]) 
                         .attr("transform", (d) => `translate(150,700) translate(${arcGenerator.centroid(d)})`)
                         .style("text-anchor", "middle") 
+                        .style("fill", "white")
                         .style("font-size", "12px"); 
 
                     const labelsCompte = MonEspaceSVG.selectAll(".label-Compte")
-                        .data(pieDataFashion)
+                        .data(pieDataSigngenderArray)
                         .enter()
                         .append("text")
-                        .text((d) =>  d.value + "/" + FashionSignCompte) 
-                        .attr("transform", (d) => `translate(150,720) translate(${arcGenerator.centroid(d)})`)
+                        .text((d) =>  d.value + "/" + SignCompte) 
+                        .attr("transform", (d) => `translate(150,715) translate(${arcGenerator.centroid(d)})`)
                         .style("text-anchor", "middle") 
+                        .style("fill", "white")
                         .style("font-size", "12px");
+
+
+                    let TraitX = 80 
+                    let TraitY = 700 
+
+                    for (let i = 0; i < 6; i++) {
+                     MonEspaceSVG.append('line')
+                    .attr("id", `Trait${i}`)
+                    .attr('x1', TraitX + i*28)
+                    .attr('y1', TraitY )
+                    .attr('x2', TraitX + i*28)
+                    .attr('y2', TraitY + SignEspeceArray[i][1].size *20)
+                    .attr('stroke-linecap', "round")
+                    .attr("stroke", `${Personnalite[i][1]}`)
+                    .attr('stroke-width', 4)
+                    .attr('stroke-dasharray', 8)
+                    .attr('stroke-opacity', .5) 
+                    }
+                    
+
+
             })    
      </script>
 
