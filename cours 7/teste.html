@@ -550,7 +550,7 @@
                     SignEspeceArray.sort(d3.ascending)
 
                     const Signgender = d3.group(donnees, d => d.signe, d => d.personnalite,d=> d.espece,)
-                    let Signgender2 = Signgender.get("Capricornus").get("Jock")
+                    let Signgender2 = Signgender.get("Sagittarius").get("Peppy")
                     let SigngenderArray = Array.from(Signgender2)
                     SigngenderArray.sort(d3.ascending)
                     
@@ -561,7 +561,7 @@
                     const arcGenerator = d3.arc()
                         .outerRadius(120)
                         .innerRadius(0)
-                        .cornerRadius(35)
+                        .cornerRadius(45)
 
                     const pie = d3.pie()
                         .startAngle(-Math.PI/2)
@@ -580,8 +580,8 @@
                         .append("path")
                         .attr("id", d => `Fromage${d.index}`)
                         .attr("d", arcGenerator)
-                        .attr("fill", "white")
-                        .attr("stroke", "white")
+                        .attr("fill", "pink")
+                        .attr("stroke", "hotpink")
                         .attr("stroke-width", 1)
                         .attr("transform", "translate(150,700)")
 

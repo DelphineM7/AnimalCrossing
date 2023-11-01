@@ -18,84 +18,402 @@ function BoutonPersonnalityOut(){
       
         //Big Sister
             let SigngenderBigSister = Signgender.get("Capricornus").get("Big Sister")
+            let SigngenderHobbyBigSister = EspeceHobby.get("Capricornus").get("Big Sister")
+
+        //Normal
+            let SigngenderNormal = Signgender.get("Capricornus").get("Normal")
+            let SigngenderHobbyNormal = EspeceHobby.get("Capricornus").get("Normal")
+
+        //Cranky
+            let SigngenderCranky = Signgender.get("Capricornus").get("Cranky")
+            let SigngenderHobbyCranky = EspeceHobby.get("Capricornus").get("Cranky")
+
+        //Peppy
+            let SigngenderPeppy = Signgender.get("Capricornus").get("Peppy")
+            let SigngenderHobbyPeppy = EspeceHobby.get("Capricornus").get("Peppy")
+
+        //Jock
+            let SigngenderJock = Signgender.get("Capricornus").get("Jock")
+            let SigngenderHobbyJock = EspeceHobby.get("Capricornus").get("Jock")
+
+        //Smug
+            let SigngenderSmug = Signgender.get("Capricornus").get("Smug")
+            let SigngenderHobbySmug = EspeceHobby.get("Capricornus").get("Smug")
+
+        //Lazy
+            let SigngenderLazy = Signgender.get("Capricornus").get("Lazy")
+            let SigngenderHobbyLazy = EspeceHobby.get("Capricornus").get("Lazy")
+
+        //Snooty
+            let SigngenderSnooty = Signgender.get("Capricornus").get("Snooty")
+            let SigngenderHobbySnooty = EspeceHobby.get("Capricornus").get("Snooty")
+        
+            if (QuelMoisSommesNous == 1) {
+                //Big Sister
+                    d3.select(`#Croix`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove() 
+                //Normal
+                    SigngenderNormal = Signgender.get("Sagittarius").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Sagittarius").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Sagittarius").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Sagittarius").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Sagittarius").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Sagittarius").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Sagittarius").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Sagittarius").get("Jock")
+                //Smug
+                    SigngenderSmug = Signgender.get("Sagittarius").get("Smug")
+                    SigngenderHobbySmug = EspeceHobby.get("Sagittarius").get("Smug")
+                //Lazy
+                    SigngenderLazy = Signgender.get("Sagittarius").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Sagittarius").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Sagittarius").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Sagittarius").get("Snooty")
+            } else if(QuelMoisSommesNous == 2){
+                //Big Sister
+                    SigngenderBigSister = Signgender.get("Capricornus").get("Big Sister")
+                    SigngenderHobbyBigSister = EspeceHobby.get("Capricornus").get("Big Sister")
+                //Normal
+                    SigngenderNormal = Signgender.get("Capricornus").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Capricornus").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Capricornus").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Capricornus").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Capricornus").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Capricornus").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Capricornus").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Capricornus").get("Jock")
+                //Smug
+                    SigngenderSmug = Signgender.get("Capricornus").get("Smug")
+                    SigngenderHobbySmug = EspeceHobby.get("Capricornus").get("Smug")
+                //Lazy
+                    SigngenderLazy = Signgender.get("Capricornus").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Capricornus").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Capricornus").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Capricornus").get("Snooty")
+            } else if(QuelMoisSommesNous == 3){
+                //Big Sister
+                    SigngenderBigSister = Signgender.get("Aquarius").get("Big Sister")
+                    SigngenderHobbyBigSister = EspeceHobby.get("Aquarius").get("Big Sister")
+                //Normal
+                    SigngenderNormal = Signgender.get("Aquarius").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Aquarius").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Aquarius").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Aquarius").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Aquarius").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Aquarius").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Aquarius").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Aquarius").get("Jock")
+                //Smug
+                    d3.select(`#Croix`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove() 
+                //Lazy
+                    SigngenderLazy = Signgender.get("Aquarius").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Aquarius").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Aquarius").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Aquarius").get("Snooty")     
+            } else if(QuelMoisSommesNous == 4){
+                //Big Sister
+                    d3.select(`#Croix`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove() 
+                //Normal
+                    SigngenderNormal = Signgender.get("Pisces").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Pisces").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Pisces").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Pisces").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Pisces").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Pisces").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Pisces").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Pisces").get("Jock")
+                //Smug
+                    SigngenderSmug = Signgender.get("Pisces").get("Smug")
+                    SigngenderHobbySmug = EspeceHobby.get("Pisces").get("Smug")
+                //Lazy
+                    SigngenderLazy = Signgender.get("Pisces").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Pisces").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Pisces").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Pisces").get("Snooty")    
+            } else if(QuelMoisSommesNous == 5){
+                //Big Sister
+                    SigngenderBigSister = Signgender.get("Aries").get("Big Sister")
+                    SigngenderHobbyBigSister = EspeceHobby.get("Aries").get("Big Sister")
+                //Normal
+                    SigngenderNormal = Signgender.get("Aries").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Aries").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Aries").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Aries").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Aries").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Aries").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Aries").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Aries").get("Jock")
+                //Smug
+                    SigngenderSmug = Signgender.get("Aries").get("Smug")
+                    SigngenderHobbySmug = EspeceHobby.get("Aries").get("Smug")
+                //Lazy
+                    SigngenderLazy = Signgender.get("Aries").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Aries").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Aries").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Aries").get("Snooty")             
+            } else if(QuelMoisSommesNous == 6){
+                //Big Sister
+                    SigngenderBigSister = Signgender.get("Taurus").get("Big Sister")
+                    SigngenderHobbyBigSister = EspeceHobby.get("Taurus").get("Big Sister")
+                //Normal
+                    SigngenderNormal = Signgender.get("Taurus").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Taurus").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Taurus").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Taurus").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Taurus").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Taurus").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Taurus").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Taurus").get("Jock")
+                //Smug
+                    SigngenderSmug = Signgender.get("Taurus").get("Smug")
+                    SigngenderHobbySmug = EspeceHobby.get("Taurus").get("Smug")
+                //Lazy
+                    SigngenderLazy = Signgender.get("Taurus").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Taurus").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Taurus").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Taurus").get("Snooty")   
+            } else if(QuelMoisSommesNous == 7){
+                 //Big Sister
+                    SigngenderBigSister = Signgender.get("Gemini").get("Big Sister")
+                    SigngenderHobbyBigSister = EspeceHobby.get("Gemini").get("Big Sister")
+                //Normal
+                    SigngenderNormal = Signgender.get("Gemini").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Gemini").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Gemini").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Gemini").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Gemini").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Gemini").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Gemini").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Gemini").get("Jock")
+                //Smug
+                    SigngenderSmug = Signgender.get("Gemini").get("Smug")
+                    SigngenderHobbySmug = EspeceHobby.get("Gemini").get("Smug")
+                //Lazy
+                    SigngenderLazy = Signgender.get("Gemini").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Gemini").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Gemini").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Gemini").get("Snooty")  
+            } else if(QuelMoisSommesNous == 8){ 
+                //Big Sister
+                    SigngenderBigSister = Signgender.get("Cancer").get("Big Sister")
+                    SigngenderHobbyBigSister = EspeceHobby.get("Cancer").get("Big Sister")
+                //Normal
+                    SigngenderNormal = Signgender.get("Cancer").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Cancer").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Cancer").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Cancer").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Cancer").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Cancer").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Cancer").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Cancer").get("Jock")
+                //Smug
+                    SigngenderSmug = Signgender.get("Cancer").get("Smug")
+                    SigngenderHobbySmug = EspeceHobby.get("Cancer").get("Smug")
+                //Lazy
+                    SigngenderLazy = Signgender.get("Cancer").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Cancer").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Cancer").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Cancer").get("Snooty")
+            } else if(QuelMoisSommesNous == 9){ 
+                //Big Sister
+                    d3.select(`#Croix`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove() 
+                //Normal
+                    SigngenderNormal = Signgender.get("Leo").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Leo").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Leo").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Leo").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Leo").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Leo").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Leo").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Leo").get("Jock")
+                //Smug
+                    SigngenderSmug = Signgender.get("Leo").get("Smug")
+                    SigngenderHobbySmug = EspeceHobby.get("Leo").get("Smug")
+                //Lazy
+                    SigngenderLazy = Signgender.get("Leo").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Leo").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Leo").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Leo").get("Snooty")
+            } else if(QuelMoisSommesNous == 10){
+                //Big Sister
+                    SigngenderBigSister = Signgender.get("Virgo").get("Big Sister")
+                    SigngenderHobbyBigSister = EspeceHobby.get("Virgo").get("Big Sister")
+                //Normal
+                    SigngenderNormal = Signgender.get("Virgo").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Virgo").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Virgo").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Virgo").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Virgo").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Virgo").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Virgo").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Virgo").get("Jock")
+                //Smug
+                    SigngenderSmug = Signgender.get("Virgo").get("Smug")
+                    SigngenderHobbySmug = EspeceHobby.get("Virgo").get("Smug")
+                //Lazy
+                    SigngenderLazy = Signgender.get("Virgo").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Virgo").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Virgo").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Virgo").get("Snooty")
+            } else if(QuelMoisSommesNous == 11){ 
+                //Big Sister
+                    SigngenderBigSister = Signgender.get("Libra").get("Big Sister")
+                    SigngenderHobbyBigSister = EspeceHobby.get("Libra").get("Big Sister")
+                //Normal
+                    SigngenderNormal = Signgender.get("Libra").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Libra").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Libra").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Libra").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Libra").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Libra").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Libra").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Libra").get("Jock")
+                //Smug
+                    SigngenderSmug = Signgender.get("Libra").get("Smug")
+                    SigngenderHobbySmug = EspeceHobby.get("Libra").get("Smug")
+                //Lazy
+                    SigngenderLazy = Signgender.get("Libra").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Libra").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Libra").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Libra").get("Snooty")
+            } else if(QuelMoisSommesNous == 12){
+                //Big Sister
+                    d3.select(`#Croix`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                .remove() 
+                //Normal
+                    SigngenderNormal = Signgender.get("Scorpio").get("Normal")
+                    SigngenderHobbyNormal = EspeceHobby.get("Scorpio").get("Normal")
+                //Cranky
+                    SigngenderCranky = Signgender.get("Scorpio").get("Cranky")
+                    SigngenderHobbyCranky = EspeceHobby.get("Scorpio").get("Cranky")
+                //Peppy
+                    SigngenderPeppy = Signgender.get("Scorpio").get("Peppy")
+                    SigngenderHobbyPeppy = EspeceHobby.get("Scorpio").get("Peppy")
+                //Jock
+                    SigngenderJock = Signgender.get("Scorpio").get("Jock")
+                    SigngenderHobbyJock = EspeceHobby.get("Scorpio").get("Jock")
+                //Smug
+                    SigngenderSmug = Signgender.get("Scorpio").get("Smug")
+                    SigngenderHobbySmug = EspeceHobby.get("Scorpio").get("Smug")
+                //Lazy
+                    SigngenderLazy = Signgender.get("Scorpio").get("Lazy")
+                    SigngenderHobbyLazy = EspeceHobby.get("Scorpio").get("Lazy")
+                //Snooty
+                    SigngenderSnooty = Signgender.get("Scorpio").get("Snooty")
+                    SigngenderHobbySnooty = EspeceHobby.get("Scorpio").get("Snooty")
+            } 
+        //enlever les titre + les fromages
+            //Big Sister
             let SigngenderBigSisterArray = Array.from(SigngenderBigSister)
             SigngenderBigSisterArray.sort(d3.ascending)
 
-            let SigngenderHobbyBigSister = EspeceHobby.get("Capricornus").get("Big Sister")
             let SigngenderHobbyBigSisterArray = Array.from(SigngenderHobbyBigSister)
             SigngenderHobbyBigSisterArray.sort(d3.ascending)
         //Normal
-            let SigngenderNormal = Signgender.get("Capricornus").get("Normal")
             let SigngenderNormalArray = Array.from(SigngenderNormal)
             SigngenderNormalArray.sort(d3.ascending)
 
-            let SigngenderHobbyNormal = EspeceHobby.get("Capricornus").get("Normal")
             let SigngenderHobbyNormalArray = Array.from(SigngenderHobbyNormal)
             SigngenderHobbyNormalArray.sort(d3.ascending)
         //Cranky
-            let SigngenderCranky = Signgender.get("Capricornus").get("Cranky")
             let SigngenderCrankyArray = Array.from(SigngenderCranky)
             SigngenderCrankyArray.sort(d3.ascending)
 
-            let SigngenderHobbyCranky = EspeceHobby.get("Capricornus").get("Cranky")
             let SigngenderHobbyCrankyArray = Array.from(SigngenderHobbyCranky)
             SigngenderHobbyCrankyArray.sort(d3.ascending)
         //Peppy
-            let SigngenderPeppy = Signgender.get("Capricornus").get("Peppy")
             let SigngenderPeppyArray = Array.from(SigngenderPeppy)
             SigngenderPeppyArray.sort(d3.ascending)
 
-            let SigngenderHobbyPeppy = EspeceHobby.get("Capricornus").get("Peppy")
             let SigngenderHobbyPeppyArray = Array.from(SigngenderHobbyPeppy)
             SigngenderHobbyPeppyArray.sort(d3.ascending)
         //Jock
-            let SigngenderJock = Signgender.get("Capricornus").get("Jock")
             let SigngenderJockArray = Array.from(SigngenderJock)
             SigngenderJockArray.sort(d3.ascending)
 
-            let SigngenderHobbyJock = EspeceHobby.get("Capricornus").get("Jock")
             let SigngenderHobbyJockArray = Array.from(SigngenderHobbyJock)
             SigngenderHobbyJockArray.sort(d3.ascending)
         //Smug
-            let SigngenderSmug = Signgender.get("Capricornus").get("Smug")
             let SigngenderSmugArray = Array.from(SigngenderSmug)
             SigngenderSmugArray.sort(d3.ascending)
 
-            let SigngenderHobbySmug = EspeceHobby.get("Capricornus").get("Smug")
             let SigngenderHobbySmugArray = Array.from(SigngenderHobbySmug)
             SigngenderHobbySmugArray.sort(d3.ascending)
         //Lazy
-            let SigngenderLazy = Signgender.get("Capricornus").get("Lazy")
             let SigngenderLazyArray = Array.from(SigngenderLazy)
             SigngenderLazyArray.sort(d3.ascending)
 
-            let SigngenderHobbyLazy = EspeceHobby.get("Capricornus").get("Lazy")
             let SigngenderHobbyLazyArray = Array.from(SigngenderHobbyLazy)
             SigngenderHobbyLazyArray.sort(d3.ascending)
         //Snooty
-            let SigngenderSnooty = Signgender.get("Capricornus").get("Snooty")
             let SigngenderSnootyArray = Array.from(SigngenderSnooty)
             SigngenderSnootyArray.sort(d3.ascending)
 
-            let SigngenderHobbySnooty = EspeceHobby.get("Capricornus").get("Snooty")
             let SigngenderHobbySnootyArray = Array.from(SigngenderHobbySnooty)
             SigngenderHobbySnootyArray.sort(d3.ascending)
 
-        if (QuelMoisSommesNous == 1) {
-        } else if(QuelMoisSommesNous == 2){
-        } else if(QuelMoisSommesNous == 3){     
-        } else if(QuelMoisSommesNous == 4){
-        } else if(QuelMoisSommesNous == 5){         
-        } else if(QuelMoisSommesNous == 6){ 
-        } else if(QuelMoisSommesNous == 7){
-        } else if(QuelMoisSommesNous == 8){ 
-        } else if(QuelMoisSommesNous == 9){ 
-        } else if(QuelMoisSommesNous == 10){
-        } else if(QuelMoisSommesNous == 11){ 
-        } else if(QuelMoisSommesNous == 12){
-        } 
-
-        //enlever les titre + les fromages
             function RemoveFromage(ArrayEspece, idFromage){
                 for (let a = 0; a < ArrayEspece.length; a++) {
 
@@ -152,5 +470,31 @@ function BoutonPersonnalityOut(){
             RemovePluie(SigngenderHobbyLazyArray, 'Lazy');
             RemovePluie(SigngenderHobbySnootyArray, 'Snooty');
 
+        //enlever les labels 
+            for (let i = 0; i < 3; i++) {
+                d3.select(`#TraitLabel0${i}`)
+                .transition()
+                .duration(1000)      
+                .attr("stroke-opacity", 0)
+                .remove()  
+
+                d3.select(`#TraitLabelText0${i}`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()  
+
+                d3.select(`#TraitLabel1${i}`)
+                .transition()
+                .duration(1000)      
+                .attr("stroke-opacity", 0)
+                .remove()  
+
+                d3.select(`#TraitLabelText1${i}`)
+                .transition()
+                .duration(1000)      
+                .attr("opacity", 0)
+                .remove()  
+            }
     })
 }

@@ -33,9 +33,9 @@ function BoutonPersonnalityOver(){
         let PositionX1 = 1200
         let PositionX2 = 1600
         let PositionY1 = 200
-        let PositionY2 = 400
-        let PositionY3 = 600
-        let PositionY4 = 800
+        let PositionY2 = 420
+        let PositionY3 = 675
+        let PositionY4 = 900
 
         const color = d3.scaleOrdinal()
             .domain(EspeceListe)
@@ -45,14 +45,19 @@ function BoutonPersonnalityOver(){
             .outerRadius(120)
             .innerRadius(0)
             .cornerRadius(50)
+        
+        const arcGeneratorPetit = d3.arc()
+            .outerRadius(120)
+            .innerRadius(0)
+            .cornerRadius(40)
 
         const arcGeneratorlabel = d3.arc()
-        .outerRadius(120) 
-        .innerRadius(30)
+            .outerRadius(120) 
+            .innerRadius(30)
 
         const arcGeneratorlabelMulti = d3.arc()
-        .outerRadius(140) 
-        .innerRadius(55)
+            .outerRadius(140) 
+            .innerRadius(55)
 
         const pie = d3.pie()
             .startAngle(-Math.PI/2)
@@ -61,8 +66,8 @@ function BoutonPersonnalityOver(){
 
         const Signgender = d3.group(donnees, d => d.signe, d => d.personnalite,d=> d.espece,)
         const EspeceHobby = d3.group(donnees, d => d.signe, d=> d.personnalite, d => d.hobbie)
-        const Personnalite = [["Education", "#FF949D"],["Music", "#6460FF" ],["Fashion", "#40FF84"],["Nature", "#23C4B7"],["Fitness", "#FFBC40"],["Play", "#FF40DC"]]
-      
+        const Personnalite = [["Education", "#40FF84"],["Music", "#6460FF" ],["Fashion", "#FF949D"],["Nature", "#23C4B7"],["Fitness", "#FFBC40"],["Play", "#FF40DC"]]
+       
         //Big Sister
             let SigngenderBigSister = Signgender.get("Capricornus").get("Big Sister")
             let SigngenderHobbyBigSister = EspeceHobby.get("Capricornus").get("Big Sister")
@@ -88,6 +93,13 @@ function BoutonPersonnalityOver(){
             let SigngenderSnooty = Signgender.get("Capricornus").get("Snooty")
             let SigngenderHobbySnooty = EspeceHobby.get("Capricornus").get("Snooty")
 
+        //Pour les variations d'ID dans les fromages
+            function applyIDcorrectely(PieData) {
+                for (let i = 0; i < PieData.length; i++) {
+                    PieData[i].index=i 
+                }
+            }   
+
         if (QuelMoisSommesNous == 1) {
             //Big Sister
                 SigngenderBigSister = []
@@ -109,6 +121,7 @@ function BoutonPersonnalityOver(){
             //Cranky
                 SigngenderCranky = Signgender.get("Sagittarius").get("Cranky")
                 SigngenderHobbyCranky = EspeceHobby.get("Sagittarius").get("Cranky")
+                
             //Peppy
                 SigngenderPeppy = Signgender.get("Sagittarius").get("Peppy")
                 SigngenderHobbyPeppy = EspeceHobby.get("Sagittarius").get("Peppy")
@@ -166,8 +179,19 @@ function BoutonPersonnalityOver(){
                 SigngenderJock = Signgender.get("Aquarius").get("Jock")
                 SigngenderHobbyJock = EspeceHobby.get("Aquarius").get("Jock")
             //Smug
-                SigngenderSmug = Signgender.get("Aquarius").get("Smug")
-                SigngenderHobbySmug = EspeceHobby.get("Aquarius").get("Smug")
+                SigngenderSmug = []
+                SigngenderHobbySmug = []
+                let Croix = MonEspaceSVG.append('image')
+                .attr('id', 'Croix')
+                .attr('xlink:href', 'Croix.svg')
+                .attr('width', 130)
+                .attr('height', 130)
+                .attr('x', PositionX2 -60)
+                .attr('y', PositionY3 -100 ) 
+                .attr("opacity", 0)
+                .transition()
+                    .duration(1050) 
+                    .attr("opacity", 0.7)
             //Lazy
                 SigngenderLazy = Signgender.get("Aquarius").get("Lazy")
                 SigngenderHobbyLazy = EspeceHobby.get("Aquarius").get("Lazy")
@@ -176,8 +200,19 @@ function BoutonPersonnalityOver(){
                 SigngenderHobbySnooty = EspeceHobby.get("Aquarius").get("Snooty")     
         } else if(QuelMoisSommesNous == 4){
             //Big Sister
-                SigngenderBigSister = Signgender.get("Pisces").get("Big Sister")
-                SigngenderHobbyBigSister = EspeceHobby.get("Pisces").get("Big Sister")
+                SigngenderBigSister = []
+                SigngenderHobbyBigSister = []
+                let Croix = MonEspaceSVG.append('image')
+                .attr('id', 'Croix')
+                .attr('xlink:href', 'Croix.svg')
+                .attr('width', 130)
+                .attr('height', 130)
+                .attr('x', PositionX1 -60)
+                .attr('y', PositionY1 -100 ) 
+                .attr("opacity", 0)
+                .transition()
+                    .duration(1050) 
+                    .attr("opacity", 0.7)
             //Normal
                 SigngenderNormal = Signgender.get("Pisces").get("Normal")
                 SigngenderHobbyNormal = EspeceHobby.get("Pisces").get("Normal")
@@ -301,8 +336,19 @@ function BoutonPersonnalityOver(){
                 SigngenderHobbySnooty = EspeceHobby.get("Cancer").get("Snooty")
         } else if(QuelMoisSommesNous == 9){ 
             //Big Sister
-                SigngenderBigSister = Signgender.get("Leo").get("Big Sister")
-                SigngenderHobbyBigSister = EspeceHobby.get("Leo").get("Big Sister")
+                SigngenderBigSister = []
+                SigngenderHobbyBigSister = []
+                let Croix = MonEspaceSVG.append('image')
+                .attr('id', 'Croix')
+                .attr('xlink:href', 'Croix.svg')
+                .attr('width', 130)
+                .attr('height', 130)
+                .attr('x', PositionX1 -60)
+                .attr('y', PositionY1 -100 ) 
+                .attr("opacity", 0)
+                .transition()
+                    .duration(1050) 
+                    .attr("opacity", 0.7)
             //Normal
                 SigngenderNormal = Signgender.get("Leo").get("Normal")
                 SigngenderHobbyNormal = EspeceHobby.get("Leo").get("Normal")
@@ -325,7 +371,6 @@ function BoutonPersonnalityOver(){
                 SigngenderSnooty = Signgender.get("Leo").get("Snooty")
                 SigngenderHobbySnooty = EspeceHobby.get("Leo").get("Snooty")
         } else if(QuelMoisSommesNous == 10){
-        } else if(QuelMoisSommesNous == 9){ 
             //Big Sister
                 SigngenderBigSister = Signgender.get("Virgo").get("Big Sister")
                 SigngenderHobbyBigSister = EspeceHobby.get("Virgo").get("Big Sister")
@@ -377,8 +422,19 @@ function BoutonPersonnalityOver(){
                 SigngenderHobbySnooty = EspeceHobby.get("Libra").get("Snooty")
         } else if(QuelMoisSommesNous == 12){
             //Big Sister
-                SigngenderBigSister = Signgender.get("Scorpio").get("Big Sister")
-                SigngenderHobbyBigSister = EspeceHobby.get("Scorpio").get("Big Sister")
+                SigngenderBigSister = []
+                SigngenderHobbyBigSister = []
+                let Croix = MonEspaceSVG.append('image')
+                .attr('id', 'Croix')
+                .attr('xlink:href', 'Croix.svg')
+                .attr('width', 130)
+                .attr('height', 130)
+                .attr('x', PositionX1 -60)
+                .attr('y', PositionY1 -100 ) 
+                .attr("opacity", 0)
+                .transition()
+                    .duration(1050) 
+                    .attr("opacity", 0.7)
             //Normal
                 SigngenderNormal = Signgender.get("Scorpio").get("Normal")
                 SigngenderHobbyNormal = EspeceHobby.get("Scorpio").get("Normal")
@@ -405,10 +461,10 @@ function BoutonPersonnalityOver(){
         //Diagramme Fleur
             //variables 
             //Big Sister
-            console.log(SigngenderBigSister)
             let SigngenderBigSisterArray = Array.from(SigngenderBigSister)
             SigngenderBigSisterArray.sort(d3.ascending)
             let pieDataSigngenderBigSisterArray = pie(SigngenderBigSisterArray)
+            applyIDcorrectely(pieDataSigngenderBigSisterArray)
             let SignCompteBigSister = 0
             for (let i = 0; i < pieDataSigngenderBigSisterArray.length; i++) {
                 SignCompteBigSister += pieDataSigngenderBigSisterArray[i].value 
@@ -419,6 +475,7 @@ function BoutonPersonnalityOver(){
             let SigngenderNormalArray = Array.from(SigngenderNormal)
             SigngenderNormalArray.sort(d3.ascending)
             let pieDataSigngenderNormalArray = pie(SigngenderNormalArray)
+            applyIDcorrectely(pieDataSigngenderNormalArray)
             let SignCompteNormal = 0
             for (let i = 0; i < pieDataSigngenderNormalArray.length; i++) {
                 SignCompteNormal += pieDataSigngenderNormalArray[i].value 
@@ -429,6 +486,7 @@ function BoutonPersonnalityOver(){
             let SigngenderCrankyArray = Array.from(SigngenderCranky)
             SigngenderCrankyArray.sort(d3.ascending)
             let pieDataSigngenderCrankyArray = pie(SigngenderCrankyArray)
+            applyIDcorrectely(pieDataSigngenderCrankyArray)
             let SignCompteCranky = 0
             for (let i = 0; i < pieDataSigngenderCrankyArray.length; i++) {
                 SignCompteCranky += pieDataSigngenderCrankyArray[i].value 
@@ -439,6 +497,7 @@ function BoutonPersonnalityOver(){
             let SigngenderPeppyArray = Array.from(SigngenderPeppy)
             SigngenderPeppyArray.sort(d3.ascending)
             let pieDataSigngenderPeppyArray = pie(SigngenderPeppyArray)
+            applyIDcorrectely(pieDataSigngenderPeppyArray)
             let SignComptePeppy  = 0
             for (let i = 0; i < pieDataSigngenderPeppyArray.length; i++) {
                 SignComptePeppy += pieDataSigngenderPeppyArray[i].value 
@@ -449,6 +508,7 @@ function BoutonPersonnalityOver(){
             let SigngenderJockArray = Array.from(SigngenderJock)
             SigngenderJockArray.sort(d3.ascending)
             let pieDataSigngenderJockArray = pie(SigngenderJockArray)
+            applyIDcorrectely(pieDataSigngenderJockArray)
             let SignCompteJock  = 0
             for (let i = 0; i < pieDataSigngenderJockArray.length; i++) {
                 SignCompteJock += pieDataSigngenderJockArray[i].value 
@@ -459,6 +519,7 @@ function BoutonPersonnalityOver(){
             let SigngenderSmugArray = Array.from(SigngenderSmug)
             SigngenderSmugArray.sort(d3.ascending)
             let pieDataSigngenderSmugArray = pie(SigngenderSmugArray)
+            applyIDcorrectely(pieDataSigngenderSmugArray)
             let SignCompteSmug  = 0
             for (let i = 0; i < pieDataSigngenderSmugArray.length; i++) {
                 SignCompteSmug += pieDataSigngenderSmugArray[i].value 
@@ -469,6 +530,7 @@ function BoutonPersonnalityOver(){
             let SigngenderLazyArray = Array.from(SigngenderLazy)
             SigngenderLazyArray.sort(d3.ascending)
             let pieDataSigngenderLazyArray = pie(SigngenderLazyArray)
+            applyIDcorrectely(pieDataSigngenderLazyArray)
             let SignCompteLazy  = 0
             for (let i = 0; i < pieDataSigngenderLazyArray.length; i++) {
                 SignCompteLazy += pieDataSigngenderLazyArray[i].value 
@@ -479,6 +541,7 @@ function BoutonPersonnalityOver(){
             let SigngenderSnootyArray = Array.from(SigngenderSnooty)
             SigngenderSnootyArray.sort(d3.ascending)
             let pieDataSigngenderSnootyArray = pie(SigngenderSnootyArray)
+            applyIDcorrectely(pieDataSigngenderSnootyArray)
             let SignCompteSnooty  = 0
             for (let i = 0; i < pieDataSigngenderSnootyArray.length; i++) {
                 SignCompteSnooty += pieDataSigngenderSnootyArray[i].value 
@@ -554,11 +617,11 @@ function BoutonPersonnalityOver(){
                         .attr('x1', PositionX1 -60 + i*28)
                         .attr('y1', PositionY1 +3)
                         .attr('x2', PositionX1 -60 + i*28)
-                        .attr('y2', PositionY1 + SigngenderHobbyBigSisterArray[i][1].length *10)
+                        .attr('y2', PositionY1 + SigngenderHobbyBigSisterArray[i][1].length *14)
                         .attr('stroke-linecap', "round")
                         .attr("stroke", "white")
-                        .attr('stroke-width', 4)
-                        .attr('stroke-dasharray', 5)
+                        .attr('stroke-width', 6)
+                        .attr('stroke-dasharray', 7)
                         .attr('stroke-opacity', 0) 
                     
                     for (let a = 0; a < Personnalite.length; a++) {
@@ -642,11 +705,11 @@ function BoutonPersonnalityOver(){
                         .attr('x1', PositionX2 -60 + i*28)
                         .attr('y1', PositionY1 +3 )
                         .attr('x2', PositionX2 -60 + i*28)
-                        .attr('y2', PositionY1 + SigngenderHobbyNormalArray[i][1].length *10)
+                        .attr('y2', PositionY1 + SigngenderHobbyNormalArray[i][1].length *14)
                         .attr('stroke-linecap', "round")
                         .attr("stroke", `white`)
-                        .attr('stroke-width', 4)
-                        .attr('stroke-dasharray', 5)
+                        .attr('stroke-width', 6)
+                        .attr('stroke-dasharray', 7)
                         .attr('stroke-opacity', 0) 
                         
                         for (let a = 0; a < Personnalite.length; a++) {
@@ -729,11 +792,11 @@ function BoutonPersonnalityOver(){
                     .attr('x1', PositionX1 -60 + i*28)
                     .attr('y1', PositionY2 +3)
                     .attr('x2', PositionX1 -60 + i*28)
-                    .attr('y2', PositionY2 + SigngenderHobbyCrankyArray[i][1].length *10)
+                    .attr('y2', PositionY2 + SigngenderHobbyCrankyArray[i][1].length *14)
                     .attr('stroke-linecap', "round")
                     .attr("stroke", `white`)
-                    .attr('stroke-width', 4)
-                    .attr('stroke-dasharray', 5)
+                    .attr('stroke-width', 6)
+                    .attr('stroke-dasharray', 7)
                     .attr('stroke-opacity', 0) 
 
                     for (let a = 0; a < Personnalite.length; a++) {
@@ -813,14 +876,12 @@ function BoutonPersonnalityOver(){
                 for (let i = 0; i < SigngenderHobbyPeppyArray.length; i++) {
                     MonEspaceSVG.append('line')
                         .attr("id", `TraitPeppy${i}`)
-                        .attr('x1', PositionX2 -60 + i*28)
                         .attr('y1', PositionY2 +3)
-                        .attr('x2', PositionX2 -60 + i*28)
-                        .attr('y2', PositionY2 + SigngenderHobbyPeppyArray[i][1].length *10)
+                        .attr('y2', PositionY2 + SigngenderHobbyPeppyArray[i][1].length *14)
                         .attr('stroke-linecap', "round")
                         .attr("stroke", `${Personnalite[i][1]}`)
-                        .attr('stroke-width', 4)
-                        .attr('stroke-dasharray', 5)
+                        .attr('stroke-width', 6)
+                        .attr('stroke-dasharray', 7)
                         .attr('stroke-opacity', 0) 
 
                     for (let a = 0; a < Personnalite.length; a++) {
@@ -903,11 +964,11 @@ function BoutonPersonnalityOver(){
                         .attr('x1', PositionX1 -60 + i*28)
                         .attr('y1', PositionY3 +3)
                         .attr('x2', PositionX1 -60 + i*28)
-                        .attr('y2', PositionY3 + SigngenderHobbyJockArray[i][1].length *10)
+                        .attr('y2', PositionY3 + SigngenderHobbyJockArray[i][1].length *14)
                         .attr('stroke-linecap', "round")
                         .attr("stroke", `${Personnalite[i][1]}`)
-                        .attr('stroke-width', 4)
-                        .attr('stroke-dasharray', 5)
+                        .attr('stroke-width', 6)
+                        .attr('stroke-dasharray', 7)
                         .attr('stroke-opacity', 0) 
 
                     for (let a = 0; a < Personnalite.length; a++) {
@@ -990,11 +1051,11 @@ function BoutonPersonnalityOver(){
                         .attr('x1', PositionX2 -60 + i*28)
                         .attr('y1', PositionY3 +3)
                         .attr('x2', PositionX2 -60 + i*28)
-                        .attr('y2', PositionY3 + SigngenderHobbySmugArray[i][1].length *10)
+                        .attr('y2', PositionY3 + SigngenderHobbySmugArray[i][1].length *14)
                         .attr('stroke-linecap', "round")
                         .attr("stroke", `${Personnalite[i][1]}`)
-                        .attr('stroke-width', 4)
-                        .attr('stroke-dasharray', 5)
+                        .attr('stroke-width', 6)
+                        .attr('stroke-dasharray', 7)
                         .attr('stroke-opacity', 0) 
 
                     for (let a = 0; a < Personnalite.length; a++) {
@@ -1045,7 +1106,7 @@ function BoutonPersonnalityOver(){
                     .append("text")
                     .attr("id", d => `FromageLabel1Lazy${d.index}`)
                     .text((d) =>  d.data[0]) 
-                    .attr("transform", (d) => `translate(${PositionX1},${PositionY4}) translate(${arcGeneratorlabelMulti.centroid(d)})`)
+                    .attr("transform", (d) => `translate(${PositionX1},${PositionY4}) translate(${arcGeneratorlabel.centroid(d)})`)
                     .style("text-anchor", "middle")
                     .attr('font-family', "AnimalCrossing") 
                     .style("fill", "white")
@@ -1061,7 +1122,7 @@ function BoutonPersonnalityOver(){
                     .append("text")
                     .attr("id", d => `FromageLabel2Lazy${d.index}`)
                     .text((d) =>  d.value + "/" + SignCompteLazy) 
-                    .attr("transform", (d) => `translate(${PositionX1},${PositionY4+15}) translate(${arcGeneratorlabelMulti.centroid(d)})`)
+                    .attr("transform", (d) => `translate(${PositionX1},${PositionY4+15}) translate(${arcGeneratorlabel.centroid(d)})`)
                     .style("text-anchor", "middle") 
                     .attr('font-family', "AnimalCrossing")
                     .style("fill", "white")
@@ -1077,11 +1138,11 @@ function BoutonPersonnalityOver(){
                         .attr('x1', PositionX1 -60 + i*28)
                         .attr('y1', PositionY4 +3)
                         .attr('x2', PositionX1 -60 + i*28)
-                        .attr('y2', PositionY4 + SigngenderHobbyLazyArray[i][1].length *10)
+                        .attr('y2', PositionY4 + SigngenderHobbyLazyArray[i][1].length *14)
                         .attr('stroke-linecap', "round")
                         .attr("stroke", `${Personnalite[i][1]}`)
-                        .attr('stroke-width', 4)
-                        .attr('stroke-dasharray', 5)
+                        .attr('stroke-width', 6)
+                        .attr('stroke-dasharray', 7)
                         .attr('stroke-opacity', 0) 
                     
                     for (let a = 0; a < Personnalite.length; a++) {
@@ -1164,11 +1225,11 @@ function BoutonPersonnalityOver(){
                         .attr('x1', PositionX2 -60 + i*28)
                         .attr('y1', PositionY4 +3)
                         .attr('x2', PositionX2 -60 + i*28)
-                        .attr('y2', PositionY4 + SigngenderHobbySnootyArray[i][1].length *10)
+                        .attr('y2', PositionY4 + SigngenderHobbySnootyArray[i][1].length *14)
                         .attr('stroke-linecap', "round")
                         .attr("stroke", `${Personnalite[i][1]}`)
-                        .attr('stroke-width', 4)
-                        .attr('stroke-dasharray', 5)
+                        .attr('stroke-width', 6)
+                        .attr('stroke-dasharray', 7)
                         .attr('stroke-opacity', 0)
 
                     for (let a = 0; a < Personnalite.length; a++) {
@@ -1204,6 +1265,112 @@ function BoutonPersonnalityOver(){
                 applyColorsToFromages(SigngenderJockArray, 'Jock');
                 applyColorsToFromages(SigngenderCrankyArray, 'Cranky');
 
+        // modifier les lables 
+                function ModifieLabels(SigngenderEspeceArray,IdLabels1,IdLabels2,PositionX,PositionY){
+                    if (SigngenderEspeceArray.length > 4) {
+                        for (let i = 0; i < SigngenderEspeceArray.length; i++) {
+                            d3.select(`#${IdLabels1}${i}`)
+                            .attr("transform", (d) => `translate(${PositionX},${PositionY}) translate(${arcGeneratorlabelMulti.centroid(d)})`)
 
+                            d3.select(`#${IdLabels2}${i}`)
+                            .attr("transform", (d) => `translate(${PositionX},${PositionY+15}) translate(${arcGeneratorlabelMulti.centroid(d)})`)
+                        }
+                    }
+                }
+                ModifieLabels(SigngenderBigSisterArray,"FromageLabel1BigSister","FromageLabel2BigSister",PositionX1,PositionY1)
+                ModifieLabels(SigngenderNormalArray,"FromageLabel1Normal","FromageLabel2Normal",PositionX2,PositionY1)
+                ModifieLabels(SigngenderCrankyArray,"FromageLabel1Cranky","FromageLabel2Cranky",PositionX1,PositionY2)
+                ModifieLabels(SigngenderPeppyArray,"FromageLabel1Peppy","FromageLabel2Peppy",PositionX2,PositionY2)
+                ModifieLabels(SigngenderJockArray,"FromageLabel1Jock","FromageLabel2Jock",PositionX1,PositionY3)
+                ModifieLabels(SigngenderSmugArray,"FromageLabel1Smug","FromageLabel2Smug",PositionX2,PositionY3)
+                ModifieLabels(SigngenderLazyArray,"FromageLabel1Lazy","FromageLabel2Lazy",PositionX1,PositionY4)
+                ModifieLabels(SigngenderSnootyArray,"FromageLabel1Snooty","FromageLabel2Snooty",PositionX2,PositionY4)
+                // a*22 peppy pluie
+
+        // modifier les pluie si < 3 
+                function ModifieRain(SigngenderEspeceArray, Perso){
+                    console.log(SigngenderEspeceArray)
+                    if (SigngenderEspeceArray.length < 3) {
+                            for (let i = 0; i < SigngenderEspeceArray.length; i++) {
+                                console.log(Perso)
+                                d3.select(`#Fromage${Perso}${i}`)
+                                    .attr("d", arcGeneratorPetit)
+                                
+                            }
+                        }
+                } 
+
+                ModifieRain(SigngenderBigSisterArray,"BigSister")
+                ModifieRain(SigngenderNormalArray,"Normal")
+                ModifieRain(SigngenderCrankyArray,"Cranky")
+                ModifieRain(SigngenderPeppyArray,"Peppy")
+                ModifieRain(SigngenderJockArray,"Jock")
+                ModifieRain(SigngenderSmugArray,"Smug")
+                ModifieRain(SigngenderLazyArray,"Lazy")
+                ModifieRain(SigngenderSnootyArray,"Snooty")
+
+        // créer des labels
+        for (let i = 0; i < 3; i++) {
+            MonEspaceSVG.append('line')
+                .attr("id", `TraitLabel0${i}`)
+                .attr('x1', (PositionX2 + PositionX1)/2 - 65)
+                .attr('y1', PositionY1 -150 + i*20)
+                .attr('x2', (PositionX2 + PositionX1)/2 -65)
+                .attr('y2', PositionY1 -150 +10 + i*20)
+                .attr('stroke-linecap', "round")
+                .attr("stroke", `${Personnalite[i][1]}`)
+                .attr('stroke-width', 6)
+                .attr('stroke-dasharray', 7)
+                .attr("stroke-opacity", 0)
+                .transition()
+                    .duration(1050) 
+                    .attr("stroke-opacity", 0.8) 
+
+            MonEspaceSVG.append("text")
+                .attr("id", `TraitLabelText0${i}`)
+                .text(Personnalite[i][0]) 
+                .attr("x", (PositionX2 + PositionX1)/2 - 59)
+                .attr("y", PositionY1 -150 +8+ i*20)
+                .style("text-anchor", "left") 
+                .attr('font-family', "AnimalCrossing")
+                .style("fill", "white")
+                .style("font-size", "15px")
+                .attr("opacity", 0)
+                .transition()
+                    .duration(1050) 
+                    .attr("opacity", 0.8) 
+        }
+        for (let i = 0; i < 3; i++) {
+            MonEspaceSVG.append('line')
+                .attr("id", `TraitLabel1${i}`)
+                .attr('x1', (PositionX2 + PositionX1)/2 +17)
+                .attr('y1', PositionY1 -150 + i*20)
+                .attr('x2', (PositionX2 + PositionX1)/2 +17 )
+                .attr('y2', PositionY1 -150 +10 + i*20)
+                .attr('stroke-linecap', "round")
+                .attr("stroke", `${Personnalite[i+3][1]}`)
+                .attr('stroke-width', 6)
+                .attr('stroke-dasharray', 7)
+                .attr('stroke-opacity', 0) 
+                .transition()
+                    .duration(1050) 
+                    .attr("stroke-opacity", 0.8) 
+
+            MonEspaceSVG.append("text")
+                .attr("id", `TraitLabelText1${i}`)
+                .text(Personnalite[i+3][0]) 
+                .attr("x", (PositionX2 + PositionX1)/2 +23)
+                .attr("y", PositionY1 -150 +8+ i*20)
+                .style("text-anchor", "left") 
+                .attr('font-family', "AnimalCrossing")
+                .style("fill", "white")
+                .style("font-size", "15px")
+                .attr("opacity", 0)
+                .transition()
+                    .duration(1050) 
+                    .attr("opacity", 0.8) 
+        }
+
+                
     })
 }
