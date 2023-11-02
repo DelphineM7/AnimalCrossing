@@ -76,6 +76,60 @@ function BoutonPersonnalityOut(){
                 //Snooty
                     SigngenderSnooty = Signgender.get("Sagittarius").get("Snooty")
                     SigngenderHobbySnooty = EspeceHobby.get("Sagittarius").get("Snooty")
+
+                //déplacement des étoiles 
+                    etoile_jaune.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+90)
+                        .attr('y', milieuY+190)
+
+                    d3.select(`#SpecieTexteJaune`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
+
+                    etoile_bleu.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+60 )
+                        .attr('y', milieuY-190) 
+                    
+                    d3.select(`#SpecieTexteBleu`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()      
+                    
+                    etoile_rose.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX-300 )
+                        .attr('y', milieuY-310) 
+                    
+                    d3.select(`#SpecieTexteRose`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()     
+
+                    etoile_vert.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX-260 )
+                        .attr('y', milieuY+20) 
+                    
+                    d3.select(`#SpecieTexteVert`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
+
             } else if(QuelMoisSommesNous == 2){
                 //Big Sister
                     SigngenderBigSister = Signgender.get("Capricornus").get("Big Sister")
@@ -101,6 +155,59 @@ function BoutonPersonnalityOut(){
                 //Snooty
                     SigngenderSnooty = Signgender.get("Capricornus").get("Snooty")
                     SigngenderHobbySnooty = EspeceHobby.get("Capricornus").get("Snooty")
+
+                //déplacement des étoiles 
+                    etoile_jaune.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+90-90)
+                        .attr('y', milieuY+190)
+
+                    d3.select(`#SpecieTexteJaune`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
+
+                    etoile_bleu.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX-40-90 )
+                        .attr('y', milieuY-190) 
+                    
+                    d3.select(`#SpecieTexteBleu`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()      
+                    
+                    etoile_rose.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX-440-90)
+                        .attr('y', milieuY-230) 
+                    
+                    d3.select(`#SpecieTexteRose`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()     
+
+                    etoile_vert.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX-270-90 )
+                        .attr('y', milieuY-10) 
+                    
+                    d3.select(`#SpecieTexteVert`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
             } else if(QuelMoisSommesNous == 3){
                 //Big Sister
                     SigngenderBigSister = Signgender.get("Aquarius").get("Big Sister")
@@ -128,7 +235,60 @@ function BoutonPersonnalityOut(){
                     SigngenderHobbyLazy = EspeceHobby.get("Aquarius").get("Lazy")
                 //Snooty
                     SigngenderSnooty = Signgender.get("Aquarius").get("Snooty")
-                    SigngenderHobbySnooty = EspeceHobby.get("Aquarius").get("Snooty")     
+                    SigngenderHobbySnooty = EspeceHobby.get("Aquarius").get("Snooty")   
+                    
+                 //déplacement des étoiles 
+                    etoile_jaune.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+180)
+                        .attr('y', milieuY+40)
+
+                    d3.select(`#SpecieTexteJaune`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
+
+                    etoile_bleu.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+150)
+                        .attr('y', milieuY-150) 
+                    
+                    d3.select(`#SpecieTexteBleu`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()      
+                    
+                    etoile_rose.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX-300)
+                        .attr('y', milieuY-90) 
+                    
+                    d3.select(`#SpecieTexteRose`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()     
+
+                    etoile_vert.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX-130 )
+                        .attr('y', milieuY-300) 
+                    
+                    d3.select(`#SpecieTexteVert`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
             } else if(QuelMoisSommesNous == 4){
                 //Big Sister
                     d3.select(`#Croix`)
@@ -156,7 +316,60 @@ function BoutonPersonnalityOut(){
                     SigngenderHobbyLazy = EspeceHobby.get("Pisces").get("Lazy")
                 //Snooty
                     SigngenderSnooty = Signgender.get("Pisces").get("Snooty")
-                    SigngenderHobbySnooty = EspeceHobby.get("Pisces").get("Snooty")    
+                    SigngenderHobbySnooty = EspeceHobby.get("Pisces").get("Snooty") 
+                    
+                 //déplacement des étoiles 
+                    etoile_jaune.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+ 110-70)
+                        .attr('y', milieuY+ 230)
+
+                    d3.select(`#SpecieTexteJaune`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
+
+                    etoile_bleu.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+ 290-70)
+                        .attr('y', milieuY-140) 
+                    
+                    d3.select(`#SpecieTexteBleu`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()      
+                    
+                    etoile_rose.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+ 30-70)
+                        .attr('y', milieuY-180) 
+                    
+                    d3.select(`#SpecieTexteRose`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()     
+
+                    etoile_vert.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX- 270-70 )
+                        .attr('y', milieuY-270) 
+                    
+                    d3.select(`#SpecieTexteVert`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
             } else if(QuelMoisSommesNous == 5){
                 //Big Sister
                     SigngenderBigSister = Signgender.get("Aries").get("Big Sister")
@@ -181,7 +394,34 @@ function BoutonPersonnalityOut(){
                     SigngenderHobbyLazy = EspeceHobby.get("Aries").get("Lazy")
                 //Snooty
                     SigngenderSnooty = Signgender.get("Aries").get("Snooty")
-                    SigngenderHobbySnooty = EspeceHobby.get("Aries").get("Snooty")             
+                    SigngenderHobbySnooty = EspeceHobby.get("Aries").get("Snooty") 
+                    
+                //déplacement des étoiles 
+                    etoile_jaune.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+ 130-150)
+                        .attr('y', milieuY-220)
+
+                    d3.select(`#SpecieTexteJaune`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
+
+                    etoile_bleu.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+ 300-150)
+                        .attr('y', milieuY-250) 
+                    
+                    d3.select(`#SpecieTexteBleu`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()  
             } else if(QuelMoisSommesNous == 6){
                 //Big Sister
                     SigngenderBigSister = Signgender.get("Taurus").get("Big Sister")
@@ -206,7 +446,34 @@ function BoutonPersonnalityOut(){
                     SigngenderHobbyLazy = EspeceHobby.get("Taurus").get("Lazy")
                 //Snooty
                     SigngenderSnooty = Signgender.get("Taurus").get("Snooty")
-                    SigngenderHobbySnooty = EspeceHobby.get("Taurus").get("Snooty")   
+                    SigngenderHobbySnooty = EspeceHobby.get("Taurus").get("Snooty") 
+                    
+                //déplacement des étoiles 
+                    etoile_jaune.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+ 65)
+                        .attr('y', milieuY+85)
+
+                    d3.select(`#SpecieTexteJaune`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
+
+                    etoile_bleu.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX-290)
+                        .attr('y', milieuY-300) 
+                    
+                    d3.select(`#SpecieTexteBleu`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()  
             } else if(QuelMoisSommesNous == 7){
                  //Big Sister
                     SigngenderBigSister = Signgender.get("Gemini").get("Big Sister")
@@ -232,6 +499,59 @@ function BoutonPersonnalityOut(){
                 //Snooty
                     SigngenderSnooty = Signgender.get("Gemini").get("Snooty")
                     SigngenderHobbySnooty = EspeceHobby.get("Gemini").get("Snooty")  
+
+                 //déplacement des étoiles 
+                 etoile_jaune.transition()
+                    .duration(1000) 
+                    .attr('height', 50 )
+                    .attr('width', 50 )
+                    .attr('x', milieuX+ 120)
+                    .attr('y', milieuY+ 65)
+
+                d3.select(`#SpecieTexteJaune`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove() 
+
+                etoile_bleu.transition()
+                    .duration(1000) 
+                    .attr('height', 50 )
+                    .attr('width', 50 )
+                    .attr('x', milieuX+ 100)
+                    .attr('y', milieuY-340) 
+                
+                d3.select(`#SpecieTexteBleu`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove()      
+                
+                etoile_rose.transition()
+                    .duration(1000) 
+                    .attr('height', 50 )
+                    .attr('width', 50 )
+                    .attr('x', milieuX-245)
+                    .attr('y', milieuY-155) 
+                
+                d3.select(`#SpecieTexteRose`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove()     
+
+                etoile_vert.transition()
+                    .duration(1000) 
+                    .attr('height', 50 )
+                    .attr('width', 50 )
+                    .attr('x', milieuX- 230 )
+                    .attr('y', milieuY+100) 
+                
+                d3.select(`#SpecieTexteVert`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove() 
             } else if(QuelMoisSommesNous == 8){ 
                 //Big Sister
                     SigngenderBigSister = Signgender.get("Cancer").get("Big Sister")
@@ -257,6 +577,59 @@ function BoutonPersonnalityOut(){
                 //Snooty
                     SigngenderSnooty = Signgender.get("Cancer").get("Snooty")
                     SigngenderHobbySnooty = EspeceHobby.get("Cancer").get("Snooty")
+
+                //déplacement des étoiles 
+                 etoile_jaune.transition()
+                    .duration(1000) 
+                    .attr('height', 50 )
+                    .attr('width', 50 )
+                    .attr('x', milieuX+ 145)
+                    .attr('y', milieuY+ 65)
+
+                d3.select(`#SpecieTexteJaune`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove() 
+
+                etoile_bleu.transition()
+                    .duration(1000) 
+                    .attr('height', 50 )
+                    .attr('width', 50 )
+                    .attr('x', milieuX-60)
+                    .attr('y', milieuY-380) 
+                
+                d3.select(`#SpecieTexteBleu`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove()      
+                
+                etoile_rose.transition()
+                    .duration(1000) 
+                    .attr('height', 50 )
+                    .attr('width', 50 )
+                    .attr('x', milieuX-45)
+                    .attr('y', milieuY-135) 
+                
+                d3.select(`#SpecieTexteRose`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove()     
+
+                etoile_vert.transition()
+                    .duration(1000) 
+                    .attr('height', 50 )
+                    .attr('width', 50 )
+                    .attr('x', milieuX- 190 )
+                    .attr('y', milieuY+210) 
+                
+                d3.select(`#SpecieTexteVert`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove() 
             } else if(QuelMoisSommesNous == 9){ 
                 //Big Sister
                     d3.select(`#Croix`)
@@ -285,6 +658,46 @@ function BoutonPersonnalityOut(){
                 //Snooty
                     SigngenderSnooty = Signgender.get("Leo").get("Snooty")
                     SigngenderHobbySnooty = EspeceHobby.get("Leo").get("Snooty")
+
+                //déplacement des étoiles 
+                    etoile_jaune.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+ 228)
+                        .attr('y', milieuY+ 259)
+
+                    d3.select(`#SpecieTexteJaune`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
+
+                    etoile_bleu.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX-295)
+                        .attr('y', milieuY-345) 
+                    
+                    d3.select(`#SpecieTexteBleu`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()      
+                    
+                    etoile_rose.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX-140)
+                        .attr('y', milieuY-145) 
+                    
+                    d3.select(`#SpecieTexteRose`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()     
             } else if(QuelMoisSommesNous == 10){
                 //Big Sister
                     SigngenderBigSister = Signgender.get("Virgo").get("Big Sister")
@@ -310,6 +723,46 @@ function BoutonPersonnalityOut(){
                 //Snooty
                     SigngenderSnooty = Signgender.get("Virgo").get("Snooty")
                     SigngenderHobbySnooty = EspeceHobby.get("Virgo").get("Snooty")
+
+                //déplacement des étoiles 
+                    etoile_jaune.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+ 42)
+                        .attr('y', milieuY+ 20)
+
+                    d3.select(`#SpecieTexteJaune`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
+
+                    etoile_bleu.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+115)
+                        .attr('y', milieuY-270) 
+                    
+                    d3.select(`#SpecieTexteBleu`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()      
+                    
+                    etoile_rose.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX-177)
+                        .attr('y', milieuY-175) 
+                    
+                    d3.select(`#SpecieTexteRose`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()     
             } else if(QuelMoisSommesNous == 11){ 
                 //Big Sister
                     SigngenderBigSister = Signgender.get("Libra").get("Big Sister")
@@ -335,6 +788,59 @@ function BoutonPersonnalityOut(){
                 //Snooty
                     SigngenderSnooty = Signgender.get("Libra").get("Snooty")
                     SigngenderHobbySnooty = EspeceHobby.get("Libra").get("Snooty")
+
+                //déplacement des étoiles 
+                    etoile_jaune.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX+ 32)
+                        .attr('y', milieuY- 85)
+
+                    d3.select(`#SpecieTexteJaune`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
+
+                    etoile_bleu.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX + 166)
+                        .attr('y', milieuY + 40) 
+                    
+                    d3.select(`#SpecieTexteBleu`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()      
+                    
+                    etoile_rose.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX- 152)
+                        .attr('y', milieuY- 225) 
+                    
+                    d3.select(`#SpecieTexteRose`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove()     
+
+                    etoile_vert.transition()
+                        .duration(1000) 
+                        .attr('height', 50 )
+                        .attr('width', 50 )
+                        .attr('x', milieuX- 117 )
+                        .attr('y', milieuY +148) 
+                    
+                    d3.select(`#SpecieTexteVert`)
+                        .transition()
+                        .duration(1000)      
+                        .attr("opacity", 0)
+                        .remove() 
             } else if(QuelMoisSommesNous == 12){
                 //Big Sister
                     d3.select(`#Croix`)
@@ -363,6 +869,46 @@ function BoutonPersonnalityOut(){
                 //Snooty
                     SigngenderSnooty = Signgender.get("Scorpio").get("Snooty")
                     SigngenderHobbySnooty = EspeceHobby.get("Scorpio").get("Snooty")
+    
+                //déplacement des étoiles 
+                etoile_jaune.transition()
+                    .duration(1000) 
+                    .attr('height', 50 )
+                    .attr('width', 50 )
+                    .attr('x', milieuX+ 32 -200)
+                    .attr('y', milieuY- 105)
+
+                d3.select(`#SpecieTexteJaune`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove() 
+
+                etoile_bleu.transition()
+                    .duration(1000) 
+                    .attr('height', 50 )
+                    .attr('width', 50 )
+                    .attr('x', milieuX + 106 -200)
+                    .attr('y', milieuY + 60) 
+                
+                d3.select(`#SpecieTexteBleu`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove()      
+                
+                etoile_rose.transition()
+                    .duration(1000) 
+                    .attr('height', 50 )
+                    .attr('width', 50 )
+                    .attr('x', milieuX- 152 -200)
+                    .attr('y', milieuY- 245) 
+                
+                d3.select(`#SpecieTexteRose`)
+                    .transition()
+                    .duration(1000)      
+                    .attr("opacity", 0)
+                    .remove()     
             } 
         //enlever les titre + les fromages
             //Big Sister
