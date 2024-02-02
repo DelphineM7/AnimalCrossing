@@ -65,8 +65,8 @@
 
 // ligne entre les étoiles
     let trait1 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
-        .attr('x1', milieuX +90)
+        .attr('class', "constellation_line")
+        .attr('x1', milieuX +90 )
         .attr('y1', milieuY -145)
         .attr('x2', milieuX + 140)
         .attr('y2', milieuY +30)
@@ -77,7 +77,7 @@
         .attr('stroke-opacity', .5)
 
     let trait2 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('x1', milieuX +110)
         .attr('y1', milieuY +210)
         .attr('x2', milieuX + 140)
@@ -89,7 +89,7 @@
         .attr('stroke-opacity', .5)
     
     let trait3 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('x1', milieuX +90)
         .attr('y1', milieuY -145)
         .attr('x2', milieuX+210)
@@ -101,7 +101,7 @@
         .attr('stroke-opacity', .5)
 
     let trait4 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('x1', milieuX +280)
         .attr('y1', milieuY +60)
         .attr('x2', milieuX + 140)
@@ -113,7 +113,7 @@
         .attr('stroke-opacity', .5)
 
     let trait5 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('x1', milieuX +70)
         .attr('y1', milieuY -155)
         .attr('x2', milieuX -80)
@@ -125,7 +125,7 @@
         .attr('stroke-opacity', .5)
 
     let trait6 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('x1', milieuX-170)
         .attr('y1', milieuY-110)
         .attr('x2', milieuX -80)
@@ -137,7 +137,7 @@
         .attr('stroke-opacity', .5)
 
     let trait7 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('x1', milieuX-170)
         .attr('y1', milieuY-110)
         .attr('x2', milieuX -280)
@@ -149,7 +149,7 @@
         .attr('stroke-opacity', .5)
     
     let trait8 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('x1', milieuX-240)
         .attr('y1', milieuY+40)
         .attr('x2', milieuX -280)
@@ -161,7 +161,7 @@
         .attr('stroke-opacity', .5)
 
     let trait9 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('x1', milieuX-170)
         .attr('y1', milieuY-110)
         .attr('x2', milieuX -280)
@@ -173,7 +173,7 @@
         .attr('stroke-opacity', .5)
 
     let trait10 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('x1', milieuX-210)
         .attr('y1', milieuY-320)
         .attr('x2', milieuX -280)
@@ -185,7 +185,7 @@
         .attr('stroke-opacity', .5)
 
     let trait11 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('x1', milieuX+100)
         .attr('y1', milieuY+210)
         .attr('x2', milieuX +160)
@@ -197,7 +197,7 @@
         .attr('stroke-opacity', .5)
 
     let trait12 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('stroke-linecap', "round")
         .attr("stroke", "white")
         .attr('stroke-width', 2)
@@ -205,7 +205,7 @@
         .attr('stroke-opacity', 0)
 
     let trait13 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('stroke-linecap', "round")
         .attr("stroke", "white")
         .attr('stroke-width', 2)
@@ -213,7 +213,7 @@
         .attr('stroke-opacity', 0)
 
     let trait14 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('stroke-linecap', "round")
         .attr("stroke", "white")
         .attr('stroke-width', 2)
@@ -221,7 +221,7 @@
         .attr('stroke-opacity', 0)
 
     let trait15 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('stroke-linecap', "round")
         .attr("stroke", "white")
         .attr('stroke-width', 2)
@@ -229,7 +229,7 @@
         .attr('stroke-opacity', 0)
 
     let trait16 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('stroke-linecap', "round")
         .attr("stroke", "white")
         .attr('stroke-width', 2)
@@ -237,7 +237,7 @@
         .attr('stroke-opacity', 0)
 
     let trait17 = MonEspaceSVG.append('line')
-        .attr('class', "constellation")
+        .attr('class', "constellation_line")
         .attr('stroke-linecap', "round")
         .attr("stroke", "white")
         .attr('stroke-width', 2)
@@ -246,88 +246,88 @@
 
 // petites étoiles 
     let étoile1 = MonEspaceSVG.append('circle')//lié a vert
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('cx',milieuX - 280)
         .attr('cy',milieuY-40)
         .attr('r', 5)
         .attr("fill", "white")
 
     let étoile2 = MonEspaceSVG.append('circle') //milieu
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('cx',milieuX - 170)
         .attr('cy',milieuY- 110)
         .attr('r', 5)
         .attr("fill", "white")
 
     let étoile3 = MonEspaceSVG.append('circle')//lié a bleu
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('cx',milieuX - 80)
         .attr('cy',milieuY-85)
         .attr('r', 5)
         .attr("fill", "white")
 
     let étoile4 = MonEspaceSVG.append('circle')
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('cx',milieuX - 210)
         .attr('cy',milieuY- 320)
         .attr('r', 5)
         .attr("fill", "white")
 
     let étoile5 = MonEspaceSVG.append('circle') //fait
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('cx',milieuX+210)
         .attr('cy',milieuY-320)
         .attr('r', 5)
         .attr("fill", "white")
 
     let étoile6 = MonEspaceSVG.append('circle')//fait
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('cx',milieuX + 140)
         .attr('cy',milieuY +30)
         .attr('r', 5)
         .attr("fill", "white")
 
     let étoile7 = MonEspaceSVG.append('circle')
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('cx',milieuX+280)
         .attr('cy',milieuY+60)
         .attr('r', 5)
         .attr("fill", "white")
 
     let étoile8 = MonEspaceSVG.append('circle') 
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('cx',milieuX+160 )
         .attr('cy',milieuY+320)
         .attr('r', 5)
         .attr("fill", "white")
 
     let étoile9 = MonEspaceSVG.append('circle') 
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('r', 5)
         .attr("opacity",0)
 
     let étoile10 = MonEspaceSVG.append('circle') 
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('r', 5)
         .attr("opacity",0)
 
     let étoile11 = MonEspaceSVG.append('circle')
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('r', 5)
         .attr("opacity",0)
     
     let étoile12 = MonEspaceSVG.append('circle')
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('r', 5)
         .attr("opacity",0)
     
     let étoile13 = MonEspaceSVG.append('circle') 
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('r', 5)
         .attr("opacity",0)
     
     let étoile14 = MonEspaceSVG.append('circle')
-        .attr('class', "constellation")
+        .attr('class', "constellation_petite_etoile")
         .attr('r', 5)
         .attr("opacity",0)
 
@@ -337,32 +337,32 @@
         .attr('class', "constellation_etoile")
         .attr('width', 50)
         .attr('height', 50)
-        .attr('x', milieuX+90)
-        .attr('y', milieuY+190) 
+        .attr('x', milieuX+85 )
+        .attr('y', milieuY+185) 
 
     let etoile_rose = MonEspaceSVG.append('image')
         .attr('xlink:href', 'star-svgrepo_rose.svg')
         .attr('class', "constellation_etoile")
         .attr('width', 50)
         .attr('height', 50)
-        .attr('x', milieuX-300)
-        .attr('y', milieuY-310) 
+        .attr('x', milieuX-305 )
+        .attr('y', milieuY-315 )
 
     let etoile_vert = MonEspaceSVG.append('image')
         .attr('xlink:href', 'star-svgrepo_vert.svg')
         .attr('class', "constellation_etoile")
         .attr('width', 50)
         .attr('height', 50)
-        .attr('x', milieuX-260)
-        .attr('y', milieuY+20) 
+        .attr('x', milieuX-260 )
+        .attr('y', milieuY+20)  
 
     let etoile_bleu = MonEspaceSVG.append('image')
         .attr('xlink:href', 'star-svgrepo_bleu.svg')
         .attr('class', "constellation_etoile")
         .attr('width', 50)
         .attr('height', 50)
-        .attr('x', milieuX+60)
-        .attr('y', milieuY-190) 
+        .attr('x', milieuX+60 )
+        .attr('y', milieuY-190)
 
 // boutons droite et gauche pour changer la constellation
 
@@ -471,17 +471,49 @@ let BoutonBoutonPersonnality = document.getElementById('Personality');
 BoutonBoutonPersonnality.addEventListener("mouseover", BoutonPersonnalityOver);
 BoutonBoutonPersonnality.addEventListener("mouseout", BoutonPersonnalityOut);
 
-if (ecran_width > 1400 && ecran_height > 850){
-    let EachConstellation = document.querySelectorAll('.constellation_etoile');
-    EachConstellation.forEach(element => {
-    console.log(element)
-    element.setAttribute('height', '5%');
-    element.setAttribute('width', '5%');
+/*if (ecran_width < 1400 && ecran_height < 850) {
+    let addaptation = 0.7
+    let addaptationX = milieuX/4
+    let addaptationY = milieuY/3
 
+    d3.selectAll('.constellation_etoile')
+        .attr('x', function() {
+            // Ajuster la propriété x selon vos besoins
+            return parseFloat(d3.select(this).attr('x')) * addaptation + addaptationX;
+        })
+        .attr('y', function() {
+            // Ajuster la propriété y selon vos besoins
+            return parseFloat(d3.select(this).attr('y')) * addaptation + addaptationY;
+        });
 
-    });
-}
+    d3.selectAll('.constellation_petite_etoile')
+        .attr('cx', function() {
+            // Ajuster la propriété x selon vos besoins
+            return parseFloat(d3.select(this).attr('cx')) * addaptation + addaptationX;
+        })
+        .attr('cy', function() {
+            // Ajuster la propriété y selon vos besoins
+            return parseFloat(d3.select(this).attr('cy')) * addaptation + addaptationY;
+        });
 
+    d3.selectAll('.constellation_line')
+        .attr('x1', function() {
+            // Ajuster la propriété x selon vos besoins
+            return parseFloat(d3.select(this).attr('x1')) * addaptation + addaptationX;
+        })
+        .attr('x2', function() {
+            // Ajuster la propriété x selon vos besoins
+            return parseFloat(d3.select(this).attr('x2')) * addaptation + addaptationX;
+        })
+        .attr('y1', function() {
+            // Ajuster la propriété y selon vos besoins
+            return parseFloat(d3.select(this).attr('y1')) * addaptation + addaptationY;
+        })
+        .attr('y2', function() {
+            // Ajuster la propriété y selon vos besoins
+            return parseFloat(d3.select(this).attr('y2')) * addaptation + addaptationY;
+        });
+}*/
  
     </script>   
 </body>

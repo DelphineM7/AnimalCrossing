@@ -1064,4 +1064,5 @@ function BoutonHobbyOver(){
                 rectangle.style = `fill : ${Personnalite[a][1]}`;  
                 }   
     })
+
 }
