@@ -32,8 +32,19 @@
     let MonEspaceSVG = d3.select("body")
         .append("svg") 
             .attr("width", ecran_width) 
+<<<<<<< Updated upstream
             .attr("height", ecran_height)  
 
+=======
+            .attr("height", ecran_height) 
+    
+    if (ecran_width < 1400 && ecran_height < 850){
+        MonEspaceSVG.transition()
+                .attr('height', 1200)
+                .attr('width', 700)
+    }
+    
+>>>>>>> Stashed changes
     let Title = MonEspaceSVG.append('text')
     .attr('id', 'Title')
     .attr('x', milieuX +150)
