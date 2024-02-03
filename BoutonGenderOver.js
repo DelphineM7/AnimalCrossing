@@ -113,8 +113,8 @@ function BoutonGenderOver(){
                 for (let h = 0; h < CouleurETEspeceListe.length/2; h++) {
                         MonEspaceSVG.append("rect")
                         .attr("id", "rectlab1" + h)
-                        .attr("x", PlacementXEspece +380)
-                        .attr("y", PlacementYEspece +140 + 9*h + h*1.5)
+                        .attr("x", (PlacementXEspece +380)*addaptation)
+                        .attr("y", (PlacementYEspece +140 + 9*h + h*1.5)*addaptation)
                         .attr("width", 9)
                         .attr("height", 9)
                         .style('fill',CouleurETEspeceListe[h][1])
@@ -124,8 +124,8 @@ function BoutonGenderOver(){
 
                         MonEspaceSVG.append("text")
                         .attr("id", "lab1" + h)
-                        .attr("x", PlacementXEspece + 395)
-                        .attr("y", PlacementYEspece + 148 + 9*h + h*1.5)
+                        .attr("x", (PlacementXEspece + 395)*addaptation)
+                        .attr("y", (PlacementYEspece + 148 + 9*h + h*1.5)*addaptation)
                         .attr("opacity", 0) 
                         .text(CouleurETEspeceListe[h][0])
                         .style("font-size", "10px")  
@@ -137,8 +137,8 @@ function BoutonGenderOver(){
                 for (let v = 17; v < CouleurETEspeceListe.length; v++) {
                         MonEspaceSVG.append("rect")
                         .attr("id", "rectlab2" + v)
-                        .attr("x", PlacementXEspece + 440)
-                        .attr("y", PlacementYEspece -38 + 9*v + v*1.5)
+                        .attr("x", (PlacementXEspece + 440)*addaptation)
+                        .attr("y", (PlacementYEspece -38 + 9*v + v*1.5)*addaptation)
                         .attr("width", 9)
                         .attr("height", 9)
                         .style('fill',CouleurETEspeceListe[v][1])
@@ -148,8 +148,8 @@ function BoutonGenderOver(){
                         
                         MonEspaceSVG.append("text")
                         .attr("id", "lab2" + v)
-                        .attr("x",  PlacementXEspece + 455)
-                        .attr("y", PlacementYEspece -30 + 9*v + v*1.5)
+                        .attr("x",  (PlacementXEspece + 455)*addaptation)
+                        .attr("y", (PlacementYEspece -30 + 9*v + v*1.5)*addaptation)
                         .attr("opacity", 0) 
                         .text(CouleurETEspeceListe[v][0])
                         .style("font-size", "10px")
@@ -947,8 +947,12 @@ function BoutonGenderOver(){
                 .domain([0,27])
                 .range([0, 460]) 
 
+                yEspece
+                .domain(["Female", "Male"])
+                .range([300, 150]) 
+
                 FondBlanc
-                        .attr("x", PlacementXEspece-25)
+                        .attr("x", PlacementXEspece-leoconstellationaddaptation)
                         .attr("y", PlacementYEspece-200)
                         .attr("width", 650)
                         .attr("height", 200)
@@ -1181,7 +1185,7 @@ function BoutonGenderOver(){
                 .range([0, 400]) 
 
                 FondBlanc
-                        .attr("x", PlacementXEspece-45)
+                        .attr("x", PlacementXEspece-leoconstellationaddaptation)
                         .attr("y", PlacementYEspece-200)
                         .attr("width", 600)
                         .attr("height", 200)
@@ -1500,10 +1504,13 @@ function BoutonGenderOver(){
                         let FemaleEspecesArray = Array.from(FemaleEspece)
                         FemaleEspecesArray.sort(d3.ascending)  
 
+                //Leo - Libra
+                if(QuelMoisSommesNous == 9 || QuelMoisSommesNous == 11 ){ 
+                console.log("hiihhi")
                 //les axes 
                 MonEspaceSVG.append("g")
                 .attr("id", "AxeYEspece")
-                .attr("transform", `translate(${PlacementXEspece},${PlacementYEspece-325})`)
+                .attr("transform", `translate(${PlacementXEspece-leoconstellationaddaptation+45},${PlacementYEspece-325})`)
                 .call(d3.axisLeft(yEspece))
                 .attr('font-family', "AnimalCrossing")
                 .attr("opacity", 0) 
@@ -1513,14 +1520,74 @@ function BoutonGenderOver(){
 
                 MonEspaceSVG.append("g")
                 .attr("id", "AxeXEspece")
-                .attr("transform", `translate(${PlacementXEspece},${PlacementYEspece-25})`)
+                .attr("transform", `translate(${PlacementXEspece-leoconstellationaddaptation+45},${PlacementYEspece-25})`)
                 .call(d3.axisBottom(xEspece))
                 .attr('font-family', "AnimalCrossing") 
                 .attr("opacity", 0) 
                 .transition()
                   .duration(1000) 
                   .attr("opacity",1)   
-                
+
+                // Les barres 
+                let AvanceFemale = 0
+                for (let i = 0; i < FemaleEspecesArray.length; i++) {
+                        MonEspaceSVG.append("rect")
+                        .attr("id", "rectfl" + i)
+                        .attr("x", PlacementXEspece -leoconstellationaddaptation+45 + AvanceFemale  + 0.5*i)
+                        .attr("y", PlacementYEspece-80)
+                        .attr("width", FemaleEspecesArray[i][1].length*17)
+                        .attr("height", 30)
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 0.8)
+
+                        AvanceFemale += FemaleEspecesArray[i][1].length*17                        
+                        for (let j = 0; j < CouleurETEspeceListe.length; j++) {
+                                if (FemaleEspecesArray[i][0] == CouleurETEspeceListe[j][0]) {
+                                let rectanglefe = document.getElementById(`rectfl${i}`) 
+                                rectanglefe.style = `fill : ${CouleurETEspeceListe[j][1]}`;  
+                        }}
+                        }
+                let AvanceMale = 0
+                for (let a = 0; a < MaleEspeceArray.length; a++) {
+                        MonEspaceSVG.append("rect")
+                        .attr("id", "rect" + a)
+                        .attr("x", PlacementXEspece -leoconstellationaddaptation+45 + AvanceMale  + 0.5*a)
+                        .attr("y", PlacementYEspece -155)
+                        .attr("width", MaleEspeceArray[a][1].length*17)
+                        .attr("height", 30)
+                        .transition()
+                        .duration(1000) 
+                        .attr("opacity", 0.8)
+                        
+                        AvanceMale += MaleEspeceArray[a][1].length*17 
+                        for (let c = 0; c < CouleurETEspeceListe.length; c++) {
+                                if (MaleEspeceArray[a][0] == CouleurETEspeceListe[c][0]) {
+                                let rectangle = document.getElementById(`rect${a}`) 
+                                rectangle.style = `fill : ${CouleurETEspeceListe[c][1]}`;                             
+                        }}
+                } 
+        } else {
+                MonEspaceSVG.append("g")
+                .attr("id", "AxeYEspece")
+                .attr("transform", `translate(${PlacementXEspece},${PlacementYEspece-325})`)
+                .call(d3.axisLeft(yEspece))
+                .attr('font-family', "AnimalCrossing")
+                .attr("opacity", 0) 
+                .transition()
+                        .duration(1000) 
+                        .attr("opacity",1)     
+
+                MonEspaceSVG.append("g")
+                .attr("id", "AxeXEspece")
+                .attr("transform", `translate(${PlacementXEspece},${PlacementYEspece-25})`)
+                .call(d3.axisBottom(xEspece))
+                .attr('font-family', "AnimalCrossing") 
+                .attr("opacity", 0) 
+                .transition()
+                        .duration(1000) 
+                        .attr("opacity",1)
+                        
                 // Les barres 
                 let AvanceFemale = 0
                 for (let i = 0; i < FemaleEspecesArray.length; i++) {
@@ -1560,5 +1627,6 @@ function BoutonGenderOver(){
                                 rectangle.style = `fill : ${CouleurETEspeceListe[c][1]}`;                             
                         }}
                 } 
+                }
     })
 }
