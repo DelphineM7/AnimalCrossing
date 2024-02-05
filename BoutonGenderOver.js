@@ -113,8 +113,8 @@ function BoutonGenderOver(){
                 for (let h = 0; h < CouleurETEspeceListe.length/2; h++) {
                         MonEspaceSVG.append("rect")
                         .attr("id", "rectlab1" + h)
-                        .attr("x", (PlacementXEspece +380)*addaptation)
-                        .attr("y", (PlacementYEspece +140 + 9*h + h*1.5)*addaptation)
+                        .attr("x", PlacementXEspece +381)
+                        .attr("y", PlacementYEspece -192 + 9*h + h*1.5)
                         .attr("width", 9)
                         .attr("height", 9)
                         .style('fill',CouleurETEspeceListe[h][1])
@@ -124,8 +124,8 @@ function BoutonGenderOver(){
 
                         MonEspaceSVG.append("text")
                         .attr("id", "lab1" + h)
-                        .attr("x", (PlacementXEspece + 395)*addaptation)
-                        .attr("y", (PlacementYEspece + 148 + 9*h + h*1.5)*addaptation)
+                        .attr("x", PlacementXEspece + 395)
+                        .attr("y", PlacementYEspece - 185 + 9*h + h*1.5)
                         .attr("opacity", 0) 
                         .text(CouleurETEspeceListe[h][0])
                         .style("font-size", "10px")  
@@ -137,8 +137,8 @@ function BoutonGenderOver(){
                 for (let v = 17; v < CouleurETEspeceListe.length; v++) {
                         MonEspaceSVG.append("rect")
                         .attr("id", "rectlab2" + v)
-                        .attr("x", (PlacementXEspece + 440)*addaptation)
-                        .attr("y", (PlacementYEspece -38 + 9*v + v*1.5)*addaptation)
+                        .attr("x", PlacementXEspece + 442)
+                        .attr("y", PlacementYEspece -372 + 9*v + v*1.5)
                         .attr("width", 9)
                         .attr("height", 9)
                         .style('fill',CouleurETEspeceListe[v][1])
@@ -148,8 +148,8 @@ function BoutonGenderOver(){
                         
                         MonEspaceSVG.append("text")
                         .attr("id", "lab2" + v)
-                        .attr("x",  (PlacementXEspece + 455)*addaptation)
-                        .attr("y", (PlacementYEspece -30 + 9*v + v*1.5)*addaptation)
+                        .attr("x",  PlacementXEspece +452)
+                        .attr("y", PlacementYEspece-365  + 9*v + v*1.5)
                         .attr("opacity", 0) 
                         .text(CouleurETEspeceListe[v][0])
                         .style("font-size", "10px")
@@ -420,7 +420,7 @@ function BoutonGenderOver(){
                         let variable = d3.select(`#rectlab1${i}`)
                         variable    
                         .attr("x", PlacementXEspece +380)
-                        .attr("y", PlacementYEspece +140 + 9*i + i*1.5)
+                        .attr("y", PlacementYEspece  + 9*i + i*1.5)
                         .attr("width", 9)
                         .attr("height", 9)
                         .style('fill',CouleurETEspeceListe[i][1])
@@ -432,7 +432,7 @@ function BoutonGenderOver(){
                         let variable2 = d3.select(`#lab1${i}`)
                         variable2
                         .attr("x", PlacementXEspece + 395)
-                        .attr("y", PlacementYEspece + 148 + 9*i + i*1.5)
+                        .attr("y", PlacementYEspece  + 9*i + i*1.5)
                         .attr("opacity", 0) 
                         .text(CouleurETEspeceListe[i][0])
                         .style("font-size", "10px")  
@@ -447,7 +447,7 @@ function BoutonGenderOver(){
                         let variable = d3.select(`#rectlab2${i}`)
                         variable
                         .attr("x", PlacementXEspece + 440)
-                        .attr("y", PlacementYEspece -38 + 9*i + i*1.5)
+                        .attr("y", PlacementYEspece +140 + 9*i + i*1.5)
                         .attr("width", 9)
                         .attr("height", 9)
                         .style('fill',CouleurETEspeceListe[i][1])
@@ -459,7 +459,7 @@ function BoutonGenderOver(){
                         let variable2 = d3.select(`#lab2${i}`)
                         variable2
                         .attr("x",  PlacementXEspece + 455)
-                        .attr("y", PlacementYEspece -30 + 9*i + i*1.5)
+                        .attr("y", PlacementYEspece +148 + 9*i + i*1.5)
                         .attr("opacity", 0) 
                         .text(CouleurETEspeceListe[i][0])
                         .style("font-size", "10px")
@@ -1185,7 +1185,7 @@ function BoutonGenderOver(){
                 .range([0, 400]) 
 
                 FondBlanc
-                        .attr("x", PlacementXEspece-leoconstellationaddaptation)
+                        .attr("x", PlacementXEspece- leoconstellationaddaptation)
                         .attr("y", PlacementYEspece-200)
                         .attr("width", 600)
                         .attr("height", 200)
@@ -1202,20 +1202,20 @@ function BoutonGenderOver(){
                         
                         let variable = d3.select(`#rectlab1${i}`)
                         variable    
-                        .attr("x", PlacementXEspece +380)
-                        .attr("y", PlacementYEspece +140 + 9*i + i*1.5)
+                        .attr("x", PlacementXEspece +381)
+                        .attr("y", PlacementYEspece -192 + 9*i + i*1.5)
                         .attr("width", 9)
                         .attr("height", 9)
                         .style('fill',CouleurETEspeceListe[i][1])
                         .attr("opacity", 0.8)
                         .transition()
                         .duration(1000)
-                        .attr("x", PlacementXEspece +380+50)
+                        .attr("x", PlacementXEspece +addaptationconstellationgrand1 +381)
 
                         let variable2 = d3.select(`#lab1${i}`)
                         variable2
                         .attr("x", PlacementXEspece + 395)
-                        .attr("y", PlacementYEspece + 148 + 9*i + i*1.5)
+                        .attr("y", PlacementYEspece -185 + 9*i + i*1.5)
                         .attr("opacity", 0) 
                         .text(CouleurETEspeceListe[i][0])
                         .style("font-size", "10px")  
@@ -1223,26 +1223,26 @@ function BoutonGenderOver(){
                         .attr("opacity", 1)
                         .transition()
                         .duration(1000)
-                        .attr("x", PlacementXEspece +395+50)     
+                        .attr("x", PlacementXEspece +addaptationconstellationgrand2 + 395)     
                 }
                 for (let i = 17; i < 35; i++) {
                         
                         let variable = d3.select(`#rectlab2${i}`)
                         variable
-                        .attr("x", PlacementXEspece + 440)
-                        .attr("y", PlacementYEspece -38 + 9*i + i*1.5)
+                        .attr("x", PlacementXEspece + 442)
+                        .attr("y", PlacementYEspece -372 + 9*i + i*1.5)
                         .attr("width", 9)
                         .attr("height", 9)
                         .style('fill',CouleurETEspeceListe[i][1])
                         .transition()
                         .duration(1000) 
                         .attr("opacity", 0.8)
-                        .attr("x", PlacementXEspece +440+50) 
+                        .attr("x", PlacementXEspece +addaptationconstellationgrand3 + 442) 
 
                         let variable2 = d3.select(`#lab2${i}`)
                         variable2
-                        .attr("x",  PlacementXEspece + 455)
-                        .attr("y", PlacementYEspece -30 + 9*i + i*1.5)
+                        .attr("x",  PlacementXEspece + 452)
+                        .attr("y", PlacementYEspece -365 + 9*i + i*1.5)
                         .attr("opacity", 0) 
                         .text(CouleurETEspeceListe[i][0])
                         .style("font-size", "10px")
@@ -1251,7 +1251,7 @@ function BoutonGenderOver(){
                         .transition()
                         .duration(1000) 
                         .attr("opacity", 0.8)
-                        .attr("x", PlacementXEspece +455+50)    
+                        .attr("x", PlacementXEspece + 452 + addaptationconstellationgrand4)    
                 }
         } else if(QuelMoisSommesNous == 12){
             let MaleCompte = SigneGenre.get("Scorpio").get("Male").length
