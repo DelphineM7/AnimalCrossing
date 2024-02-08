@@ -60,14 +60,14 @@ function BoutonGenderOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', ((milieuX+90-90)*addaptation) + addaptationX +50)
+            .attr('x', ((milieuX+90-90)*addaptation) + addaptationX +add10)
             .attr('y', ((milieuY+190)*addaptation) + addaptationY)            
 
         etoile_bleu.transition()
             .duration(1000) 
             .attr('height', 50)
             .attr('width', 50)
-            .attr('x', ((milieuX-40-90)*addaptation) + addaptationX -5+50)
+            .attr('x', ((milieuX-40-90)*addaptation) + addaptationX -5+add10)
             .attr('y', ((milieuY-190)*addaptation) + addaptationY-5) 
 
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE

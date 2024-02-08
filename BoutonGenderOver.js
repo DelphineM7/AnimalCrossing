@@ -246,20 +246,20 @@ function BoutonGenderOver(){
                     .duration(1000) 
                     .attr('height', (50 + MaleCompte*3)*addaptation)
                     .attr('width', (50 + MaleCompte*3)*addaptation)
-                    .attr('x', ((milieuX+90 - MaleCompte*1.5 -90)*addaptation) + addaptationX +50)
+                    .attr('x', ((milieuX+90 - MaleCompte*1.5 -90)*addaptation) + addaptationX +add10)
                     .attr('y', ((milieuY+190 -  MaleCompte*1.5)  *addaptation) + addaptationY)              
 
             etoile_bleu.transition()
                     .duration(1000) 
                     .attr('height', (50 + FemaleCompte*3)*addaptation)
                     .attr('width', (50 + FemaleCompte*3)*addaptation)
-                    .attr('x', ((milieuX-40 - FemaleCompte *1.5 -90 )*addaptation) + addaptationX+45)
+                    .attr('x', ((milieuX-40 - FemaleCompte *1.5 -90 )*addaptation) + addaptationX+add10)
                     .attr('y', ((milieuY-190 - FemaleCompte *1.5)*addaptation) + addaptationY-5)  
         
             GenderTexteMale
                     .transition()
                     .duration(0)       
-                    .attr('x', ((milieuX+90 + 50+MaleCompte -90 )*addaptation) + addaptationX+50)
+                    .attr('x', ((milieuX+90 + 50+MaleCompte -90 )*addaptation) + addaptationX+add10)
                     .attr('y',  ((milieuY+190 +50 )*addaptation) + addaptationY) 
                     .transition()
                     .duration(1000) 
@@ -271,7 +271,7 @@ function BoutonGenderOver(){
             GenderTexteFemale
                     .transition()
                     .duration(0)
-                    .attr('x', ((milieuX-40 + 50 + FemaleCompte *1.5 -90)*addaptation) + addaptationX+45)
+                    .attr('x', ((milieuX-40 + 50 + FemaleCompte *1.5 -90)*addaptation) + addaptationX+add10)
                     .attr('y', ((milieuY-190 + 50 )*addaptation) + addaptationY-5)   
                     .attr('fill', "white")
                     .attr('font-family', "AnimalCrossing")
