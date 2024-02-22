@@ -41,8 +41,15 @@
     let less10 = 0
     let add10 = 0
     let less50 = 0
+    let adaptY1 = 0
+    let adaptX1 = 0
+    let adaptY2 = 0
+    let adaptX2 = 0
+    let adaptXforSpecie = 0
+    let adaptYforSpecie = 0
 
-    if (ecran_width < 1400 && ecran_height < 850) {
+    // addaptation pour laptop
+    if (ecran_width < 1440 && ecran_height < 900) {
     addaptation = 0.7
     addaptationX = milieuX/3
     addaptationY = milieuY/3
@@ -55,6 +62,12 @@
     add10 =50
     less20 = 20
     less50 = 50
+    adaptY1 = 50
+    adaptX1 = 60
+    adaptY2 = ecran_height -50
+    adaptX2 = 350
+    adaptXforSpecie = -400
+    adaptYforSpecie = -220 
     }
 
     let MonEspaceSVG = d3.select("body")
@@ -433,6 +446,28 @@ let BoutonBoutonGender = document.getElementById('Gender');
     BoutonBoutonGender.addEventListener("mouseover", BoutonGenderOver);
     BoutonBoutonGender.addEventListener("mouseout", BoutonGenderOut);
 
+// Hobbies
+let BoutonHobby = MonEspaceSVG.append('image')
+    .attr('id', 'Hobby')
+    .attr('xlink:href', 'BoutonGender.svg')
+    .attr('width', 60)
+    .attr('height', 60)
+    .attr('x', 50)
+    .attr('y', 340) 
+
+let TexteHobby = MonEspaceSVG.append('text')
+    .attr('id', 'TexteHobby')
+    .attr('x', 60)
+    .attr('y', 420)
+    .attr('fill', "white")
+    .attr('opacity', "0.5")
+    .attr('font-family', "AnimalCrossing")
+    .text("Hobby")
+
+let BoutonBoutonHobby = document.getElementById('Hobby'); 
+BoutonBoutonHobby.addEventListener("mouseover", BoutonHobbyOver);
+BoutonBoutonHobby.addEventListener("mouseout", BoutonHobbyOut);
+
 // Species
 let BoutonSpecies = MonEspaceSVG.append('image')
     .attr('id', 'Species')
@@ -440,42 +475,20 @@ let BoutonSpecies = MonEspaceSVG.append('image')
     .attr('width', 60)
     .attr('height', 60)
     .attr('x', 50)
-    .attr('y', 340) 
+    .attr('y', 460) 
 
 let TexteSpecies = MonEspaceSVG.append('text')
     .attr('id', 'TexteSpecies')
-    .attr('x', 60)
-    .attr('y', 420)
-    .attr('fill', "white")
-    .attr('opacity', "0.5")
-    .attr('font-family', "AnimalCrossing")
-    .text("Specie")
-
-let BoutonBoutonSpecies = document.getElementById('Species');   
-BoutonBoutonSpecies.addEventListener("mouseover", BoutonSpeciesOver);
-BoutonBoutonSpecies.addEventListener("mouseout", BoutonSpeciesOut);
-
-// hobbies
-let BoutonHobby = MonEspaceSVG.append('image')
-    .attr('id', 'Hobby')
-    .attr('xlink:href', 'BoutonGender.svg')
-    .attr('width', 60)
-    .attr('height', 60)
-    .attr('x', 50)
-    .attr('y', 460) 
-
-let TexteHobby = MonEspaceSVG.append('text')
-    .attr('id', 'TexteHobby')
     .attr('x', 60)
     .attr('y', 540)
     .attr('fill', "white")
     .attr('opacity', "0.5")
     .attr('font-family', "AnimalCrossing")
-    .text("Hobby")
+    .text("Specie")
 
-let BoutonBoutonHobby = document.getElementById('Hobby');   
-BoutonBoutonHobby.addEventListener("mouseover", BoutonHobbyOver);
-BoutonBoutonHobby.addEventListener("mouseout", BoutonHobbyOut);
+let BoutonBoutonSpecies = document.getElementById('Species');  
+BoutonBoutonSpecies.addEventListener("mouseover", BoutonSpeciesOver);
+BoutonBoutonSpecies.addEventListener("mouseout", BoutonSpeciesOut);
 
 // personnalities
 let BoutonPersonality = MonEspaceSVG.append('image')

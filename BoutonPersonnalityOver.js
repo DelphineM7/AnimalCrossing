@@ -11,11 +11,12 @@ function BoutonPersonnalityOver(){
     } 
 
     }).then(donnees =>{ 
-    // condition pour les petits écrans 
+    // condition pour les petits écrans
     if (ecran_width < 1400 && ecran_height < 850) {
         MonEspaceSVG.transition()
-        .attr('height', ecran_height+ ecran_height/4)
+        .attr('height', ecran_height +ecran_height/4)
     }
+
     // diagrammes en fleurs
         // variables
         const EEspece = d3.groups(donnees, d => d.espece)
@@ -358,7 +359,7 @@ function BoutonPersonnalityOver(){
                 .attr('xlink:href', 'Croix.svg')
                 .attr('width', 130*addaptation)
                 .attr('height', 130*addaptation)
-                .attr('x', ((PositionX2 -60)*addaptation)+addaptationX)
+                .attr('x', ((PositionX2 -60)*addaptation))
                 .attr('y', ((PositionY3 -100))) 
                 .attr("opacity", 0)
                 .transition()
@@ -461,7 +462,7 @@ function BoutonPersonnalityOver(){
                 .attr('xlink:href', 'Croix.svg')
                 .attr('width', 130*addaptation)
                 .attr('height', 130*addaptation)
-                .attr('x', ((PositionX1 -60)*addaptation)+addaptationX)
+                .attr('x', ((PositionX1 -60)*addaptation))
                 .attr('y', ((PositionY1 -100))) 
                 .attr("opacity", 0)
                 .transition()
@@ -930,9 +931,9 @@ function BoutonPersonnalityOver(){
                 let Croix = MonEspaceSVG.append('image')
                 .attr('id', 'Croix')
                 .attr('xlink:href', 'Croix.svg')
-                .attr('width', 130)
-                .attr('height', 130)
-                .attr('x',(( PositionX1 -60)*addaptation)+addaptationX)
+                .attr('width', 130 *addaptation)
+                .attr('height', 130 *addaptation)
+                .attr('x',(( PositionX1 -60)*addaptation))
                 .attr('y',(( PositionY1 -100)) ) 
                 .attr("opacity", 0)
                 .transition()
@@ -1227,7 +1228,7 @@ function BoutonPersonnalityOver(){
                 .attr('xlink:href', 'Croix.svg')
                 .attr('width', 130*addaptation)
                 .attr('height', 130*addaptation)
-                .attr('x', ((PositionX1 -60)*addaptation)+addaptationX)
+                .attr('x', ((PositionX1 -60)*addaptation))
                 .attr('y', ((PositionY1 -100))) 
                 .attr("opacity", 0)
                 .transition()

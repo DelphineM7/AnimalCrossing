@@ -8,9 +8,14 @@ function BoutonSpeciesOut(){
         hobbie : d.Hobby,
         signe : d.Sign,
         style : d.Style1,
-    }
+    } 
 
     }).then(donnees =>{ 
+    if (window.innerWidth < 1400 && window.innerHeight < 850) {
+        MonEspaceSVG.transition()
+        .duration(30000) 
+        .attr('height', window.innerHeight +window.innerHeight/2)
+    }
     //variables pour les disparitions des diagrammes circulaire 
          const EspeceHobby = d3.group(donnees, d => d.signe, d=> d.hobbie, d => d.espece)
          const EspecePersonnalite = d3.group(donnees, d => d.signe, d=> d.personnalite, d => d.espece)
@@ -80,10 +85,10 @@ function BoutonSpeciesOut(){
             //déplacement des étoiles 
             etoile_jaune.transition()
                 .duration(1000) 
-                .attr('height', 50 )
-                .attr('width', 50 )
-                .attr('x', milieuX+90)
-                .attr('y', milieuY+190)
+                .attr('height', 50)
+                .attr('width', 50)
+                .attr('x', ((milieuX+90)*addaptation)+addaptationX-5)
+                .attr('y', ((milieuY+190)*addaptation)+addaptationY-5)
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()
@@ -95,8 +100,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX+60 )
-                .attr('y', milieuY-190) 
+                .attr('x', ((milieuX+60 )*addaptation)+addaptationX-5)
+                .attr('y', ((milieuY-190) *addaptation)+addaptationY-5)
             
             d3.select(`#SpecieTexteBleu`)
                 .transition()
@@ -125,8 +130,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX+90-90)
-                .attr('y', milieuY+190)
+                .attr('x', ((milieuX+90-90)*addaptation)+addaptationX-5+add10)
+                .attr('y', ((milieuY+190)*addaptation)+addaptationY-5)
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()
@@ -138,8 +143,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX-40 -90 )
-                .attr('y', milieuY-190) 
+                .attr('x', ((milieuX-40 -90 )*addaptation)+addaptationX-5+add10)
+                .attr('y', ((milieuY-190)*addaptation)+addaptationY-5) 
             
             d3.select(`#SpecieTexteBleu`)
                 .transition()
@@ -151,8 +156,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX-440-90)
-                .attr('y', milieuY-230) 
+                .attr('x', ((milieuX-440-90)*addaptation)+addaptationX-5+add10)
+                .attr('y', ((milieuY-230) *addaptation)+addaptationY-5) 
 
             d3.select(`#SpecieTexteRose`)
                 .transition()
@@ -185,8 +190,8 @@ function BoutonSpeciesOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', milieuX+180)
-            .attr('y', milieuY+40) 
+            .attr('x', ((milieuX+180)*addaptation)+addaptationX)
+            .attr('y', ((milieuY+40)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()
@@ -198,8 +203,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX+150)
-                .attr('y', milieuY-150) 
+                .attr('x', ((milieuX+150)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-150)*addaptation)+addaptationY) 
             
             d3.select(`#SpecieTexteBleu`)
                 .transition()
@@ -211,8 +216,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX-300)
-                .attr('y', milieuY-90) 
+                .attr('x', ((milieuX-300)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-90)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteRose`)
                 .transition()
@@ -224,8 +229,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX-130)
-                .attr('y', milieuY-300)
+                .attr('x', ((milieuX-130)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-300)*addaptation)+addaptationY)
 
             d3.select(`#SpecieTexteVert`)
                 .transition()
@@ -257,8 +262,8 @@ function BoutonSpeciesOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', milieuX+ 110-70)
-            .attr('y', milieuY+230) 
+            .attr('x', ((milieuX+ 110-70)*addaptation)+addaptationX)
+            .attr('y',(( milieuY+230)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()
@@ -270,8 +275,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX+ 290-70)
-                .attr('y', milieuY-140) 
+                .attr('x', ((milieuX+ 290-70)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-140)*addaptation)+addaptationY) 
             
             d3.select(`#SpecieTexteBleu`)
                 .transition()
@@ -299,8 +304,8 @@ function BoutonSpeciesOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', milieuX+ 130-150)
-            .attr('y', milieuY-220) 
+            .attr('x', ((milieuX+ 130-150)*addaptation)+addaptationX)
+            .attr('y', ((milieuY-220)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()
@@ -312,8 +317,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX+150)
-                .attr('y', milieuY-250) 
+                .attr('x', ((milieuX+150)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-250)*addaptation)+addaptationY) 
             
             d3.select(`#SpecieTexteBleu`)
                 .transition()
@@ -325,8 +330,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX-450)
-                .attr('y', milieuY+2) 
+                .attr('x', ((milieuX-450)*addaptation)+addaptationX)
+                .attr('y', ((milieuY+2)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteRose`)
                 .transition()
@@ -338,8 +343,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX+375-150)
-                .attr('y', milieuY-190)
+                .attr('x', ((milieuX+375-150)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-190)*addaptation)+addaptationY)
 
             d3.select(`#SpecieTexteVert`)
                 .transition()
@@ -367,8 +372,8 @@ function BoutonSpeciesOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', milieuX+ 65)
-            .attr('y', milieuY+85) 
+            .attr('x', ((milieuX+ 65)*addaptation)+addaptationX)
+            .attr('y', ((milieuY+85)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()
@@ -396,8 +401,8 @@ function BoutonSpeciesOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', milieuX+ 120)
-            .attr('y', milieuY+65) 
+            .attr('x', ((milieuX+ 120)*addaptation)+addaptationX)
+            .attr('y', ((milieuY+65)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()
@@ -409,8 +414,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX+100)
-                .attr('y', milieuY-340) 
+                .attr('x', ((milieuX+100)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-340)*addaptation)+addaptationY) 
             
             d3.select(`#SpecieTexteBleu`)
                 .transition()
@@ -438,8 +443,8 @@ function BoutonSpeciesOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', milieuX+ 145)
-            .attr('y', milieuY+65) 
+            .attr('x', ((milieuX+ 145)*addaptation)+addaptationX)
+            .attr('y', ((milieuY+65)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()
@@ -451,8 +456,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX-60)
-                .attr('y', milieuY-380) 
+                .attr('x', ((milieuX-60)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-380)*addaptation)+addaptationY) 
             
             d3.select(`#SpecieTexteBleu`)
                 .transition()
@@ -484,8 +489,8 @@ function BoutonSpeciesOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', milieuX+ 228)
-            .attr('y', milieuY+259) 
+            .attr('x', ((milieuX+ 228)*addaptation)+addaptationX)
+            .attr('y', ((milieuY+259)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()
@@ -497,8 +502,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX-295)
-                .attr('y', milieuY-345) 
+                .attr('x', ((milieuX-295)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-345)*addaptation)+addaptationY) 
             
             d3.select(`#SpecieTexteBleu`)
                 .transition()
@@ -510,8 +515,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX-140)
-                .attr('y', milieuY-145) 
+                .attr('x', ((milieuX-140)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-145)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteRose`)
                 .transition()
@@ -539,8 +544,8 @@ function BoutonSpeciesOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', milieuX+ 42)
-            .attr('y', milieuY+20) 
+            .attr('x', ((milieuX+ 42)*addaptation)+addaptationX)
+            .attr('y', ((milieuY+20)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()
@@ -552,8 +557,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX+115)
-                .attr('y', milieuY-270) 
+                .attr('x', ((milieuX+115)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-270)*addaptation)+addaptationY) 
             
             d3.select(`#SpecieTexteBleu`)
                 .transition()
@@ -581,8 +586,8 @@ function BoutonSpeciesOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', milieuX+ 32)
-            .attr('y', milieuY-85) 
+            .attr('x', ((milieuX+ 32)*addaptation)+addaptationX)
+            .attr('y', ((milieuY-85)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()
@@ -594,8 +599,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX+166)
-                .attr('y', milieuY+40) 
+                .attr('x', ((milieuX+166)*addaptation)+addaptationX)
+                .attr('y', ((milieuY+40)*addaptation)+addaptationY) 
             
             d3.select(`#SpecieTexteBleu`)
                 .transition()
@@ -607,8 +612,8 @@ function BoutonSpeciesOut(){
                 .duration(1000) 
                 .attr('height', 50 )
                 .attr('width', 50 )
-                .attr('x', milieuX-152)
-                .attr('y', milieuY-225) 
+                .attr('x', ((milieuX-152)*addaptation)+addaptationX)
+                .attr('y', ((milieuY-225)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteRose`)
                 .transition()
@@ -640,8 +645,8 @@ function BoutonSpeciesOut(){
             .duration(1000) 
             .attr('height', 50 )
             .attr('width', 50 )
-            .attr('x', milieuX+ 32 -200)
-            .attr('y', milieuY-105) 
+            .attr('x', ((milieuX+ 32 -200)*addaptation)+addaptationX)
+            .attr('y', ((milieuY-105)*addaptation)+addaptationY) 
 
             d3.select(`#SpecieTexteJaune`)
                 .transition()

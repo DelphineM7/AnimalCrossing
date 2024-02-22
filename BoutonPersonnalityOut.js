@@ -11,6 +11,12 @@ function BoutonPersonnalityOut(){
     } 
 
     }).then(donnees =>{ 
+    // condition pour les petits écrans
+    if (ecran_width < 1400 && ecran_height < 850) {
+        MonEspaceSVG.transition()
+        .duration(30000)
+        .attr('height', ecran_height)
+    }
         //variables 
         const Signgender = d3.group(donnees, d => d.signe, d => d.personnalite,d=> d.espece,)
         const EspeceHobby = d3.group(donnees, d => d.signe, d=> d.personnalite, d => d.hobbie)
