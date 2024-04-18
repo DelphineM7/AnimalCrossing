@@ -1049,4 +1049,17 @@ function BoutonPersonnalityOut(){
                 .remove()  
             }
     })
+     //enlever le fond blanc du texte
+     let FondBlancTexteExpPersonnality=d3.select('#FondBlancTexteExpPersonnality')
+     FondBlancTexteExpPersonnality
+     .transition()
+     .duration(1000)
+     .attr("opacity", 0)
+     .remove()
+     //enlever le texte d'explication 
+    d3.select(texteExpPersonnality)
+    .transition()
+    .duration(1000)
+    .attr("opacity", 0)
+    .remove()
 }

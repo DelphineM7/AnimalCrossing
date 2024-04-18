@@ -445,4 +445,17 @@ function BoutonGenderOut(){
         .remove()
     }
     })
+    //enlever le fond blanc du texte
+    let FondBlancTexteExpGender=d3.select('#FondBlancTexteExpGender')
+    FondBlancTexteExpGender
+    .transition()
+    .duration(1000)
+    .attr("opacity", 0)
+    .remove()
+        // texte d'explication 
+        d3.select(texteExpGender)
+        .transition()
+        .duration(1000)
+        .attr("opacity", 0)
+        .remove()
 }

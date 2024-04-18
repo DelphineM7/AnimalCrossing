@@ -1102,4 +1102,17 @@ function BoutonSpeciesOut(){
             .remove()  
         }
     })
+    //enlever le fond blanc du texte
+    let FondBlancTexteExpSpecies=d3.select('#FondBlancTexteExpSpecies')
+    FondBlancTexteExpSpecies
+    .transition()
+    .duration(1000)
+    .attr("opacity", 0)
+    .remove()
+    //enlever le texte d'explication 
+  d3.select(texteExpSpecies)
+  .transition()
+  .duration(1000)
+  .attr("opacity", 0)
+  .remove()
 }

@@ -1626,6 +1626,36 @@ function BoutonGenderOver(){
                                 rectangle.style = `fill : ${CouleurETEspeceListe[c][1]}`;                             
                         }}
                 } 
-                }
+                }                 
     })
-}
+    // Fond blanc pour le texte d'explication 
+ let FondBlancTexteGender = MonEspaceSVG.append("rect")
+ .attr("id", "FondBlancTexteExpGender")
+ .attr("x", 30)
+ .attr("y", 670)
+ .attr("width", 670)
+ .attr("height", 30)
+ .transition()
+ .duration(1000) 
+ .style('fill','white')
+ .style('stroke','#4B4B6E')
+ .style('stroke-width','3')
+ .attr("rx", 8)
+ .attr("ry", 8)
+ .attr("opacity", 0.5) 
+    
+    // texte d'explication 
+    const texteExpGender = MonEspaceSVG.append('text')
+    .text("You can see the gender of the characters according to their astrological sign.") 
+    .attr("id", "texteExpGender")
+    .attr('x', 40)
+    .attr('y', 690)
+    .attr('fill', "black")
+    .attr('opacity', "0")
+    .attr('font-size', "20")
+    .attr('font-family', "AnimalCrossing")
+    .attr("opacity", 0)
+    .transition()
+        .duration(1050) 
+        .attr("opacity", 0.5)  
+} 

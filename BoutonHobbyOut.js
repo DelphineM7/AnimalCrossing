@@ -660,4 +660,18 @@ function BoutonHobbyOut(){
         }   
     })
 
+     //enlever le fond blanc du texte
+     let FondBlancTexteExpHobby=d3.select('#FondBlancTexteExpHobby')
+     FondBlancTexteExpHobby
+     .transition()
+     .duration(1000)
+     .attr("opacity", 0)
+     .remove()
+
+  // texte d'explication 
+  d3.select(texteExpHobby)
+  .transition()
+  .duration(1000)
+  .attr("opacity", 0)
+  .remove()
 }
