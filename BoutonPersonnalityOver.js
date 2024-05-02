@@ -2262,5 +2262,5 @@ function BoutonPersonnalityOver(){
       .attr("opacity", 0)
       .transition()
           .duration(1050) 
-          .attr("opacity", 0.5)  
+          .attr("opacity", 1)  
 }
