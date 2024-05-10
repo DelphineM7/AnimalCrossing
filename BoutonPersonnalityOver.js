@@ -113,7 +113,7 @@ function BoutonPersonnalityOver(){
                 SigngenderHobbyBigSister = []
                 let Croix = MonEspaceSVG.append('image')
                 .attr('id', 'Croix')
-                .attr('xlink:href', 'Croix.svg')
+                .attr('xlink:href', 'assets/Croix.svg')
                 .attr('width', 130 *addaptation)
                 .attr('height', 130*addaptation)
                 .attr('x', ((PositionX1 -60)*addaptation))
@@ -356,7 +356,7 @@ function BoutonPersonnalityOver(){
                 SigngenderHobbySmug = []
                 let Croix = MonEspaceSVG.append('image')
                 .attr('id', 'Croix')
-                .attr('xlink:href', 'Croix.svg')
+                .attr('xlink:href', 'assets/Croix.svg')
                 .attr('width', 130*addaptation)
                 .attr('height', 130*addaptation)
                 .attr('x', ((PositionX2 -60)*addaptation))
@@ -459,7 +459,7 @@ function BoutonPersonnalityOver(){
                 SigngenderHobbyBigSister = []
                 let Croix = MonEspaceSVG.append('image')
                 .attr('id', 'Croix')
-                .attr('xlink:href', 'Croix.svg')
+                .attr('xlink:href', 'assets/Croix.svg')
                 .attr('width', 130*addaptation)
                 .attr('height', 130*addaptation)
                 .attr('x', ((PositionX1 -60)*addaptation))
@@ -930,7 +930,7 @@ function BoutonPersonnalityOver(){
                 SigngenderHobbyBigSister = []
                 let Croix = MonEspaceSVG.append('image')
                 .attr('id', 'Croix')
-                .attr('xlink:href', 'Croix.svg')
+                .attr('xlink:href', 'assets/Croix.svg')
                 .attr('width', 130 *addaptation)
                 .attr('height', 130 *addaptation)
                 .attr('x',(( PositionX1 -60)*addaptation))
@@ -1225,7 +1225,7 @@ function BoutonPersonnalityOver(){
                 SigngenderHobbyBigSister = []
                 let Croix = MonEspaceSVG.append('image')
                 .attr('id', 'Croix')
-                .attr('xlink:href', 'Croix.svg')
+                .attr('xlink:href', 'assets/Croix.svg')
                 .attr('width', 130*addaptation)
                 .attr('height', 130*addaptation)
                 .attr('x', ((PositionX1 -60)*addaptation))

@@ -163,7 +163,7 @@ function BoutonSpeciesOut(){
                 .transition()
                 .duration(1000)      
                 .attr("opacity", 0)
-                .remove()  
+                .remove()   
 
         } else if(QuelMoisSommesNous == 3){   
             SignEspeceEducation = EspeceHobby.get("Aquarius").get("Education")

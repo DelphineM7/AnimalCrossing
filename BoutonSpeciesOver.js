@@ -124,7 +124,7 @@ function BoutonSpeciesOver(){
             SignEspeceBigsister = []
                 let Croix = MonEspaceSVG.append('image')
                 .attr('id', 'Croix')
-                .attr('xlink:href', 'Croix.svg')
+                .attr('xlink:href', 'assets/Croix.svg')
                 .attr('width', 130)
                 .attr('height', 130)
                 .attr('x', posXDiag3 -60+adaptXforSpecie)
@@ -278,7 +278,7 @@ function BoutonSpeciesOver(){
             SignEspeceSmug = []  
                 let Croix = MonEspaceSVG.append('image')
                 .attr('id', 'Croix')
-                .attr('xlink:href', 'Croix.svg')
+                .attr('xlink:href', 'assets/Croix.svg')
                 .attr('width', 130)
                 .attr('height', 130)
                 .attr('x', posXDiag4 -60)
@@ -381,7 +381,7 @@ function BoutonSpeciesOver(){
             SignEspeceBigsister = []
                 let Croix = MonEspaceSVG.append('image')
                 .attr('id', 'Croix')
-                .attr('xlink:href', 'Croix.svg')
+                .attr('xlink:href', 'assets/Croix.svg')
                 .attr('width', 130)
                 .attr('height', 130)
                 .attr('x', posXDiag3 -60+adaptXforSpecie)
@@ -710,7 +710,7 @@ function BoutonSpeciesOver(){
             SignEspeceBigsister = []
             let Croix = MonEspaceSVG.append('image')
             .attr('id', 'Croix')
-            .attr('xlink:href', 'Croix.svg')
+            .attr('xlink:href', 'assets/Croix.svg')
             .attr('width', 130)
             .attr('height', 130)
             .attr('x', posXDiag3 -60+adaptXforSpecie)
@@ -939,7 +939,7 @@ function BoutonSpeciesOver(){
             SignEspeceBigsister = []
             let Croix = MonEspaceSVG.append('image')
             .attr('id', 'Croix')
-            .attr('xlink:href', 'Croix.svg')
+            .attr('xlink:href', 'assets/Croix.svg')
             .attr('width', 130)
             .attr('height', 130)
             .attr('x', posXDiag3 -60+adaptXforSpecie)

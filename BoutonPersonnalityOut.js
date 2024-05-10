@@ -2,7 +2,7 @@ function BoutonPersonnalityOut(){
     d3.csv('villagers.csv',function(d){
         return {
         nom : d.Name,
-        espece : d.Species,
+        espece : d.Species, 
         genre : d.Gender,
         personnalite : d.Personality,
         hobbie : d.Hobby,
