@@ -4,7 +4,7 @@
 Cette visualisation de données a pour but de permettre la mise en lien des caractéristiques et du signe astrologique des personnages non jouables du jeu Animal Crossing New Horizon de la compagnie Nintendo. La base de données utilisées pour ce projet a été trouvé sur le site [Kaggle](https://www.kaggle.com).
 
 ## Base de données des villageois
-[base de données] (https://www.kaggle.com/datasets/jessicali9530/animal-crossing-new-horizons-nookplaza-dataset?select=villagers.csv)
+[base de données](https://www.kaggle.com/datasets/jessicali9530/animal-crossing-new-horizons-nookplaza-dataset?select=villagers.csv)
 La base de données que nous avons utilisées a été mise en ligne par l'utilisatrice : Jessica Li. Ces données mettent en lien le nom des personnages et leur id avec leur genre, leur caractère, leur style et leur date de naissance. 
 Nous avons par la suite modifié les données de leur date de naissance pour y faire correspondre à la place leur signe astrologique. 
 
@@ -57,6 +57,22 @@ Notre visualisation de données ne met pas en lien toutes ces variables. Car tou
   - Squirrel
   - Tiger
   - Wolf
+
+`Species` sépare les villageois en 6 traits de personnalitées:
+  - Lazy
+  - Normal
+  - peppy
+  - Jock
+  - Cranky
+  - Snooty
+
+`Hobby`sépare les villageois parmis 1 des 6 hobbys possible dans le jeu:
+  - Education
+  - Fashion
+  - Fitness
+  - Music
+  - Nature
+  - Play
 
 ## Interface
 Notre but avec cette interface était à la fois de permettre une navigation entre les multiples variables que nous avons voulu mettre en lumière, mais aussi de nous inspirer du design du jeu de base.  Nous avons mis beaucoup d'efforts pour le rendre le plus agréable à l'œil et aussi mignon que l’œuvre originel. Le tout, en restant dans le thème des signes du zodiaque grâce aux constellations.
