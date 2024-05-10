@@ -2203,7 +2203,7 @@ function BoutonPersonnalityOver(){
         for (let i = 0; i < 3; i++) {
             MonEspaceSVG.append('line')
                 .attr("id", `TraitLabel1${i}`)
-                .attr('x1', ((PositionX2 + PositionX1)/2 +17)*addaptation)
+                .attr('x1', ((PositionX2 + PositionX1)/2 +17)*addaptation) 
                 .attr('y1', PositionY1 -150 + i*20)
                 .attr('x2', ((PositionX2 + PositionX1)/2 +17)*addaptation)
                 .attr('y2', PositionY1 -150 +10 + i*20)
