@@ -1,20 +1,19 @@
-# Visualisation des caractéristiques des personnages non jouables du jeu “Animal Crossing new horizon” en fonction de leur signe astrologique
+# Visualisation des caractéristiques des personnages non jouables du jeu “Animal Crossing : New Horizon” en fonction de leur signe astrologique
 
 ## Description
-Cette visualisation de données a pour but de permettre la mise en lien des caractéristiques et du signe astrologique des personnages non jouables du jeu Animal Crossing New Horizon de la compagnie Nintendo. La base de données utilisées pour ce projet a été trouvé sur le site [Kaggle](https://www.kaggle.com).
+Cette visualisation de données a pour but de permettre la mise en lien des caractéristiques et du signe astrologique des personnages non jouables du jeu "Animal Crossing : New Horizon" de la compagnie Nintendo. La base de données utilisées pour ce projet a été trouvé sur le site [Kaggle](https://www.kaggle.com).
 
 ## Base de données des villageois
 [base de données](https://www.kaggle.com/datasets/jessicali9530/animal-crossing-new-horizons-nookplaza-dataset?select=villagers.csv)
-La base de données que nous avons utilisées a été mise en ligne par l'utilisatrice : Jessica Li. Ces données mettent en lien le nom des personnages avec leur genre, leur caractère, leur style et leur date de naissance. 
-Nous avons par la suite modifié les données de leur date de naissance pour y faire correspondre à la place leur signe astrologique. 
+La base de données que nous avons utilisées a été mise en ligne par l'utilisatrice : Jessica Li. Ces données mettent en lien les variable que nous souhaitions interroger, mais ne contenais pas leur signe astologique. 
 
 ## Outils utilisés
 Pour ce travail de visualisation de données, nous avons utilisé la bibliothèque D3 permettant les visualisation que nous avons utilisée : diagramme en bar et diagramme circulaire. Il nous a aussi permis d'expérimenter une représentation graphique en forme de nuage.
 
 ## Données
-Les données contenu dans la base de donnée contienne les informations suivante : `Name`, `Species`, `Gender`, `Personality`, `Hobby`, `Birthday` , `Catchphrase`, `Favorite Song`,`Style1`, `Style2`, `Color1`.
-Nous avons par la suite modifié les données de leur date de naissance pour y faire correspondre à la place leur signe astrologique en y rajoutant la variable : `Sign`. 
-Notre visualisation de données ne met pas en lien toutes ces variables. Car toute n'était pas sigificative dans notre modèle et ne rentrant pas dans nos interrogations. Nous avons donc choisit de prendre en compte : `Name`, `Species`, `Gender`, `Personality`, `Hobby` et `Sign`.
+Les données contenu dans la base de donnée contiennent les informations suivantes : `Name`, `Species`, `Gender`, `Personality`, `Hobby`, `Birthday` , `Catchphrase`, `Favorite Song`,`Style1`, `Style2`, `Color1`.
+Nous avons par la suite modifié les données de leur date de naissance pour y faire correspondre à la place leur signe astrologique. Nous avons donc rajouté à nos données la variable : `Sign`. 
+Notre visualisation de données ne met pas en lien toutes les variables de la base de donnée car toute n'était pas sigificative dans notre modèle et ne nous permettant pas de répondre à nos interrogations. Nous avons donc choisit de prendre en compte les catégories : `Name`, `Species`, `Gender`, `Personality`, `Hobby` et `Sign`.
 
 `Name` est unique au 391 personnages non jouable du jeu
 
@@ -80,7 +79,6 @@ Notre but avec cette interface était à la fois de permettre une navigation ent
 Le point d'intérêt principal de  chaque page  se trouve au centre et représente signe astrologique sélectionné composée grâce à du SVG. En haut de la page, à gauche à droite se trouve des flèches qui permettent de sélectionner le signe astrologique suivant et précédent selon leur date dans l'année. 
 
 À gauche de la page se trouve des boutons correspondant aux différentes sous-catégories que nous voulons explorer.  En passant dessus avec le curseur, celle-ci indique grâce à des graphiques les différentes statistiques entre les variables sélectionnées et le signe choisi qui s'adapte de manière dynamique.
-
 
 ## Utilisation
 
