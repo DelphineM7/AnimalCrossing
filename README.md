@@ -8,10 +8,10 @@ Cette visualisation de données a pour but de permettre la mise en lien des cara
 La base de données que nous avons utilisées a été mise en ligne par l'utilisatrice : Jessica Li. Ces données mettent en lien le nom des personnages et leur id avec leur genre, leur caractère, leur style et leur date de naissance. 
 Nous avons par la suite modifié les données de leur date de naissance pour y faire correspondre à la place leur signe astrologique. 
 
-## Les outils utilisés
+## Outils utilisés
 Pour ce travail de visualisation de données, nous avons utilisé la bibliothèque D3
 
-## Les données
+## Données
 Les données contenu dans la base de donnée contienne les informations suivante : `Name`, `Species`, `Gender`, `Personality`, `Hobby`, `Birthday` , `Catchphrase`, `Favorite Song`,`Style1`, `Style2`, `Color1`.
 Nous avons par la suite modifié les données de leur date de naissance pour y faire correspondre à la place leur signe astrologique en y rajoutant la variable : `Sign`. 
 Notre visualisation de données ne met pas en lien toutes ces variables. Car toute n'était pas sigificative dans notre modèle et ne rentrant pas dans nos interrogations. Nous avons donc choisit de prendre en compte : `Name`, `Species`, `Gender`, `Personality`, `Hobby` et `Sign`.
@@ -58,7 +58,7 @@ Notre visualisation de données ne met pas en lien toutes ces variables. Car tou
   - Tiger
   - Wolf
 
-## L'interface
+## Interface
 Notre but avec cette interface était à la fois de permettre une navigation entre les multiples variables que nous avons voulu mettre en lumière, mais aussi de nous inspirer du design du jeu de base.  Nous avons mis beaucoup d'efforts pour le rendre le plus agréable à l'œil et aussi mignon que l’œuvre originel. Le tout, en restant dans le thème des signes du zodiaque grâce aux constellations.
 
 Le point d'intérêt principal de  chaque page  se trouve au centre et représente signe astrologique sélectionné composée grâce à du SVG. En haut de la page, à gauche à droite se trouve des flèches qui permettent de sélectionner le signe astrologique suivant et précédent selon leur date dans l'année. 
@@ -66,11 +66,29 @@ Le point d'intérêt principal de  chaque page  se trouve au centre et représen
 À gauche de la page se trouve des boutons correspondant aux différentes sous-catégories que nous voulons explorer.  En passant dessus avec le curseur, celle-ci indique grâce à des graphiques les différentes statistiques entre les variables sélectionnées et le signe choisi qui s'adapte de manière dynamique.
 
 
-## L'utilisation
+## Utilisation
 
+## Problèmes et améliorations 
 
-## Les autrices
+Les principaux problèmes de ce code sont en lien avec les boutons ronds, la responsivité, l'utilisation des fonctions et les explications des graphes.
+Le problème lié aux boutons survient lorsque la souris passe au-dessus d'un bouton alors que l'animation d'un bouton précédent n'est pas terminée. Puisque les éléments s'animent grâce à leur ID, si deux animations sont demandées en même temps, cela crée des conflits qui induisent des problèmes visuels nécessitant de rafraîchir la page.
+Une solution pour régler ce problème serait d'établir des conditions avant de lancer les fonctions des boutons qui vérifieraient que les animations sont finies avant de lancer les suivantes. Une autre solution serait de repenser les interactions sur les boutons et de les remplacer par un clic pour éviter les conflits.
+Sur cette image, nous pouvons observer le phénomène décrit ci-dessus 
+
+![](assets/ReadMe/Issue1.png)
+ 
+Le code n’a malheureusement pas été conçu de manière responsive. Cela représente un problème esthétique pour les grands écrans ; toutefois, pour les petits écrans, cela empêche la consultation du code. Pour résoudre ce problème sur les petits écrans, une version adaptative pour les écrans plus petits que 1440x900 a été créée. Bien que tous les éléments s’affichent de manière adaptative pour ces écrans, esthétiquement ce n'est pas une réussite étant donné la quantité d'informations affichée.
+
+« C’est en forgeant que l’on devient forgeron », cet adage s'applique aussi au codage. Nous avons beaucoup appris en réalisant ce code et l'une des leçons principales a été d'utiliser davantage de fonctions. Ce code n'est pas compliqué, mais il est très répétitif et long ; si nous avions utilisé des fonctions dès le début, nous nous serions épargné des casse-têtes et le code aurait été bien plus lisible. Dans les derniers fichiers JavaScript que nous avons écrits (par exemple, « BoutonPersonnalityOver »), on voit une meilleure utilisation des fonctions bien que cela soit encore insuffisant.
+
+L’encadré explicatif des graphes pourrait être amélioré pour ajouter sa position en fonction des constellations et éviter des superpositions comme sur l’image ci-dessous.
+
+![](assets/ReadMe/Issue1.png) 
+
+En termes d’amélioration, le code bénéficierait de repenser le bouton « Specie », qui affiche quatorze diagrammes circulaires. Cette grande quantité d'informations semble contre-productive en termes d'attention. Les encadrés explicatifs mériteraient d’être plus complets pour mieux expliquer les différents diagrammes. Ajouter des étoiles scintillantes sur le fond uni bleu-noir ajouterait de la magie à la page qui est, dans l’état actuel, assez plate.
+
+## Autrices
 Le travail présenté à été fait par Delphine Mamie et Camille Steger-Pellerin, de la reflection préalable et la mise au point du concept, à la forme final. Cette visualisation de données à été créée dans le cadre du cours "visualisation de donnée" du professeur Isaac Pante de l'université de Lausanne au printemps 2022.
 
-## Nos remerciment
+## Remerciment
 Le professeur Isaac Pante pour son enseigement de qualité
