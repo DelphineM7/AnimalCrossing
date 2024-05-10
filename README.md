@@ -3,6 +3,9 @@
 ## Description
 Cette visualisation de données a pour but de permettre la mise en lien des caractéristiques et du signe astrologique des personnages non jouables du jeu "Animal Crossing : New Horizon" de la compagnie Nintendo. La base de données utilisées pour ce projet a été trouvé sur le site [Kaggle](https://www.kaggle.com).
 
+## Réflexion initiale
+Nous avions pour objectif de créer une visualisation de données attrayante et différente, qui se distingue des tableaux dynamiques auxquels nous sommes habitués depuis notre scolarité. Étant toutes deux passionnées par les jeux vidéo, notamment Animal Crossing, il nous est apparu naturel de choisir cette thématique. Notre décision de mettre en avant les variables en fonction des signes astrologiques des personnages visait à fournir une base pour analyser les tendances et les régularités parmi leurs caractéristiques. Nous souhaitions ainsi déterminer si ces attributions étaient aléatoires ou s'il existait des tendances statistiques. En arrière-plan, cette approche nous permettait également d'interroger l'effet Barnum induit par l'astrologie. 
+
 ## Base de données des villageois
 [base de données](https://www.kaggle.com/datasets/jessicali9530/animal-crossing-new-horizons-nookplaza-dataset?select=villagers.csv)
 La base de données que nous avons utilisées a été mise en ligne par l'utilisatrice : Jessica Li. Ces données mettent en lien les variable que nous souhaitions interroger, mais ne contenais pas leur signe astologique. 
