@@ -111,4 +111,4 @@ En termes d’amélioration, le code bénéficierait de repenser le bouton « Sp
 Le travail présenté a été réalisé par Delphine Mamie et Camille Steger-Pellerin, depuis la réflexion préalable et la mise au point du concept jusqu'à la forme finale. Cette visualisation de données a été créée dans le cadre du cours 'Visualisation de données' du professeur Isaac Pante de l'Université de Lausanne au printemps 2022.
 
 ## Remerciment
-Le professeur Isaac Pante pour son enseignement de qualité."
+Le professeur Isaac Pante pour son enseignement de qualité.
