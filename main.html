@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Page d'acceuil</title>
 </head>
 <body>
@@ -17,21 +18,76 @@
             .attr("height",  window.innerHeight)  
         document.body.style.backgroundColor = "#0f0f3d";
 
-        // ajout du bouton sur la page 
+        //ajout titre
+        let Title = MonEspaceSVG.append('text')
+        .attr('id', 'Title')
+        .attr('x', milieuX-580 )
+        .attr('y', milieuY-250)
+        .attr('fill', "white")
+        .attr('opacity', "1")
+        .attr('font-size', "130")
+        .attr('font-family', "AnimalCrossing")
+        .text("Astrological Crossing")
+
+        // ajout texte
+        let TexteExplain = MonEspaceSVG.append('text')
+        .attr('id', 'TexteExplain')
+        .attr('x', milieuX-800 )
+        .attr('y', milieuY)
+        .attr('fill', "white")
+        .attr('opacity', "0.5")
+        .attr('font-size', "30")
+        .attr('font-family', "AnimalCrossing")
+        .text("This project aims to allow the user to explore the different caracteristics of Animal Crossing villagers based on their astrologicsl sign. To do this, you choose the astrological sign that interests you with the arrows and you click on the buttons to explore the data. Are Leos more extraverted ? Are some animal species more represented by a sign than others ? It is for you to find out")
+
+        //ajout texte bouton about
+        let TexteAbout = MonEspaceSVG.append('text')
+        .attr('id', 'TexteAbout')
+        .attr('x', milieuX-90 )
+        .attr('y', milieuY+290)
+        .attr('fill', "white")
+        .attr('opacity', "0.5")
+        .attr('font-size', "30")
+        .attr('font-family', "AnimalCrossing")
+        .text("About")
+
+        //ajout texte bouton continu
+        let TexteContinu = MonEspaceSVG.append('text')
+        .attr('id', 'TexteContinu')
+        .attr('x', milieuX+50 )
+        .attr('y', milieuY+290)
+        .attr('fill', "white")
+        .attr('opacity', "0.5")
+        .attr('font-size', "30")
+        .attr('font-family', "AnimalCrossing")
+        .text("Continue")
+
+        // ajout du bouton continu sur la page 
         let BoutonPersonality = MonEspaceSVG.append('image')
             .attr('id', 'boutonGo')
             .attr('xlink:href', 'assets/Bouton.svg')
             .attr('width', 120)
             .attr('height', 120)
-            .attr('x', milieuX)
-            .attr('y', milieuY)
+            .attr('x', milieuX+50)
+            .attr('y', milieuY+300)
+            .attr('white-space')
 
-        // actions sur le bouton
+        //ajout bouton about sur la page
+        let BoutonAbout = MonEspaceSVG.append('image')
+            .attr('id', 'boutonGo')
+            .attr('xlink:href', 'assets/Bouton.svg')
+            .attr('width', 120)
+            .attr('height', 120)
+            .attr('x', milieuX-110)
+            .attr('y', milieuY+300)
+            .attr('white-space')
+            
+
+        // actions sur le bouton continu
         function GOtoConstellation(){open("./Constellations.html","_self")}
 
         let GotoConstellation = document.getElementById('boutonGo');
         GotoConstellation.addEventListener("click", GOtoConstellation)
     </script>
-    
 </body>
 </html>
