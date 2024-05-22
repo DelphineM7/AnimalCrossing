@@ -1,4 +1,25 @@
 function BoutonHobbyOver(){
+    if (animationGender) {
+        BoutonGenderOut()
+        animationGender = false
+        
+    }
+    if (animationHobby) {
+        BoutonHobbyOut()
+        animationHobby = false
+        return
+    } 
+    if (animationPersonality) {
+        BoutonPersonnalityOut()
+        animationPersonality = false
+        
+    } 
+    if (animationSpecies) {
+        BoutonSpeciesOut()
+        animationSpecies = false 
+        
+    }  
+
     d3.csv('villagers.csv',function(d){
         return {
         nom : d.Name,
@@ -11,6 +32,7 @@ function BoutonHobbyOver(){
     } 
 
     }).then(donnees =>{ 
+            animationHobby = true
         //variables nécessaires pour le Graphe
         const EspeceHobby = d3.group(donnees, d => d.signe, d => d.hobbie)
         const EspeceHobbyPerso = d3.group(donnees, d => d.signe, d=> d.hobbie, d=> d.personnalite)

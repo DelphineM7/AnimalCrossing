@@ -1,4 +1,5 @@
 function BoutonSpeciesOut(){
+    return new Promise((resolve)=> {
     d3.csv('villagers.csv',function(d){
         return {
         nom : d.Name,
@@ -6,7 +7,7 @@ function BoutonSpeciesOut(){
         genre : d.Gender,
         personnalite : d.Personality,
         hobbie : d.Hobby,
-        signe : d.Sign,
+        signe : d.Sign, 
         style : d.Style1,
     } 
 
@@ -1101,7 +1102,7 @@ function BoutonSpeciesOut(){
             .attr("opacity", 0)
             .remove()  
         }
-    })
+    
     //enlever le fond blanc du texte
     let FondBlancTexteExpSpecies=d3.select('#FondBlancTexteExpSpecies')
     FondBlancTexteExpSpecies
@@ -1115,4 +1116,10 @@ function BoutonSpeciesOut(){
   .duration(1000)
   .attr("opacity", 0)
   .remove()
+
+  setTimeout(()=> {
+    resolve();
+    }, 1000)
+    })
+    })
 }

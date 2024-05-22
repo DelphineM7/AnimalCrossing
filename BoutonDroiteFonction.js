@@ -1,5 +1,25 @@
-function BoutonDroite(){
+async function BoutonDroite(){
+    if (animationGender) {
+        await BoutonGenderOut()
+        animationGender = false
+    }
+    if (animationHobby) {
+        await BoutonHobbyOut()
+        animationHobby = false
+    } 
+    if (animationPersonality) {
+        await BoutonPersonnalityOut()
+        animationPersonality = false
+            
+        } 
+    if (animationSpecies) {
+        await BoutonSpeciesOut()
+        animationSpecies = false 
+            
+    }
+    
     QuelMoisSommesNous++ ;
+
 
 if (QuelMoisSommesNous == 1) {
     console.log("nous sommes en janvier")
@@ -4888,5 +4908,6 @@ trait11
     .attr("fill", "#0f0f3d")
     .attr('opacity', 0)
 }
+
 }
 

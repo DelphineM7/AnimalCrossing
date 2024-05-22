@@ -1,4 +1,25 @@
 function BoutonPersonnalityOver(){
+    if (animationGender) {
+        BoutonGenderOut()
+        animationGender = false
+        
+    }
+    if (animationHobby) {
+        BoutonHobbyOut()
+        animationHobby = false
+    } 
+    if (animationPersonality) {
+        BoutonPersonnalityOut()
+        animationPersonality = false
+        return
+        
+    } 
+    if (animationSpecies) {
+        BoutonSpeciesOut()
+        animationSpecies = false 
+        
+    }  
+
     d3.csv('villagers.csv',function(d){
         return {
         nom : d.Name,
@@ -12,6 +33,7 @@ function BoutonPersonnalityOver(){
 
     }).then(donnees =>{ 
     // condition pour les petits écrans
+            animationPersonality = true
     if (ecran_width < 1400 && ecran_height < 850) {
         MonEspaceSVG.transition()
         .attr('height', ecran_height +ecran_height/4)

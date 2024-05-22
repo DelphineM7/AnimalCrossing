@@ -1,4 +1,5 @@
-function BoutonGenderOut(){
+async function BoutonGenderOut(){
+    return new Promise((resolve)=> {
     d3.csv('villagers.csv',function(d){
         return {
         nom : d.Name,
@@ -11,7 +12,7 @@ function BoutonGenderOut(){
     }
 
     }).then(donnees =>{ 
-
+    console.log("la fonction s'execute mtn")
     GenderTexteFemale
         .transition()
         .duration(1000)    
@@ -44,7 +45,7 @@ function BoutonGenderOut(){
             .attr('height', 50 )
             .attr('width', 50 )
             .attr('x', ((milieuX+60) *addaptation) + addaptationX)
-            .attr('y', ((milieuY-190) *addaptation) + addaptationY)         
+            .attr('y', ((milieuY-190) *addaptation) + addaptationY)      
         
         // variable pour Diagramme en barre selon :  SIGNE - SEXE - ESPECE
             //Male
@@ -444,7 +445,7 @@ function BoutonGenderOut(){
         .attr("opacity", 0)
         .remove()
     }
-    })
+    
     //enlever le fond blanc du texte
     let FondBlancTexteExpGender=d3.select('#FondBlancTexteExpGender')
     FondBlancTexteExpGender
@@ -458,4 +459,10 @@ function BoutonGenderOut(){
         .duration(1000)
         .attr("opacity", 0)
         .remove()
+    
+    setTimeout(()=> {
+        resolve();
+    }, 1000)
+    })
+ })
 }

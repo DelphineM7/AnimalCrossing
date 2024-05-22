@@ -1,11 +1,12 @@
 function BoutonPersonnalityOut(){
+    return new Promise((resolve)=> {
     d3.csv('villagers.csv',function(d){
         return {
         nom : d.Name,
         espece : d.Species, 
         genre : d.Gender,
         personnalite : d.Personality,
-        hobbie : d.Hobby,
+        hobbie : d.Hobby, 
         signe : d.Sign,
         style : d.Style1,
     } 
@@ -1048,7 +1049,7 @@ function BoutonPersonnalityOut(){
                 .attr("opacity", 0)
                 .remove()  
             }
-    })
+    
      //enlever le fond blanc du texte
      let FondBlancTexteExpPersonnality=d3.select('#FondBlancTexteExpPersonnality')
      FondBlancTexteExpPersonnality
@@ -1062,4 +1063,10 @@ function BoutonPersonnalityOut(){
     .duration(1000)
     .attr("opacity", 0)
     .remove()
+
+    setTimeout(()=> {
+        resolve();
+    }, 1000)
+    })
+    })
 }

@@ -1,5 +1,30 @@
+
+
 function BoutonGenderOver(){
+
+// pour BoutonOut quand on rappuie sur le bouton
+    if (animationGender) {
+        BoutonGenderOut()
+        animationGender = false
+        console.log("bouton Gender actif:" + animationGender)
+        return
+    }
+    if (animationHobby) {
+        BoutonHobbyOut()
+        animationHobby = false
+    } 
+    if (animationPersonality) {
+        BoutonPersonnalityOut()
+        animationPersonality = false
         
+    } 
+    if (animationSpecies) {
+        BoutonSpeciesOut()
+        animationSpecies = false 
+        
+    }  
+
+
     d3.csv('villagers.csv',function(d){
         return {
         nom : d.Name,
@@ -12,7 +37,8 @@ function BoutonGenderOver(){
     }
 
     }).then(donnees =>{ 
-        
+                animationGender = true
+                console.log("bouton Gender actif:" + animationGender)
 //variables utilisées pour les diagrammes en barre
                 const SigneGenre = d3.group(donnees, (d) => d.signe, (d) => d.genre)
 
@@ -1658,4 +1684,5 @@ function BoutonGenderOver(){
     .transition()
         .duration(1050) 
         .attr("opacity", 1)  
+
 } 

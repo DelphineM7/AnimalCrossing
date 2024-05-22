@@ -1,4 +1,25 @@
 function BoutonSpeciesOver(){
+    if (animationGender) {
+        BoutonGenderOut()
+        animationGender = false
+        
+    }
+    if (animationHobby) {
+        BoutonHobbyOut()
+        animationHobby = false
+    } 
+    if (animationPersonality) {
+        BoutonPersonnalityOut()
+        animationPersonality = false
+        
+    } 
+    if (animationSpecies) {
+        BoutonSpeciesOut()
+        animationSpecies = false 
+        return
+        
+    }  
+
     d3.csv('villagers.csv',function(d){
         return {
         nom : d.Name,
@@ -11,6 +32,7 @@ function BoutonSpeciesOver(){
     } 
 
     }).then(donnees =>{ 
+            animationSpecies = true
     // condition pour les petits écrans
     if (ecran_width < 1400 && ecran_height < 850) {
         MonEspaceSVG.transition()

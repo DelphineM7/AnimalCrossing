@@ -27,6 +27,11 @@
     let ecran_height = window.innerHeight;
     let milieuX = ecran_width/2 -275
     let milieuY = ecran_height/2
+    let animationGender = false 
+    let animationHobby = false 
+    let animationSpecies = false 
+    let animationPersonality = false 
+    let animationGauche = false
 
     // addaptation pour laptop
     let addaptation = 1
@@ -444,8 +449,8 @@ let GenderTexteMale = MonEspaceSVG
 
 let BoutonCompte = 0
 let BoutonBoutonGender = document.getElementById('Gender');   
-    BoutonBoutonGender.addEventListener("mouseover", BoutonGenderOver);
-    BoutonBoutonGender.addEventListener("mouseout", BoutonGenderOut);
+    BoutonBoutonGender.addEventListener("click", BoutonGenderOver);
+    //BoutonBoutonGender.addEventListener("mouseout", BoutonGenderOut);
 
 // Hobbies
 let BoutonHobby = MonEspaceSVG.append('image')
@@ -466,8 +471,8 @@ let TexteHobby = MonEspaceSVG.append('text')
     .text("Hobby")
 
 let BoutonBoutonHobby = document.getElementById('Hobby'); 
-BoutonBoutonHobby.addEventListener("mouseover", BoutonHobbyOver);
-BoutonBoutonHobby.addEventListener("mouseout", BoutonHobbyOut);
+BoutonBoutonHobby.addEventListener("click", BoutonHobbyOver);
+//BoutonBoutonHobby.addEventListener("mouseout", BoutonHobbyOut);
 
 // Species
 let BoutonSpecies = MonEspaceSVG.append('image')
@@ -488,8 +493,8 @@ let TexteSpecies = MonEspaceSVG.append('text')
     .text("Specie")
 
 let BoutonBoutonSpecies = document.getElementById('Species');  
-BoutonBoutonSpecies.addEventListener("mouseover", BoutonSpeciesOver);
-BoutonBoutonSpecies.addEventListener("mouseout", BoutonSpeciesOut);
+BoutonBoutonSpecies.addEventListener("click", BoutonSpeciesOver);
+//BoutonBoutonSpecies.addEventListener("mouseout", BoutonSpeciesOut);
 
 // personnalities
 let BoutonPersonality = MonEspaceSVG.append('image')
@@ -510,8 +515,8 @@ let TextePersonality = MonEspaceSVG.append('text')
     .text("Personality")
 
 let BoutonBoutonPersonnality = document.getElementById('Personality');   
-BoutonBoutonPersonnality.addEventListener("mouseover", BoutonPersonnalityOver);
-BoutonBoutonPersonnality.addEventListener("mouseout", BoutonPersonnalityOut);
+BoutonBoutonPersonnality.addEventListener("click", BoutonPersonnalityOver);
+//BoutonBoutonPersonnality.addEventListener("mouseout", BoutonPersonnalityOut);
 
     </script>   
 </body>
