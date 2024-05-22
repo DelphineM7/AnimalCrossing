@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil</title>
+</head>
+<body>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script>
+    <script>
+        // variable nécessaires
+        let milieuX = window.innerWidth/2 
+        let milieuY = window.innerHeight/2
+        let MonEspaceSVG = d3.select("body")
+        .append("svg") 
+            .attr("width", window.innerWidth) 
+            .attr("height",  window.innerHeight)  
+        document.body.style.backgroundColor = "#0f0f3d";
+
+        // ajout du bouton sur la page 
+        let BoutonPersonality = MonEspaceSVG.append('image')
+            .attr('id', 'boutonGo')
+            .attr('xlink:href', 'assets/Bouton.svg')
+            .attr('width', 120)
+            .attr('height', 120)
+            .attr('x', milieuX)
+            .attr('y', milieuY)
+
+        // actions sur le bouton
+        function GOtoConstellation(){open("./Constellations.html","_self")}
+
+        let GotoConstellation = document.getElementById('boutonGo');
+        GotoConstellation.addEventListener("click", GOtoConstellation)
+    </script>
+    
+</body>
+</html>
