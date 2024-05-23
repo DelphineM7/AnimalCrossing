@@ -64,7 +64,7 @@
 
         // ajout du bouton continu sur la page 
         let BoutonPersonality = MonEspaceSVG.append('image')
-            .attr('id', 'boutonGo')
+            .attr('id', 'boutonGoContinu')
             .attr('xlink:href', 'assets/Bouton.svg')
             .attr('width', 120)
             .attr('height', 120)
@@ -74,20 +74,26 @@
 
         //ajout bouton about sur la page
         let BoutonAbout = MonEspaceSVG.append('image')
-            .attr('id', 'boutonGo')
+            .attr('id', 'boutonGoAbout')
             .attr('xlink:href', 'assets/Bouton.svg')
             .attr('width', 120)
             .attr('height', 120)
             .attr('x', milieuX-110)
             .attr('y', milieuY+300)
             .attr('white-space')
-            
 
         // actions sur le bouton continu
         function GOtoConstellation(){open("./Constellations.html","_self")}
 
-        let GotoConstellation = document.getElementById('boutonGo');
+        let GotoConstellation = document.getElementById('boutonGoContinu');
         GotoConstellation.addEventListener("click", GOtoConstellation)
+
+      // actions sur le bouton about
+        function GOtoAbout(){open("./about.html","_self")}
+        
+        let GOtoAbout = document.getElementById('boutonGoAbout');
+        GOtoAbout.addEventListener("click", GOtoAbout)
+
     </script>
 </body>
 </html>

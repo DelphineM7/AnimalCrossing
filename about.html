@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Page About</title>
+</head>
+<body>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script>
+    <script>
+        // variable nécessaires
+        let milieuX = window.innerWidth/2 
+        let milieuY = window.innerHeight/2
+        let MonEspaceSVG = d3.select("body")
+        .append("svg") 
+            .attr("width", window.innerWidth) 
+            .attr("height",  window.innerHeight)  
+        document.body.style.backgroundColor = "#0f0f3d";
+
+        //ajout titre
+        let Title = MonEspaceSVG.append('text')
+        .attr('id', 'Title')
+        .attr('x', milieuX-580 )
+        .attr('y', milieuY-250)
+        .attr('fill', "white")
+        .attr('opacity', "1")
+        .attr('font-size', "100")
+        .attr('font-family', "AnimalCrossing")
+        .text("About")
+
+        // ajout texte
+        let TexteExplain = MonEspaceSVG.append('text')
+        .attr('id', 'TexteExplain')
+        .attr('x', milieuX-800 )
+        .attr('y', milieuY)
+        .attr('fill', "white")
+        .attr('opacity', "0.5")
+        .attr('font-size', "30")
+        .attr('font-family', "AnimalCrossing")
+        .text("This project was created by Delphine Mamie and Camille Steger-Pellerin. As part of the University of Lausanne's Master of Digital Humanities 2D video game course. We would like to thank our professor Isaac Pante and his assistant Loris Rimaz for their lessons and advice on this project.")
+
+    </script>
+</body>
+</html>
