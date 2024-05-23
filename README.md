@@ -84,18 +84,24 @@ Le point d'intérêt principal de chaque page se trouve au centre et représente
 
 ![](assets/ReadMe/Gif1.gif)
 
-À gauche de la page se trouvent des boutons correspondant aux différentes sous-catégories que nous voulons explorer. En passant dessus avec le curseur, celle-ci indique grâce à des graphiques les différentes statistiques entre les variables sélectionnées et le signe choisi.
+À gauche de la page se trouvent des boutons correspondant aux différentes sous-catégories que nous voulons explorer. En cliquant dessus avec le curseur, ceux-ci indiquent, grâce à des graphiques, les différentes statistiques entre les variables sélectionnées et le signe choisi.
 
-![](assets/ReadMe/Gif2.gif)
+![](assets/ReadMe/Gif3.gif)
 
 ## Problèmes et améliorations 
 
 Les principaux problèmes de ce code sont en lien avec les boutons ronds, la responsivité, l'utilisation des fonctions et les explications des graphes.
-Le problème lié aux boutons survient lorsque la souris passe au-dessus d'un bouton alors que l'animation d'un bouton précédent n'est pas terminée. Puisque les éléments s'animent grâce à leur ID, si deux animations sont demandées en même temps, cela crée des conflits qui induisent des problèmes visuels nécessitant de rafraîchir la page.
-Une solution pour régler ce problème serait d'établir des conditions avant de lancer les fonctions des boutons qui vérifieraient que les animations sont finies avant de lancer les suivantes. Une autre solution serait de repenser les interactions sur les boutons et de les remplacer par un clic pour éviter les conflits.
-Sur cette image, nous pouvons observer le phénomène décrit ci-dessus 
 
+Dans un premier temps, nous avions défini qu'il fallait passer sur les boutons avec la souris pour créer l'animation. Un problème survenait lorsque la souris passait au-dessus d'un bouton alors que l'animation d'un bouton précédent n'était pas terminée. Puisque les éléments s'animaient grâce à leur ID, si deux animations étaient demandées en même temps, cela créait des conflits qui induisaient des problèmes visuels nécessitant de rafraîchir la page.
+
+Sur cette image, nous pouvons observer le phénomène décrit ci-dessus.
 ![](assets/ReadMe/Issue1.png)
+
+
+La solution choisie pour régler ce problème a été, d'une part, d'établir des conditions avant de lancer les fonctions des boutons pour vérifier que les animations soient finies avant de lancer les suivantes. De plus, les interactions sur les boutons ont été remplacées par un clic pour éviter les conflits. À présent, un premier clic sur le bouton affiche les diagrammes, un deuxième les supprime. Si l'utilisateur.rice clique sur un autre bouton alors que des diagrammes sont affichés, ils seront supprimés et les nouveaux s'afficheront. Dans le cas où l'utilisateur.rice clique sur une flèche pour changer la constellation et que des diagrammes sont en lecture, ceux-ci sont supprimés, puis la constellation est changée.
+
+Version antérieure du code, où il suffisait de passer sur le bouton pour afficher les différents diagrammes.
+![](assets/ReadMe/Gif2.gif)
  
 Le code n’a malheureusement pas été conçu de manière responsive. Cela représente un problème esthétique pour les grands écrans ; toutefois, pour les petits écrans, cela empêche la consultation du code. Pour résoudre ce problème sur les petits écrans, une version adaptative pour les écrans plus petits que 1440x900 a été créée. Bien que tous les éléments s’affichent de manière adaptative pour ces écrans, esthétiquement ce n'est pas une réussite étant donné la quantité d'informations affichée.
 
