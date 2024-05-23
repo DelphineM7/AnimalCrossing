@@ -6,9 +6,12 @@
     <link rel="stylesheet" href="index.css">
     <title>Page d'acceuil</title>
 </head>
+
 <body>
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script>
     <script>
+     
+
         // variable nécessaires
         let milieuX = window.innerWidth/2 
         let milieuY = window.innerHeight/2
@@ -88,11 +91,12 @@
         let GotoConstellation = document.getElementById('boutonGoContinu');
         GotoConstellation.addEventListener("click", GOtoConstellation)
 
-      // actions sur le bouton about
+         // actions sur le bouton about
         function GOtoAbout(){open("./about.html","_self")}
         
-        let GOtoAbout = document.getElementById('boutonGoAbout');
-        GOtoAbout.addEventListener("click", GOtoAbout)
+        // A L'AIDE POURQUOI CA MARCHE PAS 😭
+        let GotoAbout = document.getElementById('boutonGoAbout');
+        GotoAbout.addEventListener("click", GOtoAbout)
 
     </script>
 </body>
