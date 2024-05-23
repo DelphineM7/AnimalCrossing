@@ -20,21 +20,67 @@
             text-align: center; /* Alignement du texte */
         }
         h1 {
+            position: fixed;
             font-size: 3em;
             margin: 0.5em 0;
+            top :50px;
         }
         p {
-            font-size: 1.5em;
-            max-width: 600px;
+            position: fixed;
+            font-size: 2em;
+            max-width: 800px;
             margin: 0.5em 20px;
             word-wrap: break-word;
+            opacity: 0.5; 
+            top : 230px;
         }
     </style>
 </head>
+
 <body>
     <h1>About</h1>
     <p>
         This project was created by Delphine Mamie and Camille Steger-Pellerin. As part of the University of Lausanne's Master of Digital Humanities 2D video game course. We would like to thank our professor Isaac Pante and his assistant Loris Rimaz for their lessons and advice on this project.
     </p>
+
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script> 
+    <script>
+        // variable nécessaires
+        let milieuX = window.innerWidth/2 
+        let milieuY = window.innerHeight/2
+        let MonEspaceSVG = d3.select("body")
+        .append("svg") 
+            .attr("width", window.innerWidth) 
+            .attr("height",  window.innerHeight)  
+        document.body.style.backgroundColor = "#0f0f3d";
+
+        //ajout texte bouton main
+        let TexteMain = MonEspaceSVG.append('text')
+        .attr('id', 'TexteMain')
+        .attr('x', milieuX-65 )
+        .attr('y', milieuY+225)
+        .attr('fill', "white")
+        .attr('opacity', "0.5")
+        .attr('font-size', "30")
+        .attr('font-family', "AnimalCrossing")
+        .text("Main page")
+
+        //ajout bouton main sur la page
+        let BoutonMain = MonEspaceSVG.append('image')
+            .attr('id', 'boutonGoMain')
+            .attr('xlink:href', 'assets/Bouton.svg')
+            .attr('width', 130)
+            .attr('height', 120)
+            .attr('x', milieuX-70)
+            .attr('y', milieuY+250)
+            .attr('white-space')
+
+        // actions sur le bouton main
+        function GOtoMain(){open("./main.html","_self")}
+        
+        let GotoMain = document.getElementById('boutonGoMain');
+        GotoMain.addEventListener("click", GOtoMain)
+</script>
+
 </body>
 </html>
