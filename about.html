@@ -8,51 +8,33 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0f0f3d;
+            font-family: "AnimalCrossing" ;
+            background-color: #0f0f3d; /* Couleur de fond */
+            color: white; /* Couleur du texte */
+            text-align: center; /* Alignement du texte */
         }
-        .centered-text {
-            text-align: center;
-            max-width: 600px; 
-            margin: 0 20px; 
-            color: white;
-            font-size: 1.5em
+        h1 {
+            font-size: 3em;
+            margin: 0.5em 0;
+        }
+        p {
+            font-size: 1.5em;
+            max-width: 600px;
+            margin: 0.5em 20px;
+            word-wrap: break-word;
         }
     </style>
 </head>
 <body>
-
-    <div class="centered-text">
+    <h1>About</h1>
+    <p>
         This project was created by Delphine Mamie and Camille Steger-Pellerin. As part of the University of Lausanne's Master of Digital Humanities 2D video game course. We would like to thank our professor Isaac Pante and his assistant Loris Rimaz for their lessons and advice on this project.
-    </div>
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script>
-    <script>
-         
-        // variable nécessaires
-        let milieuX = window.innerWidth/2 
-        let milieuY = window.innerHeight/2
-        let MonEspaceSVG = d3.select("body")
-        .append("svg") 
-            .attr("width", window.innerWidth) 
-            .attr("height",  window.innerHeight)  
-        
-
-        //ajout titre
-        let Title = MonEspaceSVG.append('text')
-        .attr('id', 'Title')
-        .attr('x', milieuX-800 )
-        .attr('y', milieuY-250)
-        .attr('fill', "white")
-        .attr('opacity', "1")
-        .attr('font-size', "100")
-        .attr('font-family', "AnimalCrossing")
-        .text("About")
-
-    </script>
+    </p>
 </body>
 </html>
