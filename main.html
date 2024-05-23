@@ -20,15 +20,20 @@
             text-align: center; /* Alignement du texte */
         }
         h1 {
+            position: fixed;
             font-size: 4em;
             margin: 0.5em 0;
+            top :50px;
         }
         p {
+            position: fixed;
             font-size: 2em;
             max-width: 800px;
             margin: 0.5em 20px;
             word-wrap: break-word;
             opacity: 0.5; 
+            top : 230px;
+            
         }
     </style>
 </head>
@@ -38,7 +43,7 @@
     <p>
         This project aims to allow the user to explore the different caracteristics of Animal Crossing villagers based on their astrologicsl sign. To do this, you choose the astrological sign that interests you with the arrows and you click on the buttons to explore the data. Are Leos more extraverted ? Are some animal species more represented by a sign than others ? It is for you to find out !
     </p>
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js" ></script> 
     <script>
         // variable nécessaires
         let milieuX = window.innerWidth/2 
@@ -53,7 +58,7 @@
         let TexteAbout = MonEspaceSVG.append('text')
         .attr('id', 'TexteAbout')
         .attr('x', milieuX-90 )
-        .attr('y', milieuY+290)
+        .attr('y', milieuY+225)
         .attr('fill', "white")
         .attr('opacity', "0.5")
         .attr('font-size', "30")
@@ -64,7 +69,7 @@
         let TexteContinu = MonEspaceSVG.append('text')
         .attr('id', 'TexteContinu')
         .attr('x', milieuX+50 )
-        .attr('y', milieuY+290)
+        .attr('y', milieuY+225)
         .attr('fill', "white")
         .attr('opacity', "0.5")
         .attr('font-size', "30")
@@ -78,7 +83,7 @@
             .attr('width', 120)
             .attr('height', 120)
             .attr('x', milieuX+50)
-            .attr('y', milieuY+300)
+            .attr('y', milieuY+250)
             .attr('white-space')
 
         //ajout bouton about sur la page
@@ -88,7 +93,7 @@
             .attr('width', 120)
             .attr('height', 120)
             .attr('x', milieuX-110)
-            .attr('y', milieuY+300)
+            .attr('y', milieuY+250)
             .attr('white-space')
 
         // actions sur le bouton continu
@@ -97,13 +102,14 @@
         let GotoConstellation = document.getElementById('boutonGoContinu');
         GotoConstellation.addEventListener("click", GOtoConstellation)
 
-         // actions sur le bouton about
+        // actions sur le bouton about
         function GOtoAbout(){open("./about.html","_self")}
         
-        // A L'AIDE POURQUOI CA MARCHE PAS 😭
         let GotoAbout = document.getElementById('boutonGoAbout');
         GotoAbout.addEventListener("click", GOtoAbout)
 
     </script>
+
+
 </body>
 </html>
